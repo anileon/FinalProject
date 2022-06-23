@@ -14,10 +14,12 @@ public class Product {
     private long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="productPurchaseId")
-    private ProductPurchaseOrder productPurchaseId;
+    @JoinColumn(name="ProductPurchaseOrder_id")
+    private ProductPurchaseOrder productPurchase;
 
     private String type;
+
+    private int size;
 
     private GenderType genderType;
 
@@ -33,14 +35,15 @@ public class Product {
     public Product() {
     }
 
-    public Product(ProductPurchaseOrder productPurchaseId, String type, GenderType genderType, String description, double price, String productImg, int stock) {
-        this.productPurchaseId = productPurchaseId;
+    public Product(ProductPurchaseOrder productPurchase, String type, GenderType genderType, String description, double price, String productImg, int stock, int size) {
+        this.productPurchase = productPurchase;
         this.type = type;
         this.genderType = genderType;
         this.description = description;
         this.price = price;
         this.productImg = productImg;
         this.stock = stock;
+        this.size = size;
     }
 
 
@@ -65,10 +68,18 @@ public class Product {
     public void setStock(int stock) {this.stock = stock;}
 
     public ProductPurchaseOrder getProductPurchaseId() {
-        return productPurchaseId;
+        return productPurchase;
     }
 
-    public void setProductPurchaseId(ProductPurchaseOrder productPurchaseId) {
-        this.productPurchaseId = productPurchaseId;
+    public void setProductPurchase(ProductPurchaseOrder productPurchase) {
+        this.productPurchase = productPurchase;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 }

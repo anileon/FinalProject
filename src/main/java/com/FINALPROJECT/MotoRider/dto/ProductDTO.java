@@ -8,7 +8,10 @@ public class ProductDTO {
 
     private long id;
 
+    private int size;
+
     private String type;
+    private String urlImg;
 
     private GenderType genderType;
 
@@ -32,6 +35,8 @@ public class ProductDTO {
         this.price = product.getPrice();
         this.productImg = product.getProductImg();
         this.stock = product.getStock();
+        this.size = product.getSize();
+        this.urlImg = product.getProductImg();
     }
 
     public long getId() {return id;}
@@ -53,4 +58,19 @@ public class ProductDTO {
 
     public int getStock() {return stock;}
     public void setStock(int stock) {this.stock = stock;}
+
+    public int getSize() {
+        return size;
+    }
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public String getUrlImg() {
+        return urlImg;
+    }
+
+    public void setUrlImg(String urlImg) {
+        this.urlImg = urlImg;
+    }
 }

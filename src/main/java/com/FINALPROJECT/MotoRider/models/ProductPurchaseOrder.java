@@ -18,48 +18,99 @@ public class ProductPurchaseOrder {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    @OneToMany(mappedBy="productPurchaseOrder_id", fetch=FetchType.EAGER)
-    private Set<Product> products_id = new HashSet<>();
+    @OneToMany(mappedBy="productPurchase", fetch=FetchType.EAGER)
+    private Set<Product> products = new HashSet<>();
 
-    private double shipPrice;
+    private String Type;
+
+    private GenderType genderType;
+
+    private int size;
+
+    private double shippingPrice;
 
     private double totalCost;
+    private int numbOfProducts;
 
 
     public ProductPurchaseOrder() {
     }
 
-    public ProductPurchaseOrder(double shipPrice) {
 
-        List<Double> precios = new ArrayList<>();
-        products_id.stream().forEach(product -> precios.add(product.getPrice()));
-
-        this.shipPrice = shipPrice;
-
-        this.totalCost = precios.stream().reduce(0.0 , (aDouble, aDouble2) -> aDouble + aDouble2);
-
+    public ProductPurchaseOrder(String type, GenderType genderType, int size, double shippingPrice, double totalCost, int numbOfProducts) {
+        Type = type;
+        this.genderType = genderType;
+        this.size = size;
+        this.shippingPrice = shippingPrice;
+        this.totalCost = totalCost;
+        this.numbOfProducts = numbOfProducts;
     }
 
-    public Set<Product> getProducts() {return products_id;}
-    public void setProducts(Set<Product> products) {this.products_id = products;}
-
-
-    public double getShipPrice() {return shipPrice;}
-    public void setShipPrice(double shipPrice) {this.shipPrice = shipPrice;}
-
-    public double getTotalCost() {return totalCost;}
-    public void setTotalCost(double totalCost) {this.totalCost = totalCost;}
 
     public long getId() {
         return id;
     }
 
-    public void addProduct(Product product){
-        product.setProductPurchaseId(this);
-        products_id.add(product);
+    public Set<Product> getProducts() {
+        return products;
     }
 
-    public Set<Product> getProducts_id() {
-        return products_id;
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
+
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String type) {
+        Type = type;
+    }
+
+    public GenderType getGenderType() {
+        return genderType;
+    }
+
+    public int getNumbOfProducts() {
+        return numbOfProducts;
+    }
+
+    public void setNumbOfProducts(int numbOfProducts) {
+        this.numbOfProducts = numbOfProducts;
+    }
+
+    public void setGenderType(GenderType genderType) {
+        this.genderType = genderType;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public double getShippingPrice() {
+        return shippingPrice;
+    }
+
+    public void setShippingPrice(double shippingPrice) {
+        this.shippingPrice = shippingPrice;
+    }
+
+    public double getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    public void addProduct(Product product){
+        product.setProductPurchase(this);
+        products.add(product);
+    }
+
+
 }
