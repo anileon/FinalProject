@@ -1,4 +1,8 @@
 package com.FINALPROJECT.MotoRider.models;
 
-public class purchase {
+
+
+public enum GenderType {
+
+    MALE, FEMALE
 }
