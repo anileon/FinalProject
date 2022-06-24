@@ -4,6 +4,8 @@ package com.FINALPROJECT.MotoRider.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -18,32 +20,23 @@ public class ProductPurchaseOrder {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    @OneToMany(mappedBy="productPurchase", fetch=FetchType.EAGER)
-    private Set<Product> products = new HashSet<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="product_id")
+    private Product products;
 
-    private String Type;
 
-    private GenderType genderType;
+    private LocalDateTime timeOfPurchase;
 
-    private int size;
-
-    private double shippingPrice;
-
-    private double totalCost;
-    private int numbOfProducts;
+    private int numOfProducts;
 
 
     public ProductPurchaseOrder() {
     }
 
-
-    public ProductPurchaseOrder(String type, GenderType genderType, int size, double shippingPrice, double totalCost, int numbOfProducts) {
-        Type = type;
-        this.genderType = genderType;
-        this.size = size;
-        this.shippingPrice = shippingPrice;
-        this.totalCost = totalCost;
-        this.numbOfProducts = numbOfProducts;
+    public ProductPurchaseOrder(Product products, LocalDateTime timeOfPurchase, int numOfProducts) {
+        this.products = products;
+        this.timeOfPurchase = timeOfPurchase;
+        this.numOfProducts = numOfProducts;
     }
 
 
@@ -51,66 +44,31 @@ public class ProductPurchaseOrder {
         return id;
     }
 
-    public Set<Product> getProducts() {
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Product getProducts() {
         return products;
     }
 
-    public void setProducts(Set<Product> products) {
+    public void setProducts(Product products) {
         this.products = products;
     }
 
-    public String getType() {
-        return Type;
+    public LocalDateTime getTimeOfPurchase() {
+        return timeOfPurchase;
     }
 
-    public void setType(String type) {
-        Type = type;
+    public void setTimeOfPurchase(LocalDateTime timeOfPurchase) {
+        this.timeOfPurchase = timeOfPurchase;
     }
 
-    public GenderType getGenderType() {
-        return genderType;
+    public int getNumOfProducts() {
+        return numOfProducts;
     }
 
-    public int getNumbOfProducts() {
-        return numbOfProducts;
+    public void setNumOfProducts(int numOfProducts) {
+        this.numOfProducts = numOfProducts;
     }
-
-    public void setNumbOfProducts(int numbOfProducts) {
-        this.numbOfProducts = numbOfProducts;
-    }
-
-    public void setGenderType(GenderType genderType) {
-        this.genderType = genderType;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public double getShippingPrice() {
-        return shippingPrice;
-    }
-
-    public void setShippingPrice(double shippingPrice) {
-        this.shippingPrice = shippingPrice;
-    }
-
-    public double getTotalCost() {
-        return totalCost;
-    }
-
-    public void setTotalCost(double totalCost) {
-        this.totalCost = totalCost;
-    }
-
-    public void addProduct(Product product){
-        product.setProductPurchase(this);
-        products.add(product);
-    }
-
-
 }

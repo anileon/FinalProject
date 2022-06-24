@@ -4,6 +4,7 @@ package com.FINALPROJECT.MotoRider.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Product {
@@ -13,9 +14,9 @@ public class Product {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="ProductPurchaseOrder_id")
-    private ProductPurchaseOrder productPurchase;
+
+    @OneToMany(mappedBy = "products",  fetch=FetchType.EAGER)
+    private Set<ProductPurchaseOrder> productPurchases;
 
     private String type;
 
@@ -35,8 +36,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(ProductPurchaseOrder productPurchase, String type, GenderType genderType, String description, double price, String productImg, int stock, int size) {
-        this.productPurchase = productPurchase;
+    public Product(String type, GenderType genderType, String description, double price, String productImg, int stock, int size) {
         this.type = type;
         this.genderType = genderType;
         this.description = description;
@@ -67,19 +67,19 @@ public class Product {
     public int getStock() {return stock;}
     public void setStock(int stock) {this.stock = stock;}
 
-    public ProductPurchaseOrder getProductPurchaseId() {
-        return productPurchase;
-    }
-
-    public void setProductPurchase(ProductPurchaseOrder productPurchase) {
-        this.productPurchase = productPurchase;
-    }
-
     public int getSize() {
         return size;
     }
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public Set<ProductPurchaseOrder> getProductPurchases() {
+        return productPurchases;
+    }
+
+    public void setProductPurchases(Set<ProductPurchaseOrder> productPurchases) {
+        this.productPurchases = productPurchases;
     }
 }
