@@ -4,6 +4,8 @@ package com.FINALPROJECT.MotoRider.dto;
 import com.FINALPROJECT.MotoRider.models.GenderType;
 import com.FINALPROJECT.MotoRider.models.Product;
 
+import java.util.List;
+
 public class ProductDTO {
 
     private long id;
@@ -11,7 +13,7 @@ public class ProductDTO {
     private int size;
 
     private String type;
-    private String urlImg;
+    private List<String> urlImg;
 
     private GenderType genderType;
 
@@ -19,7 +21,6 @@ public class ProductDTO {
 
     private double price;
 
-    private String productImg;
 
     private int stock;
 
@@ -33,7 +34,6 @@ public class ProductDTO {
         this.genderType = product.getGenderType();
         this.description = product.getDescription();
         this.price = product.getPrice();
-        this.productImg = product.getProductImg();
         this.stock = product.getStock();
         this.size = product.getSize();
         this.urlImg = product.getProductImg();
@@ -53,9 +53,6 @@ public class ProductDTO {
     public double getPrice() {return price;}
     public void setPrice(double price) {this.price = price;}
 
-    public String getProductImg() {return productImg;}
-    public void setProductImg(String productImg) {this.productImg = productImg;}
-
     public int getStock() {return stock;}
     public void setStock(int stock) {this.stock = stock;}
 
@@ -66,11 +63,11 @@ public class ProductDTO {
         this.size = size;
     }
 
-    public String getUrlImg() {
+    public List<String> getUrlImg() {
         return urlImg;
     }
 
-    public void setUrlImg(String urlImg) {
+    public void setUrlImg(List<String> urlImg) {
         this.urlImg = urlImg;
     }
 }

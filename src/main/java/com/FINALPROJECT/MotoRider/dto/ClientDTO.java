@@ -3,7 +3,10 @@ package com.FINALPROJECT.MotoRider.dto;
 
 import com.FINALPROJECT.MotoRider.models.Client;
 
-public class clientDTO {
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class ClientDTO {
 
 
     private long id;
@@ -18,11 +21,13 @@ public class clientDTO {
 
     private long contact;
 
-    public clientDTO() {
+    Set<ReceiptDTO> receiptsDTO;
+
+    public ClientDTO() {
     }
 
 
-    public clientDTO(Client client){
+    public ClientDTO(Client client){
 
         this.id = client.getId();
         this.firstName = client.getFirstName();
@@ -30,6 +35,7 @@ public class clientDTO {
         this.email = client.getEmail();
         this.address = client.getAddress();
         this.contact = client.getContact();
+        this.receiptsDTO = client.getReceipts().stream().map(receipt -> new ReceiptDTO(receipt)).collect(Collectors.toSet());
     }
 
 
@@ -50,4 +56,12 @@ public class clientDTO {
 
     public long getContact() {return contact;}
     public void setContact(long contact) {this.contact = contact;}
+
+    public Set<ReceiptDTO> getReceiptsDTO() {
+        return receiptsDTO;
+    }
+
+    public void setReceiptsDTO(Set<ReceiptDTO> receiptsDTO) {
+        this.receiptsDTO = receiptsDTO;
+    }
 }

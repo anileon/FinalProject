@@ -4,6 +4,7 @@ package com.FINALPROJECT.MotoRider.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -28,7 +29,9 @@ public class Product {
 
     private double price;
 
-    private String productImg;
+    @ElementCollection
+    @Column(name = "productImages")
+    private List<String> productImg;
 
     private int stock;
 
@@ -36,7 +39,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(String type, GenderType genderType, String description, double price, String productImg, int stock, int size) {
+    public Product(String type, GenderType genderType, String description, double price, List<String> productImg, int stock, int size) {
         this.type = type;
         this.genderType = genderType;
         this.description = description;
@@ -61,8 +64,13 @@ public class Product {
     public double getPrice() {return price;}
     public void setPrice(double price) {this.price = price;  }
 
-    public String getProductImg() { return productImg;}
-    public void setProductImg(String productImg) {this.productImg = productImg;}
+    public List<String> getProductImg() {
+        return productImg;
+    }
+
+    public void setProductImg(List<String> productImg) {
+        this.productImg = productImg;
+    }
 
     public int getStock() {return stock;}
     public void setStock(int stock) {this.stock = stock;}

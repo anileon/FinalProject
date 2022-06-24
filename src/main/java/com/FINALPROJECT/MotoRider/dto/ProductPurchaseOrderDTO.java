@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class ProductPurchaseOrderDTO {
 
     private long id;
-    private Product product;
+    private ProductDTO product;
     private int numbOfPurchase;
     private LocalDateTime timeOfPurchase;
 
@@ -23,7 +23,7 @@ public class ProductPurchaseOrderDTO {
     public ProductPurchaseOrderDTO(ProductPurchaseOrder productPurchaseOrder){
 
         this.id = productPurchaseOrder.getId();
-        this.product = productPurchaseOrder.getProducts();
+        this.product = new ProductDTO(productPurchaseOrder.getProducts());
         this.numbOfPurchase = productPurchaseOrder.getNumOfProducts();
         this.timeOfPurchase = productPurchaseOrder.getTimeOfPurchase();
 
@@ -38,11 +38,11 @@ public class ProductPurchaseOrderDTO {
         this.id = id;
     }
 
-    public Product getProduct() {
+    public ProductDTO getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(ProductDTO product) {
         this.product = product;
     }
 
