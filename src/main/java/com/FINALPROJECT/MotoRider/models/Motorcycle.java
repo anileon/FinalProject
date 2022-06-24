@@ -3,7 +3,9 @@ package com.FINALPROJECT.MotoRider.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Motorcycle {
@@ -19,29 +21,27 @@ public class Motorcycle {
     private String displacement; //cilindrada
 
     @ElementCollection
-    @Column(name="Images")
+    @Column(name = "Images")
     private List<String> images;
 
     private double price;
 
     private int stock;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="motorcycle_id")
-    private MotorcyclePurchaseOrder motorcyclePurchaseOrder;
 
-    public Motorcycle(){
+    @OneToMany(mappedBy = "motorcycle", fetch = FetchType.EAGER)
+    private Set<MotorcyclePurchaseOrder> motorcyclePurchaseOrders = new HashSet<>();
 
+    public Motorcycle() {
     }
 
-    public Motorcycle(String model, BrandType brandType, String displacement, List<String> images, double price, int stock, MotorcyclePurchaseOrder motorcyclePurchaseOrder) {
+    public Motorcycle(String model, BrandType brandType, String displacement, List<String> images, double price, int stock) {
         this.model = model;
         this.brandType = brandType;
         this.displacement = displacement;
         this.images = images;
         this.price = price;
         this.stock = stock;
-        this.motorcyclePurchaseOrder = motorcyclePurchaseOrder;
     }
 
     public Long getId() {
@@ -96,11 +96,13 @@ public class Motorcycle {
         this.stock = stock;
     }
 
-    public MotorcyclePurchaseOrder getMotorcyclePurchaseOrder() {
-        return motorcyclePurchaseOrder;
+    public Set<MotorcyclePurchaseOrder> getMotorcyclePurchaseOrders() {
+        return motorcyclePurchaseOrders;
     }
 
-    public void setMotorcyclePurchaseOrder(MotorcyclePurchaseOrder motorcyclePurchaseOrder) {
-        this.motorcyclePurchaseOrder = motorcyclePurchaseOrder;
+    public void setMotorcyclePurchaseOrders(Set<MotorcyclePurchaseOrder> motorcyclePurchaseOrders) {
+        this.motorcyclePurchaseOrders = motorcyclePurchaseOrders;
     }
+
+
 }
