@@ -2,6 +2,7 @@ package com.FINALPROJECT.MotoRider.services.implement;
 
 
 import com.FINALPROJECT.MotoRider.dto.ProductDTO;
+import com.FINALPROJECT.MotoRider.models.Product;
 import com.FINALPROJECT.MotoRider.repositories.ProductRepository;
 import com.FINALPROJECT.MotoRider.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,12 @@ public class productServiceImplement implements ProductService {
 
     @Autowired
     ProductRepository productRepository;
+
+    @Override
+    public void saveProduct(Product product) {
+        productRepository.save(product);
+    }
+
     @Override
     public Set<ProductDTO> getProductsDTO() {
         return productRepository.findAll().stream().map(product -> new ProductDTO(product)).collect(Collectors.toSet());

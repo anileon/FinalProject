@@ -24,6 +24,10 @@ public class ProductPurchaseOrder {
     @JoinColumn(name="product_id")
     private Product products;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="receipt_id")
+    private Receipt receipt;
+
 
     private LocalDateTime timeOfPurchase;
 
@@ -33,10 +37,11 @@ public class ProductPurchaseOrder {
     public ProductPurchaseOrder() {
     }
 
-    public ProductPurchaseOrder(Product products, LocalDateTime timeOfPurchase, int numOfProducts) {
+    public ProductPurchaseOrder(Product products, LocalDateTime timeOfPurchase, int numOfProducts, Receipt receipt) {
         this.products = products;
         this.timeOfPurchase = timeOfPurchase;
         this.numOfProducts = numOfProducts;
+        this.receipt = receipt;
     }
 
 
@@ -70,5 +75,13 @@ public class ProductPurchaseOrder {
 
     public void setNumOfProducts(int numOfProducts) {
         this.numOfProducts = numOfProducts;
+    }
+
+    public Receipt getReceipt() {
+        return receipt;
+    }
+
+    public void setReceipt(Receipt receipt) {
+        this.receipt = receipt;
     }
 }

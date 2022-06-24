@@ -9,6 +9,8 @@ public interface MotorcycleService {
 
     List<MotorcycleDTO> getMotorcyclesDTO();
 
+    MotorcycleDTO getMotoDto(long id);
+
     void saveMotorcycle(Motorcycle motorcycle);
 
 
