@@ -8,7 +8,7 @@ import com.FINALPROJECT.MotoRider.models.Client;
 
 
 @RepositoryRestResource
-public interface clientRepository extends JpaRepository<Client, Long> {
+public interface ClientRepository extends JpaRepository<Client, Long> {
 
 
 

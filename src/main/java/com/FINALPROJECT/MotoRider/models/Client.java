@@ -3,10 +3,8 @@ package com.FINALPROJECT.MotoRider.models;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Client {
@@ -28,6 +26,8 @@ public class Client {
 
     private String password;
 
+    @OneToMany(mappedBy = "client",  fetch=FetchType.EAGER)
+    private Set<Receipt> receipts;
 
     public Client() {
     }
@@ -60,4 +60,18 @@ public class Client {
 
     public String getPassword() {return password;}
     public void setPassword(String password) {this.password = password;}
+
+    public Set<Receipt> getReceipts() {
+        return receipts;
+    }
+
+    public void setReceipts(Set<Receipt> receipts) {
+        this.receipts = receipts;
+    }
+
+    public void addReceipt(Receipt receipt){
+        receipt.setClient(this);
+        receipts.add(receipt);
+    }
+
 }
