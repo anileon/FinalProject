@@ -1,13 +1,214 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <header class="header">
+        <!-- El header va a ser transparente hasta hacer scroll (hacer logica) -->
+        <img
+          src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
+          alt=""
+        />
+
+        <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
+        <!-- aca va el logo -->
+        <nav class="navbar oculto">
+          <div class="nav-elemento" @click="toggleNavItem('.nav-motos')">
+            BIKES
+          </div>
+          <div class="nav-elemento" @click="toggleNavItem('.nav-hombre')">
+            MAN
+          </div>
+          <div class="nav-elemento" @click="toggleNavItem('.nav-mujer')">
+            WOMAN
+          </div>
+          <div class="nav-elemento" @click="toggleNavItem('.nav-experiencia')">
+            EVENTS
+          </div>
+        </nav>
+
+        <div class="nav-motos oculto">
+          <span class="boton-cerrar-nav">
+            <i class="material-symbols-rounded" @click="cerrarNavbar($event)"
+              >close</i
+            >
+          </span>
+        </div>
+        <div class="nav-hombre oculto">
+          <span class="boton-cerrar-nav">
+            <i class="material-symbols-rounded" @click="cerrarNavbar($event)"
+              >close</i
+            >
+          </span>
+        </div>
+        <div class="nav-mujer oculto">
+          <span class="boton-cerrar-nav">
+            <i class="material-symbols-rounded" @click="cerrarNavbar($event)"
+              >close</i
+            >
+          </span>
+        </div>
+        <div class="nav-experiencia oculto">
+          <span class="boton-cerrar-nav">
+            <i class="material-symbols-rounded" @click="cerrarNavbar($event)"
+              >close</i
+            >
+          </span>
+        </div>
+      </header>
+
+      <div class="imagen-principal">
+        <img src="" alt="" />
+      </div>
+
+      <main class="row d-flex justify-content-center align-items-center">
+        <div class="row d-flex flex-column gap-5 p-3" id="cardsDestacadas">
+          <div class="col-lg-12 d-flex">
+            <div class="cartaProductoDestacado col-xs-12 col-md-8 col-lg-6 d-flex flex-column gap-1 text-white" id="cartaProductoDestacado1">
+              <div class="col-xs-12 imgTemp"></div>
+              <div class="col-xs-12 p-4">
+                <h6 class="">New model</h6>
+                <p class="">New model of Harley motor bike</p>
+              </div>
+            </div>
+            <div class="col-md-4 d-flex flex-column justify-content-center align-items-center neon">
+              <p>M</p>
+              <p>O</p>
+              <p>T</p>
+              <p>O</p>
+              <p>R</p>
+            </div>
+          </div>
+          <div class="col-lg-12 d-flex">
+            <div class="col-md-4 d-flex flex-column justify-content-center align-items-center neon">
+              <p>R</p>
+              <p>I</p>
+              <p>D</p>
+              <p>E</p>
+              <p>R</p>
+            </div>
+            <div class="cartaProductoDestacado col-xs-12 col-md-8 col-lg-6 d-flex flex-column gap-1 text-white" id="cartaProductoDestacado2">
+              <div class="col-xs-12 imgTemp"></div>
+              <div class="col-xs-12 p-4">
+                <h6 class="">New model</h6>
+                <p class="">New model of Harley motor bike</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 d-flex flex-column pb-3 gap-1">
+          <div class="col-xs-12 imgsPages"></div>
+          <div class="col-xs-12 d-flex gap-1">
+            <div class="co l-xs-4 imgsPages4"></div>
+            <div class="col-xs-8 imgsPages8"></div>
+          </div>
+          <div class="col-xs-12 d-flex gap-1">
+            <div class="col-xs-8 imgsPages8"></div>
+            <div class="col-xs-4 imgsPages4"></div>
+          </div>
+        </div>
+        <section>
+          <a class="imgMoto1"><span>DUCATI</span></a>
+          <a class="imgMoto2"><span>HARLEY DAVIDSON</span></a>
+        </section>
+      </main>
+
+      <footer>
+        <div class="contenedorSuscripcionGeneral">
+          <div class="contenedorSuscripcion">
+            <div class="contenedorTexto">
+              <h3 class="tituloSuscribe">
+                Subscribe to the Moto Rider newsletter
+              </h3>
+            </div>
+            <div class="contenedorParrafo">
+              <p class="parrafoSuscribcion">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+                ullam tempore obcaecati odio maxime, atque sint laborum possimus
+                quisquam. Necessitatibus
+              </p>
+            </div>
+            <div class="contenedorGeneralBoton">
+              <input
+                class="inputFooter"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="YOUR EMAIL ADDRESS"
+              />
+              <button type="submit" class="botonSuscripcion">
+                SUBSCRIBE NOW
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="contenedorLogoFooter">
+          <div class="contenedorImgLogo iconos-wrapper">
+            <img
+              class="ImgLogo"
+              src="./assets/LOGO_LETRAS_PROJECTO_FINAL.png"
+              alt="logo"
+            />
+          </div>
+          <div class="contenedorRedesSocialesFooter">
+            <i class="fa-brands fa-instagram iconos pe-2"></i>
+            <i class="fa-brands fa-facebook-f iconos pe-2"></i>
+            <i class="fa-brands fa-twitter iconos pe-2"></i>
+            <i class="fa-brands fa-pinterest-p iconos"></i>
+          </div>
+        </div>
+        <div class="contenedorContenidoFooter">
+          <div class="contenedorTextoPlanoFooter">
+            <h4 class="TextoPlanoFooter">ABOUT US</h4>
+            <h4 class="TextoPlanoFooter">SHIPPING PAYMENT</h4>
+            <h4 class="TextoPlanoFooter">WARRANTY</h4>
+            <h4 class="TextoPlanoFooter">NEWS</h4>
+          </div>
+          <div class="contenedorTextoPlanoParrafo">
+            <p class="textoPlanoFooter">
+              Copyright © 2022 Moto Rider - A Sole Shareholder Company - A
+              Company
+            </p>
+            <p class="textoPlanoFooter">
+              subject to the Management and Coordination activities of All
+              rights
+            </p>
+            <p class="textoPlanoFooter">reserved. VAT 05113865928</p>
+            <p class="textoPlanoFooter">Moto Rider</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script
+      src="https://kit.fontawesome.com/2544a6d2ae.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./scripts/index.js"></script>
+  </body>
 </html>

@@ -1,0 +1,94 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+@font-face {
+    font-family: pacific;
+    src: url(../assets/PACIFICO.TTF);
+}
+
+:root{
+    --neon: 
+}
+
+
+.imagen-principal {
+    height: 100vh; /* CAMBIAR A MIN HEIGHT */
+    background: rgb(46, 117, 64);
+    background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/f849ad91176031.5e2aa7abbea54.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.row{
+    margin-right: 0;
+    margin-left: 0;
+}
+
+main{
+    min-height: 100vh;
+    background-color: black;
+}
+
+.cartaProductoDestacado{
+    height: 60vh;
+    background-color: #171717;
+    border-radius: 0 0 2rem 0;
+}
+
+.imgTemp{
+    background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/c42c4791176031.5e2aa7abc0aab.png");
+    height: 60%;
+    background-size: cover;
+}
+.cardsDestacadas{
+}
+
+.imgsPages{
+    background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/436cd591176031.5e2aa7abc36fc.png");
+    background-size: cover;
+    background-position: center;
+    height: 20vh;
+}
+.imgsPages4{
+    width: 30%;
+    background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/436cd591176031.5e2aa7abc36fc.png");
+    background-size: cover;
+    background-position: center;
+    height: 20vh;
+}
+.imgsPages8{
+    width: 70%;
+    background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/436cd591176031.5e2aa7abc36fc.png");
+    background-size: cover;
+    background-position: center;
+    height: 20vh;
+}
+.neon{
+    font-size: 4rem;
+    font-weight: 900;
+    font-family: 'Pacifico', cursive;
+    color: white;
+    animation: neon 5s infinite;
+}
+@keyframes neon{
+    0%, 39%, 41%, 59%, 61%, 100% {
+        text-shadow: 
+        white 0 0 12px,
+        orange 0 0 24px,
+        orange 0 0 36px
+    }
+    40%, 60% {
+        text-shadow: none;
+    }
+}
+
+@media (min-width: 768px){
+    #cartaProductoDestacado1{
+        display: flex;
+        align-self: flex-start;
+    }
+    #cartaProductoDestacado2{
+        display: flex;
+        align-self: flex-end;
+    }
+}
