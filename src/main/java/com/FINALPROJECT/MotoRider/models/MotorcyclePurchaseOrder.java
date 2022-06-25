@@ -25,6 +25,8 @@ public class MotorcyclePurchaseOrder {
     @JoinColumn(name = "receipt_id")
     private Receipt receipt;
 
+    private double cost;
+
     public MotorcyclePurchaseOrder() {
 
     }
@@ -34,6 +36,7 @@ public class MotorcyclePurchaseOrder {
         this.datePurchase = datePurchase;
         this.motorcycle = motorcycle;
         this.receipt = receipt;
+        this.cost = motorcycle.getPrice() * numOfProducts;
     }
 
     public Long getId() {
@@ -71,5 +74,13 @@ public class MotorcyclePurchaseOrder {
 
     public void setReceipt(Receipt receipt) {
         this.receipt = receipt;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 }

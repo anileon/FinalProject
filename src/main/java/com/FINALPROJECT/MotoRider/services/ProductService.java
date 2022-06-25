@@ -12,5 +12,6 @@ public interface ProductService {
     Set<ProductDTO> getProductsDTO();
     ProductDTO getProductById(long id);
 
+    Product getProduct(long id);
 
 }

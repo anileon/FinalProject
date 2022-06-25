@@ -31,4 +31,9 @@ public class productServiceImplement implements ProductService {
     public ProductDTO getProductById(long id) {
         return productRepository.findById(id).map(product -> new ProductDTO(product)).orElse(null);
     }
+
+    @Override
+    public Product getProduct(long id) {
+        return productRepository.findById(id).orElse(null);
+    }
 }

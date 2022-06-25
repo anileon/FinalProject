@@ -107,11 +107,6 @@ public class MotoRiderApplication {
 			Client client1 = new Client("Augusto", "Casanova", "Augusto@gmail.com", "calle siempre viva 465", 1140325063, "hola");
 			clientRepository.save(client1);
 
-			Receipt receipt1 = new Receipt(client1, LocalDateTime.now());
-			receiptRepository.save(receipt1);
-
-			ProductPurchaseOrder productPurchaseOrder1 = new ProductPurchaseOrder(casco1,LocalDateTime.now(), 1, receipt1);
-			productPurchaseOrderRepository.save(productPurchaseOrder1);
 
 
 
