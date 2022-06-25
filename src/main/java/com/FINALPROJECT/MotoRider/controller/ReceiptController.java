@@ -51,10 +51,12 @@ public class ReceiptController {
 
                 int cantidadMotoComprar = recipeToCreateDTO.getMotors().stream().filter(moto -> moto.getId() == motorcycle.getId()).findFirst().orElseThrow().getCantidad();
 
+
+                motorcycle.setStock(motorcycle.getStock()-cantidadMotoComprar);
+                motorcycleService.saveMotorcycle(motorcycle);
                 MotorcyclePurchaseOrder motorcyclePurchaseOrder = new MotorcyclePurchaseOrder(cantidadMotoComprar, LocalDateTime.now(),motorcycle, receipt);
                 subTotalMotos.add(motorcyclePurchaseOrder.getCost());
                 motorcyclePurchaseOrderService.saveMotorcyclePurchaseOrder(motorcyclePurchaseOrder);
-
 
             });
         }
@@ -64,6 +66,8 @@ public class ReceiptController {
              products.forEach(product -> {
                  int cantidadComprar = recipeToCreateDTO.getProducts().stream().filter(prod -> prod.getIdProducto() == product.getId()).findFirst().orElseThrow().getCantidad();
 
+                 product.setStock(product.getStock()-cantidadComprar);
+                 productService.saveProduct(product);
                  ProductPurchaseOrder productPurchaseOrder = new ProductPurchaseOrder(product, LocalDateTime.now(), cantidadComprar, receipt);
                  subtotalProductos.add(productPurchaseOrder.getCost());
                  productPurchaseOrderService.saveProductPurchaseOrder(productPurchaseOrder);
@@ -72,7 +76,7 @@ public class ReceiptController {
          }
 
         Double totalProducts = subtotalProductos.stream().reduce(Double::sum).orElse(0.0);
-        Double totalMotos = subTotalMotos.stream().reduce(Double::sum).orElse(0.0);
+        Double totalMotos = subTotalMotos.stream().reduce(Double::sum).orElse(0.0);;
         receipt.setTotalCost(totalProducts + totalMotos);
 
         receiptService.saveReceipt(receipt);
