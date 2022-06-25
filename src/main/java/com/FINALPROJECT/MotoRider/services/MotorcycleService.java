@@ -13,5 +13,7 @@ public interface MotorcycleService {
 
     void saveMotorcycle(Motorcycle motorcycle);
 
+    Motorcycle getMoto(long id);
+
 
 }

@@ -31,5 +31,10 @@ public class MotorcycleServiceImplement implements MotorcycleService {
         motorcycleRepository.save(motorcycle);
     }
 
+    @Override
+    public Motorcycle getMoto(long id) {
+        return motorcycleRepository.findById(id).orElse(null);
+    }
+
 
 }

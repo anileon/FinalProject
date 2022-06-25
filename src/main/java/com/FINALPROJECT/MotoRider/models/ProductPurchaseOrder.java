@@ -33,6 +33,8 @@ public class ProductPurchaseOrder {
 
     private int numOfProducts;
 
+    private double cost;
+
 
     public ProductPurchaseOrder() {
     }
@@ -42,6 +44,7 @@ public class ProductPurchaseOrder {
         this.timeOfPurchase = timeOfPurchase;
         this.numOfProducts = numOfProducts;
         this.receipt = receipt;
+        this.cost = products.getPrice() * numOfProducts;
     }
 
 
@@ -84,4 +87,15 @@ public class ProductPurchaseOrder {
     public void setReceipt(Receipt receipt) {
         this.receipt = receipt;
     }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
+
+
 }

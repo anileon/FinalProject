@@ -16,6 +16,8 @@ public class ProductPurchaseOrderDTO {
     private int numbOfPurchase;
     private LocalDateTime timeOfPurchase;
 
+    private double cost;
+
 
     public ProductPurchaseOrderDTO() {
     }
@@ -26,6 +28,7 @@ public class ProductPurchaseOrderDTO {
         this.product = new ProductDTO(productPurchaseOrder.getProducts());
         this.numbOfPurchase = productPurchaseOrder.getNumOfProducts();
         this.timeOfPurchase = productPurchaseOrder.getTimeOfPurchase();
+        this.cost = productPurchaseOrder.getCost();
 
     }
 
@@ -60,5 +63,14 @@ public class ProductPurchaseOrderDTO {
 
     public void setTimeOfPurchase(LocalDateTime timeOfPurchase) {
         this.timeOfPurchase = timeOfPurchase;
+    }
+
+
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 }

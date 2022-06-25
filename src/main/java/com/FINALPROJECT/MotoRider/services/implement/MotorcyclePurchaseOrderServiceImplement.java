@@ -5,9 +5,11 @@ import com.FINALPROJECT.MotoRider.models.MotorcyclePurchaseOrder;
 import com.FINALPROJECT.MotoRider.repositories.MotorcyclePurchaseOrderRepository;
 import com.FINALPROJECT.MotoRider.services.MotorcyclePurchaseOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MotorcyclePurchaseOrderServiceImplement implements MotorcyclePurchaseOrderService {
     @Autowired
     MotorcyclePurchaseOrderRepository motorcyclePurchaseOrderRepository;
