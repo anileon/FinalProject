@@ -22,8 +22,18 @@ public class MotorcycleServiceImplement implements MotorcycleService {
     }
 
     @Override
+    public MotorcycleDTO getMotoDto(long id) {
+        return motorcycleRepository.findById(id).map(motorcycle -> new MotorcycleDTO(motorcycle)).orElse(null);
+    }
+
+    @Override
     public void saveMotorcycle(Motorcycle motorcycle) {
         motorcycleRepository.save(motorcycle);
+    }
+
+    @Override
+    public Motorcycle getMoto(long id) {
+        return motorcycleRepository.findById(id).orElse(null);
     }
 
 

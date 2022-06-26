@@ -32,6 +32,7 @@ public class Motorcycle {
     @OneToMany(mappedBy = "motorcycle", fetch = FetchType.EAGER)
     private Set<MotorcyclePurchaseOrder> motorcyclePurchaseOrders = new HashSet<>();
 
+
     public Motorcycle() {
     }
 

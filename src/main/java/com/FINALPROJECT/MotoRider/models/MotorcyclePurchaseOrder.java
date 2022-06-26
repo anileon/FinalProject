@@ -21,14 +21,22 @@ public class MotorcyclePurchaseOrder {
     @JoinColumn(name = "motorcycle_id")
     private Motorcycle motorcycle;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "receipt_id")
+    private Receipt receipt;
+
+    private double cost;
+
     public MotorcyclePurchaseOrder() {
 
     }
 
-    public MotorcyclePurchaseOrder(int numOfProducts, LocalDateTime datePurchase, Motorcycle motorcycle) {
+    public MotorcyclePurchaseOrder(int numOfProducts, LocalDateTime datePurchase, Motorcycle motorcycle, Receipt receipt) {
         this.numOfProducts = numOfProducts;
         this.datePurchase = datePurchase;
         this.motorcycle = motorcycle;
+        this.receipt = receipt;
+        this.cost = motorcycle.getPrice() * numOfProducts;
     }
 
     public Long getId() {
@@ -58,5 +66,21 @@ public class MotorcyclePurchaseOrder {
 
     public void setMotorcycle(Motorcycle motorcycle) {
         this.motorcycle = motorcycle;
+    }
+
+    public Receipt getReceipt() {
+        return receipt;
+    }
+
+    public void setReceipt(Receipt receipt) {
+        this.receipt = receipt;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 }
