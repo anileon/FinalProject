@@ -5,50 +5,50 @@ Vue.createApp({
         bikes: [
             {
                 id: 1,
-                type: "dukati",
-                modelo: "dukati",
+                type: "ducati",
+                modelo: "ducati",
                 name: "Multistrada 1260 Enduro",
             },
             {
                 id: 2,
-                type: "dukati",
-                modelo: "dukati",
+                type: "ducati",
+                modelo: "ducati",
                 name: "Panigale V4 S",
             },
             {
                 id: 3,
-                type: "dukati",
+                type: "ducati",
                 modelo: "SCRAMBLER DUCATI",
                 name: "CAFÉ RACER",
             },
             {
                 id: 4,
-                type: "dukati",
-                modelo: "dukati",
+                type: "ducati",
+                modelo: "ducati",
                 name: "Hypermotard 950 SP",
             },
             {
                 id: 5,
-                type: "dukati",
-                modelo: "dukati",
+                type: "ducati",
+                modelo: "ducati",
                 name: "SuperSport S",
             },
             {
                 id: 6,
-                type: "dukati",
-                modelo: "dukati",
+                type: "ducati",
+                modelo: "ducati",
                 name: "Diavel 1260 S",
             },
             {
                 id: 7,
-                type: "dukati",
-                modelo: "dukati",
+                type: "ducati",
+                modelo: "ducati",
                 name: "XDiavel S",
             },
             {
                 id: 8,
-                type: "dukati",
-                modelo: "dukati",
+                type: "ducati",
+                modelo: "ducati",
                 name: "2021 Low Rider™ S",
             },
         ],
@@ -67,6 +67,7 @@ Vue.createApp({
     methods: {
 
         addFavorite(id){
+            console.log(id);
             let unFavorite = document.querySelector("#unFavoriteMobile" + id)
             let favorite = document.querySelector("#favoriteMobile" + id)
             unFavorite.classList.remove("favoriteMobileChecked")
