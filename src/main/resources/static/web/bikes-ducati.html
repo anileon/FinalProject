@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+    <link rel="stylesheet" href="./styles/style.css"/>
+    <link rel="stylesheet" href="./styles/bikes.css">
+  </head>
+
+  <body>
+    <div id="app">
+      <header class="header" :class="{ 'header-activo': scrolled }">
+        <!-- El header va a ser transparente hasta hacer scroll (hacer logica) -->
+        <img
+          src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
+          alt=""
+        />
+
+        <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
+        <!-- aca va el logo -->
+        <nav class="navbar oculto">
+          <div class="nav-elemento" @click="toggleNavItem('.nav-motos')">
+            BIKES
+          </div>
+          <div class="nav-elemento" @click="toggleNavItem('.nav-hombre')">
+            MAN
+          </div>
+          <div class="nav-elemento" @click="toggleNavItem('.nav-mujer')">
+            WOMAN
+          </div>
+          <div class="nav-elemento" @click="toggleNavItem('.nav-experiencia')">
+            EVENTS
+          </div>
+        </nav>
+
+        <div class="nav-motos oculto">
+          <span class="boton-cerrar-nav">
+            <i class="material-symbols-rounded" @click="cerrarNavbar($event)"
+              >close</i
+            >
+          </span>
+        </div>
+        <div class="nav-hombre oculto">
+          <span class="boton-cerrar-nav">
+            <i class="material-symbols-rounded" @click="cerrarNavbar($event)"
+              >close</i
+            >
+          </span>
+        </div>
+        <div class="nav-mujer oculto">
+          <span class="boton-cerrar-nav">
+            <i class="material-symbols-rounded" @click="cerrarNavbar($event)"
+              >close</i
+            >
+          </span>
+        </div>
+        <div class="nav-experiencia oculto">
+          <span class="boton-cerrar-nav">
+            <i class="material-symbols-rounded" @click="cerrarNavbar($event)"
+              >close</i
+            >
+          </span>
+        </div>
+      </header>
+
+      <div class="imagen-principal">
+        <img src="" alt="" />
+      </div>
+
+      <main class="">
+        <div>
+          <div class="" id="filtro">
+            <button>Filter</button>
+          </div>
+        </div>
+        <div id="catalogo">
+          <div class="cartaCatalogo" v-for="(bike,index) in bikes" :key="index">
+            <div class="imgCartaCatalogo">
+              <span class="material-symbols-outlined favoriteDesktop">
+                favorite
+              </span>
+              <span class="material-symbols-outlined favoriteDesktop">
+                favorite
+              </span>
+            </div>
+            <div class="textoCartaCatalogo">
+              <div class="cartasTitulo">
+                <h5>{{bike.name}}</h5>
+                <div>
+                  <span class="material-symbols-outlined unFavoriteMobile" @click="addFavorite(bike.id)" :id="'unFavoriteMobile' + bike.id">
+                    favorite
+                  </span>
+                  <span class="material-symbols-outlined favoriteMobile favoriteMobileUnChecked" @click="removeFavorite(bike.id)" :id="'favoriteMobile' + bike.id">
+                    favorite
+                  </span>
+                </div>
+              </div>
+              <p class="cartaDescripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <div class="contenedorPrecioLogo">
+                <p class="cartaPrecio">30.000U$D</p>
+                <div class="contenedorLogoDucati"><img class="logoDucati" src="../web/assets/ducati-logo-256EB5E75F-seeklogo.com.png" alt=""></div>
+              </div>
+            </div>
+          </div>
+          <!-- <a class="cartaCatalogo">
+            <div class="imgCartaCatalogo">
+              <span class="material-symbols-outlined favoriteDesktop">
+                favorite
+              </span>
+              <span class="material-symbols-outlined favoriteDesktop">
+                favorite
+              </span>
+            </div>
+            <div class="textoCartaCatalogo">
+              <div class="cartasTitulo">
+                <h4>Title</h4>
+                <span class="material-symbols-outlined">
+                  favorite
+                </span>
+              </div>
+              <p class="cartaDescripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p class="cartaPrecio">30.000U$D</p>
+            </div>
+          </a>
+          <a class="cartaCatalogo">
+            <div class="imgCartaCatalogo">
+              <span class="material-symbols-outlined favoriteDesktop">
+                favorite
+              </span>
+              <span class="material-symbols-outlined favoriteDesktop">
+                favorite
+              </span>
+            </div>
+            <div class="textoCartaCatalogo">
+              <div class="cartasTitulo">
+                <h4>Title</h4>
+                <span class="material-symbols-outlined">
+                  favorite
+                </span>
+              </div>
+              <p class="cartaDescripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p class="cartaPrecio">30.000U$D</p>
+            </div>
+          </a>
+          <a class="cartaCatalogo">
+            <div class="imgCartaCatalogo">
+              <span class="material-symbols-outlined favoriteDesktop">
+                favorite
+              </span>
+              <span class="material-symbols-outlined favoriteDesktop">
+                favorite
+              </span>
+            </div>
+            <div class="textoCartaCatalogo">
+              <div class="cartasTitulo">
+                <h4>Title</h4>
+                <span class="material-symbols-outlined">
+                  favorite
+                </span>
+              </div>
+              <p class="cartaDescripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p class="cartaPrecio">30.000U$D</p>
+            </div>
+          </a>
+          <a class="cartaCatalogo">
+            <div class="imgCartaCatalogo">
+              <span class="material-symbols-outlined favoriteDesktop">
+                favorite
+              </span>
+              <span class="material-symbols-outlined favoriteDesktop">
+                favorite
+              </span>
+            </div>
+            <div class="textoCartaCatalogo">
+              <div class="cartasTitulo">
+                <h4>Title</h4>
+                <span class="material-symbols-outlined" id="unFavoriteMobile" @click="addFavorite()">
+                  favorite
+                </span>
+                <span class="material-symbols-outlined favoriteMobileUnChecked" id="favoriteMobile" @click="removeFavorite">
+                  favorite
+                </span>
+              </div>
+              <p class="cartaDescripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p class="cartaPrecio">30.000U$D</p>
+            </div>
+          </a> -->
+        </div>
+      </main>
+
+            <footer>
+        <div class="contenedorSuscripcionGeneral">
+          <div class="contenedorSuscripcion">
+            <div class="contenedorTexto">
+              <h3 class="tituloSuscribe">
+                Subscribe to the Moto Rider newsletter
+              </h3>
+            </div>
+            <div class="contenedorParrafo">
+              <p class="parrafoSuscribcion">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+                ullam tempore obcaecati odio maxime, atque sint laborum possimus
+                quisquam. Necessitatibus
+              </p>
+            </div>
+            <div class="contenedorGeneralBoton">
+              <input
+                class="inputFooter"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="YOUR EMAIL ADDRESS"
+              />
+              <button type="submit" class="botonSuscripcion">
+                SUBSCRIBE NOW
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="contenedorTamañoEscritorio">
+          <div class="contenedorLogoFooter">
+            <div class="contenedorImgLogo iconos-wrapper">
+              <img
+                class="ImgLogo"
+                src="./assets/LOGO_LETRAS_PROJECTO_FINAL.png"
+                alt="logo"
+              />
+            </div>
+            <div class="contenedorRedesSocialesFooter">
+              <i class="fa-brands fa-instagram iconos pe-2"></i>
+              <i class="fa-brands fa-facebook-f iconos pe-2"></i>
+              <i class="fa-brands fa-twitter iconos pe-2"></i>
+              <i class="fa-brands fa-pinterest-p iconos"></i>
+            </div>
+          </div>
+          <div class="contenedorContenidoFooter">
+            <div class="contenedorTextoPlanoFooter">
+              <h4 class="TextoPlanoFooter">ABOUT US</h4>
+              <h4 class="TextoPlanoFooter">SHIPPING PAYMENT</h4>
+              <h4 class="TextoPlanoFooter">WARRANTY</h4>
+              <h4 class="TextoPlanoFooter">NEWS</h4>
+            </div>
+            <div class="contenedorTextoPlanoParrafo">
+              <p class="textoPlanoFooter">
+                Copyright © 2022 Moto Rider - A Sole Shareholder Company - A
+                Company
+              </p>
+              <p class="textoPlanoFooter">
+                subject to the Management and Coordination activities of All
+                rights
+              </p>
+              <p class="textoPlanoFooter">reserved. VAT 05113865928</p>
+              <p class="textoPlanoFooter">Moto Rider</p>
+            </div>
+          </div>       
+        </div>
+      </footer>
+    </div>
+
+
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://kit.fontawesome.com/2544a6d2ae.js" crossorigin="anonymous"></script>
+    <script src="./scripts/bikes.js"></script>
+  </body>
+</html>

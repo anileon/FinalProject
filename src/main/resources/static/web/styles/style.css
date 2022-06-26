@@ -27,6 +27,7 @@
 
     /* text-shadow */
     --textShadow-blanco: #252620;
+    --textShadow-blanco2: #686b58;
 
     /* Estilos extra */
     --altura-con-nav: calc(100vh - 5rem)
@@ -53,6 +54,8 @@ header {
     position: fixed;
     top: 0;
     opacity: 0.2;
+    transition: 0.3s linear;
+    z-index: 1;
 }
 
 header img {
@@ -97,6 +100,8 @@ header .navbar {
     box-shadow: 0px 0px 15rem 6rem rgb(0 0 0 / 75%) inset;
     transition: 0.5s linear;
     background-size: cover;
+    animation: nav 0.4s;
+    cursor: pointer;
 }
 
 .navbar .nav-elemento:nth-child(1) {
@@ -131,6 +136,7 @@ header .navbar {
     width: 100%;
     background-color: #fff;
     display: flex;
+    animation: nav 0.4s;
 }
 
 .boton-cerrar-nav {
@@ -141,35 +147,10 @@ header .navbar {
     justify-content: flex-end;
 }
 
-.imgMoto1, .imgMoto2{
-    width: 100%;
-    height: 50vh;
-    background: url("https://cdn.discordapp.com/attachments/985294289091321861/989259122472022087/unknown.png");
-    background-size: cover;
-    background-position: right center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 2rem;
-    color: white;
-    text-decoration: none;
-    box-shadow: 0px 0px 15rem 6rem rgb(0 0 0 / 75%) inset;
-    transition: 0.5s linear;
-}
-
-.imgMoto2 span {
-    width: 10rem;
-}
-
-.imgMoto2{
-    background-image: url("https://s1.cdn.autoevolution.com/images/news/harley-davidson-black-joe-looks-invisible-in-the-dark-growl-should-scare-the-curious-away-178149_1.jpg");
-}
-
-.imgMoto1:hover, .imgMoto2:hover {
-    color: white;
-    box-shadow: 0px 0px 15rem 6rem rgb(0 0 0 / 35%) inset;
+/* Keyframes del header */
+@keyframes nav {
+    0% {transform: translateX(-100%) }
+    100% {transform: translateX(0%)}
 }
 
 
@@ -177,32 +158,32 @@ header .navbar {
 /* ============================================== FOOTER ============================================== */
 footer{
     width: 100%;
-    height: 80vh;
+    height: 72vh;
     background-color: var(--paleta-blanco); 
 }
 
 .contenedorSuscripcionGeneral{
     background-color: black;
     width: 100%;
-    height: 35vh;
+    /* height: 35vh; */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center !important;
 }
 
 .contenedorSuscripcion{
     width: 90%;
     height: 25vh;
-    display: flex;
-    flex-direction: column;
 }
 
 .tituloSuscribe{
     font-size: 1rem;
+    color: var(--paleta-blanco);
+    text-shadow: 1px 1px 10px #f3fad4;
+    padding-left: 1.4rem;
 }
 
 .parrafoSuscribcion{
-    font-size: .7rem;
+    font-size: .7rem;  
 }
 
 .contenedorGeneralBoton{
@@ -210,13 +191,14 @@ footer{
 }
 
 .contenedorTexto{
-    text-align: center;
-    padding-top: 1.25rem;   
+    padding-top: 1.25rem;
 }
 
 .contenedorParrafo{
     padding: .5rem 1.5rem 0rem ;
-    height: 10vh;
+    min-height: 10vh;
+    color: var(--paleta-blanco);
+    text-shadow: .6px .6px 1px var(--textShadow-blanco);
 }
 
 .contenedorGeneralBoton{
@@ -226,6 +208,10 @@ footer{
 
 .inputFooter{
     font-size: .55rem;
+    border: none;
+    border-radius: 5px;
+    padding-left: .3rem;
+    background-color: var(--paleta-blanco);
 }
 
 .botonSuscripcion{
@@ -235,13 +221,14 @@ footer{
     border: none;
     border-radius: 5px;
     background-color: var(--paleta-rojo);
-    text-shadow: 1px 1px 2px var(--textShadow-blanco);
+    text-shadow: 2px 2px 8px var(--textShadow-blanco2);
+    color: var(--paleta-blanco);
 }
 
 /* Contenedor Logo/Footer */
 .contenedorLogoFooter{
     background-color: black;
-    height: 25vh;
+    height: 28vh;
 }
 
 .contenedorImgLogo{
@@ -267,6 +254,7 @@ footer{
 
 .iconos{
     font-size: 2rem;
+    color: var(--paleta-blanco);
 }
 
 .iconos {
@@ -300,16 +288,78 @@ footer{
     }
 }
 
+.iconos:hover{
+    animation: first_color .5s 
+    ease-in-out infinite alternate;
+}
+
+.iconos:hover:nth-child(2){
+    animation-name: second_color;
+}
+
+.iconos:hover:nth-child(3){
+    animation-name: third_color;
+}
+
+.iconos:hover:nth-child(4){
+    animation-name: ford_color;
+}
+
+@keyframes first_color {
+    0%{
+        text-shadow: 0 0 10px #ff1177,
+        0 0 20px #d6249f, 0 0 30px #285AEB
+    }
+    100%{
+        text-shadow: 0 0 5px #ff1177,
+        0 0 10px #d6249f, 0 0 15px #285AEB
+    }
+}
+
+@keyframes second_color{
+    0%{
+        text-shadow: 0 0 10px #2525d5,
+        0 0 20px #1616c0, 0 0 30px #3939ff
+    }
+    100%{
+        text-shadow: 0 0 5px #2525d5,
+        0 0 10px #1616c0, 0 0 15px #3939ff
+    } 
+}
+
+@keyframes third_color{
+    0%{
+        text-shadow: 0 0 10px #1f79ef,
+        0 0 20px #175cb6, 0 0 30px #1e9cfc
+    }
+    100%{
+        text-shadow: 0 0 5px #1f79ef,
+        0 0 10px #175cb6, 0 0 15px #1e9cfc
+    } 
+}
+
+@keyframes ford_color{
+    0%{
+        text-shadow: 0 0 10px var(--neon-rojo),
+        0 0 20px #9a2731, 0 0 30px #E63946;
+    }
+    100%{
+        text-shadow: 0 0 5px var(--neon-rojo),
+        0 0 10px #9a2731, 0 0 15px #E63946
+    }
+}
+
 /* Contenedor Texto Plano/Footer */
 .contenedorTextoPlanoFooter{
     display: flex;
     justify-content: space-around;
+    padding-top: .8rem;
 }
 
 .TextoPlanoFooter{
     font-size: .7rem;
-    padding-top: .8rem;
-    color: rgba(0, 0, 0, 0.582);
+    color: rgba(0, 0, 0, 0.186);
+    text-shadow: .4px .4px 1px var(--textShadow-blanco);
 }
 
 .contenedorTextoPlanoParrafo{
@@ -318,15 +368,126 @@ footer{
     align-items: center;
     height: 15vh;
     padding-top: .7rem;
+    font-size: .5rem;
+    color: rgba(0, 0, 0, 0.012);
+    text-shadow: .2px .2px .6px var(--textShadow-blanco2);
 }
 
-.textoPlanoFooter{
-    font-size: .5rem;
-    color: rgba(0, 0, 0, 0.646);
+
+@media screen and (min-width: 1024px) {
+    header .navbar {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        position: relative;
+        top: unset;
+        align-items: center;
+        width: 50%;
+        padding: 0 0.5rem;
+        height: 100%;
+        gap: 10px;
+    }
+
+    .navbar .nav-elemento {
+        height: 65%;
+        width: 100%;
+        font-size: 1.2rem;
+        border-radius: 20px;
+    }
+
+    .navbar .nav-elemento:hover{
+        border-radius: 10px;
+    }
+
+    .nav-menu-btn {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1280px){
+
+    footer{
+        height: 50vh;
+    }
+    .contenedorSuscripcionGeneral{
+        height: 35vh;
+    }
+    .contenedorSuscripcion{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 35vh;
+    }
+
+    .tituloSuscribe {
+        font-size: 1.8rem;
+        text-shadow: 2px 2px 15px #f3fad4;
+    }
+
+    .parrafoSuscribcion {
+        font-size: 1rem;
+        width: 48%;
+        text-shadow: 1px 1px 3px var(--textShadow-blanco);
+    }
+
+    .contenedorGeneralBoton{
+        justify-content: space-between;
+        width: 45.4%;
+        margin-top: 1.5rem;
+        margin-left: 1.5rem;
+    }
+
+    .botonSuscripcion {
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+
+    .inputFooter {
+        width: 70%;
+        font-size: .9rem;
+        padding-left: .3rem;
+    }
+
+    .contenedorTamañoEscritorio{
+        display: flex;
+        width: 100%;
+    }
+
+    .contenedorLogoFooter{
+        width: 35.5%;
+        height: 28vh;
+    }
+
+    .contenedorContenidoFooter{
+        width: 100%;
+        background-color: var(--paleta-blanco);
+    }
+
+    .contenedorRedesSocialesFooter {
+        margin-top: 1rem;
+    }
+
+    .ImgLogo {
+        width: 12rem;
+    }
+
+    .TextoPlanoFooter {
+        font-size: 1rem;
+        text-shadow: 1px 1px 2px var(--textShadow-blanco);
+    }
+
+    .contenedorTextoPlanoParrafo {
+        height: 23vh;
+        padding-top: 1.7rem;
+    }
+
+    .textoPlanoFooter {
+        font-size: .8rem;
+        text-shadow: .1px .1px 2px var(--textShadow-blanco);
+    }
 }
 
 /* no mover de abajo de todo, es para que pise otras clases */
 .oculto {
     display: none !important;
 }
-

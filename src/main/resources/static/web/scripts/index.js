@@ -1,14 +1,18 @@
-const { createApp } = Vue
-
-createApp({
+Vue.createApp({
     data() {
         return {
-        message: 'Hello Vue!'
+            message: 'Hello Vue!',
+            scrolled: false
         }
     },
 
     created() {
         
+    },
+
+    mounted() {
+        // Note: do not add parentheses () for this.handleScroll
+        window.addEventListener('scroll', this.handleScroll);
     },
 
     methods: {
@@ -57,6 +61,10 @@ createApp({
             elemento.classList.add("oculto")
         },
 
+        handleScroll() {
+            this.scrolled = window.scrollY > 0;
+        }
     },
+
 
 }).mount('#app')
