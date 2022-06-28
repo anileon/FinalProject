@@ -23,8 +23,67 @@ public class MotoRiderApplication {
 									  ClientRepository clientRepository, ProductPurchaseOrderRepository productPurchaseOrderRepository, ReceiptRepository receiptRepository){
 		return (args) -> {
 
-			Motorcycle motorcycle1 = new Motorcycle("Streetfighter v2", BrandType.DUCATI,"995 cc", List.of("https://images.ctfassets.net/x7j9qwvpvr5s/3k4PLRq2dHWcOFNJWhsxMu/22a0aeab23f79dd9b9e7255a3339e034/Streetfighter-V2-Storm-Grey-01-gallery-1920x1080.jpg","https://images.ctfassets.net/x7j9qwvpvr5s/QG80R1hdpbK11FgyNCKG1/058a6ce06cdb6f975d87a6069711aa01/Streetfighter-V2-Storm-Grey-02-gallery-1920x1080.jpg","https://images.ctfassets.net/x7j9qwvpvr5s/otQI74xuqdQ2GD7ujJo70/fa41e4ece58df6d662b85844fd1a4fcb/Streetfighter-V2-Storm-Grey-05-gallery-1920x1080.jpg"),1250.00,5);
-			motorcycleRepository.save(motorcycle1);
+			Motorcycle motorcycleDucati1 = new Motorcycle("Multistrada-V2", BrandType.DUCATI,"995cc", List.of("https://ibb.co/S0DMsNy"),30050,5);
+			motorcycleRepository.save(motorcycleDucati1);
+
+			Motorcycle motorcycleDucati2 = new Motorcycle("Scrambler-Urban",BrandType.DUCATI,"1250cc", List.of("https://i.ibb.co/1Mw5jp2/ducati-Scrambler-Urban-Motard-removebg-preview.png"),30000,5);
+			motorcycleRepository.save (motorcycleDucati2);
+
+			Motorcycle motorcycleDucati3 = new Motorcycle("Cafe Racer Scrambler",BrandType.DUCATI, "1400cc", List.of("https://ibb.co/MNqMGMh"),31000,4);
+			motorcycleRepository.save(motorcycleDucati3);
+
+			Motorcycle motorcycleDucati4 = new Motorcycle("Diavel Lamborghini",BrandType.DUCATI,"1350cc", List.of("https://i.ibb.co/x2qjNLs/ducati-Diavel-1260-Lamborghini1-removebg-preview.png","https://i.ibb.co/Pm4ScRB/ducati-Diavel-1260-Lamborghini2-removebg-preview.png"),30000,5);
+			motorcycleRepository.save(motorcycleDucati4);
+
+			Motorcycle motorcycleDucati5 = new Motorcycle ("Hypermota", BrandType.DUCATI,"1250cc", List.of("https://i.ibb.co/xLGQG0F/ducati-Hypermota-d-950-SP-removebg-preview.png"),30000,5);
+			motorcycleRepository.save(motorcycleDucati5);
+
+			Motorcycle motorcycleDucati6 = new Motorcycle("Panigale-V4",BrandType.DUCATI,"995cc",List.of("https://i.ibb.co/y0qZdxB/ducati-Panigale-V4-removebg-preview.png"),30000,5);
+			motorcycleRepository.save(motorcycleDucati6);
+
+			Motorcycle motorcycleDucati7 = new Motorcycle("Scrambler-1100", BrandType.DUCATI,"995cc", List.of("https://i.ibb.co/PYYtHQc/ducati-Scrambler-1100-removebg-preview.png"),30000,5);
+			motorcycleRepository.save(motorcycleDucati7);
+
+			Motorcycle motorcycleDucati8 = new Motorcycle("Super-Sport-S",BrandType.DUCATI, "1400cc", List.of("https://i.ibb.co/tJqwVyL/ducati-Super-Sport-S-removebg-preview.png"),30000,5);
+			motorcycleRepository.save(motorcycleDucati8);
+
+			Motorcycle motorcycleDucati9 = new Motorcycle("XDiavel-Neral",BrandType.DUCATI,"995cc",List.of("https://i.ibb.co/64C2R5w/ducati-Diavel-XDiavel-Neral-Nera1-removebg-preview.png","https://i.ibb.co/txrSb35/ducati-Diavel-XDiavel-Neral-Nera2-removebg-preview.png"),30000,5);
+			motorcycleRepository.save(motorcycleDucati9);
+
+			Motorcycle motorcycleDucati10 = new Motorcycle("Desert-X", BrandType.DUCATI, "1200cc", List.of("https://ibb.co/2WCsJ44"),30000,5);
+			motorcycleRepository.save(motorcycleDucati10);
+
+
+			Motorcycle motorcycleHarley1 = new Motorcycle("Fat-Bob2018", BrandType.HARLEY,"1250cc", List.of("https://i.ibb.co/XS8NZMv/harley2.png"),30000,5);
+			motorcycleRepository.save(motorcycleHarley1);
+
+			Motorcycle motorcycleHarley2 = new Motorcycle("Forty-Eight-Special",BrandType.HARLEY,"995cc",List.of("https://i.ibb.co/WnG5Rjf/harley3.png"),30000,5);
+			motorcycleRepository.save(motorcycleHarley2);
+
+			Motorcycle motorcycleHarley3 = new Motorcycle("Pan-Americana-Special", BrandType.HARLEY, "1250cc", List.of("https://i.ibb.co/3BrTFtQ/harley4.png"),30000,5);
+			motorcycleRepository.save(motorcycleHarley3);
+
+			Motorcycle motorcycleHarley4 = new Motorcycle("Street-Bobtm", BrandType.HARLEY,"1250cc", List.of("https://i.ibb.co/p1PmLBk/harley5.png"),30000,5);
+			motorcycleRepository.save(motorcycleHarley4);
+
+			Motorcycle motorcycleHarley5 = new Motorcycle("Pan-America", BrandType.HARLEY, "1200cc",List.of("https://i.ibb.co/pxmHhv7/Harley-Davidson-Pan-America.png"),31500,5);
+			motorcycleRepository.save(motorcycleHarley5);
+
+			Motorcycle motorcycleHarley6 = new Motorcycle("Road-King-Special",BrandType.HARLEY, "1300cc", List.of("https://i.ibb.co/C64TvPJ/Harley-Davidson-Road-King-Special-removebg-preview.png"), 32000,5);
+			motorcycleRepository.save(motorcycleHarley6);
+
+			Motorcycle motorcycleHarley7 = new Motorcycle("Roadster", BrandType.HARLEY, "1200cc", List.of("https://i.ibb.co/x574Ymg/Harley-Davidson-Roadster.png"),31500,5);
+			motorcycleRepository.save(motorcycleHarley7);
+
+			Motorcycle motorcycleHarley8 = new Motorcycle("Live-Wire 2020",BrandType.HARLEY,"1150cc", List.of("https://ibb.co/VjYQ414"),30000,5);
+			motorcycleRepository.save(motorcycleHarley8);
+
+			Motorcycle motorcycleHarley9 = new Motorcycle("Live-Wire 2022",BrandType.HARLEY,"1350cc",List.of("https://ibb.co/qjRWHQN"),31500,5);
+			motorcycleRepository.save(motorcycleHarley9);
+
+			Motorcycle motorcycleHarley10 = new Motorcycle("Low-rider", BrandType.HARLEY,"1250cc",List.of("https://ibb.co/TWZPfgQ"),32500,5);
+			motorcycleRepository.save(motorcycleHarley10);
+
 
 			Product campera1 = new Product("Jacket", GenderType.FEMALE, "leather Jacket sleeves less", 200, List.of("https://i.ibb.co/6sTM48r/97027-22-VW-F-removebg-preview.png", "https://i.ibb.co/F8zbJdw/97027-22-VW-B-removebg-preview.png"),
 					10, 2);
