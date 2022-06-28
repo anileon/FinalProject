@@ -1,0 +1,307 @@
+/* ACA VAN A IR LOS ESTILOS QUE PERSISTAN POR TODA LA APP (POR EJEMPLO EL NAVBAR Y EL FOOTER) */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* NORMALIZADOR */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* ACA VAMOS A DECLARAR LAS VARIABLES CONSTANTES (PALETA DE COLORES/TAMAÑOS/ETC) */
+:root {
+    /* PALETA 1 */
+    --paleta-rojo: #E63946;
+    --paleta-blanco: #F1FAEE;
+    --paleta-azul-claro: #A8DADC;
+    --paleta-azul-medio: #457B9D;
+    --paleta-azul-oscuro: #1D3557;
+
+    /* Neon 2 */
+    --neon-rojo: #f61d30;
+    --neon-blanco: #f3fad4;
+    --neon-azul-claro: #36edf0;
+    --neon-azul-medio: #23a1ef;
+    --neon-azul-oscuro: #04459f;
+
+    /* text-shadow */
+    --textShadow-blanco: #252620;
+    --textShadow-blanco2: #686b58;
+
+    /* Estilos extra */
+    --altura-con-nav: calc(100vh - 5rem)
+
+    #FF522A
+    #FAF1EA (blanquito)
+}
+
+body, #app {
+    min-height: 100vh;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.row>* {
+    padding-left: unset;
+    padding-right: unset;
+}
+/* ============================================== HEADER Y NAVBAR ============================================== */
+
+div .material-symbols-outlined:nth-child(2) {
+    color: red;
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+.imagen-principal{
+    height: 100vh;
+    width: 100%;
+    /* background-color: lightseagreen; */
+}
+
+.portadaHombre {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(https://media.discordapp.net/attachments/985294289091321861/991083035678113792/mobile-harley-indumentaria-hombre.png?width=247&height=676);
+    background-size: cover;
+}
+
+.portadaMujer {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(https://media.discordapp.net/attachments/985294289091321861/991083035900391434/mobile-harley-indumentaria-mujer.png?width=247&height=676);
+    background-size: cover;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(1px 2px 3px #FAF1EA);
+}
+
+.brand-title img {
+    width: 80%;
+}
+
+#filtro{
+    height: 5rem;
+    width: 100%;
+    position: sticky;
+    top: 5rem;
+    background-color: #F9E9DA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    z-index: 3;
+}
+
+#filtro i.material-symbols-outlined {
+    color: black;
+}
+
+#filtro span {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cartaCatalogo{
+    color:var(--color-primary);
+    height: 42rem;
+    width: 100%;
+    text-decoration:none;
+    background-color: #fcf0e6;
+    background-image: url("../assets/bg-prueba.svg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cartaCatalogo:nth-child(even) {
+    background-color: #FF6543;
+    background-image: url("../assets/bg-prueba2.svg");
+}
+
+.cartaCatalogo:nth-child(even) .textoCartaCatalogo .colorDescripcion{
+    color: #fcf0e6;
+}
+
+.cartaCatalogo:hover{
+    color:black;
+    text-decoration:none;
+}
+
+.imgCartaCatalogo {
+    margin: 1rem;
+    background: #ffe3ce;
+    border-radius: 5px;
+}
+
+.cartaCatalogo:nth-child(even) .imgCartaCatalogo {
+    background: #fcf0e6;
+}
+
+.imgCartaCatalogo img {
+    width: 100%;
+    filter: drop-shadow(0px 20px 18px #181818);
+}
+
+.textoCartaCatalogo {
+    display: flex;
+    width: 80%;
+    gap: 0.5rem;
+}
+
+.lineaVerticalProductos{
+    content: "";
+    width:.15rem;
+    background-color: #919384a3;
+    border-radius: 1rem;
+}
+
+.parradoDescripcion{
+    font-weight: 500;
+    text-shadow: .8px .8px 2px var(--textShadow-blanco);
+}
+
+.colorDescripcion{
+    color: #FF522A;
+    font-weight: 600 !important;
+    text-shadow: .8px .8px 2px var(--textShadow-blanco2);
+}
+
+.botonReservaManejo{
+    margin-top: .5rem;
+    width: 80%;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    border: .15rem solid #919384a3;
+    text-align: center;
+    text-shadow: .8px .8px 2px var(--textShadow-blanco2);
+}
+
+.contendorCompra{
+    margin-top: 0.5rem;
+    width: 40%;
+    height: 6.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border: 0.15rem solid #919384a3;
+    border-top-left-radius: 2rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+    align-items: center;
+}
+
+.imgDorso{
+    width: 70%;
+    filter: drop-shadow(0px 9px 5px #181818);
+    position: absolute;
+    top: -25px;
+}
+
+.botonCompra{
+    margin-top: .5rem;
+    width: 90%;
+    height: 3vh;
+    font-size: .65rem;
+    font-weight: 500;
+    background: #f3f300;
+    border: .1rem solid #cbd3a1a3;
+    text-align: center;
+    text-shadow: .4px .4px 1px var(--textShadow-blanco2);
+}
+
+
+.fondoCartaCatalogoUnFocus{
+    display: none;
+}
+
+#catalogo{
+    min-height: 25vh;
+}
+
+.favoriteDesktop{
+    display:none;
+}
+
+@keyframes
+    favoriteMobileChecked{
+        0%{
+            transform: scale(1);
+        }
+        50%{
+            transform: scale(1.5);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+
+@media (min-width: 280px){
+    #catalogo{
+        display:flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        min-height: 100vh;
+        background-color: rgb(28, 28, 28);
+    }
+
+    #favoriteDesktop{
+        display: none;
+    }
+    .cartasTitulo{
+        display:flex;
+        justify-content: space-between;
+        padding-left:.5rem;
+        padding-top: .5rem;
+    }
+    .cartaDescripcion{
+        font-size: .8rem;
+        padding-left:.5rem;
+    }
+    .material-symbols-outlined {
+        margin-right: .5rem;
+    }
+    .contenedorPrecioLogo{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 2.5rem;
+        margin: 0rem .5rem .5rem 
+    }
+    .logoDucati{
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
+    .favoriteMobileUnChecked{
+        display:none;
+    }
+    .favoriteMobileChecked{
+        animation: favoriteMobileChecked .5s;
+    }
+
+}

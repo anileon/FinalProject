@@ -2,63 +2,13 @@ Vue.createApp({
     data() {
         return {
             message: 'Hello Vue!',
-            bikes: [
-                {
-                    id: 1,
-                    type: "ducati",
-                    modelo: "ducati X",
-                    name: "Multistrada 1260 Enduro",
-                },
-                {
-                    id: 2,
-                    type: "ducati",
-                    modelo: "ducati",
-                    name: "Panigale V4 S",
-                },
-                {
-                    id: 3,
-                    type: "ducati",
-                    modelo: "SCRAMBLER DUCATI",
-                    name: "CAFÉ RACER",
-                },
-                {
-                    id: 4,
-                    type: "HARLEY",
-                    modelo: "HARLEY",
-                    name: "Hypermotard 950 SP",
-                },
-                {
-                    id: 5,
-                    type: "HARLEY",
-                    modelo: "HARLEY",
-                    name: "SuperSport S",
-                },
-                {
-                    id: 6,
-                    type: "HARLEY",
-                    modelo: "HARLEY",
-                    name: "Diavel 1260 S",
-                },
-                {
-                    id: 7,
-                    type: "ducati",
-                    modelo: "ducati",
-                    name: "XDiavel S",
-                },
-                {
-                    id: 8,
-                    type: "HARLEY",
-                    modelo: "HARLEY",
-                    name: "2021 Low Rider™ S",
-                },
-            ],
+            productos: [],
 
             scrolled: false,
             searchText: "",
             ccSleccionado: "Any",
             modeloSeleccionado: "All models",
             precioSeleccionado: "Relevant",
-            
         }
     },
 
@@ -67,7 +17,7 @@ Vue.createApp({
     },
 
     created() {
-        
+
     },
 
     methods: {
@@ -145,6 +95,10 @@ Vue.createApp({
         toggleFilter() {
             let filtro = document.querySelector(".box-de-filtro")
             filtro.classList.toggle("oculto")
+        },
+
+        obtenerURL(arr){
+            log
         }
     },
 
