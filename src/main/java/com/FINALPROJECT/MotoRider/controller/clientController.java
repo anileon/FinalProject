@@ -150,7 +150,7 @@ public class clientController {
         String subject = "Please verify your registration";
         String content = "<h2 style=\"color:black;\">Hi [[name]]!</h2>"
                 + "<p style=\"color:black;\"> Please click the link below to verify your registration: </p>"
-               // +"<img src=\"https://i.imgur.com/DjW6seD.png\" alt=\"ImgRegister\" width=\"450\" height=\"302\"/> <br>"
+                +"<img src=\"https://i.ibb.co/pRktKZH/LOGO-LETRAS-PROJECTO-FINAL-negro.png\" alt=\"ImgRegister\" width=\"400\" height=\"250\"/> <br>"
                 + "<h3><a href=\"[[URL]]\" target=\"_self\" style=\"color:#ff5e14;\">VERIFY YOUR ACCOUNT</a></h3>"
                 + "<div style=\"display:flex;gap: 0.4rem;\"> <p style=\"color:black;\"> Thank you, </p> <p style=\"color:rgb(232, 91, 26);font-weight: bold;\"> MotoRiderTeam. </p> </div> "
                 ;
