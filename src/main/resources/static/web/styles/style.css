@@ -19,7 +19,7 @@
     --paleta-azul-oscuro: #1D3557;
 
     /* Neon 2 */
-    --neon-rojo: #f61d30;
+    --neon-rojo: #ec4141;
     --neon-blanco: #f3fad4;
     --neon-azul-claro: #36edf0;
     --neon-azul-medio: #23a1ef;
@@ -31,6 +31,11 @@
 
     /* Estilos extra */
     --altura-con-nav: calc(100vh - 5rem)
+
+    #FF522A
+    #FAF1EA (blanquito)
+    #FF522A (naranjita)
+    --neon-rojo2--: #f61d30;
 }
 
 body, #app {
@@ -55,7 +60,7 @@ header {
     top: 0;
     opacity: 0.2;
     transition: 0.3s linear;
-    z-index: 1;
+    z-index: 10;
 }
 
 header img {
@@ -129,6 +134,8 @@ header .navbar {
 }
 
 .nav-motos, .nav-hombre, .nav-mujer, .nav-experiencia {
+    display:flex;
+    flex-direction:column;
     position: absolute;
     top: 5rem;
     left: 0;
@@ -158,8 +165,8 @@ header .navbar {
 /* ============================================== FOOTER ============================================== */
 footer{
     width: 100%;
-    height: 72vh;
-    background-color: var(--paleta-blanco); 
+    height: 65vh;
+    background-color: #FAF1EA; 
 }
 
 .contenedorSuscripcionGeneral{
@@ -183,7 +190,8 @@ footer{
 }
 
 .parrafoSuscribcion{
-    font-size: .7rem;  
+    font-size: .7rem;
+    font-weight: 500;  
 }
 
 .contenedorGeneralBoton{
@@ -204,25 +212,30 @@ footer{
 .contenedorGeneralBoton{
     display: flex;
     justify-content: center;
+    gap: .5rem;
 }
 
 .inputFooter{
     font-size: .55rem;
     border: none;
-    border-radius: 5px;
-    padding-left: .3rem;
-    background-color: var(--paleta-blanco);
+    width: 45%;
+    font-size: .6rem;
+    font-weight: 500;
+    border: .15rem solid #919384a3;
+    padding-left: .2rem;
+    text-shadow: .6px .6px 1px var(--textShadow-blanco2);
+    background-color:  var(--paleta-blanco);
 }
 
 .botonSuscripcion{
-    font-size: .8rem;
-    margin-left: .6rem;
-    padding: .3rem;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--paleta-rojo);
-    text-shadow: 2px 2px 8px var(--textShadow-blanco2);
-    color: var(--paleta-blanco);
+    font-size: .7rem;
+    width: 35%;
+    height: 3vh;
+    font-weight: 500;
+    background: #f3f300;
+    border: .1rem solid #cbd3a1a3;
+    text-align: center;
+    text-shadow: .6px .6px 1px var(--textShadow-blanco2);
 }
 
 /* Contenedor Logo/Footer */
@@ -366,7 +379,7 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 15vh;
+    height: 1vh;
     padding-top: .7rem;
     font-size: .5rem;
     color: rgba(0, 0, 0, 0.012);
@@ -401,6 +414,22 @@ footer{
 
     .nav-menu-btn {
         display: none;
+    }
+
+    .nav-motos, .nav-hombre, .nav-mujer, .nav-experiencia {
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        min-height: 15rem;
+        width: 100%;
+        background-color: #fff;
+        display: flex;
+        animation: nav 0.4s;
+    }
+
+    @keyframes nav {
+        0% {transform: translateY(-100%) }
+        100% {transform: translateY(0%)}
     }
 }
 

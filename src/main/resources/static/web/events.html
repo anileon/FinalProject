@@ -6,18 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"
-    />
-    <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
     />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/style.css"/>
+    <link rel="stylesheet" href="./styles/events.css">
   </head>
 
   <body>
@@ -26,7 +22,8 @@
         <!-- El header va a ser transparente hasta hacer scroll (hacer logica) -->
         <img
           src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
-          alt="">
+          alt=""
+        />
 
         <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
         <!-- aca va el logo -->
@@ -49,10 +46,6 @@
           <span class="boton-cerrar-nav">
             <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
           </span>
-          <ol>
-            <li><a href="./bikes-ducati.html">DUCATI</a></li>
-            <li><a href="./bikes-harley.html">HARLEY</a></li>
-          </ol>
         </div>
         <div class="nav-hombre oculto">
           <span class="boton-cerrar-nav">
@@ -61,72 +54,73 @@
         </div>
         <div class="nav-mujer oculto">
           <span class="boton-cerrar-nav">
-            <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
+            <i class="material-symbols-rounded" @click="cerrarNavbar($event)"
+              >close</i
+            >
           </span>
         </div>
         <div class="nav-experiencia oculto">
           <span class="boton-cerrar-nav">
-            <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
+            <i class="material-symbols-rounded" @click="cerrarNavbar($event)"
+              >close</i
+            >
           </span>
         </div>
       </header>
 
       <div class="imagen-principal">
-        <div class="glitch-logo"></div>
+        <img src="" alt="" />
       </div>
 
-      <main class="d-flex flex-column justify-content-center align-items-center">
-        <div class="d-flex gap-3 p-3" id="cardsDestacadas">
-          <div class="d-flex">
-            <div class="cartaProductoDestacado d-flex flex-column gap-1 text-white" id="cartaProductoDestacado1">
-              <div class="imgTemp"></div>
-              <div class="p-4">
-                <h6 class="">New model</h6>
-                <p class="">New model of Harley motor bike</p>
-              </div>
+      <main class="">
+        <div class="eventos">
+          <div class="carta">
+            <img class="imgCarta" src="http://drive.google.com/uc?export=view&id=1cJtjOpyAsvb_UFuXMku6D4K6Gy75GsgJ" alt="">
+            <div class="cartaTexto">
+              <h3>Organize your travel</h3>
+              <p>Organize your travel with the best team especialazed and experts we can offer you about the travels and bikes</p>
             </div>
-            <div class="neon">
-              <p>M</p>
-              <p>O</p>
-              <p>T</p>
-              <p>O</p>
-              <p>R</p>
+            <button>See more</button>
+          </div>
+          <div class="carta">
+            <img class="imgCarta" src="http://drive.google.com/uc?export=view&id=1KJH6VD0PfQrEUaHoKH-rI-6gtaFyfWeR" alt="">
+            <div class="cartaTexto">
+              <h3>Meeting point</h3>
+              <p>Know more people with the same hobbies</p>
+              
             </div>
           </div>
-          <div class="d-flex">
-            <div class="neon">
-              <p>R</p>
-              <p>I</p>
-              <p>D</p>
-              <p>E</p>
-              <p>R</p>
-            </div>
-            <div class="cartaProductoDestacado d-flex flex-column gap-1 text-white" id="cartaProductoDestacado2">
-              <div class="imgTemp"></div>
-              <div class="p-4">
-                <h6 class="">New model</h6>
-                <p class="">New model of Harley motor bike</p>
-              </div>
+          <div class="carta">
+            <img class="imgCarta" src="http://drive.google.com/uc?export=view&id=1PPno_atQc9gr1IVsd4kwwRAMCfeuZz1m" alt="">
+            <div class="cartaTexto">
+              <h3>Rent</h3>
+              <p>Rent a ducati motorbike on one store near your ubication</p>
             </div>
           </div>
         </div>
 
-        
-        <div class="grid">
-          <div class="grid-card span-1 c-5"></div>
-          <div class="grid-card span-1 c-1"></div>
-          <div class="grid-card span-3 c-5"></div>
-          <div class="grid-card span-3 c-1"></div>
-          <div class="grid-card span-2 c-2"></div>
+
+        <div>
+            <p class="textoEventos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+                ullam tempore obcaecati odio maxime, atque sint laborum possimus
+                quisquam.</p>
+            <img class="fotoPaisaje" src="" alt="">
         </div>
 
-        <section>
-          <a class="imgMoto1"><span></span></a>
-          <a class="imgMoto2"><span></span></a>
-        </section>
+
+        <div class="masEventos">
+            <div>
+                <div>
+                    <img src="" alt="">
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+                    ullam tempore obcaecati odio maxime, atque sint laborum possimus
+                    quisquam.</p>
+            </div>
+        </div>
       </main>
 
-      <footer>
+            <footer>
         <div class="contenedorSuscripcionGeneral">
           <div class="contenedorSuscripcion">
             <div class="contenedorTexto">
@@ -195,10 +189,11 @@
       </footer>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://kit.fontawesome.com/2544a6d2ae.js" crossorigin="anonymous"></script>
-    <script src="./scripts/index.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./scripts/events.js"></script>
   </body>
 </html>
