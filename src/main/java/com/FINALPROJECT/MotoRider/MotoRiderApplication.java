@@ -163,7 +163,7 @@ public class MotoRiderApplication {
 
 
 
-			Client client1 = new Client("Augusto", "Casanova", "Augusto@gmail.com", "calle siempre viva 465", 1140325063, "hola");
+			Client client1 = new Client("Augusto", "Casanova", "Augusto@gmail.com","hola");
 			clientRepository.save(client1);
 
 
