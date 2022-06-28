@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products </title>
+    <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./styles/style.css"/>
+    <link rel="stylesheet" href="./styles/products.css">
+</head>
+<body>
+    <div id="app">
+        <header class="header" :class="{ 'header-activo': scrolled }">
+            <!-- El header va a ser transparente hasta hacer scroll (hacer logica) -->
+            <img
+              src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
+              alt=""
+            />
+    
+            <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
+            <!-- aca va el logo -->
+            <nav class="navbar oculto">
+              <div class="nav-elemento" @click="toggleNavItem('.nav-motos')">
+                BIKES
+              </div>
+              <div class="nav-elemento" @click="toggleNavItem('.nav-hombre')">
+                MAN
+              </div>
+              <div class="nav-elemento" @click="toggleNavItem('.nav-mujer')">
+                WOMAN
+              </div>
+              <div class="nav-elemento" @click="toggleNavItem('.nav-experiencia')">
+                EVENTS
+              </div>
+            </nav>
+    
+            <div class="nav-motos oculto">
+              <span class="boton-cerrar-nav">
+                <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
+              </span>
+            </div>
+            <div class="nav-hombre oculto">
+              <span class="boton-cerrar-nav">
+                <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
+              </span>
+            </div>
+            <div class="nav-mujer oculto">
+              <span class="boton-cerrar-nav">
+                <i class="material-symbols-rounded" @click="cerrarNavbar($event)"
+                  >close</i
+                >
+              </span>
+            </div>
+            <div class="nav-experiencia oculto">
+              <span class="boton-cerrar-nav">
+                <i class="material-symbols-rounded" @click="cerrarNavbar($event)"
+                  >close</i
+                >
+              </span>
+            </div>
+        </header>
+
+        <div class="imagen-principal">
+            <div class="portadaHombre"></div>
+        </div>
+
+        <main>
+            <div id="catalogo">
+                <div id="filtro">
+                    <span @click="toggleFilter()"><i class="material-symbols-outlined">apps</i> Filter</span>
+                    <div class="box-de-filtro oculto">
+                      <input type="search" name="search" id="search">
+                      
+                    </div>
+                  </div>
+                <div class="cartaCatalogo">
+                  <div class="brand-title">
+                    <img src="http://drive.google.com/uc?export=view&id=1pM5qGCK0JrSKU84YgHzlkyQV9jpTwMSC " alt="">
+                  </div>
+                  
+                  <div class="imgCartaCatalogo">
+                    <img src="https://images-ext-2.discordapp.net/external/m3l9lpMcqte0tpXIKDF0gFpug_MC8FGYvNn4Ypl345c/https/i.ibb.co/HNvJrzM/97017-22-VM-F-removebg-preview-1.png" alt="">
+                  </div>
+      
+                  <div class="textoCartaCatalogo">
+                    <div class="detallesProducto">
+                        <p>sdfddfs</p>
+                        <p class="colorDescripcion">sdfddfdfs</p>
+                    </div>
+                    <span class="lineaVerticalProductos"></span>
+                    <div class="detallesProducto">
+                        <p>sdfddfs</p>
+                        <p class="colorDescripcion">sdfasdfs</p>
+                    </div>
+                    <span class="lineaVerticalProductos"></span>
+                    <div class="detallesProducto">
+                        <p>sdfddfs</p>
+                        <p class="colorDescripcion">sdfddfds</p>
+                    </div>
+                  </div>
+                    <button class="botonReservaManejo">🏍 | Book a Test Drive</button>
+                    <div class="contendorCompra">
+                        <img class="imgDorso" src="https://images-ext-2.discordapp.net/external/5WRFtnCztMqXmP357Y2WzQ1FPJz1q0cgTY8KHh8Tl-Y/https/i.ibb.co/h7tpXCf/97017-22-VM-B-removebg-preview.png">
+                        <button class="botonCompra" type="submit">🛒 | Check product ↗</button>
+                    </div>  
+                  
+                </div>
+
+                <div class="cartaCatalogo">
+                  <div class="brand-title">
+                    <img src="http://drive.google.com/uc?export=view&id=1pM5qGCK0JrSKU84YgHzlkyQV9jpTwMSC " alt="">
+                  </div>
+                  
+                  <div class="imgCartaCatalogo">
+                    <img src="https://images-ext-2.discordapp.net/external/m3l9lpMcqte0tpXIKDF0gFpug_MC8FGYvNn4Ypl345c/https/i.ibb.co/HNvJrzM/97017-22-VM-F-removebg-preview-1.png" alt="">
+                  </div>
+      
+                  <div class="textoCartaCatalogo">
+                    <div class="detallesProducto">
+                        <p class="parradoDescripcion">sdfddfs</p>
+                        <p class="colorDescripcion">sdfddfdfs</p>
+                    </div>
+                    <span class="lineaVerticalProductos"></span>
+                    <div class="detallesProducto">
+                        <p class="parradoDescripcion">sdfddfs</p>
+                        <p class="colorDescripcion">sdfasdfs</p>
+                    </div>
+                    <span class="lineaVerticalProductos"></span>
+                    <div class="detallesProducto">
+                        <p class="parradoDescripcion">sdfddfs</p>
+                        <p class="colorDescripcion">sdfddfds</p>
+                    </div>
+                  </div>
+                    <button class="botonReservaManejo">🏍 | Boock a Test Drive</button>
+                    <div class="contendorCompra">
+                        <img class="imgDorso" src="https://images-ext-2.discordapp.net/external/5WRFtnCztMqXmP357Y2WzQ1FPJz1q0cgTY8KHh8Tl-Y/https/i.ibb.co/h7tpXCf/97017-22-VM-B-removebg-preview.png">
+                        <button class="botonCompra" type="submit">🛒 | Check product ↗</button>
+                    </div>                 
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="contenedorSuscripcionGeneral">
+              <div class="contenedorSuscripcion">
+                <div class="contenedorTexto">
+                  <h3 class="tituloSuscribe">
+                    Subscribe to the Moto Rider newsletter
+                  </h3>
+                </div>
+                <div class="contenedorParrafo">
+                  <p class="parrafoSuscribcion">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+                    ullam tempore obcaecati odio maxime, atque sint laborum possimus
+                    quisquam. Necessitatibus
+                  </p>
+                </div>
+                <div class="contenedorGeneralBoton">
+                  <input
+                    class="inputFooter"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="YOUR EMAIL ADDRESS"
+                  />
+                  <button type="submit" class="botonSuscripcion">
+                    SUBSCRIBE NOW
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="contenedorTamañoEscritorio">
+              <div class="contenedorLogoFooter">
+                <div class="contenedorImgLogo iconos-wrapper">
+                  <img
+                    class="ImgLogo"
+                    src="./assets/LOGO_LETRAS_PROJECTO_FINAL.png"
+                    alt="logo"
+                  />
+                </div>
+                <div class="contenedorRedesSocialesFooter">
+                  <i class="fa-brands fa-instagram iconos pe-2"></i>
+                  <i class="fa-brands fa-facebook-f iconos pe-2"></i>
+                  <i class="fa-brands fa-twitter iconos pe-2"></i>
+                  <i class="fa-brands fa-pinterest-p iconos"></i>
+                </div>
+              </div>
+              <div class="contenedorContenidoFooter">
+                <div class="contenedorTextoPlanoFooter">
+                  <h4 class="TextoPlanoFooter">ABOUT US</h4>
+                  <h4 class="TextoPlanoFooter">SHIPPING PAYMENT</h4>
+                  <h4 class="TextoPlanoFooter">WARRANTY</h4>
+                  <h4 class="TextoPlanoFooter">NEWS</h4>
+                </div>
+                <div class="contenedorTextoPlanoParrafo">
+                  <p class="textoPlanoFooter">
+                    Copyright © 2022 Moto Rider - A Sole Shareholder Company - A
+                    Company
+                  </p>
+                  <p class="textoPlanoFooter">
+                    subject to the Management and Coordination activities of All
+                    rights
+                  </p>
+                  <p class="textoPlanoFooter">reserved. VAT 05113865928</p>
+                  <p class="textoPlanoFooter">Moto Rider</p>
+                </div>
+              </div>       
+            </div>
+        </footer>      
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://kit.fontawesome.com/2544a6d2ae.js" crossorigin="anonymous"></script>
+    <script src="./scripts/products.js"></script>
+</body>
+</html>

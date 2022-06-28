@@ -79,7 +79,6 @@ public class PDFGeneratorService {
         document.add(paragraph7);
 
         PdfPTable table = new PdfPTable(4);
-        table.
         table.setWidthPercentage(100);
         table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
         table.getDefaultCell().setBackgroundColor(Color.cyan);
