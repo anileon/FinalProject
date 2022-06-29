@@ -1,0 +1,128 @@
+*{
+    background-color: #000000;
+}
+
+.main{
+    background-color: black;
+    height: auto;
+  }
+
+.imagen-principal {
+    height: 50vh;
+    /* CAMBIAR A MIN HEIGHT */
+    background: rgb(46, 117, 64);
+    background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/990982160569749564/header.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+.cardActivate{
+    background-color: black;
+}
+  p{
+    color: white;
+  }
+  footer{
+    width: 100%;
+    height: 65vh;
+    background-color: #000000; 
+}
+
+
+
+
+
+.tituloSuscribe{
+    font-size: 1rem;
+    color: var(--paleta-blanco);
+    text-shadow: 1px 1px 10px #f3fad4;
+    padding-left: 1.4rem;
+}
+
+
+
+.contenedorGeneralBoton{
+    display: inline-block;
+}
+
+.contenedorTexto{
+    padding-top: 1.25rem;
+}
+
+.contenedorParrafo{
+    padding: .5rem 1.5rem 0rem ;
+    min-height: 10vh;
+    color: var(--paleta-blanco);
+    text-shadow: .6px .6px 1px var(--textShadow-blanco);
+}
+
+.contenedorGeneralBoton{
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+}
+
+
+
+.botonSuscripcion{
+    font-size: .7rem;
+    width: 35%;
+    height: 3vh;
+    font-weight: 500;
+    background: #f3f300;
+    border: .1rem solid #cbd3a1a3;
+    text-align: center;
+    text-shadow: .6px .6px 1px var(--textShadow-blanco2);
+}
+
+/* Contenedor Logo/Footer */
+.contenedorLogoFooter{
+    background-color: black;
+    height: 28vh;
+}
+
+.contenedorImgLogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 9rem;
+}
+
+.ImgLogo{
+    width: 12rem;
+    height: 8rem;
+}
+
+.contenedorRedesSocialesFooter{
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.2rem;
+}
+
+.iconos{
+    font-size: 2rem;
+    color: var(--paleta-blanco);
+}
+
+.iconos {
+    display: inline-block;
+    animation: float 5s ease-in-out infinite;
+}
+
+.fa-facebook-f {
+    animation-delay: 1s;
+}
+
+.fa-twitter {
+    animation-delay: 2s;
+}
+
+.fa-pinterest-p {
+    animation-delay: 3s;
+}
