@@ -57,4 +57,9 @@ public class ClientServiceImplement implements ClientService {
     public Client getCurrent(Authentication authentication) {
         return clientRepository.findByEmail(authentication.getName());
     }
+
+    @Override
+    public ClientDTO getCurrentDTO(Authentication authentication) {
+        return new ClientDTO(clientRepository.findByEmail(authentication.getName()));
+    }
 }

@@ -23,6 +23,8 @@ public interface ClientService {
 
     Client getCurrent(Authentication authentication);
 
+    ClientDTO getCurrentDTO(Authentication authentication);
+
 
 
 }

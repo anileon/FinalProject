@@ -7,6 +7,9 @@ import com.FINALPROJECT.MotoRider.services.ReceiptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+
 @Service
 public class receiptServiceImplement implements ReceiptService {
 
@@ -25,5 +28,10 @@ public class receiptServiceImplement implements ReceiptService {
     @Override
     public Receipt getReceipt(long id) {
         return receiptRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Set<ReceiptDTO> getReceiptsDto() {
+        return receiptRepository.findAll().stream().map(receipt -> new ReceiptDTO(receipt)).collect(Collectors.toSet());
     }
 }
