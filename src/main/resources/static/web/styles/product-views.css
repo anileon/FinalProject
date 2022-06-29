@@ -172,6 +172,7 @@ section {
   height: 20vh;
 }
 
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
