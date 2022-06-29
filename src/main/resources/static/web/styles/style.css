@@ -30,11 +30,7 @@
     --textShadow-blanco2: #686b58;
 
     /* Estilos extra */
-    --altura-con-nav: calc(100vh - 5rem)
-
-    #FF522A
-    #FAF1EA (blanquito)
-    #FF522A (naranjita)
+    --altura-con-nav: calc(100vh - 5rem);
     --neon-rojo2--: #f61d30;
 }
 
@@ -73,6 +69,13 @@ header img {
     color: #fff;
     padding-right: 1rem;
     cursor: pointer;
+    position: relative;
+}
+
+.nav-menu-btn i {
+    position: absolute;
+    font-size: 1rem;
+    top: -5px;
 }
 
 header:hover, .header-activo {
@@ -153,6 +156,52 @@ header .navbar {
     align-items: center;
     justify-content: flex-end;
 }
+
+.carrito {
+    position: absolute;
+    top: 5rem;
+    height: calc(100vh - 10rem);
+    background: white;
+    width: 100%;
+    overflow: auto;
+    animation: nav 0.4s;
+}
+
+
+.carrito-box {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #5c5c5c52;
+    min-height: 7rem;
+    gap: 1rem;
+}
+
+.carrito-box img {
+    padding: unset;
+}
+
+.totalYPago {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: red;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.3rem;
+}
+
+.totalYPago button {
+    width: 100%;
+    height: 3rem;
+    border: unset;
+    background: #dbdb00;
+}
+
+
 
 /* Keyframes del header */
 @keyframes nav {
@@ -414,6 +463,9 @@ footer{
 
     .nav-menu-btn {
         display: none;
+    }
+    .nav-menu-btn:first-child {
+        display: unset;
     }
 
     .nav-motos, .nav-hombre, .nav-mujer, .nav-experiencia {

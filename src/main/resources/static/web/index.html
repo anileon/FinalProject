@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Moto Rider | Home</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -28,9 +28,8 @@
           src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
           alt="">
 
-        <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
-        <!-- aca va el logo -->
-        <nav class="navbar oculto">
+          <!-- aca va el logo -->
+          <nav class="navbar oculto">
           <div class="nav-elemento" @click="toggleNavItem('.nav-motos')">
             BIKES
           </div>
@@ -44,6 +43,40 @@
             EVENTS
           </div>
         </nav>
+
+        <div>
+          <span class="material-symbols-rounded nav-menu-btn" @click="toggleCart()">shopping_cart <i>{{productosGeneral.length}}</i></span>
+          <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
+        </div>
+
+        <div class="carrito oculto">
+          <div v-for="producto in arrayDeMotos" class="carrito-box">
+              <img :src="producto.images[0]" alt="product image">
+              <div>
+                  <p>{{producto.model}}</p>
+                  <div>
+                      <span>Amount: {{producto.cantidad}}</span>
+                      <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
+                  </div>
+              </div>
+          </div>
+
+          <div v-for="producto in arrayDeProductos" class="carrito-box">
+              <img :src="producto.urlImg[0]" alt="product image">
+              <div>
+                  <p>{{producto.description}}</p>
+                  <div>
+                      <span>Amount: {{producto.cantidad}}</span>
+                      <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
+                  </div>
+              </div>
+          </div>
+
+          <div class="totalYPago">
+              <span>Total: ${{total}}</span>
+              <button>Go to payment</button>
+          </div>
+      </div>
 
         <div class="nav-motos oculto">
           <span class="boton-cerrar-nav">

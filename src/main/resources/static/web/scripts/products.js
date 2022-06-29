@@ -6,8 +6,9 @@ Vue.createApp({
 
             scrolled: false,
             searchText: "",
-            ccSleccionado: "Any",
-            modeloSeleccionado: "All models",
+            gender: "",
+            auxiliar: [],
+            tipoSeleccionado: [],
             precioSeleccionado: "Relevant",
         }
     },
@@ -17,7 +18,13 @@ Vue.createApp({
     },
 
     created() {
+        axios.get("/api/products")
+        .then(res => {
+            this.productos = res.data
+            this.auxiliar = this.productos
 
+            console.log(res.data);
+        })
     },
 
     methods: {
@@ -97,9 +104,74 @@ Vue.createApp({
             filtro.classList.toggle("oculto")
         },
 
-        obtenerURL(arr){
-            log
-        }
     },
+
+    computed: {
+        filterChange(){
+            this.auxiliar = []
+
+            console.log(this.auxiliar);
+
+            if (this.precioSeleccionado == "Relevant") {
+                this.auxiliar = this.productos
+            }
+
+            if (this.precioSeleccionado == "Least") {
+                this.auxiliar = this.productos.sort((a, b) => a.price - b.price)
+            }
+
+            if (this.precioSeleccionado == "Most") {
+                this.auxiliar = this.productos.sort((a, b) => b.price - a.price)
+            }
+
+            console.log(this.auxiliar);
+
+            if (this.gender == "FEMALE") {
+                this.auxiliar = this.productos.filter(prod => prod.genderType == "FEMALE")
+            }
+            if (this.gender == "MALE") {
+                this.auxiliar = this.productos.filter(prod => prod.genderType == "MALE")
+            }
+
+            let auxiliar = []
+            if (this.searchText != "") {
+                this.productos.filter(prod => {
+                    if (prod.description.toUpperCase().includes(this.searchText.toUpperCase())) {
+                        auxiliar.push(prod)
+                        this.auxiliar = auxiliar
+                    }
+                })
+            }
+
+            let aux = []
+            if (this.tipoSeleccionado.length > 0) {
+                this.productos.forEach(prod => {
+                    this.tipoSeleccionado.forEach(check => {
+                        prod.type == check ? aux.push(prod) : null
+                    })
+                })
+                this.auxiliar = aux
+
+                if (this.gender == "FEMALE") {
+                    this.auxiliar = this.auxiliar.filter(prod => prod.genderType == "FEMALE")
+                }
+                if (this.gender == "MALE") {
+                    this.auxiliar = this.auxiliar.filter(prod => prod.genderType == "MALE")
+                }
+    
+                if (this.precioSeleccionado == "Relevant") {
+                    this.auxiliar = this.productos
+                }
+    
+                if (this.precioSeleccionado == "Least") {
+                    this.auxiliar = this.auxiliar.sort((a, b) => a.price - b.price)
+                }
+    
+                if (this.precioSeleccionado == "Most") {
+                    this.auxiliar = this.auxiliar.sort((a, b) => b.price - a.price)
+                }
+            }
+        }
+    }
 
 }).mount('#app')
