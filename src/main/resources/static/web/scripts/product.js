@@ -4,8 +4,7 @@ const getID = urlParams.get('id');
 Vue.createApp({
     data() {
         return {
-            message: 'Hello Vue!',
-            producto: [],
+            product: [],
 
             scrolled: false,
             searchText: "",
@@ -14,6 +13,7 @@ Vue.createApp({
             auxiliar: [],
             tipoSeleccionado: [],
             precioSeleccionado: "Relevant",
+            carouselValue: 0,
 
             productosObtenidos: [],
             arrayDeProductos: [],
@@ -21,6 +21,7 @@ Vue.createApp({
             productosDelCarrito: [],
             productosGeneral: [],
             totalCarrito: [],
+            images: [],
             idProducto: "",
             total: "",
         }
@@ -34,13 +35,13 @@ Vue.createApp({
         axios.get(`/api/products/${getID}`)
         .then(res => {
             console.log(res.data);
-            this.producto = res.data
+            this.product = res.data
+            this.images.push(this.product.urlImg)
 
             this.productosObtenidos = JSON.parse(localStorage.getItem("productos-carrito"))
             if (this.productosObtenidos) {
                 this.productosDelCarrito = this.productosObtenidos
             }
-
 
             this.arrayDeMotos = JSON.parse(localStorage.getItem("motos-carrito") || "[]")
             this.arrayDeProductos = JSON.parse(localStorage.getItem("array-productos") || "[]")
@@ -77,7 +78,7 @@ Vue.createApp({
         },
 
         plusCounter(){
-            if (this.cantidad < this.producto.stock) {
+            if (this.cantidad < this.product.stock) {
                 this.cantidad += 1
             }
         },
@@ -87,6 +88,110 @@ Vue.createApp({
 
             if (this.cantidad == 0) {
                 this.cantidad = 1
+            }
+        },
+
+        imagenAnterior() {
+            this.carouselValue -= 1
+            let imgCarousel0 = document.querySelector("#img-carousel-0")
+            let imgCarousel1 = document.querySelector("#img-carousel-1")
+            let imgCarousel2 = document.querySelector("#img-carousel-2")
+            if (this.carouselValue < 0) {
+                this.carouselValue = this.images.length
+                if (imgCarousel0 != null) {
+                    imgCarousel0.classList.add("display-none")
+                }
+                if (imgCarousel2 != null) {
+                    imgCarousel2.classList.remove("display-none")
+                } else {
+                    imgCarousel1.classList.remove("display-none")
+                }
+            } else if (this.carouselValue == 0) {
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.add("display-none")
+                }
+                if (imgCarousel0 != null) {
+                    imgCarousel0.classList.remove("display-none")
+                }
+            } else if (this.carouselValue == 1) {
+                if (imgCarousel2 != null) {
+                    imgCarousel2.classList.add("display-none")
+                }
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.remove("display-none")
+                }
+            }
+        },
+        imagenSiguiente() {
+            this.carouselValue += 1
+            let imgCarousel0 = document.querySelector("#img-carousel-0")
+            let imgCarousel1 = document.querySelector("#img-carousel-1")
+            let imgCarousel2 = document.querySelector("#img-carousel-2")
+
+            if (this.carouselValue == 1) {
+                if (imgCarousel0 != null) {
+                    imgCarousel0.classList.add("display-none")
+                }
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.remove("display-none")
+                }
+            } else if (this.carouselValue >= this.images.length) {
+                this.carouselValue = 0
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.add("display-none")
+                }
+                if (imgCarousel2 != null) {
+                    imgCarousel2.classList.add("display-none")
+                }
+                if (imgCarousel0 != null) {
+                    imgCarousel0.classList.remove("display-none")
+                }
+            } else if (this.carouselValue == 2) {
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.add("display-none")
+                }
+                if (imgCarousel2 != null) {
+                    imgCarousel2.classList.remove("display-none")
+                }
+            }
+        },
+        imagenSlide(index) {
+            let imgCarousel0 = document.querySelector("#img-carousel-0")
+            let imgCarousel1 = document.querySelector("#img-carousel-1")
+            let imgCarousel2 = document.querySelector("#img-carousel-2")
+            if (index == 0) {
+                this.carouselValue = 0
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.add("display-none")
+                }
+                if (imgCarousel2) {
+                    imgCarousel2.classList.add("display-none")
+                }
+                if (imgCarousel0 != null) {
+                    imgCarousel0.classList.remove("display-none")
+                }
+            } else if (index == 1) {
+                this.carouselValue = 1
+                if (imgCarousel2) {
+                    imgCarousel2.classList.add("display-none")
+                }
+                if (imgCarousel0 != null) {
+                    imgCarousel0.classList.add("display-none")
+                }
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.remove("display-none")
+                }
+            } else {
+                this.carouselValue = 2
+                if (imgCarousel0 != null) {
+                    imgCarousel0.classList.add("display-none")
+                }
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.add("display-none")
+                }
+                if (imgCarousel2) {
+                    imgCarousel2.classList.remove("display-none")
+                }
             }
         },
 

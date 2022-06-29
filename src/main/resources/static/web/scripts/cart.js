@@ -1,5 +1,3 @@
-const urlParams = new URLSearchParams(window.location.search);
-const getID = urlParams.get('id');
 
 Vue.createApp({
     data() {
