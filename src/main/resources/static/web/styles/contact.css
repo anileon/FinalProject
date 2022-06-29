@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700");
+
+* {
+    box-sizing: border-box;
+}
+body {
+    color: #000100;
+}
+.containerContacto {
+    height: 200vh;
+    width: 100%;
+    background-image: url("https://images-ext-1.discordapp.net/external/vcKYiaNgYdXDksvWQNCoMA2nVYbeA-IwKvDrKdAyGD4/https/i.ibb.co/jDXCdSX/ruta.png?width=575&height=675");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    margin: unset;
+}
+.modal {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(51, 51, 51, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
+    top: unset;
+}
+.modal-container {
+    display: flex;
+    max-width: 720px;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transition-duration: 0.3s;
+    transform: translateY(100px) scale(0.4);
+}
+.modal-title {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 800;
+    color: #995c39;
+}
+.modal-desc {
+    margin: 6px 0 30px 0;
+}
+.modal-left {
+    padding: 30px 30px 30px;
+    background: #1f1d1d;
+    flex: 1.5;
+    transition-duration: 0.5s;
+    transform: translateY(80px);
+    opacity: 0;
+}
+
+.contenedoroLogo{
+    width: 6rem;
+    height: 4rem;
+}
+
+.modal-button {
+    color: #995c39;;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    width: 10%;
+    height: 2.8rem;
+    background: #000100;
+    border: .15rem solid #708403a3;
+    text-shadow: 1px 1px 2px var(--textShadow-blanco2);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.16);
+    transition: 0.3s;
+    font-weight: 900;
+}
+.modal-button:hover {
+    border-color: rgba(255,255,255,0.2);
+    color: #7d695e;
+    background: #f3f300;
+    width: 12%;
+    height: 3rem;
+}
+.modal-right {
+    flex: 2;
+    font-size: 0;
+    transition: 0.3s;
+    overflow: hidden;
+}
+.modal-right img {
+    width: 125%;
+    height: 100%;
+    transform: scale(3);
+    object-fit: cover;
+    transition-duration: 1.2s;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.modal.is-open {
+    height: 100%;
+    background: rgba(51, 51, 51, 0.85);
+}
+.modal.is-open .modal-button {
+    opacity: 0;
+}
+.modal.is-open .modal-container {
+    opacity: 1;
+    transition-duration: 0.6s;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+.modal.is-open .modal-right img {
+    transform: scale(1);
+}
+.modal.is-open .modal-left {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.1s;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-buttons a {
+    color: #000100;
+    font-size: 14px;
+}
+.sign-up {
+    margin: 60px 0 0;
+    font-size: 14px;
+    text-align: center;
+}
+.sign-up a {
+    color: #8c7569;
+}
+
+.input-button {
+    text-align: center;
+    font-size: 1.2rem;
+    width: 50%;
+    font-weight: 400;
+    background: #f3f300;
+    border: .15rem solid #708403a3;
+    text-shadow: .4px .4px 1px var(--textShadow-blanco2);
+    transition: 0.3s;
+    cursor: pointer;
+}
+.input-button:hover {
+    background: #f61d30;
+}
+.input-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    color: #8c7569;
+    transition: 0.3s;
+}
+.input-block {
+    display: flex;
+    flex-direction: column;
+    padding: 3px 3px 3px;
+    border: .1rem solid #708403a3;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    width: 100%;
+}
+.input-block input {
+    outline: 0;
+    border: 0;
+    padding: 4px 0 0;
+    font-size: 14px;
+}
+.input-block input::placeholder {
+    color: #000100e2;
+    opacity: 1;
+    font-size: 1rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px solid #364002a3;
+}
+
+.contenedorMensajes{
+    color: #995c39;;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.input-block:focus-within {
+    border-color: #8c7569;
+}
+.input-block:focus-within .input-label {
+    color: #000100;
+}
+
+select{
+    border: .1rem solid #708403a3 !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    text-shadow: 1px 1px 2px solid #364002a3 !important;
+}
+
+.form-control{
+    border: .1rem solid #708403a3 !important;
+}
+.icon-button {
+    outline: 0;
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    background: 0;
+    padding: 0;
+    cursor: pointer;
+}
+.scroll-down {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #7d695e;
+    font-size: 32px;
+    font-weight: 800;
+    transform: translate(-50%,-50%);
+}
+.scroll-down svg {
+    margin-top: 16px;
+    width: 52px;
+    fill: currentColor;
+}
+
+@media(max-width: 750px) {
+    .modal-container {
+      width: 90%;
+    }
+    .modal-right {
+      display: none;
+    }
+
+    .modal-button {
+        width: 38%;
+        height: 2.8rem;
+        font-weight: 900;
+    }
+    .modal-button:hover {
+        width: 12%;
+        height: 3rem;
+    }
+  }

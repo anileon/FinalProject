@@ -10,6 +10,9 @@ import com.FINALPROJECT.MotoRider.models.Client;
 @RepositoryRestResource
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
-
+    Client findByEmail(String email);
+   // Client findByUserName(String userName);
+    Client getById(long id);
+    Client findByToken(String token);
 
 };

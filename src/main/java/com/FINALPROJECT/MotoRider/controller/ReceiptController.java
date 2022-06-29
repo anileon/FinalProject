@@ -6,24 +6,10 @@ import com.FINALPROJECT.MotoRider.dto.ReceiptDTO;
 import com.FINALPROJECT.MotoRider.dto.RecipeToCreateDTO;
 import com.FINALPROJECT.MotoRider.models.*;
 import com.FINALPROJECT.MotoRider.services.*;
-import com.lowagie.text.*;
-import com.lowagie.text.Font;
-import com.lowagie.text.Image;
-import com.lowagie.text.pdf.PdfPCell;
-import com.lowagie.text.pdf.PdfPTable;
-import com.lowagie.text.pdf.PdfWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-
-import java.awt.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 import javax.transaction.Transactional;
 
 import java.time.LocalDateTime;

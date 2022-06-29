@@ -26,18 +26,20 @@ public class Client {
 
     private String password;
 
+    private String token;
+
+    private boolean enabled;
+
     @OneToMany(mappedBy = "client",  fetch=FetchType.EAGER)
     private Set<Receipt> receipts;
 
     public Client() {
     }
 
-    public Client(String firstName, String lastName, String email, String address, long contact, String password) {
+    public Client(String firstName, String lastName, String email,String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.address = address;
-        this.contact = contact;
         this.password = password;
     }
 
@@ -72,6 +74,27 @@ public class Client {
     public void addReceipt(Receipt receipt){
         receipt.setClient(this);
         receipts.add(receipt);
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+
+    public void deleteToken() {
+        this.token = "";
+    }
+    public boolean isEnabled() {
+        return this.enabled;
     }
 
 }
