@@ -22,6 +22,8 @@ public class MotorcycleDTO {
 
     private int stock;
 
+    private boolean isActive;
+
 
     public MotorcycleDTO() {
     }
@@ -34,6 +36,7 @@ public class MotorcycleDTO {
         this.images = motorcycle.getImages();
         this.price = motorcycle.getPrice();
         this.stock = motorcycle.getStock();
+        this.isActive = motorcycle.isActive();
     }
 
     public Long getId() {
@@ -62,5 +65,14 @@ public class MotorcycleDTO {
 
     public int getStock() {
         return stock;
+    }
+
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }
