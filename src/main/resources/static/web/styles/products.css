@@ -30,7 +30,9 @@
     --textShadow-blanco2: #686b58;
 
     /* Estilos extra */
+
     --altura-con-nav: calc(100vh - 5rem);
+
 }
 
 body, #app {

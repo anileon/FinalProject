@@ -31,6 +31,8 @@
 
     /* Estilos extra */
     --altura-con-nav: calc(100vh - 5rem);
+    --naranja: #FF522A;
+    --blanco2: #FAF1EA;
     --neon-rojo2--: #f61d30;
 }
 
