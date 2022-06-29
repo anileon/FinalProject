@@ -2,10 +2,12 @@ package com.FINALPROJECT.MotoRider;
 
 import com.FINALPROJECT.MotoRider.models.*;
 import com.FINALPROJECT.MotoRider.repositories.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,6 +19,8 @@ public class MotoRiderApplication {
 		SpringApplication.run(MotoRiderApplication.class, args);
 	}
 
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	@Bean
 	public CommandLineRunner initData(MotorcycleRepository motorcycleRepository, ProductRepository productRepository,
@@ -158,12 +162,12 @@ public class MotoRiderApplication {
 			productRepository.save(casco7);
 
 
+			Client admin = new Client("Elon", "Muks", "elon@admin.com", passwordEncoder.encode("1234"));
+			admin.setEnabled(true);
+			clientRepository.save(admin);
 
-
-
-
-
-			Client client1 = new Client("Augusto", "Casanova", "Augusto@gmail.com","hola");
+			Client client1 = new Client("Augusto", "Casanova", "Augusto@gmail.com",passwordEncoder.encode("1234"));
+			client1.setEnabled(true);
 			clientRepository.save(client1);
 
 
