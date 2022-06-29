@@ -6,22 +6,9 @@
 
 
 
-
-
-
-
-
-
-imagen-principal{
-    width: 100%;
-    height: 100vh;
-    background-color: red;
-}
-
 body{
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='648' preserveAspectRatio='none' viewBox='0 0 1440 648'%3e%3cg mask='url(%26quot%3b%23SvgjsMask2487%26quot%3b)' fill='none'%3e%3crect width='1440' height='648' x='0' y='0' fill='rgba(252%2c 240%2c 230%2c 1)'%3e%3c/rect%3e%3cpath d='M108 0C108 52.1 29.48 162 0 162C-24.52 162 -32.4 48.6 0 0C21.6 -32.4 108 -28.9 108 0' stroke='rgba(243%2c 194%2c 145%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M192.72 162C204.87 86.22 156.4 44.73 192.65 0C222.04 -36.27 258.33 0 324 0C405 0 405 0 486 0C539.59 0 547.37 -17.37 593.17 0C628.37 13.35 613.31 61.45 648 61.45C718.21 61.45 725.24 29.48 802.96 0C806.24 -1.24 806.48 0 810 0C891 0 891 0 972 0C1053 0 1053 0 1134 0C1215 0 1215 0 1296 0C1377 0 1417.5 -40.5 1458 0C1498.5 40.5 1458 81 1458 162C1458 243 1458 243 1458 324C1458 405 1458 405 1458 486C1458 567 1498.5 607.5 1458 648C1417.5 688.5 1377 648 1296 648C1215 648 1215 648 1134 648C1073.72 648 1071.51 656.41 1013.44 648C990.51 644.68 991.63 624.55 972 624.55C956.99 624.55 961.45 645.5 944.16 648C880.45 657.22 877.08 648 810 648C729 648 729 648 648 648C567 648 567 648 486 648C407.02 648 328.05 680.71 328.05 648C328.05 601.74 406.79 568.77 486 490.05C488.3 487.77 490.59 489.17 491.06 486C502.87 406.15 512.62 401.12 510.55 324C510.09 307.05 496.36 297.87 486 297.87C477.56 297.87 482.43 312.98 472.94 324C401.43 407.04 412.76 449.3 324 486C257.29 513.59 240.98 452.57 162 452.57C124.88 452.57 91.8 462.29 91.8 486C91.8 518 120.2 533.41 162 564C230.9 614.41 313.2 625.59 313.2 648C313.2 667.59 237.6 648 162 648C81 648 40.5 688.5 0 648C-40.5 607.5 0 567 0 486C0 405 0 405 0 324C0 243 -40.18 194.93 0 162C40.82 128.54 85.37 191.21 162 191.21C181.73 191.21 189.54 181.83 192.72 162' stroke='rgba(243%2c 194%2c 145%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M972 132.37C950.36 132.37 930.81 144.76 930.81 162C930.81 183.4 949.53 209.65 972 209.65C998.38 209.65 1028.51 182.74 1028.51 162C1028.51 144.1 999.21 132.37 972 132.37' stroke='rgba(243%2c 194%2c 145%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M1134 267.49C1104.75 267.49 1086.35 295.32 1086.35 324C1086.35 353.95 1104.27 384.75 1134 384.75C1180.92 384.75 1239.65 353.56 1239.65 324C1239.65 294.93 1181.4 267.49 1134 267.49' stroke='rgba(243%2c 194%2c 145%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M262.55 162C300.79 91.69 274.95 71.6 302.11 0C305.68 -9.4 313.06 0 324 0C405 0 405 0 486 0C508.43 0 514.4 -13.34 530.86 0C595.4 52.3 576.41 108.09 648 131.28C715.98 153.3 740.02 80.38 810 90.42C847.1 95.74 834.2 127.71 862.17 162C915.2 227.03 916.07 226.47 972 289.06C988.46 307.47 991.26 304.94 1006.94 324C1072.26 403.41 1070.47 405 1134 486C1134 486 1134 486 1134 486C1215 537.55 1229.11 589.09 1296 589.09C1336.28 589.09 1339.39 541.15 1348.34 486C1360.9 408.6 1339.79 405.04 1339.03 324C1338.27 243.04 1356.27 240.99 1345.3 162C1334.75 86.04 1337.28 14.09 1296 14.09C1241.76 14.09 1227.01 90.49 1154.25 162C1146.01 170.09 1143.34 173.3 1134 173.3C1127.56 173.3 1129.65 165.88 1122.7 162C1048.65 120.72 1043.38 128.54 972 82.98C916.49 47.54 868.91 23.32 868.91 0C868.91 -18.17 920.45 0 972 0C1053 0 1053 0 1134 0C1215 0 1215 0 1296 0C1314 0 1314.18 -2.27 1332 0C1395.18 8.04 1428.1 -17.82 1458 20.62C1491.1 63.18 1458 91.31 1458 162C1458 243 1458 243 1458 324C1458 405 1458 405 1458 486C1458 567 1498.5 607.5 1458 648C1417.5 688.5 1377 648 1296 648C1215 648 1215 648 1134 648C1120.82 648 1119.35 653.55 1107.63 648C1038.35 615.18 1036.25 571.26 972 571.26C922.88 571.26 931.66 623.94 880.88 648C850.66 662.31 845.44 648 810 648C729 648 729 648 648 648C567 648 567 648 486 648C457.65 648 429.3 659.74 429.3 648C429.3 631.39 455.65 617.41 486 591.3C549.81 536.41 580.17 554 617.63 486C653.8 420.35 661.62 392.65 633.27 324C595.8 233.27 548.17 167.23 486 167.23C435.34 167.23 455.12 251.35 407.61 324C374.12 375.21 376.73 401.15 324 414.95C253.93 433.29 243.44 392.15 162 388.29C81.44 384.47 55.27 421.53 0 399.6C-25.73 389.39 0 361.8 0 324C0 306.28 -14.33 294.43 0 288.56C66.67 261.24 90.7 291.98 162 257.61C221.98 228.7 230.73 220.5 262.55 162' stroke='rgba(243%2c 194%2c 145%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M0 534C29.43 534 102.6 613.85 102.6 648C102.6 670.85 24.3 675 0 648C-27 618 -21.87 534 0 534' stroke='rgba(243%2c 194%2c 145%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M972 33.59C948.55 33.59 930.27 9.44 930.27 0C930.27 -7.35 951.13 0 972 0C1015.03 0 1058.06 -8.1 1058.06 0C1058.06 8.7 1012.44 33.59 972 33.59' stroke='rgba(243%2c 194%2c 145%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M1404 162C1413.7 121.97 1442.85 94.25 1458 94.25C1469.85 94.25 1458 128.13 1458 162C1458 243 1458 243 1458 324C1458 405 1458 405 1458 486C1458 567 1484.27 593.27 1458 648C1445.39 674.27 1387.83 673.96 1380.24 648C1364.15 592.96 1405.09 567.65 1410.65 486C1416.12 405.65 1403.97 405.05 1402.31 324C1400.65 243.05 1385.86 236.85 1404 162' stroke='rgba(243%2c 194%2c 145%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M162 324C162 287.49 266.98 210.6 324 210.6C357.12 210.6 342.29 270.05 342.29 324C342.29 336.69 336.8 343.89 324 343.89C246.66 343.89 162 354.13 162 324' stroke='rgba(243%2c 194%2c 145%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M861.55 486C861.55 454.36 922.99 402.21 972 402.21C1008.59 402.21 1032.75 451.2 1032.75 486C1032.75 509.08 1004 517.97 972 517.97C918.4 517.97 861.55 512.24 861.55 486' stroke='rgba(243%2c 194%2c 145%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M536.91 648C536.91 622.54 585.02 568.79 648 557.58C721.57 544.49 744.47 564.46 810 599.4C829.27 609.67 817.59 626.95 817.59 648C817.59 651.25 813.8 648 810 648C729 648 729 648 648 648C592.45 648 536.91 667.75 536.91 648' stroke='rgba(243%2c 194%2c 145%2c 1)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask2487'%3e%3crect width='1440' height='648' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-size: cover;
+background-color: black;
+height: auto;
 }
 
 .eventos{
@@ -34,6 +21,9 @@ body{
 }
 .imgCarta{
     display: flex;
+    padding-top:5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     width: 100%;
     height: 80%;
 }
@@ -46,45 +36,102 @@ body{
 
 
 
-#imgCartaContenedor1{
-    background-image: url("http://drive.google.com/uc?export=view&id=1cJtjOpyAsvb_UFuXMku6D4K6Gy75GsgJ");
-}
-#imgCarrtaContenedor2{
-    background-image: url("http://drive.google.com/uc?export=view&id=1KJH6VD0PfQrEUaHoKH-rI-6gtaFyfWeR");
-}
-#imgCartaContenedor3{
-    background-image: url("http://drive.google.com/uc?export=view&id=1PPno_atQc9gr1IVsd4kwwRAMCfeuZz1m");
-}
+
 
 
 
 @media (min-width:280px){
+
+    .videoPrincipal{
+        
+    }
     .eventos{
         display:flex;
         flex-direction:column;
         justify-content:center;
         align-items:center;
-        gap: 3rem
+        gap: 1rem
     }
 
     .imgCarta{
         display: flex;
         width: 100%;
         height: 80%;
-        background-size: 90vw;
+        object-fit: cover;
         background-repeat: no-repeat;
+        background-position: right center;
+        box-sizing: ;
     }
     
-    .carta button{
+    .cardButton{
         display: flex;
-        justify-self: end;
+        justify-self: flex;
         font-size: 1.1rem;
+        margin-top: 1rem;
+        justify-content:center;
         padding: .7rem;
-        position: relative; bottom: 50px;
+        position: relative;
+        bottom: 50px;
+        background: #f3f300;
+        border: .15rem solid #708403a3;
     }
 
     .cartaTexto{
-        text-align: center;
-        padding: 0.2rem 1rem;
+        text-align: justify;
+        padding: 2rem;
+        color: #fcf0e6;
+    }
+    .card5{
+        width: 5rem;
+        height: 20vh;
+        justify-content:center
+        var(--color-primary);
+    }
+    .cardEvent{
+        width:100%;
+        height:10rem;
+       background-color: #c7c7c7;
+        display: flex;
+        gap: 2;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.24);
+        margin: 20px;
+        box-shadow: 0 15px 35px rgba(20, 20, 20, 0.5);
+        border-radius: 36px 13px; 
+        display: flex;
+        backdrop-filter: blur(10px);
+        margin-right: 1rem;
+    }   
+    .imgCard1{
+        width: 50%;
+        height: 10rem;
+        background-image: url("https://i.ibb.co/fp5bL02/11-xl1200x-7.jpg");
+        background-size: cover;
+        border: 1px solid #fff6f4;
+        
+
+    }
+    .imgCard2{
+        width: 50%;
+        height: 10rem;
+        background-image: url("https://i.ibb.co/ThvyHB8/14-11-harley-davidson-sportster-forty-eight-iron-2016-acc-1000x640.jpg");
+        background-size: cover;
+        border: .15rem solid #ffffffa3;
+    }
+    .imgCard3{
+        width: 50%;
+        height: 10rem;
+        background-image: url("https://i.ibb.co/fp5bL02/11-xl1200x-7.jpg");
+        background-size: cover;
+        border: 1px solid #fff6f4;
+        border-radius: 8px;
+    }
+    .cardTitle{
+        width: 40%;
+        height: 40%;
+        font-weight: 600;
+        align-items: flex-end;
+        color: #fcf0e6e8;
     }
 }
