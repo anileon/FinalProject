@@ -5,12 +5,14 @@ Vue.createApp({
     data() {
         return {
             message: 'Hello Vue!',
-            producto: [],
+            bike: [],
 
             scrolled: false,
             searchText: "",
             cantidad: 1,
+            carouselValue: 0,
             gender: "",
+            images: [],
             auxiliar: [],
             tipoSeleccionado: [],
             precioSeleccionado: "Relevant",
@@ -32,7 +34,8 @@ Vue.createApp({
         axios.get(`/api/motorcycles/${getID}`)
         .then(res => {
             console.log(res.data);
-            this.producto = res.data
+            this.bike = res.data
+            this.images.push(this.bike.images)
 
             this.productosObtenidos = JSON.parse(localStorage.getItem("motos-carrito") || "[]")
             if (this.productosObtenidos) {
@@ -86,6 +89,111 @@ Vue.createApp({
 
             if (this.cantidad == 0) {
                 this.cantidad = 1
+            }
+        },
+
+        
+        imagenAnterior() {
+            this.carouselValue -= 1
+            let imgCarousel0 = document.querySelector("#img-carousel-0")
+            let imgCarousel1 = document.querySelector("#img-carousel-1")
+            let imgCarousel2 = document.querySelector("#img-carousel-2")
+            if (this.carouselValue < 0) {
+                this.carouselValue = this.images.length
+                if (imgCarousel0 != null) {
+                    imgCarousel0.classList.add("display-none")
+                }
+                if (imgCarousel2 != null) {
+                    imgCarousel2.classList.remove("display-none")
+                } else {
+                    imgCarousel1.classList.remove("display-none")
+                }
+            } else if (this.carouselValue == 0) {
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.add("display-none")
+                }
+                if (imgCarousel0 != null) {
+                    imgCarousel0.classList.remove("display-none")
+                }
+            } else if (this.carouselValue == 1) {
+                if (imgCarousel2 != null) {
+                    imgCarousel2.classList.add("display-none")
+                }
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.remove("display-none")
+                }
+            }
+        },
+        imagenSiguiente() {
+            this.carouselValue += 1
+            let imgCarousel0 = document.querySelector("#img-carousel-0")
+            let imgCarousel1 = document.querySelector("#img-carousel-1")
+            let imgCarousel2 = document.querySelector("#img-carousel-2")
+
+            if (this.carouselValue == 1) {
+                if (imgCarousel0 != null) {
+                    imgCarousel0.classList.add("display-none")
+                }
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.remove("display-none")
+                }
+            } else if (this.carouselValue >= this.images.length) {
+                this.carouselValue = 0
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.add("display-none")
+                }
+                if (imgCarousel2 != null) {
+                    imgCarousel2.classList.add("display-none")
+                }
+                if (imgCarousel0 != null) {
+                    imgCarousel0.classList.remove("display-none")
+                }
+            } else if (this.carouselValue == 2) {
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.add("display-none")
+                }
+                if (imgCarousel2 != null) {
+                    imgCarousel2.classList.remove("display-none")
+                }
+            }
+        },
+        imagenSlide(index) {
+            let imgCarousel0 = document.querySelector("#img-carousel-0")
+            let imgCarousel1 = document.querySelector("#img-carousel-1")
+            let imgCarousel2 = document.querySelector("#img-carousel-2")
+            if (index == 0) {
+                this.carouselValue = 0
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.add("display-none")
+                }
+                if (imgCarousel2) {
+                    imgCarousel2.classList.add("display-none")
+                }
+                if (imgCarousel0 != null) {
+                    imgCarousel0.classList.remove("display-none")
+                }
+            } else if (index == 1) {
+                this.carouselValue = 1
+                if (imgCarousel2) {
+                    imgCarousel2.classList.add("display-none")
+                }
+                if (imgCarousel0 != null) {
+                    imgCarousel0.classList.add("display-none")
+                }
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.remove("display-none")
+                }
+            } else {
+                this.carouselValue = 2
+                if (imgCarousel0 != null) {
+                    imgCarousel0.classList.add("display-none")
+                }
+                if (imgCarousel1 != null) {
+                    imgCarousel1.classList.add("display-none")
+                }
+                if (imgCarousel2) {
+                    imgCarousel2.classList.remove("display-none")
+                }
             }
         },
 

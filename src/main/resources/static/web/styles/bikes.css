@@ -134,8 +134,8 @@ main{
     text-shadow: .8px .8px 2px var(--textShadow-blanco2);
 }
 
-.cartaCatalogo:nth-child(even) .brand-title img {
-    filter: invert(1);
+.cartaCatalogo:nth-child(odd) .brand-title img {
+    filter: invert(1) drop-shadow(0px 0px 10px #c9c9c9);;
 }
 
 .cartaPrecio {
