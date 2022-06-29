@@ -8,6 +8,59 @@
 }
 
 
+
+@keyframes animate{
+	0%{
+    background-position: 0 0;
+    filter:hue-rotate(0deg);
+	}
+	10%{
+    background-position: 5px 0;
+    filter:hue-rotate(194.4deg);
+	}
+	20%{
+	  background-position: -5px 0;
+    filter: hue-rotate(194.4deg);
+	}
+	30%{
+	  background-position: 5px 0;
+    filter: hue-rotate(205.2deg) brightness(62.5%);
+	}
+	40%{
+	  background-position: 5px 0;
+    filter: hue-rotate(118.8deg);
+	}
+	50%{
+	  background-position: -5px 0;
+    filter: hue-rotate(169.2deg);
+	}
+	60%{
+	  background-position: -10px 0;
+    filter: hue-rotate(309.6deg);
+	}
+	70%{
+	  background-position: 0 -10px;
+    filter: hue-rotate(295.2deg);
+	}
+	80%{
+	  background-position: -10px -5px;
+    filter: hue-rotate(43.2deg);
+	}
+	81%{
+	  background-position: 0 0;
+    filter: hue-rotate(360deg);
+	}
+	100%{
+	  background-position: 0 0;
+	  filter: saturate(0) hue-rotate(0deg);
+	}
+}
+
+main {
+  min-height: 100vh;
+  background-color: black;
+}
+
 .datos{
   width: 100%;
   height: 100vh;
@@ -18,6 +71,7 @@
 
 .carousel{
   width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,16 +101,17 @@
   width: 100%;
   height: 30vh;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 }
 
 .chevron{
   cursor: pointer;
 }
+
 .img-slider-bike{
   cursor: pointer;
 }
-
 
 .display-none{
   display: none !important;
@@ -96,11 +151,6 @@
   position: relative;top: .12rem;
 }
 
-
-
-
-
-
 @media (min-width: 280px){
   .datos{
     display: flex;
@@ -111,9 +161,21 @@
     display: flex;
     flex-direction: column;
   }
+  
   .especificaciones-contenido{
     display: flex;
   }
+
+  .glitch-logo {
+    width: 20.5rem;
+    height: 15rem;
+}
+
+@media (min-width: 1200px) {
+  .neon {
+    display: none !important;
+  }
+
   .especificaciones-titulo{
     width: 45%;
   }
@@ -165,5 +227,5 @@
 
   .img-contenedor span{
     height: 20vh;
-  }
+    }
 }
