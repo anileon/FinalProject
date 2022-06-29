@@ -30,11 +30,10 @@
     --textShadow-blanco2: #686b58;
 
     /* Estilos extra */
-    --altura-con-nav: calc(100vh - 5rem)
+    --altura-con-nav: calc(100vh - 5rem);
 
-    #FF522A
-    #FAF1EA (blanquito)
-    #FF522A (naranjita)
+    --naranja: #FF522A;
+    --blanco2: #FAF1EA;
     --neon-rojo2--: #f61d30;
 }
 
