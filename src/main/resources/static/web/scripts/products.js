@@ -1,3 +1,7 @@
+const urlParams = new URLSearchParams(window.location.search);
+const getGender = urlParams.get('gender');
+const getCategory = urlParams.get('category');
+
 Vue.createApp({
     data() {
         return {
@@ -10,6 +14,14 @@ Vue.createApp({
             auxiliar: [],
             tipoSeleccionado: [],
             precioSeleccionado: "Relevant",
+
+            arrayDeProductos: [],
+            arrayDeMotos: [],
+            productosDelCarrito: [],
+            productosGeneral: [],
+            totalCarrito: [],
+            idProducto: "",
+            total: "",
         }
     },
 
@@ -25,6 +37,29 @@ Vue.createApp({
 
             console.log(res.data);
         })
+
+        if (getGender == "MALE") {
+            this.gender = "MALE"
+        }
+        if (getGender == "FEMALE") {
+            this.gender = "FEMALE"
+        }
+        if (getCategory == "Gloves") {
+            this.tipoSeleccionado.push("Gloves")
+        }
+        if (getCategory == "Jacket") {
+            this.tipoSeleccionado.push("Jacket")
+        }
+        if (getCategory == "Helmet") {
+            this.tipoSeleccionado.push("Helmet")
+        }
+
+
+        this.productosGeneral = JSON.parse(localStorage.getItem("carrito") || "[]")
+        this.arrayDeMotos = JSON.parse(localStorage.getItem("motos-carrito") || "[]")
+        this.arrayDeProductos = JSON.parse(localStorage.getItem("productos-carrito") || "[]")
+        this.motosVenta = JSON.parse(localStorage.getItem("array-motos") || "[]")
+        this.productosVenta = JSON.parse(localStorage.getItem("array-productos") || "[]")
     },
 
     methods: {
@@ -104,6 +139,25 @@ Vue.createApp({
             filtro.classList.toggle("oculto")
         },
 
+        subtotal(precio, cantidad) {
+            let price = precio
+            let amount = cantidad
+            let total = price * amount
+
+            if (this.totalCarrito.length < this.productosGeneral.length) {
+                this.totalCarrito.push(total)
+            }
+            
+            if (this.totalCarrito.length <= this.productosGeneral.length) {
+                this.total = this.totalCarrito.reduce((a, b) => a + b, 0)
+            }
+            return total
+        },
+
+        toggleCart() {
+            let element = document.querySelector(".carrito")
+            element.classList.toggle("oculto")
+        },
     },
 
     computed: {
