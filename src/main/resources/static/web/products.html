@@ -21,8 +21,12 @@
               src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
               alt=""
             />
-    
-            <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
+
+            <div>
+              <span class="material-symbols-rounded nav-menu-btn" @click="toggleCart()">shopping_cart</span>
+              <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
+            </div>
+            
             <!-- aca va el logo -->
             <nav class="navbar oculto">
               <div class="nav-elemento" @click="toggleNavItem('.nav-motos')">
@@ -73,73 +77,94 @@
             <div id="catalogo">
                 <div id="filtro">
                     <span @click="toggleFilter()"><i class="material-symbols-outlined">apps</i> Filter</span>
-                    <div class="box-de-filtro oculto">
-                      <input type="search" name="search" id="search">
-                      
-                    </div>
-                  </div>
-                <div class="cartaCatalogo">
-                  <div class="brand-title">
-                    <img src="http://drive.google.com/uc?export=view&id=1pM5qGCK0JrSKU84YgHzlkyQV9jpTwMSC " alt="">
-                  </div>
-                  
-                  <div class="imgCartaCatalogo">
-                    <img src="https://images-ext-2.discordapp.net/external/m3l9lpMcqte0tpXIKDF0gFpug_MC8FGYvNn4Ypl345c/https/i.ibb.co/HNvJrzM/97017-22-VM-F-removebg-preview-1.png" alt="">
-                  </div>
-      
-                  <div class="textoCartaCatalogo">
-                    <div class="detallesProducto">
-                        <p>sdfddfs</p>
-                        <p class="colorDescripcion">sdfddfdfs</p>
-                    </div>
-                    <span class="lineaVerticalProductos"></span>
-                    <div class="detallesProducto">
-                        <p>sdfddfs</p>
-                        <p class="colorDescripcion">sdfasdfs</p>
-                    </div>
-                    <span class="lineaVerticalProductos"></span>
-                    <div class="detallesProducto">
-                        <p>sdfddfs</p>
-                        <p class="colorDescripcion">sdfddfds</p>
-                    </div>
-                  </div>
-                    <button class="botonReservaManejo">🏍 | Book a Test Drive</button>
-                    <div class="contendorCompra">
-                        <img class="imgDorso" src="https://images-ext-2.discordapp.net/external/5WRFtnCztMqXmP357Y2WzQ1FPJz1q0cgTY8KHh8Tl-Y/https/i.ibb.co/h7tpXCf/97017-22-VM-B-removebg-preview.png">
-                        <button class="botonCompra" type="submit">🛒 | Check product ↗</button>
-                    </div>  
-                  
-                </div>
+                    <form class="box-de-filtro oculto" @change="filterChange">
+                      <input type="search" name="search" id="search" placeholder="Searc Product" v-model="searchText">
+                      {{searchText}}
+                      <div class="gender-box"> 
+                        <label>
+                          <input type="radio" name="gender" value="MALE" v-model="gender">
+                          <span>MALE</span>
+                        </label>
+                        <label>
+                          <input type="radio" name="gender" value="FEMALE" v-model="gender">
+                          <span>FEMALE</span>
+                        </label>
+                      </div>
+                      {{gender}}
+                      <div class="price-box">
+                        <label>
+                          <input type="radio" name="price" value="Relevant" v-model="precioSeleccionado">
+                          <span>Most relevant</span>
+                        </label>
 
-                <div class="cartaCatalogo">
+                        <label>
+                          <input type="radio" name="price" value="Most" v-model="precioSeleccionado">
+                          <span>Most Expensive</span>
+                        </label>
+
+                        <label>
+                          <input type="radio" name="price" value="Least" v-model="precioSeleccionado">
+                          <span>Least Expensive</span>
+                        </label>
+                      </div>
+                      {{precioSeleccionado}}
+                      <div class="type-box">
+                        <label>
+                          <input type="checkbox" name="category" value="Gloves" id="gloves" v-model="tipoSeleccionado">
+                          <span>Gloves</span>
+                        </label>
+
+                        <label>
+                          <input type="checkbox" name="category" value="Jacket" id="jackets" v-model="tipoSeleccionado">
+                          <span>Jackets</span>
+                        </label>
+
+                        <label>
+                          <input type="checkbox" name="category" value="Helmet" id="helmets" v-model="tipoSeleccionado">
+                          <span>Helmets</span>
+                        </label>
+                      </div>
+                      {{tipoSeleccionado}}
+                    </form>
+                  </div>
+
+                <div class="cartaCatalogo" v-for="producto in auxiliar">
                   <div class="brand-title">
-                    <img src="http://drive.google.com/uc?export=view&id=1pM5qGCK0JrSKU84YgHzlkyQV9jpTwMSC " alt="">
+                    <img src="http://drive.google.com/uc?export=view&id=1pM5qGCK0JrSKU84YgHzlkyQV9jpTwMSC" alt="">
                   </div>
-                  
+
                   <div class="imgCartaCatalogo">
-                    <img src="https://images-ext-2.discordapp.net/external/m3l9lpMcqte0tpXIKDF0gFpug_MC8FGYvNn4Ypl345c/https/i.ibb.co/HNvJrzM/97017-22-VM-F-removebg-preview-1.png" alt="">
+                    <img :src="producto.urlImg[0]" alt="">
                   </div>
-      
+
+                  <div class="tituloDescripcion">
+                    <span>{{producto.description}}</span>
+                  </div>
+
                   <div class="textoCartaCatalogo">
                     <div class="detallesProducto">
-                        <p class="parradoDescripcion">sdfddfs</p>
-                        <p class="colorDescripcion">sdfddfdfs</p>
+                        <p class="parradoDescripcion">Size</p>
+                        <p class="colorDescripcion">{{producto.size}}</p>
                     </div>
+
                     <span class="lineaVerticalProductos"></span>
+
                     <div class="detallesProducto">
-                        <p class="parradoDescripcion">sdfddfs</p>
-                        <p class="colorDescripcion">sdfasdfs</p>
+                        <p class="parradoDescripcion">Gender</p>
+                        <p class="colorDescripcion">{{producto.genderType}}</p>
                     </div>
+
                     <span class="lineaVerticalProductos"></span>
+
                     <div class="detallesProducto">
-                        <p class="parradoDescripcion">sdfddfs</p>
-                        <p class="colorDescripcion">sdfddfds</p>
+                        <p class="parradoDescripcion">Price</p>
+                        <p class="colorDescripcion">${{producto.price}}</p>
                     </div>
                   </div>
-                    <button class="botonReservaManejo">🏍 | Boock a Test Drive</button>
+
                     <div class="contendorCompra">
-                        <img class="imgDorso" src="https://images-ext-2.discordapp.net/external/5WRFtnCztMqXmP357Y2WzQ1FPJz1q0cgTY8KHh8Tl-Y/https/i.ibb.co/h7tpXCf/97017-22-VM-B-removebg-preview.png">
-                        <button class="botonCompra" type="submit">🛒 | Check product ↗</button>
+                        <img class="imgDorso" :src="producto.urlImg.length < 2 ? producto.urlImg[0] : producto.urlImg[1]">
+                        <a :href="'./product-views.html?id=' + producto.id" class="botonCompra" type="submit">🛒 | Check product ↗</a>
                     </div>                 
                 </div>
             </div>

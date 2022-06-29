@@ -1,18 +1,31 @@
+const urlParams = new URLSearchParams(window.location.search);
+const getID = urlParams.get('id');
+
 Vue.createApp({
     data() {
         return {
             message: 'Hello Vue!',
+            producto: [],
+
             scrolled: false,
-
-
+            searchText: "",
+            cantidad: 1,
+            gender: "",
+            auxiliar: [],
+            tipoSeleccionado: [],
+            precioSeleccionado: "Relevant",
             arrayDeProductos: [],
-            arrayDeMotos: [],
-            productosDelCarrito: [],
+
             productosGeneral: [],
+            arrayDeMotos: [],
             totalCarrito: [],
             idProducto: "",
             total: "",
         }
+    },
+
+    mounted() {
+        window.addEventListener('scroll', this.handleScroll);
     },
 
     created() {
@@ -23,12 +36,36 @@ Vue.createApp({
         this.productosVenta = JSON.parse(localStorage.getItem("array-productos") || "[]")
     },
 
-    mounted() {
-        // Note: do not add parentheses () for this.handleScroll
-        window.addEventListener('scroll', this.handleScroll);
-    },
-
     methods: {
+        subtotal(precio, cantidad) {
+            let price = precio
+            let amount = cantidad
+            let total = price * amount
+
+            if (this.totalCarrito.length < this.productosGeneral.length) {
+                this.totalCarrito.push(total)
+            }
+            
+            if (this.totalCarrito.length <= this.productosGeneral.length) {
+                this.total = this.totalCarrito.reduce((a, b) => a + b, 0)
+            }
+            return total
+        },
+
+        realizarCompra() {
+            let obj = {
+                products: this.productosVenta,
+                motors: this.motosVenta
+            }
+            
+            axios.post("/api/comprar", obj)
+                .then(res => console.log("FUNCIONA"))
+                .catch(err => console.log(err))
+
+            localStorage.clear()
+            window.location.reload()
+        },
+
         toggleNavbar(){
             let nav = document.querySelector(".navbar")
             let btn = document.querySelector(".nav-menu-btn")
@@ -67,37 +104,20 @@ Vue.createApp({
 
             element.classList.toggle("oculto")
         },
-
+        
         cerrarNavbar(element){
             let elemento = element.target.parentElement.parentElement
-
+            
             elemento.classList.add("oculto")
         },
 
         handleScroll() {
             this.scrolled = window.scrollY > 0;
         },
-
-        subtotal(precio, cantidad) {
-            let price = precio
-            let amount = cantidad
-            let total = price * amount
-
-            if (this.totalCarrito.length < this.productosGeneral.length) {
-                this.totalCarrito.push(total)
-            }
-            
-            if (this.totalCarrito.length <= this.productosGeneral.length) {
-                this.total = this.totalCarrito.reduce((a, b) => a + b, 0)
-            }
-            return total
-        },
-
-        toggleCart() {
-            let element = document.querySelector(".carrito")
-            element.classList.toggle("oculto")
-        },
     },
 
+    computed: {
+        
+    }
 
 }).mount('#app')

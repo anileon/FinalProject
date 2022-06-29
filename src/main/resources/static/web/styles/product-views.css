@@ -1,45 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
-@font-face {
-  font-family: pacific;
-  src: url(../assets/PACIFICO.TTF);
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 600,
+  'GRAD' -25,
+  'opsz' 24
 }
 
-.imagen-principal {
-  height: 100vh; /* CAMBIAR A MIN HEIGHT */
-  background: rgb(46, 117, 64);
-  background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/990982160569749564/header.png");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.glitch-logo {
-  position: relative;
-  width: 13.5rem;
-  height: 10rem;
-  background-image: url(https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  top: 5rem;
-}
-
-.glitch-logo:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(https://cdn.discordapp.com/attachments/985294289091321861/990961037215940668/LOGO_LETRAS_PROJECTO_FINAL.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.2;
-  mix-blend-mode: hard-light;
-  animation: animate 1s steps(1) infinite;
-}
 
 @keyframes animate{
 	0%{
@@ -93,265 +61,171 @@ main {
   background-color: black;
 }
 
-section {
+.datos{
   width: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
+  background-color: rgb(57 57 57);
+  box-shadow: inset 0 0 10rem black;
 }
 
 .carousel{
   width: 100%;
-  height: 50vh;
-  background: url("https://images.unsplash.com/photo-1619419046821-fd299b2f7180?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
-  background-size: cover;
-  background-position: right center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 2rem;
-  color: white;
-  text-decoration: none;
-  box-shadow: 0px 0px 15rem 6rem rgb(0 0 0 / 75%) inset;
-  transition: 0.5s linear;
-}
-
-.imgMoto2 span {
-  width: 10rem;
-}
-
-.imgMoto2 {
-  background-image: url("https://images.unsplash.com/photo-1606136968350-828c761463eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
-}
-
-.imgMoto1:hover,
-.imgMoto2:hover {
-  color: white;
-  box-shadow: 0px 0px 5rem 0rem rgb(0 0 0 / 15%) inset;
-}
-
-#cardsDestacadas {
-  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-}
-.cartaProductoDestacado {
-  height: 60vh;
-  background-color: #171717;
-  border-radius: 0 0 2rem 0;
-  flex-grow: 1;
-}
-
-.imgTemp {
-  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/c42c4791176031.5e2aa7abc0aab.png");
-  height: 60%;
-  background-size: cover;
-  background-position: center;
-  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10rem;
+  background-color: rgb(124, 124, 124);
+  box-shadow: inset 0 0 10rem rgb(08, 08, 08);
+  color: white;
 }
 
-.imgsPages {
-  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/436cd591176031.5e2aa7abc36fc.png");
-  background-size: cover;
-  background-position: center;
-  height: 20vh;
+.img-contenedor{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 3rem;
 }
-.imgsPages4 {
-  width: 30%;
-  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/436cd591176031.5e2aa7abc36fc.png");
-  background-size: cover;
-  background-position: center;
-  height: 20vh;
-}
-.imgsPages8 {
-  width: 70%;
-  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/436cd591176031.5e2aa7abc36fc.png");
-  background-size: cover;
-  background-position: center;
-  height: 20vh;
+.img-contenedor span{
+  display: flex;
+  align-items: center;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
-  grid-gap: 2px;
-  grid-auto-flow: dense;
-  height: 100vh;
-  min-width: 100%;
-  max-width: 100vw;
+.img-principal-carousel{
+  width: 80vw;
 }
 
-.c-1 {
-  background: #1a535c;
-  color: #ddd;
-}
-.c-2 {
-  background: #4ecdc4;
-}
-.c-3 {
-  background: #bfd7ea;
-}
-.c-4 {
-  background: #ff6b6b;
-}
-.c-5 {
-  background: #ffe66d;
+.slider-img{
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.grid-card {
-  min-height: 100px;
-  background-size: cover;
-  background-position: 50% 50%;
+.chevron{
+  cursor: pointer;
 }
 
-@keyframes neon {
-  0%,
-  39%,
-  41%,
-  59%,
-  61%,
-  100% {
-    text-shadow: white 0 0 12px, orange 0 0 24px, orange 0 0 36px;
-  }
-  40%,
-  60% {
-    text-shadow: none;
-  }
+.img-slider-bike{
+  cursor: pointer;
 }
 
-@media (min-width: 280px) {
-  .neon {
-    display: none !important;
-  }
+.display-none{
+  display: none !important;
 }
 
-@media (min-width: 540px) {
-  .cartaProductoDestacado {
-    height: 80vh;
-  }
-
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
+.comprarBike{
+  display: flex;
+  flex-direction: column;
+  min-height: 5vh;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.detallesComerciales{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+.cantidad{
+  width: 30vw;
+  height: 4vh;
+}
+.añadirAlCarrito{
+  padding: .5rem;
+  border: none;
+  border-radius: 50%;
+}
+.comprar{
+  display: flex;
+  gap:  1rem;
+  align-items: center;
+}
+.cartIcon{
+  position: relative;top: .12rem;
 }
 
-@media (min-width: 600px) {
-  .span-2 {
-    grid-column: auto / span 2;
-  }
-}
-
-@media (min-width: 768px) {
-  .cartaProductoDestacado {
-    width: 70vw;
-    background-position: initial;
-    flex-grow: 0;
-  }
-  #cartaProductoDestacado1 {
+@media (min-width: 280px){
+  .datos{
     display: flex;
-    align-self: flex-start;
-  }
-  #cartaProductoDestacado2 {
-    display: flex;
-    align-self: flex-end;
-  }
-  .neon {
-    width: 30vw;
-    display: block !important;
-    display: flex;
-    align-self: center;
-    text-align: center;
-    font-size: 4rem;
-    font-weight: 900;
-    font-family: "Pacifico", cursive !important;
-    color: white;
-    animation: neon 5s infinite;
-  }
-}
-
-@media (min-width: 1024px) {
-  section {
-    flex-direction: row;
-    height: 100vh;
+    flex-direction: column;
   }
 
-  .imgMoto1,
-  .imgMoto2 {
-    height: unset;
+  .especificaciones{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .especificaciones-contenido{
+    display: flex;
   }
 
   .glitch-logo {
     width: 20.5rem;
     height: 15rem;
-  }
-
-  .imagen-principal {
-    height: 100vh; /* CAMBIAR A MIN HEIGHT */
-    background: rgb(46, 117, 64);
-    background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/990283812732801104/header.png");
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 }
 
 @media (min-width: 1200px) {
   .neon {
     display: none !important;
   }
-  #cardsDestacadas {
+
+  .especificaciones-titulo{
+    width: 45%;
+  }
+  .especificaciones-texto{
+    width: 55%;
+    text-align: start;
+  }
+
+  .img-principal-carousel{
+    display: flex;
+    height: 25vh;
+    width: 80vw;
+  }
+  .slider-img{
+    height: 11vh;
+    display: flex;
     justify-content: center;
-    flex-direction: row;
+    border-collapse: collapse;
   }
-  #cardsDestacadas div {
-    flex-grow: 1;
+  
+  .img-slider-bike{
+    width: 30vw;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.201);
+    border-left: 1px solid black;
+    border-right: 1px solid black;
   }
-  .cartaProductoDestacado {
-    width: 40vw;
+  .img-slider-bike:first-child{
+    border-right: 1px solid rgba(0, 0, 0, 0.154);
+    border-left: unset;
   }
-  .imgTemp {
-    background-position: initial;
-    width: 100%;
-  }
-
-  .span-3 {
-    grid-row: auto / span 2;
-  }
-}
-
-@media (min-width: 1500px) {
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  .img-slider-bike:last-child{
+    border-left: 1px solid rgba(0, 0, 0, 0.154);
+    border-right: unset;
   }
 
-  .grid-card:nth-child(2) {
-    grid-row: auto / span 2;
+  .border{
+    display: flex;
+    align-self: center;
+    height: 80%;
+    border: 1px solid rgba(0, 0, 0, 0.105);
   }
-}
 
-@media (min-width: 1600px) {
-  .grid-card:nth-child(2) {
-    grid-row: unset;
+  .img-contenedor-carousel{
+    width: 30vw;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.201);
   }
-}
 
-@media (min-width: 2000px) {
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  }
-}
-
-@media (min-width: 2500px) {
-  .grid-card:nth-child(4) {
-    grid-column: auto / span 2;
-  }
-}
-
-@media (min-width: 3000px) {
-  .grid-card:nth-child(3) {
-    grid-column: auto / span 2;
-  }
+  .img-contenedor span{
+    height: 20vh;
+    }
 }

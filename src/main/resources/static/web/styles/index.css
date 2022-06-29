@@ -6,7 +6,8 @@
 }
 
 .imagen-principal {
-  height: 100vh; /* CAMBIAR A MIN HEIGHT */
+  height: 100vh;
+  /* CAMBIAR A MIN HEIGHT */
   background: rgb(46, 117, 64);
   background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/990982160569749564/header.png");
   background-size: cover;
@@ -41,68 +42,84 @@
   animation: animate 1s steps(1) infinite;
 }
 
-@keyframes animate{
-	0%{
+@keyframes animate {
+  0% {
     background-position: 0 0;
-    filter:hue-rotate(0deg);
-	}
-	10%{
+    filter: hue-rotate(0deg);
+  }
+
+  10% {
     background-position: 5px 0;
-    filter:hue-rotate(194.4deg);
-	}
-	20%{
-	  background-position: -5px 0;
     filter: hue-rotate(194.4deg);
-	}
-	30%{
-	  background-position: 5px 0;
+  }
+
+  20% {
+    background-position: -5px 0;
+    filter: hue-rotate(194.4deg);
+  }
+
+  30% {
+    background-position: 5px 0;
     filter: hue-rotate(205.2deg) brightness(62.5%);
-	}
-	40%{
-	  background-position: 5px 0;
+  }
+
+  40% {
+    background-position: 5px 0;
     filter: hue-rotate(118.8deg);
-	}
-	50%{
-	  background-position: -5px 0;
+  }
+
+  50% {
+    background-position: -5px 0;
     filter: hue-rotate(169.2deg);
-	}
-	60%{
-	  background-position: -10px 0;
+  }
+
+  60% {
+    background-position: -10px 0;
     filter: hue-rotate(309.6deg);
-	}
-	70%{
-	  background-position: 0 -10px;
+  }
+
+  70% {
+    background-position: 0 -10px;
     filter: hue-rotate(295.2deg);
-	}
-	80%{
-	  background-position: -10px -5px;
+  }
+
+  80% {
+    background-position: -10px -5px;
     filter: hue-rotate(43.2deg);
-	}
-	81%{
-	  background-position: 0 0;
+  }
+
+  81% {
+    background-position: 0 0;
     filter: hue-rotate(360deg);
-	}
-	100%{
-	  background-position: 0 0;
-	  filter: saturate(0) hue-rotate(0deg);
-	}
+  }
+
+  100% {
+    background-position: 0 0;
+    filter: saturate(0) hue-rotate(0deg);
+  }
 }
 
 main {
   min-height: 100vh;
   background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 section {
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding-top: 8rem;
 }
 
 .imgMoto1,
 .imgMoto2 {
-  width: 100%;
-  height: 50vh;
+  width: 95%;
+  height: 60vh;
   background: url("https://images.unsplash.com/photo-1619419046821-fd299b2f7180?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
   background-size: cover;
   background-position: right center;
@@ -132,24 +149,49 @@ section {
   box-shadow: 0px 0px 5rem 0rem rgb(0 0 0 / 15%) inset;
 }
 
+.container {
+  width: 90%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #cardsDestacadas {
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 5rem 0;
+  gap: 3rem;
 }
+
 .cartaProductoDestacado {
   height: 60vh;
-  background-color: #171717;
-  border-radius: 0 0 2rem 0;
   flex-grow: 1;
 }
 
+.cartaParrafo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 90%;
+  background-color: #1a535c;
+}
+
 .imgTemp {
-  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/c42c4791176031.5e2aa7abc0aab.png");
   height: 60%;
   background-size: cover;
   background-position: center;
   flex-grow: 1;
+  background-repeat: no-repeat;
+}
+.imgTemp1 {
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/c42c4791176031.5e2aa7abc0aab.png");
+}
+.imgTemp2 {
+  background-image: url("http://drive.google.com/uc?export=view&id=10QM5rOBjcjklSDDHtGeq1TLENqPoqXiq");
 }
 
 .imgsPages {
@@ -158,6 +200,7 @@ section {
   background-position: center;
   height: 20vh;
 }
+
 .imgsPages4 {
   width: 30%;
   background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/436cd591176031.5e2aa7abc36fc.png");
@@ -165,6 +208,7 @@ section {
   background-position: center;
   height: 20vh;
 }
+
 .imgsPages8 {
   width: 70%;
   background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/436cd591176031.5e2aa7abc36fc.png");
@@ -176,26 +220,63 @@ section {
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
-  grid-gap: 2px;
+  grid-gap: 15px;
   grid-auto-flow: dense;
-  height: 100vh;
-  min-width: 100%;
+  height: 80vh;
+  min-width: 80%;
   max-width: 100vw;
 }
+
+.grid div {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.grid div:nth-child(1) {
+  background-image: url("http://drive.google.com/uc?export=view&id=1pDoFJ9QcBol8q46OUs58ugN-VZcKWyRR");
+}
+
+.grid div:nth-child(2) {
+  background-image: url("http://drive.google.com/uc?export=view&id=1HYWp8gPv3N89AMYYFRFc04IMZi7brCye");
+}
+
+.grid div:nth-child(3) {
+  background-image: url("http://drive.google.com/uc?export=view&id=1cYyorLgpC4zfPsGANFsz-wOqsJ-V58Y9");
+}
+
+.grid div:nth-child(4) {
+  background-image: url("http://drive.google.com/uc?export=view&id=18UUpGsLIWIO9-I9vcJ70JDlEovGzqFjA");
+}
+
+.grid div:nth-child(5) {
+  background-image: url("http://drive.google.com/uc?export=view&id=1NpFWumGUOlOC1-CNjr-NFRfTm4lOT3KK");
+}
+
+#cartaProductoDestacado2 {
+  display: none;
+}
+
+
 
 .c-1 {
   background: #1a535c;
   color: #ddd;
 }
+
 .c-2 {
   background: #4ecdc4;
 }
+
 .c-3 {
   background: #bfd7ea;
 }
+
 .c-4 {
   background: #ff6b6b;
 }
+
 .c-5 {
   background: #ffe66d;
 }
@@ -204,9 +285,30 @@ section {
   min-height: 100px;
   background-size: cover;
   background-position: 50% 50%;
+  transform: scale(1);
+  transition: .2s linear;
 }
 
+.grid-card:hover {
+  transform: scale(1.05);
+  transition: .2s linear;
+}
+
+.video{
+  width: 90%;
+  height: 30vh;
+  margin-top: 8rem ;
+}
+
+
+
+
+
+
+
+
 @keyframes neon {
+
   0%,
   39%,
   41%,
@@ -215,6 +317,7 @@ section {
   100% {
     text-shadow: white 0 0 12px, orange 0 0 24px, orange 0 0 36px;
   }
+
   40%,
   60% {
     text-shadow: none;
@@ -227,6 +330,12 @@ section {
   }
 }
 
+@media (min-width: 320px){
+  .video{
+    height: 25vh;
+  }
+}
+
 @media (min-width: 540px) {
   .cartaProductoDestacado {
     height: 80vh;
@@ -234,6 +343,10 @@ section {
 
   .grid {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .video{
+    height: 35vh;
   }
 }
 
@@ -249,14 +362,24 @@ section {
     background-position: initial;
     flex-grow: 0;
   }
+
+  .video{
+    height: 50vh;
+  }
+
   #cartaProductoDestacado1 {
     display: flex;
+    flex-direction: column;
     align-self: flex-start;
   }
+
   #cartaProductoDestacado2 {
     display: flex;
+    flex-direction: row-reverse;
     align-self: flex-end;
+    display: none;
   }
+
   .neon {
     width: 30vw;
     display: block !important;
@@ -269,17 +392,27 @@ section {
     color: white;
     animation: neon 5s infinite;
   }
+
+.cartaParrafo{
+  height: 32vh;
+  text-align: center;
+
+}
+#cartaProductoDestacado1 .imgTemp{
+  height: 10vh;
+}
 }
 
 @media (min-width: 1024px) {
   section {
     flex-direction: row;
     height: 100vh;
+    justify-content: space-around;
+    align-items: center;
   }
 
-  .imgMoto1,
-  .imgMoto2 {
-    height: unset;
+  .video{
+    height: 80vh;
   }
 
   .glitch-logo {
@@ -288,7 +421,8 @@ section {
   }
 
   .imagen-principal {
-    height: 100vh; /* CAMBIAR A MIN HEIGHT */
+    height: 100vh;
+    /* CAMBIAR A MIN HEIGHT */
     background: rgb(46, 117, 64);
     background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/990283812732801104/header.png");
     background-size: cover;
@@ -297,29 +431,77 @@ section {
     align-items: center;
     justify-content: center;
   }
+
+  .container{
+    height: 120vh;
+  }
+  .cartaProductoDestacado{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  #cartaProductoDestacado3 .imgTemp{
+    height: 90vh;
+  }
 }
 
 @media (min-width: 1200px) {
   .neon {
     display: none !important;
   }
+
   #cardsDestacadas {
     justify-content: center;
-    flex-direction: row;
+    padding: 5rem 0 !important;
+    gap: 5rem;
   }
-  #cardsDestacadas div {
-    flex-grow: 1;
+
+  .video{
+    height: 670px;
+    width: 1024px;
   }
+
   .cartaProductoDestacado {
-    width: 40vw;
+    flex-direction: row !important;
+    height: 55vh;
+    align-items: center;
   }
+
+  .cartaParrafo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35.7vw;
+    height: 90%;
+    background-color: #1a535c;
+  }
+
   .imgTemp {
+    display: flex;
     background-position: initial;
     width: 100%;
+    height: 100% !important;
+  }
+
+  .container {
+    color: white;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 55vh;
   }
 
   .span-3 {
     grid-row: auto / span 2;
+  }
+
+  #cartaProductoDestacado2 {
+    display: block;
+  }
+  #cartaProductoDestacado3{
+    display: none;
   }
 }
 
@@ -331,11 +513,37 @@ section {
   .grid-card:nth-child(2) {
     grid-row: auto / span 2;
   }
+
+  .video{
+    height: 670px;
+    width: 1024px;
+  }
 }
+
+
 
 @media (min-width: 1600px) {
   .grid-card:nth-child(2) {
     grid-row: unset;
+  }
+
+  .imgMoto1,
+  .imgMoto2 {
+    width: 45%;
+    height: 80vh;
+    border: 5px solid white;
+  }
+
+  .cartaProductoDestacado {
+    flex-direction: row;
+    width: 60%;
+    height: 55vh;
+    align-items: center;
+  }
+
+  #cartaProductoDestacado2 {
+    display: flex;
+    flex-direction: row-reverse !important;
   }
 }
 
