@@ -46,6 +46,11 @@ public class clientController {
         return clientService.getClientDTO(id);
     }
 
+    @GetMapping("/current/clients")
+    ClientDTO getCurrentDTO(Authentication authentication){
+        return clientService.getCurrentDTO(authentication);
+    }
+
 
     @PostMapping("/clients")
     public ResponseEntity<Object> register(
@@ -130,8 +135,8 @@ public class clientController {
 
         Client client = clientService.getClientToken(token);
 
-        if(client == null)
-            return new ResponseEntity<>("Token invalid", HttpStatus.FORBIDDEN);
+        if(client == null){
+            return new ResponseEntity<>("Token invalid", HttpStatus.FORBIDDEN);}
 
         client.setEnabled(true);
         client.deleteToken();
