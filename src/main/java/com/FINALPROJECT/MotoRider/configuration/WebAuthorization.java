@@ -54,6 +54,8 @@ class WebAuthorization {
 
         http.logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler());
 
+
+
         return http.build();
     }
 
@@ -68,4 +70,6 @@ class WebAuthorization {
         }
 
     }
+
+
 }

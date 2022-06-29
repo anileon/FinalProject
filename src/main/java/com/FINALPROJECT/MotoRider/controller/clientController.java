@@ -169,7 +169,7 @@ public class clientController {
 
         content = content.replace("[[name]]", client.getFirstName());
 
-        String verifyURL = "https://localhost:8080/web/activateClient.html?token=" + client.getToken();
+        String verifyURL = "http://localhost:8080/web/activate-client.html?token=" + client.getToken();
 
         content = content.replace("[[URL]]", verifyURL);
 
