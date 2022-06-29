@@ -1,12 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
-@font-face {
-  font-family: pacific;
-  src: url(../assets/PACIFICO.TTF);
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 600,
+  'GRAD' -25,
+  'opsz' 24
 }
-
-
-
 
 
 
@@ -62,184 +61,171 @@ main {
   background-color: black;
 }
 
-section {
+.datos{
   width: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
+  background-color: rgb(57 57 57);
+  box-shadow: inset 0 0 10rem black;
 }
 
 .carousel{
   width: 100%;
   height: 100vh;
-
-}
-
-
-
-#cardsDestacadas {
-  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10rem;
+  background-color: rgb(124, 124, 124);
+  box-shadow: inset 0 0 10rem rgb(08, 08, 08);
+  color: white;
 }
 
-
-.c-1 {
-  background: #1a535c;
-  color: #ddd;
+.img-contenedor{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 3rem;
 }
-.c-2 {
-  background: #4ecdc4;
-}
-.c-3 {
-  background: #bfd7ea;
-}
-.c-4 {
-  background: #ff6b6b;
-}
-.c-5 {
-  background: #ffe66d;
+.img-contenedor span{
+  display: flex;
+  align-items: center;
 }
 
-.grid-card {
-  min-height: 100px;
-  background-size: cover;
-  background-position: 50% 50%;
+.img-principal-carousel{
+  width: 80vw;
 }
 
-@keyframes neon {
-  0%,
-  39%,
-  41%,
-  59%,
-  61%,
-  100% {
-    text-shadow: white 0 0 12px, orange 0 0 24px, orange 0 0 36px;
-  }
-  40%,
-  60% {
-    text-shadow: none;
-  }
+.slider-img{
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-@media (min-width: 280px) {
-  .neon {
-    display: none !important;
-  }
+.chevron{
+  cursor: pointer;
 }
 
-@media (min-width: 540px) {
-  .cartaProductoDestacado {
-    height: 80vh;
-  }
-
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
+.img-slider-bike{
+  cursor: pointer;
 }
 
-@media (min-width: 600px) {
-  .span-2 {
-    grid-column: auto / span 2;
-  }
+.display-none{
+  display: none !important;
 }
 
-@media (min-width: 768px) {
-  .cartaProductoDestacado {
-    width: 70vw;
-    background-position: initial;
-    flex-grow: 0;
-  }
-  #cartaProductoDestacado1 {
+.comprarBike{
+  display: flex;
+  flex-direction: column;
+  min-height: 5vh;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.detallesComerciales{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+.cantidad{
+  width: 30vw;
+  height: 4vh;
+}
+.añadirAlCarrito{
+  padding: .5rem;
+  border: none;
+  border-radius: 50%;
+}
+.comprar{
+  display: flex;
+  gap:  1rem;
+  align-items: center;
+}
+.cartIcon{
+  position: relative;top: .12rem;
+}
+
+@media (min-width: 280px){
+  .datos{
     display: flex;
-    align-self: flex-start;
-  }
-  #cartaProductoDestacado2 {
-    display: flex;
-    align-self: flex-end;
-  }
-  .neon {
-    width: 30vw;
-    display: block !important;
-    display: flex;
-    align-self: center;
-    text-align: center;
-    font-size: 4rem;
-    font-weight: 900;
-    font-family: "Pacifico", cursive !important;
-    color: white;
-    animation: neon 5s infinite;
-  }
-}
-
-@media (min-width: 1024px) {
-  section {
-    flex-direction: row;
-    height: 100vh;
+    flex-direction: column;
   }
 
+  .especificaciones{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .especificaciones-contenido{
+    display: flex;
+  }
 
   .glitch-logo {
     width: 20.5rem;
     height: 15rem;
-  }
-
-
 }
 
 @media (min-width: 1200px) {
   .neon {
     display: none !important;
   }
-  #cardsDestacadas {
+
+  .especificaciones-titulo{
+    width: 45%;
+  }
+  .especificaciones-texto{
+    width: 55%;
+    text-align: start;
+  }
+
+  .img-principal-carousel{
+    display: flex;
+    height: 25vh;
+    width: 80vw;
+  }
+  .slider-img{
+    height: 11vh;
+    display: flex;
     justify-content: center;
-    flex-direction: row;
+    border-collapse: collapse;
   }
-  #cardsDestacadas div {
-    flex-grow: 1;
+  
+  .img-slider-bike{
+    width: 30vw;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.201);
+    border-left: 1px solid black;
+    border-right: 1px solid black;
   }
-  .cartaProductoDestacado {
-    width: 40vw;
+  .img-slider-bike:first-child{
+    border-right: 1px solid rgba(0, 0, 0, 0.154);
+    border-left: unset;
   }
-  .imgTemp {
-    background-position: initial;
-    width: 100%;
-  }
-
-  .span-3 {
-    grid-row: auto / span 2;
-  }
-}
-
-@media (min-width: 1500px) {
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  .img-slider-bike:last-child{
+    border-left: 1px solid rgba(0, 0, 0, 0.154);
+    border-right: unset;
   }
 
-  .grid-card:nth-child(2) {
-    grid-row: auto / span 2;
+  .border{
+    display: flex;
+    align-self: center;
+    height: 80%;
+    border: 1px solid rgba(0, 0, 0, 0.105);
   }
-}
 
-@media (min-width: 1600px) {
-  .grid-card:nth-child(2) {
-    grid-row: unset;
+  .img-contenedor-carousel{
+    width: 30vw;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.201);
   }
-}
 
-@media (min-width: 2000px) {
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  }
-}
-
-@media (min-width: 2500px) {
-  .grid-card:nth-child(4) {
-    grid-column: auto / span 2;
-  }
-}
-
-@media (min-width: 3000px) {
-  .grid-card:nth-child(3) {
-    grid-column: auto / span 2;
-  }
+  .img-contenedor span{
+    height: 20vh;
+    }
 }

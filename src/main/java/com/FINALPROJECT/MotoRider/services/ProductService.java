@@ -7,7 +7,6 @@ import java.util.Set;
 
 public interface ProductService {
 
-
     void saveProduct(Product product);
     Set<ProductDTO> getProductsDTO();
     ProductDTO getProductById(long id);

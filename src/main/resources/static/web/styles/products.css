@@ -30,10 +30,9 @@
     --textShadow-blanco2: #686b58;
 
     /* Estilos extra */
-    --altura-con-nav: calc(100vh - 5rem)
 
-    #FF522A
-    #FAF1EA (blanquito)
+    --altura-con-nav: calc(100vh - 5rem);
+
 }
 
 body, #app {
@@ -93,26 +92,24 @@ main{
 
 .brand-title img {
     width: 80%;
+    filter: drop-shadow(0px 0px 10px #c9c9c9);
 }
 
 #filtro{
-    height: 5rem;
+    height: 4rem;
     width: 100%;
     position: sticky;
     top: 5rem;
-    background-color: #F9E9DA;
+    background: linear-gradient(21deg, black, #474847);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
     z-index: 3;
+    color: white;
 }
 
-#filtro i.material-symbols-outlined {
-    color: black;
-}
-
-#filtro span {
+#filtro > span {
     font-size: 1.5rem;
     text-transform: uppercase;
     width: 100%;
@@ -127,8 +124,8 @@ main{
     height: 42rem;
     width: 100%;
     text-decoration:none;
-    background-color: #fcf0e6;
-    background-image: url("../assets/bg-prueba.svg");
+    background-color: #171718;
+    background-image: url("../assets/bg-prueba2.svg");
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -137,27 +134,18 @@ main{
 }
 
 .cartaCatalogo:nth-child(even) {
-    background-color: #FF6543;
-    background-image: url("../assets/bg-prueba2.svg");
+    background-color: #5f5f5f;
+    background-image: url("../assets/bg-prueba.svg");
 }
 
 .cartaCatalogo:nth-child(even) .textoCartaCatalogo .colorDescripcion{
     color: #fcf0e6;
 }
 
-.cartaCatalogo:hover{
-    color:black;
-    text-decoration:none;
-}
-
 .imgCartaCatalogo {
     margin: 1rem;
-    background: #ffe3ce;
+    background: #efefef73;
     border-radius: 5px;
-}
-
-.cartaCatalogo:nth-child(even) .imgCartaCatalogo {
-    background: #fcf0e6;
 }
 
 .imgCartaCatalogo img {
@@ -167,8 +155,17 @@ main{
 
 .textoCartaCatalogo {
     display: flex;
+    justify-content: center;
     width: 80%;
     gap: 0.5rem;
+    color: white;
+    text-align: center;
+}
+
+.tituloDescripcion {
+    font-weight: 600 !important;
+    text-shadow: 0.8px 0.8px 2px var(--textShadow-blanco2);
+    color: #fcf0e6;
 }
 
 .lineaVerticalProductos{
@@ -200,14 +197,40 @@ main{
     text-shadow: .8px .8px 2px var(--textShadow-blanco2);
 }
 
+.box-de-filtro {
+    position: absolute;
+    top: 4rem;
+    background: red;
+    height: calc(60vh - 10rem);
+    width: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.box-de-filtro div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.box-de-filtro label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .contendorCompra{
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
     width: 40%;
     height: 6.5rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     border: 0.15rem solid #919384a3;
+    background: #efefef73;
     border-top-left-radius: 2rem;
     padding-bottom: 0.5rem;
     position: relative;

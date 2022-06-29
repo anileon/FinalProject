@@ -1,18 +1,17 @@
 package com.FINALPROJECT.MotoRider.controller;
 
 
+import com.FINALPROJECT.MotoRider.dto.MotorcycleDTO;
+import com.FINALPROJECT.MotoRider.dto.ReceiptDTO;
 import com.FINALPROJECT.MotoRider.dto.RecipeToCreateDTO;
 import com.FINALPROJECT.MotoRider.models.*;
 import com.FINALPROJECT.MotoRider.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
+
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -35,7 +34,15 @@ public class ReceiptController {
     @Autowired
     ReceiptService receiptService;
 
+
+    @GetMapping("/receipt/{id}")
+    public ReceiptDTO getReceiptDto(@PathVariable long id){
+
+        return receiptService.getReceiptDto(id);
+    }
+
     @Transactional
+
      @PostMapping("/comprar")
     public ResponseEntity<Object> Purchase(@RequestBody RecipeToCreateDTO recipeToCreateDTO){
 
@@ -82,9 +89,7 @@ public class ReceiptController {
         receipt.setTotalCost(totalProducts + totalMotos);
 
         receiptService.saveReceipt(receipt);
-
-
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+         return new ResponseEntity<>(HttpStatus.ACCEPTED);
 
     }
 

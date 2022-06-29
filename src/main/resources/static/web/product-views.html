@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Motor Rider | Product</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -22,13 +23,46 @@
 
   <body>
     <div id="app">
-      <header class="header" :class="{ 'header-activo': scrolled }">
+      <header class="header header-activo">
         <!-- El header va a ser transparente hasta hacer scroll (hacer logica) -->
         <img
           src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
           alt="">
 
-        <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
+        <div>
+          <span class="material-symbols-rounded nav-menu-btn" @click="toggleCart()">shopping_cart <i>{{productosGeneral.length}}</i></span>
+          <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
+        </div>
+
+        <div class="carrito oculto">
+                <div v-for="producto in arrayDeMotos" class="carrito-box">
+                    <img :src="producto.images[0]" alt="product image">
+                    <div>
+                        <p>{{producto.model}}</p>
+                        <div>
+                            <span>Amount: {{producto.cantidad}}</span>
+                            <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-for="producto in productosObtenidos" class="carrito-box">
+                    <img :src="producto.urlImg[0]" alt="product image">
+                    <div>
+                        <p>{{producto.description}}</p>
+                        <div>
+                            <span>Amount: {{producto.cantidad}}</span>
+                            <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="totalYPago">
+                    <span>Total: ${{total}}</span>
+                    <button>Go to payment</button>
+                </div>
+            </div>
+
         <!-- aca va el logo -->
         <nav class="navbar oculto">
           <div class="nav-elemento" @click="toggleNavItem('.nav-motos')">
@@ -53,50 +87,170 @@
             <li><a href="./bikes-ducati.html">DUCATI</a></li>
             <li><a href="./bikes-harley.html">HARLEY</a></li>
           </ol>
+
         </div>
-        <div class="nav-hombre oculto">
-          <span class="boton-cerrar-nav">
-            <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-          </span>
+        <div class="nav-elemento" @click="toggleNavItem('.nav-mujer')">
+          WOMAN
         </div>
-        <div class="nav-mujer oculto">
-          <span class="boton-cerrar-nav">
-            <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-          </span>
+        <div class="nav-elemento" @click="toggleNavItem('.nav-experiencia')">
+          EVENTS
         </div>
-        <div class="nav-experiencia oculto">
-          <span class="boton-cerrar-nav">
-            <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-          </span>
+      </nav>
+
+      <div class="nav-motos oculto">
+        <span class="boton-cerrar-nav">
+          <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
+        </span>
+        <ol>
+          <li><a href="./bikes-ducati.html">DUCATI</a></li>
+          <li><a href="./bikes-harley.html">HARLEY</a></li>
+        </ol>
+      </div>
+      <div class="nav-hombre oculto">
+        <span class="boton-cerrar-nav">
+          <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
+        </span>
+      </div>
+      <div class="nav-mujer oculto">
+        <span class="boton-cerrar-nav">
+          <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
+        </span>
+      </div>
+      <div class="nav-experiencia oculto">
+        <span class="boton-cerrar-nav">
+          <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
+        </span>
+      </div>
+    </header>
+    <main>
+      <div class="datos">
+        <div class="carousel">
+          <h2>{{bike.brandType}}</h2>
+          <p>{{bike.model}}</p>
+          <div class="img-contenedor">
+            <span class="material-symbols-outlined chevron" v-if="bike.images.length > 1" @click="imagenAnterior()">
+              chevron_left
+            </span>
+            <img class="img-principal-carousel" v-for="(img,index) in bike.images" :id="'img-carousel-' + index"
+              :src="img" alt="" :class="{'display-none': index >= 1}">
+            <span class="material-symbols-outlined chevron" v-if="bike.images.length > 1" @click="imagenSiguiente()">
+              chevron_right
+            </span>
+          </div>
+          <div class="slider-img">
+            <img class="img-slider-bike" v-for="(img,index) in bike.images" :id="'img-slide-' + index" :src="img" alt=""
+              @click="imagenSlide(index)">
+          </div>
         </div>
-      </header>
-        <section class="carousel"> 
-          <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src=" https://cdn.discordapp.com/attachments/985294289091321861/989679776774103150/Harley-Davidson-Street-Bob-2018-4.jpg " class="d-block w-100" alt="...">
+        <div class="especificaciones-principales">
+          <div class="comprarBike">
+            <div class="detallesComerciales">
+              <div>
+                <p>Price:</p>
+                <p>{{bike.price}}</p>
               </div>
-              <div class="carousel-item">
-                <img src="https://cdn.discordapp.com/attachments/985294289091321861/989679778112106506/Harley-Davidson-Street-Bob-2018-10.jpg" class="d-block w-100" alt="...">
+              <div>
+                <p>Stock:</p>
+                <p>{{bike.stock}}</p>
               </div>
-              <div class="carousel-item">
-                <img src="https://cdn.discordapp.com/attachments/985294289091321861/989679777558446100/Harley-Davidson-Street-Bob-2018-8.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="comprar">
+              <div>
+                <button @click="minusCounter()">-</button>
+                <input type="number" v-model="cantidad" min="1" :max="bike.stock">
+                <button @click="plusCounter()">+</button>
+              </div>
+              <button class="añadirAlCarrito">
+                <span class="material-symbols-outlined cartIcon">
+                  add_shopping_cart
+                  </span>
+              </button>
+            </div>
+          </div>
+
+
+          <div>
+            <div>
+              <b>Displacement:</b>
+              <p>{{bike.displacement}}</p>
+            </div>
+            <div>
+              <b></b>
+              <p></p>
+            </div>
+            <div>
+              <b></b>
+              <p></p>
+            </div>
+          </div>
+
+
+          <div class="fotos-moto">
+
+          </div>
+
+
+          <div class="especificaciones">
+            <h3>especificaciones</h3>
+            <div class="especificaciones-contenido">
+              <div class="especificaciones-titulo">
+                <p>Motor:</p>
+                <div>
+                  <b></b>
+                  <p></p>
+                </div>
+                <div>
+                  <b></b>
+                  <p></p>
+                </div>
+                <div>
+                  <b></b>
+                  <p></p>
+                </div>
+                <div>
+                  <b></b>
+                  <p></p>
+                </div>
+                <div>
+                  <b></b>
+                  <p></p>
+                </div>
+                <div>
+                  <b></b>
+                  <p></p>
+                </div>
+                <div>
+                  <b></b>
+                  <p></p>
+                </div>
+                <div>
+                  <b></b>
+                  <p></p>
+                </div>
+                <p>Model: </p>
+                <p>BrandType: </p>
+                <p> </p>
+              </div>
+              <div class="especificaciones-texto">
+                <p>{{bike.model}}</p>
+                <p>{{bike.brandType}}</p>
+                <p></p>
               </div>
             </div>
           </div>
-        </section>
-        <section class="description">
-          descrp
-        </section>
-      </main>
+        </div>
 
-     
-    </div>
+      </div>
+  </div>
+  </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue@3"></script>
-    <script src="https://kit.fontawesome.com/2544a6d2ae.js" crossorigin="anonymous"></script>
-    <script src="./scripts/index.js"></script>
-  </body>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="https://kit.fontawesome.com/2544a6d2ae.js" crossorigin="anonymous"></script>
+  <script src="./scripts/product.js"></script>
+</body>
+
 </html>

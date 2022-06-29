@@ -6,6 +6,7 @@ import com.FINALPROJECT.MotoRider.models.Client;
 import com.FINALPROJECT.MotoRider.repositories.ClientRepository;
 import com.FINALPROJECT.MotoRider.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -29,5 +30,31 @@ public class ClientServiceImplement implements ClientService {
     @Override
     public Client getClient(long id) {
         return clientRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Client getClientCredential(String credential) {
+            return clientRepository.findByEmail(credential);
+
+    }
+
+    @Override
+    public Client getClientToken(String token) {
+        return clientRepository.findByToken(token);
+    }
+
+    @Override
+    public boolean existClient(long id) {
+        return clientRepository.existsById(id);
+    }
+
+    @Override
+    public void saveClient(Client client) {
+        clientRepository.save(client);
+    }
+
+    @Override
+    public Client getCurrent(Authentication authentication) {
+        return clientRepository.findByEmail(authentication.getName());
     }
 }

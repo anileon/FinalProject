@@ -25,7 +25,10 @@
           alt=""
         />
 
-        <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
+        <div>
+          <span class="material-symbols-rounded nav-menu-btn" @click="toggleCart()">shopping_cart</span>
+          <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
+        </div>
         <!-- aca va el logo -->
         <nav class="navbar oculto">
           <div class="nav-elemento" @click="toggleNavItem('.nav-motos')">
@@ -90,7 +93,6 @@
             <div class="cartaTexto">
               <h3>Meeting point</h3>
               <p>Know more people with the same hobbies</p>
-              
             </div>
           </div>
           <div>

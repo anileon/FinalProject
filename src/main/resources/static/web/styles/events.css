@@ -5,6 +5,11 @@
 }
 
 
+.imagen-principal{
+    width: 100%;
+    height: 100vh;
+    background-color: red;
+}
 
 body{
 background-color: black;
@@ -35,9 +40,15 @@ height: auto;
 
 
 
-
-
-
+#imgCartaContenedor1{
+    background-image: url("http://drive.google.com/uc?export=view&id=1cJtjOpyAsvb_UFuXMku6D4K6Gy75GsgJ");
+}
+#imgCarrtaContenedor2{
+    background-image: url("http://drive.google.com/uc?export=view&id=1KJH6VD0PfQrEUaHoKH-rI-6gtaFyfWeR");
+}
+#imgCartaContenedor3{
+    background-image: url("http://drive.google.com/uc?export=view&id=1PPno_atQc9gr1IVsd4kwwRAMCfeuZz1m");
+}
 
 
 @media (min-width:280px){
@@ -109,7 +120,6 @@ height: auto;
         background-image: url("https://i.ibb.co/fp5bL02/11-xl1200x-7.jpg");
         background-size: cover;
         border: 1px solid #fff6f4;
-        
 
     }
     .imgCard2{
