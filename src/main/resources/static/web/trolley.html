@@ -1,54 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trolley</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/trolley.css" />
+
 </head>
+
 <body>
-        <div id="app">
-            <main>
-                <section class="contenedorCarritoGeneral">
-                    <div class="contenedorCarrito">
-                        <h1 class="tituloCarrito">Trolley</h1>
-                        <span class="lineaCarrito"></span>
-                        <div class="contenedorCompraGeneral">
-                            <div class="contenedorSumaCarrito">
-                                <img class="contenedorImagen" src="" alt="">
-                                <div class="contenedorDetalles">
-                                    <h2 class="tituloCompras">asdf</h2>
-                                    <p class="detallesTotal">adf</p>
-                                    <p class="detallesCompras">ghf</p>
+    <div id="app">
+        <div class="bike-loader">
+            <div id="loop" class="center"></div>
+                <div id="bike-wrapper" class="center">
+                <div id="bike" class="centerBike"></div>
+            </div>
+          </div>
+        <header class="header" :class="{ 'header-activo': scrolled }">
+            <img src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
+                alt="">
+
+            <nav class="navbar oculto">
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-motos')">BIKES</span>
+                    <div class="nav-motos oculto">
+                        <span class="boton-cerrar-nav">
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-motos')">close</i>
+                        </span>
+                        <div class="nav-selection">
+                            <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
+                            <a href="./bikes-ducati.html?type=DUCATI">DUCATI</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-hombre')">MAN</span>
+                    <div class="nav-hombre oculto">
+                        <span class="boton-cerrar-nav">
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-hombre')">close</i>
+                        </span>
+                        <div class="nav-selection">
+                            <a href="./products.html?gender=MALE">All products</a>
+                            <a href="./products.html?gender=MALE&category=Jacket">Jackets</a>
+                            <a href="./products.html?gender=MALE&category=Helmet">Helmets</a>
+                            <a href="./products.html?gender=MALE&category=Gloves">Gloves</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-mujer')">WOMAN</span>
+                    <div class="nav-mujer oculto">
+                        <span class="boton-cerrar-nav">
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-mujer')">close</i>
+                        </span>
+                        <div class="nav-selection">
+                            <a href="./products.html?gender=FEMALE">All products</a>
+                            <a href="./products.html?gender=FEMALE&category=Jacket">Jackets</a>
+                            <a href="./products.html?gender=FEMALE&category=Helmet">Helmets</a>
+                            <a href="./products.html?gender=FEMALE&category=Gloves">Gloves</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-experiencia')">EVENTS</span>
+                    <div class="nav-experiencia oculto">
+                        <span class="boton-cerrar-nav">
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-experiencia')">close</i>
+                        </span>
+                        <div class="nav-selection">
+                            <a href="./events.html">Meet Ups</a>
+                            <a href="./events.html">Test Ride</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-contact')">CONTACT</span>
+                    <div class="nav-contact oculto">
+                        <span class="boton-cerrar-nav">
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-contact')">close</i>
+                        </span>
+                        <div class="nav-selection">
+                            <a href="./contact.html">Contact us</a>
+                            <a href="./contact.html">Contact info</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div>
+                <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
+            </div>
+        </header>
+        <main>
+            <section class="contenedorCarritoGeneral">
+                <div class="contenedorCarrito">
+                    <h1 class="tituloCarrito">Trolley</h1>
+                    <span class="lineaCarrito"></span>
+                    <div class="contenedorCompraGeneral">
+                        <div v-for="producto in arrayDeMotos" class="carrito-box">
+                            <div class="carrito-img">
+                                <img :src="producto.images[0]" alt="product image">
+                            </div>
+                            <div class="text-box">
+                                <p>{{producto.model}}</p>
+                                <div class="amount-total">
+                                    <span>Amount: {{producto.cantidad}}</span>
+                                    <span>Subtotal: ${{subtotal(producto.price, producto.cantidad)}}</span>
                                 </div>
                             </div>
-                            <div class="ui-quantity-selector__container">
-                                <form class="u-float-left" action="/gz/cart/item/quantity?id=MLA853427230_87465551366" method="POST">
-                                    <input data-quantity="pop" type="submit" value="-" class="u-button-reset ui-quantity-selector__button" name="pop">
-                                </form>
-                                    <input autocomplete="off" data-quantity="input" type="tel" value="1" class="u-button-reset ui-quantity-selector__input" name="quantity">
-                                <form class="u-float-left" action="/gz/cart/item/quantity?id=MLA853427230_87465551366" method="POST">
-                                        <input data-quantity="push" type="submit" value="+" class="u-button-reset ui-quantity-selector__button" name="push">
-                                </form>
-                                <div class="cart-inline-loading__quantity-selector" data-region="quantity-loading"></div>
+                            <button class="material-symbols-rounded"
+                                @click="borrarCarrito(producto)">delete_forever</button>
+                        </div>
+
+                        <div v-for="producto in arrayDeProductos" class="carrito-box">
+                            <div class="carrito-img">
+                                <img :src="producto.urlImg[0]" alt="product image">
                             </div>
-                            <div class="container">
-                                <button class="botonDelete" type="submit">Delete</button>
+                            <div class="text-box">
+                                <p>{{producto.description}}</p>
+                                <div class="amount-total">
+                                    <span>Amount: {{producto.cantidad}}</span>
+                                    <span>Subtotal: ${{subtotal(producto.price, producto.cantidad)}}</span>
+                                </div>
+                            </div>
+                            <button class="material-symbols-rounded"
+                                @click="borrarCarrito(producto)">delete_forever</button>
+                        </div>
+                    </div>
+                    <span class="lineaCarritoFina"></span>
+                </div>
+
+                <div class="total-box">
+                    <span>Total: ${{total}}</span>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop" >
+                        Select payment
+                    </button>
+                    <a class="btn btn-primary" href="./log-in.html" >
+                        Log in to continue
+                    </a>
+                </div>
+            </section>
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Payment Info</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Card Name</label>
+                                <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Card number</label>
+                                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Card CVV</label>
+                                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
                         </div>
-                        <span class="lineaCarritoFina"></span>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Pay</button>
+                        </div>
                     </div>
-                </section>
-            </main>
-        </div>
+                </div>
+            </div>
+        </main>
+    </div>
 
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://kit.fontawesome.com/2544a6d2ae.js" crossorigin="anonymous"></script>
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/cart.js"></script>
 </body>
+
 </html>
