@@ -12,6 +12,13 @@ createApp({
         }
     },
 
+    created() {
+        setTimeout(() => {
+            let loader = document.querySelector(".bike-loader")
+            loader.classList.add("oculto")
+        }, 5000);
+    },
+
     methods: {
         register(){
             axios.post(`/api/clients`, `firstName=${this.firstName}&lastName=${this.lastName}&email=${this.email}&password=${this.password}`)

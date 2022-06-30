@@ -35,11 +35,16 @@ Vue.createApp({
         })
         .catch(err => console.log(err))
 
+        setTimeout(() => {
+            let loader = document.querySelector(".bike-loader")
+            loader.classList.add("oculto")
+        }, 4000);
+
 
         this.arrayDeMotos = JSON.parse(localStorage.getItem("motos-carrito") || "[]")
         this.arrayDeProductos = JSON.parse(localStorage.getItem("productos-carrito") || "[]")
-        this.motosVenta = JSON.parse(localStorage.getItem("array-motos") || "[]")
-        this.productosVenta = JSON.parse(localStorage.getItem("array-productos") || "[]")
+        this.arrayMotos = JSON.parse(localStorage.getItem("array-motos") || "[]")
+        this.arrayProductos = JSON.parse(localStorage.getItem("array-productos") || "[]")
         this.productosGeneral = this.arrayDeMotos.length + this.arrayDeProductos.length
     },
 
@@ -55,6 +60,7 @@ Vue.createApp({
                 this.arrayProductos = arrayOBJ
                 this.arrayDeProductos = arrFiltrado
                 this.productosGeneral = this.arrayDeProductos.length + this.arrayDeMotos.length
+                this.total = this.total - this.subtotal(producto.price, producto.cantidad)
             }
 
             if (producto.hasOwnProperty('id') && producto.hasOwnProperty('model')) {
@@ -67,6 +73,7 @@ Vue.createApp({
                 this.arrayMotos = arrayOBJ
                 this.arrayDeMotos = arrFiltrado
                 this.productosGeneral = this.arrayDeProductos.length + this.arrayDeMotos.length
+                this.total = this.total - this.subtotal(producto.price, producto.cantidad)
             }
         },
 
