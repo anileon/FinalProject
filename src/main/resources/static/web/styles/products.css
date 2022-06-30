@@ -192,7 +192,7 @@ main {
 
 .cartaCatalogo:nth-child(odd) .brand-title img {
     filter: invert(1) drop-shadow(0px 0px 10px #c9c9c9);;
-
+}
 .botonReservaManejo {
     margin-top: .5rem;
     width: 80%;
