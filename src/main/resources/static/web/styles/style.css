@@ -240,6 +240,7 @@ header .navbar {
     flex-direction: column;
     justify-content: flex-end;
     gap: 0.3rem;
+    color: black;
 }
 
 .totalYPago a {
@@ -594,7 +595,7 @@ footer {
         position: relative;
         top: unset;
         align-items: center;
-        width: 50%;
+        width: 70%;
         padding: 0 0.5rem;
         height: 100%;
         gap: 10px;
@@ -603,6 +604,7 @@ footer {
     .carrito {
         width: 33%;
         right: 0;
+        animation: cart-in 0.4s;
     }
 
     .totalYPago {
@@ -610,10 +612,9 @@ footer {
     }
 
     .navbar .nav-elemento {
-        height: 3rem;
+        height: 100%;
         width: 100%;
         font-size: 1.2rem;
-        border-radius: 20px;
     }
 
     .navbar .nav-elemento:hover {
@@ -634,15 +635,49 @@ footer {
     .nav-experiencia,
     .nav-contact {
         position: absolute;
-        top: 3rem;
+        top: 5rem;
         left: 0;
-        min-height: 15rem;
         width: 100%;
         background: #101012;
         display: flex;
         animation: nav 0.4s;
-        border: 2px solid white;
         border-radius: 0 0 10px 10px;
+        border: 3px solid black;
+        border-top: unset;
+        height: unset;
+    }
+
+    .nav-selection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 51%;
+        margin: 2rem 0 0;
+        justify-content: center;
+        gap: unset;
+        font-size: 1rem;
+        text-transform: uppercase;
+        flex: 2;
+    }
+
+    .nav-selection a {
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        color: white;
+        padding: 1rem 0.3rem;
+        border-top: 1px solid #212128;
+        border-bottom: 1px solid #212128;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .nav-selection a:last-child {
+        border-bottom: unset;
+    }
+
+    .navbar .nav-elemento:hover {
+        border-radius: unset;
     }
 
     @keyframes nav {
@@ -654,6 +689,16 @@ footer {
         100% {
             transform: scale(1);
             transform-origin: 50% 0%;
+        }
+    }
+
+    @keyframes cart-in {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(0);
         }
     }
 }

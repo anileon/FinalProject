@@ -176,11 +176,11 @@ Vue.createApp({
             let amount = cantidad
             let total = price * amount
 
-            if (this.totalCarrito.length < this.productosGeneral.length) {
+            if (this.totalCarrito.length < this.productosGeneral) {
                 this.totalCarrito.push(total)
             }
             
-            if (this.totalCarrito.length <= this.productosGeneral.length) {
+            if (this.totalCarrito.length <= this.productosGeneral) {
                 this.total = this.totalCarrito.reduce((a, b) => a + b, 0)
             }
             return total
