@@ -17,6 +17,7 @@
     --color-secondary: #ff6543;
     --color-terciary: #feea28;
     --letra-color: #995c39;
+    --altura-con-nav: calc( 100vh - 5rem);
 }
 
 body,
@@ -247,9 +248,6 @@ header .navbar {
     flex-direction: column;
     justify-content: flex-end;
     gap: 0.3rem;
-<<<<<<< HEAD
-    color: black;
-=======
     color: #871d26;
     font-weight: 600;
     font-size: 1.2rem;
@@ -260,7 +258,6 @@ content: "";
 width: 90%;
 height: .1rem;
 color: #871d26;
->>>>>>> master
 }
 
 .totalYPago a {

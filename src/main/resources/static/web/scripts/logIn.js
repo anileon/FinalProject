@@ -31,7 +31,7 @@ createApp({
         logIn(){
             axios.post('/api/login',`email=${this.email}&password=${this.password}`, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
             .then(response =>{
-                Swal.fire('Logged succefull, you will be redirected to the trolley')
+                Swal.fire('Logged succefull, you will be redirected back to the cart')
                 .then(respuesta => window.location.href = '/web/trolley.html')
             })
         },
