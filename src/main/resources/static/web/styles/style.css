@@ -36,7 +36,8 @@
     --neon-rojo2--: #f61d30;
 }
 
-body, #app {
+body,
+#app {
     min-height: 100vh;
     font-family: 'Ubuntu', sans-serif;
 }
@@ -80,7 +81,8 @@ header img {
     top: -5px;
 }
 
-header:hover, .header-activo {
+header:hover,
+.header-activo {
     opacity: 1;
 }
 
@@ -135,11 +137,28 @@ header .navbar {
     background-position: center center;
 }
 
+.navbar .nav-elemento:nth-child(5) {
+    background-image: url(https://images.unsplash.com/photo-1499324803384-8dd2eacc327f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);
+    background-position: center center;
+}
+
 .navbar .nav-elemento:hover {
     box-shadow: 0px 0px 15rem 6rem rgb(0 0 0 / 30%) inset;
 }
 
-.nav-motos, .nav-hombre, .nav-mujer, .nav-experiencia {
+.nav-elemento > span {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-motos,
+.nav-hombre,
+.nav-mujer,
+.nav-experiencia,
+.nav-contact {
     flex-direction: column;
     position: absolute;
     top: 0;
@@ -159,7 +178,7 @@ header .navbar {
     align-items: center;
     height: 60%;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.5rem;
     font-size: 1rem;
     text-transform: uppercase;
     flex: 2;
@@ -167,7 +186,6 @@ header .navbar {
 
 .nav-selection a {
     color: white;
-    
 }
 
 .boton-cerrar-nav {
@@ -229,20 +247,25 @@ header .navbar {
 
 /* Keyframes del header */
 @keyframes nav {
-    0% {transform: translateX(-100%) }
-    100% {transform: translateX(0%)}
+    0% {
+        transform: translateX(-100%)
+    }
+
+    100% {
+        transform: translateX(0%)
+    }
 }
 
 
 
 /* ============================================== FOOTER ============================================== */
-footer{
+footer {
     width: 100%;
     height: 72vh;
     background-color: var(--paleta-blanco);
 }
 
-.contenedorSuscripcionGeneral{
+.contenedorSuscripcionGeneral {
     background-color: black;
     width: 100%;
     /* height: 35vh; */
@@ -250,45 +273,45 @@ footer{
     justify-content: center !important;
 }
 
-.contenedorSuscripcion{
+.contenedorSuscripcion {
     width: 90%;
     height: 25vh;
 }
 
-.tituloSuscribe{
+.tituloSuscribe {
     font-size: 1rem;
     color: var(--paleta-blanco);
     text-shadow: 1px 1px 10px #f3fad4;
     padding-left: 1.4rem;
 }
 
-.parrafoSuscribcion{
+.parrafoSuscribcion {
     font-size: .7rem;
-    font-weight: 500;  
+    font-weight: 500;
 }
 
-.contenedorGeneralBoton{
+.contenedorGeneralBoton {
     display: inline-block;
 }
 
-.contenedorTexto{
+.contenedorTexto {
     padding-top: 1.25rem;
 }
 
-.contenedorParrafo{
-    padding: .5rem 1.5rem 0rem ;
+.contenedorParrafo {
+    padding: .5rem 1.5rem 0rem;
     min-height: 10vh;
     color: var(--paleta-blanco);
     text-shadow: .6px .6px 1px var(--textShadow-blanco);
 }
 
-.contenedorGeneralBoton{
+.contenedorGeneralBoton {
     display: flex;
     justify-content: center;
     gap: .5rem;
 }
 
-.inputFooter{
+.inputFooter {
     font-size: .55rem;
     border: none;
     width: 45%;
@@ -297,10 +320,10 @@ footer{
     border: .15rem solid #919384a3;
     padding-left: .2rem;
     text-shadow: .6px .6px 1px var(--textShadow-blanco2);
-    background-color:  var(--paleta-blanco);
+    background-color: var(--paleta-blanco);
 }
 
-.botonSuscripcion{
+.botonSuscripcion {
     font-size: .7rem;
     width: 35%;
     height: 3vh;
@@ -320,12 +343,12 @@ footer{
 }
 
 /* Contenedor Logo/Footer */
-.contenedorLogoFooter{
+.contenedorLogoFooter {
     background-color: black;
     height: 28vh;
 }
 
-.contenedorImgLogo{
+.contenedorImgLogo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -333,12 +356,12 @@ footer{
     height: 9rem;
 }
 
-.ImgLogo{
+.ImgLogo {
     width: 12rem;
     height: 8rem;
 }
 
-.contenedorRedesSocialesFooter{
+.contenedorRedesSocialesFooter {
     height: 5vh;
     display: flex;
     justify-content: center;
@@ -346,7 +369,7 @@ footer{
     margin-top: 1.2rem;
 }
 
-.iconos{
+.iconos {
     font-size: 2rem;
     color: var(--neon-blanco);
 }
@@ -382,81 +405,84 @@ footer{
     }
 }
 
-.iconos:hover{
-    animation: first_color .5s 
-    ease-in-out infinite alternate;
+.iconos:hover {
+    animation: first_color .5s ease-in-out infinite alternate;
 }
 
-.iconos:hover:nth-child(2){
+.iconos:hover:nth-child(2) {
     animation-name: second_color;
 }
 
-.iconos:hover:nth-child(3){
+.iconos:hover:nth-child(3) {
     animation-name: third_color;
 }
 
-.iconos:hover:nth-child(4){
+.iconos:hover:nth-child(4) {
     animation-name: ford_color;
 }
 
 @keyframes first_color {
-    0%{
+    0% {
         text-shadow: 0 0 10px #ff1177,
-        0 0 20px #d6249f, 0 0 30px #285AEB
+            0 0 20px #d6249f, 0 0 30px #285AEB
     }
-    100%{
+
+    100% {
         text-shadow: 0 0 5px #ff1177,
-        0 0 10px #d6249f, 0 0 15px #285AEB
+            0 0 10px #d6249f, 0 0 15px #285AEB
     }
 }
 
-@keyframes second_color{
-    0%{
+@keyframes second_color {
+    0% {
         text-shadow: 0 0 10px #2525d5,
-        0 0 20px #1616c0, 0 0 30px #3939ff
+            0 0 20px #1616c0, 0 0 30px #3939ff
     }
-    100%{
+
+    100% {
         text-shadow: 0 0 5px #2525d5,
-        0 0 10px #1616c0, 0 0 15px #3939ff
-    } 
+            0 0 10px #1616c0, 0 0 15px #3939ff
+    }
 }
 
-@keyframes third_color{
-    0%{
+@keyframes third_color {
+    0% {
         text-shadow: 0 0 10px #1f79ef,
-        0 0 20px #175cb6, 0 0 30px #1e9cfc
+            0 0 20px #175cb6, 0 0 30px #1e9cfc
     }
-    100%{
+
+    100% {
         text-shadow: 0 0 5px #1f79ef,
-        0 0 10px #175cb6, 0 0 15px #1e9cfc
-    } 
+            0 0 10px #175cb6, 0 0 15px #1e9cfc
+    }
 }
 
-@keyframes ford_color{
-    0%{
+@keyframes ford_color {
+    0% {
         text-shadow: 0 0 10px var(--neon-rojo),
-        0 0 20px #9a2731, 0 0 30px #E63946;
+            0 0 20px #9a2731, 0 0 30px #E63946;
     }
-    100%{
+
+    100% {
         text-shadow: 0 0 5px var(--neon-rojo),
-        0 0 10px #9a2731, 0 0 15px #E63946
+            0 0 10px #9a2731, 0 0 15px #E63946
     }
 }
 
 /* Contenedor Texto Plano/Footer */
-.contenedorTextoPlanoFooter{
+.contenedorTextoPlanoFooter {
     display: flex;
     justify-content: space-around;
     padding-top: .8rem;
 }
 
-.TextoPlanoFooter{
+.TextoPlanoFooter {
     font-size: .7rem;
     color: #995c39;
     text-shadow: .4px .4px 1px var(--textShadow-blanco);
 }
 
-.contenedorTextoPlanoParrafo{
+.contenedorTextoPlanoParrafo {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -483,50 +509,75 @@ footer{
         gap: 10px;
     }
 
+    .carrito {
+        width: 33%;
+        right: 0;
+    }
+
+    .totalYPago {
+        width: 33%;
+    }
+
     .navbar .nav-elemento {
-        height: 65%;
+        height: 3rem;
         width: 100%;
         font-size: 1.2rem;
         border-radius: 20px;
     }
 
-    .navbar .nav-elemento:hover{
+    .navbar .nav-elemento:hover {
         border-radius: 10px;
     }
 
     .nav-menu-btn {
         display: none;
     }
+
     .nav-menu-btn:first-child {
         display: unset;
     }
 
-    .nav-motos, .nav-hombre, .nav-mujer, .nav-experiencia {
+    .nav-motos,
+    .nav-hombre,
+    .nav-mujer,
+    .nav-experiencia,
+    .nav-contact {
         position: absolute;
-        top: 5rem;
+        top: 3rem;
         left: 0;
         min-height: 15rem;
         width: 100%;
-        background-color: #fff;
+        background: #101012;
         display: flex;
         animation: nav 0.4s;
+        border: 2px solid white;
+        border-radius: 0 0 10px 10px;
     }
 
     @keyframes nav {
-        0% {transform: translateY(-100%) }
-        100% {transform: translateY(0%)}
+        0% {
+            transform: scale(0.5);
+            transform-origin: 50% 0%;
+        }
+
+        100% {
+            transform: scale(1);
+            transform-origin: 50% 0%;
+        }
     }
 }
 
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1280px) {
 
-    footer{
+    footer {
         height: 50vh;
     }
-    .contenedorSuscripcionGeneral{
+
+    .contenedorSuscripcionGeneral {
         height: 35vh;
     }
-    .contenedorSuscripcion{
+
+    .contenedorSuscripcion {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -544,7 +595,7 @@ footer{
         text-shadow: 1px 1px 3px var(--textShadow-blanco);
     }
 
-    .contenedorGeneralBoton{
+    .contenedorGeneralBoton {
         justify-content: space-between;
         width: 45.4%;
         margin-top: 1.5rem;
@@ -562,17 +613,17 @@ footer{
         padding-left: .3rem;
     }
 
-    .contenedorTamañoEscritorio{
+    .contenedorTamañoEscritorio {
         display: flex;
         width: 100%;
     }
 
-    .contenedorLogoFooter{
+    .contenedorLogoFooter {
         width: 35.5%;
         height: 31vh;
     }
 
-    .contenedorContenidoFooter{
+    .contenedorContenidoFooter {
         width: 100%;
         background-color: var(--paleta-blanco);
     }
