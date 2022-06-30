@@ -22,11 +22,11 @@
                 alt="">
 
             <nav class="navbar oculto">
-                <div class="nav-elemento" @click="toggleNavItem('.nav-motos')">
-                    BIKES
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-motos')">BIKES</span>
                     <div class="nav-motos oculto">
                         <span class="boton-cerrar-nav">
-                            <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-motos')">close</i>
                         </span>
                         <div class="nav-selection">
                             <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
@@ -36,11 +36,11 @@
                 </div>
 
 
-                <div class="nav-elemento" @click="toggleNavItem('.nav-hombre')">
-                    MAN
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-hombre')">MAN</span>
                     <div class="nav-hombre oculto">
                         <span class="boton-cerrar-nav">
-                            <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-hombre')">close</i>
                         </span>
                         <div class="nav-selection">
                             <a href="./products.html?gender=MALE">All products</a>
@@ -52,11 +52,11 @@
                 </div>
 
 
-                <div class="nav-elemento" @click="toggleNavItem('.nav-mujer')">
-                    WOMAN
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-mujer')">WOMAN</span>
                     <div class="nav-mujer oculto">
                         <span class="boton-cerrar-nav">
-                            <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-mujer')">close</i>
                         </span>
                         <div class="nav-selection">
                             <a href="./products.html?gender=FEMALE">All products</a>
@@ -68,15 +68,28 @@
                 </div>
 
 
-                <div class="nav-elemento" @click="toggleNavItem('.nav-experiencia')">
-                    EVENTS
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-experiencia')">EVENTS</span>
                     <div class="nav-experiencia oculto">
                         <span class="boton-cerrar-nav">
-                            <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-experiencia')">close</i>
                         </span>
                         <div class="nav-selection">
                             <a href="./events.html">Meet Ups</a>
                             <a href="./events.html">Test Ride</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-contact')">CONTACT</span>
+                    <div class="nav-contact oculto">
+                        <span class="boton-cerrar-nav">
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-contact')">close</i>
+                        </span>
+                        <div class="nav-selection">
+                            <a href="./contact.html">Contact us</a>
+                            <a href="./contact.html">Contact info</a>
                         </div>
                     </div>
                 </div>

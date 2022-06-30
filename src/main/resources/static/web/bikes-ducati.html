@@ -18,70 +18,83 @@
           src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
           alt="">
   
-        <nav class="navbar oculto">
-          <div class="nav-elemento" @click="toggleNavItem('.nav-motos')">
-            BIKES
-            <div class="nav-motos oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
-                <a href="./bikes-ducati.html?type=DUCATI">DUCATI</a>
+          <nav class="navbar oculto">
+            <div class="nav-elemento" >
+              <span @click="toggleNavItem('.nav-motos')">BIKES</span>
+              <div class="nav-motos oculto">
+                <span class="boton-cerrar-nav">
+                  <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-motos')">close</i>
+                </span>
+                <div class="nav-selection">
+                  <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
+                  <a href="./bikes-ducati.html?type=DUCATI">DUCATI</a>
+                </div>
               </div>
             </div>
-          </div>
-  
-  
-          <div class="nav-elemento" @click="toggleNavItem('.nav-hombre')">
-            MAN
-            <div class="nav-hombre oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./products.html?gender=MALE">All products</a>
-                <a href="./products.html?gender=MALE&category=Jacket">Jackets</a>
-                <a href="./products.html?gender=MALE&category=Helmet">Helmets</a>
-                <a href="./products.html?gender=MALE&category=Gloves">Gloves</a>
+    
+    
+            <div class="nav-elemento" >
+              <span @click="toggleNavItem('.nav-hombre')">MAN</span>
+              <div class="nav-hombre oculto">
+                <span class="boton-cerrar-nav">
+                  <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-hombre')">close</i>
+                </span>
+                <div class="nav-selection">
+                  <a href="./products.html?gender=MALE">All products</a>
+                  <a href="./products.html?gender=MALE&category=Jacket">Jackets</a>
+                  <a href="./products.html?gender=MALE&category=Helmet">Helmets</a>
+                  <a href="./products.html?gender=MALE&category=Gloves">Gloves</a>
+                </div>
               </div>
             </div>
-          </div>
-  
-  
-          <div class="nav-elemento" @click="toggleNavItem('.nav-mujer')">
-            WOMAN
-            <div class="nav-mujer oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./products.html?gender=FEMALE">All products</a>
-                <a href="./products.html?gender=FEMALE&category=Jacket">Jackets</a>
-                <a href="./products.html?gender=FEMALE&category=Helmet">Helmets</a>
-                <a href="./products.html?gender=FEMALE&category=Gloves">Gloves</a>
+    
+    
+            <div class="nav-elemento">
+              <span @click="toggleNavItem('.nav-mujer')">WOMAN</span>
+              <div class="nav-mujer oculto">
+                <span class="boton-cerrar-nav">
+                  <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-mujer')">close</i>
+                </span>
+                <div class="nav-selection">
+                  <a href="./products.html?gender=FEMALE">All products</a>
+                  <a href="./products.html?gender=FEMALE&category=Jacket">Jackets</a>
+                  <a href="./products.html?gender=FEMALE&category=Helmet">Helmets</a>
+                  <a href="./products.html?gender=FEMALE&category=Gloves">Gloves</a>
+                </div>
               </div>
             </div>
-          </div>
-  
-  
-          <div class="nav-elemento" @click="toggleNavItem('.nav-experiencia')">
-            EVENTS
-            <div class="nav-experiencia oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./events.html">Meet Ups</a>
-                <a href="./events.html">Test Ride</a>
+    
+    
+            <div class="nav-elemento">
+              <span @click="toggleNavItem('.nav-experiencia')">EVENTS</span>
+              <div class="nav-experiencia oculto">
+                <span class="boton-cerrar-nav">
+                  <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-experiencia')">close</i>
+                </span>
+                <div class="nav-selection">
+                  <a href="./events.html">Meet Ups</a>
+                  <a href="./events.html">Test Ride</a>
+                </div>
               </div>
             </div>
-          </div>
-        </nav>
+
+            <div class="nav-elemento">
+              <span @click="toggleNavItem('.nav-contact')">CONTACT</span>
+              <div class="nav-contact oculto">
+                <span class="boton-cerrar-nav">
+                  <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-contact')">close</i>
+                </span>
+                <div class="nav-selection">
+                  <a href="./contact.html">Contact us</a>
+                  <a href="./contact.html">Contact info</a>
+                </div>
+              </div>
+            </div>
+          </nav>
   
         <div>
           <span class="material-symbols-rounded nav-menu-btn" @click="toggleCart()">shopping_cart
-            <i>{{productosGeneral.length}}</i></span>
+            <i>{{productosGeneral}}</i></span>
           <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
         </div>
   
@@ -95,6 +108,7 @@
                 <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
               </div>
             </div>
+            <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
           </div>
   
           <div v-for="producto in arrayDeProductos" class="carrito-box">
@@ -106,6 +120,7 @@
                 <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
               </div>
             </div>
+            <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
           </div>
   
           <div class="totalYPago">
@@ -115,23 +130,38 @@
         </div>
       </header>
 
-      <div class="imagen-principal">
-        <img src="https://cdn.discordapp.com/attachments/985294289091321861/990404055073431562/mobile-Dukati.png" alt="" />
+      <div class="imagen-principal-ducati">
       </div>
 
       <main>
-        <div id="filtro">
-          <span @click="toggleFilter()"><i class="material-symbols-outlined">apps</i> Filter</span>
-          
-          <div class="box-de-filtro oculto">
-            <input type="search" name="search" id="search">
-            
-          </div>
-        </div>
-        
         <div id="catalogo">
-          <div class="cartaCatalogo" v-for="(bike,index) in bikes" :key="index">
-            <div class="brand-title">
+          <div id="filtro">
+            <span @click="toggleFilter()"><i class="material-symbols-outlined">apps</i> Filter</span>
+            <form class="box-de-filtro oculto" @change="filterChange">
+              <input type="search" name="search" id="search" placeholder="Searc Product" v-model="searchText">
+              {{searchText}}
+              <div class="price-box">
+                <label>
+                  <input type="radio" name="price" value="Relevant" v-model="precioSeleccionado">
+                  <span>Most relevant</span>
+                </label>
+    
+                <label>
+                  <input type="radio" name="price" value="Most" v-model="precioSeleccionado">
+                  <span>Most Expensive</span>
+                </label>
+    
+                <label>
+                  <input type="radio" name="price" value="Least" v-model="precioSeleccionado">
+                  <span>Least Expensive</span>
+                </label>
+              </div>
+              {{precioSeleccionado}}
+            </form>
+          </div>
+
+          <div class="cartaCatalogo" v-for="(bike,index) in auxiliar" :key="index">
+            <div class="brand-title ducati">
               <img src="https://media.discordapp.net/attachments/985294289091321861/991069591595798549/142-1422866_free-dewalt-logo-png-ducati-logo-vintage-removebg-preview.png" alt="">
             </div>
             
@@ -172,7 +202,7 @@
         </div>
       </main>
 
-            <footer>
+      <footer>
         <div class="contenedorSuscripcionGeneral">
           <div class="contenedorSuscripcion">
             <div class="contenedorTexto">
