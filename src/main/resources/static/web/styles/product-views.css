@@ -290,9 +290,12 @@ main {
   }
   .especificaciones div{
     display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
   }
   .especificaciones>div div{
     display: flex;
+    flex-direction: column;
   }
 }
 
