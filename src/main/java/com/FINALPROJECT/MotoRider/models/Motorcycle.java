@@ -27,6 +27,7 @@ public class Motorcycle {
     private double price;
 
     private int stock;
+    private boolean isActive;
 
 
     @OneToMany(mappedBy = "motorcycle", fetch = FetchType.EAGER)
@@ -43,6 +44,7 @@ public class Motorcycle {
         this.images = images;
         this.price = price;
         this.stock = stock;
+        this.isActive = true;
     }
 
     public Long getId() {
@@ -105,5 +107,11 @@ public class Motorcycle {
         this.motorcyclePurchaseOrders = motorcyclePurchaseOrders;
     }
 
+    public boolean isActive() {
+        return isActive;
+    }
 
+    public void setActive(boolean active) {
+        isActive = active;
+    }
 }

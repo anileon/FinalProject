@@ -34,6 +34,7 @@ public class Product {
     private List<String> productImg;
 
     private int stock;
+    private boolean isActive;
 
 
     public Product() {
@@ -47,6 +48,7 @@ public class Product {
         this.productImg = productImg;
         this.stock = stock;
         this.size = size;
+        this.isActive = true;
     }
 
 
@@ -89,5 +91,13 @@ public class Product {
 
     public void setProductPurchases(Set<ProductPurchaseOrder> productPurchases) {
         this.productPurchases = productPurchases;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

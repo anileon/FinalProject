@@ -42,7 +42,6 @@ public class ReceiptController {
     }
 
     @Transactional
-
      @PostMapping("/comprar")
     public ResponseEntity<Object> Purchase(@RequestBody RecipeToCreateDTO recipeToCreateDTO){
 
@@ -60,6 +59,7 @@ public class ReceiptController {
 
                 int cantidadMotoComprar = recipeToCreateDTO.getMotors().stream().filter(moto -> moto.getId() == motorcycle.getId()).findFirst().orElseThrow().getCantidad();
 
+           
 
                 motorcycle.setStock(motorcycle.getStock()-cantidadMotoComprar);
                 motorcycleService.saveMotorcycle(motorcycle);
@@ -75,11 +75,21 @@ public class ReceiptController {
              products.forEach(product -> {
                  int cantidadComprar = recipeToCreateDTO.getProducts().stream().filter(prod -> prod.getIdProducto() == product.getId()).findFirst().orElseThrow().getCantidad();
 
-                 product.setStock(product.getStock()-cantidadComprar);
-                 productService.saveProduct(product);
-                 ProductPurchaseOrder productPurchaseOrder = new ProductPurchaseOrder(product, LocalDateTime.now(), cantidadComprar, receipt);
-                 subtotalProductos.add(productPurchaseOrder.getCost());
-                 productPurchaseOrderService.saveProductPurchaseOrder(productPurchaseOrder);
+
+                 if(product.getStock() < cantidadComprar){
+                  new ResponseEntity<>("Amount can not be more than stock", HttpStatus.FORBIDDEN);
+
+
+                 } else {
+
+                     product.setStock(product.getStock()-cantidadComprar);
+                     productService.saveProduct(product);
+                     ProductPurchaseOrder productPurchaseOrder = new ProductPurchaseOrder(product, LocalDateTime.now(), cantidadComprar, receipt);
+                     subtotalProductos.add(productPurchaseOrder.getCost());
+                     productPurchaseOrderService.saveProductPurchaseOrder(productPurchaseOrder);
+                 }
+
+
 
              });
          }
@@ -89,7 +99,7 @@ public class ReceiptController {
         receipt.setTotalCost(totalProducts + totalMotos);
 
         receiptService.saveReceipt(receipt);
-         return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
 
     }
 

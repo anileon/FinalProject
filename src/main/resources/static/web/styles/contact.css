@@ -29,6 +29,7 @@ body {
     justify-content: center;
     transition: 0.4s;
     top: unset;
+    z-index: 1;
 }
 .modal-container {
     display: flex;

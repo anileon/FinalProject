@@ -5,11 +5,27 @@ const {
 createApp({
     data() {
         return {
-            message: 'Hello Vue!'
+            firstName:"",
+            lastName:"",
+            email:"",
+            password:""
         }
     },
 
     methods: {
+        register(){
+            axios.post(`/api/clients`, `firstName=${this.firstName}&lastName=${this.lastName}&email=${this.email}&password=${this.password}`)
+            .then(response =>{
+                Swal.fire('Mail Sent, verify with email')
+                .then(respuesta => window.location.href = '/web/log-in.html')
+            })
+        },
+        logIn(){
+            axios.post('/api/login',`email=${this.email}&password=${this.password}`, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
+            .then(response =>{
+                Swal.fire('Logged succefull, redirecting to products')
+                .then(respuesta => window.location.href = '/web/products.html')
+            })},
         switchSignUp(){
             const container = document.getElementById('container');
             container.classList.add("right-panel-active");
