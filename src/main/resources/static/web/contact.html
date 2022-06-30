@@ -20,87 +20,89 @@
   <div id="app">
     <div class="bike-loader">
       <div id="loop" class="center"></div>
-          <div id="bike-wrapper" class="center">
-          <div id="bike" class="centerBike"></div>
+      <div id="bike-wrapper" class="center">
+        <div id="bike" class="centerBike"></div>
       </div>
     </div>
     <header class="header" :class="{ 'header-activo': scrolled }">
-      <img
-        src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
-        alt="">
-        <nav class="navbar oculto">
-          <div class="nav-elemento" >
-            <span @click="toggleNavItem('.nav-motos')">BIKES</span>
-            <div class="nav-motos oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-motos')">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
-                <a href="./bikes-ducati.html?type=DUCATI">DUCATI</a>
-              </div>
+      <a href="./index.html">
+        <img
+          src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
+          alt="">
+      </a>
+      <nav class="navbar oculto">
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-motos')">BIKES</span>
+          <div class="nav-motos oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-motos')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
+              <a href="./bikes-ducati.html?type=DUCATI">DUCATI</a>
             </div>
           </div>
-  
-  
-          <div class="nav-elemento" >
-            <span @click="toggleNavItem('.nav-hombre')">MAN</span>
-            <div class="nav-hombre oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-hombre')">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./products.html?gender=MALE">All products</a>
-                <a href="./products.html?gender=MALE&category=Jacket">Jackets</a>
-                <a href="./products.html?gender=MALE&category=Helmet">Helmets</a>
-                <a href="./products.html?gender=MALE&category=Gloves">Gloves</a>
-              </div>
-            </div>
-          </div>
-  
-  
-          <div class="nav-elemento">
-            <span @click="toggleNavItem('.nav-mujer')">WOMAN</span>
-            <div class="nav-mujer oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-mujer')">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./products.html?gender=FEMALE">All products</a>
-                <a href="./products.html?gender=FEMALE&category=Jacket">Jackets</a>
-                <a href="./products.html?gender=FEMALE&category=Helmet">Helmets</a>
-                <a href="./products.html?gender=FEMALE&category=Gloves">Gloves</a>
-              </div>
-            </div>
-          </div>
-  
-  
-          <div class="nav-elemento">
-            <span @click="toggleNavItem('.nav-experiencia')">EVENTS</span>
-            <div class="nav-experiencia oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-experiencia')">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./events.html">Meet Ups</a>
-                <a href="./events.html">Test Ride</a>
-              </div>
-            </div>
-          </div>
+        </div>
 
-          <div class="nav-elemento">
-            <span @click="toggleNavItem('.nav-contact')">CONTACT</span>
-            <div class="nav-contact oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-contact')">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./contact.html">Contact us</a>
-                <a href="./contact.html">Contact info</a>
-              </div>
+
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-hombre')">MAN</span>
+          <div class="nav-hombre oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-hombre')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./products.html?gender=MALE">All products</a>
+              <a href="./products.html?gender=MALE&category=Jacket">Jackets</a>
+              <a href="./products.html?gender=MALE&category=Helmet">Helmets</a>
+              <a href="./products.html?gender=MALE&category=Gloves">Gloves</a>
             </div>
           </div>
-        </nav>
+        </div>
+
+
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-mujer')">WOMAN</span>
+          <div class="nav-mujer oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-mujer')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./products.html?gender=FEMALE">All products</a>
+              <a href="./products.html?gender=FEMALE&category=Jacket">Jackets</a>
+              <a href="./products.html?gender=FEMALE&category=Helmet">Helmets</a>
+              <a href="./products.html?gender=FEMALE&category=Gloves">Gloves</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-experiencia')">EVENTS</span>
+          <div class="nav-experiencia oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-experiencia')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./events.html">Meet Ups</a>
+              <a href="./events.html">Test Ride</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-contact')">CONTACT</span>
+          <div class="nav-contact oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-contact')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./contact.html">Contact us</a>
+              <a href="./contact.html">Contact info</a>
+            </div>
+          </div>
+        </div>
+      </nav>
 
       <div>
         <span class="material-symbols-rounded nav-menu-btn" @click="toggleCart()">shopping_cart
@@ -193,7 +195,7 @@
                 <button class="input-button">Send ↗</button>
               </div>
             </div>
-            
+
             <div class="modal-right">
               <img
                 src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
