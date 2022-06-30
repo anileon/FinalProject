@@ -2,126 +2,235 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="./styles/style.css" />
-  <link rel="stylesheet" href="./styles/events.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/events.css">
 </head>
 
 <body>
-  <div id="app">
-    <header class="header" :class="{ 'header-activo': scrolled }">
-      <img
-        src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
-        alt="">
+    <div id="app">
+        <header class="header" :class="{ 'header-activo': scrolled }">
+            <img src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png" alt="">
 
-      <nav class="navbar oculto">
-        <div class="nav-elemento" @click="toggleNavItem('.nav-motos')">
-          BIKES
-          <div class="nav-motos oculto">
-            <span class="boton-cerrar-nav">
-              <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-            </span>
-            <div class="nav-selection">
-              <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
-              <a href="./bikes-ducati.html?type=DUCATI">DUCATI</a>
-            </div>
-          </div>
-        </div>
+            <nav class="navbar oculto">
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-motos')">BIKES</span>
+                    <div class="nav-motos oculto">
+                        <span class="boton-cerrar-nav">
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-motos')">close</i>
+                        </span>
+                        <div class="nav-selection">
+                            <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
+                            <a href="./bikes-ducati.html?type=DUCATI">DUCATI</a>
+                        </div>
+                    </div>
+                </div>
 
 
-        <div class="nav-elemento" @click="toggleNavItem('.nav-hombre')">
-          MAN
-          <div class="nav-hombre oculto">
-            <span class="boton-cerrar-nav">
-              <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-            </span>
-            <div class="nav-selection">
-              <a href="./products.html?gender=MALE">All products</a>
-              <a href="./products.html?gender=MALE&category=Jacket">Jackets</a>
-              <a href="./products.html?gender=MALE&category=Helmet">Helmets</a>
-              <a href="./products.html?gender=MALE&category=Gloves">Gloves</a>
-            </div>
-          </div>
-        </div>
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-hombre')">MAN</span>
+                    <div class="nav-hombre oculto">
+                        <span class="boton-cerrar-nav">
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-hombre')">close</i>
+                        </span>
+                        <div class="nav-selection">
+                            <a href="./products.html?gender=MALE">All products</a>
+                            <a href="./products.html?gender=MALE&category=Jacket">Jackets</a>
+                            <a href="./products.html?gender=MALE&category=Helmet">Helmets</a>
+                            <a href="./products.html?gender=MALE&category=Gloves">Gloves</a>
+                        </div>
+                    </div>
+                </div>
 
 
-        <div class="nav-elemento" @click="toggleNavItem('.nav-mujer')">
-          WOMAN
-          <div class="nav-mujer oculto">
-            <span class="boton-cerrar-nav">
-              <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-            </span>
-            <div class="nav-selection">
-              <a href="./products.html?gender=FEMALE">All products</a>
-              <a href="./products.html?gender=FEMALE&category=Jacket">Jackets</a>
-              <a href="./products.html?gender=FEMALE&category=Helmet">Helmets</a>
-              <a href="./products.html?gender=FEMALE&category=Gloves">Gloves</a>
-            </div>
-          </div>
-        </div>
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-mujer')">WOMAN</span>
+                    <div class="nav-mujer oculto">
+                        <span class="boton-cerrar-nav">
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-mujer')">close</i>
+                        </span>
+                        <div class="nav-selection">
+                            <a href="./products.html?gender=FEMALE">All products</a>
+                            <a href="./products.html?gender=FEMALE&category=Jacket">Jackets</a>
+                            <a href="./products.html?gender=FEMALE&category=Helmet">Helmets</a>
+                            <a href="./products.html?gender=FEMALE&category=Gloves">Gloves</a>
+                        </div>
+                    </div>
+                </div>
 
 
-        <div class="nav-elemento" @click="toggleNavItem('.nav-experiencia')">
-          EVENTS
-          <div class="nav-experiencia oculto">
-            <span class="boton-cerrar-nav">
-              <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-            </span>
-            <div class="nav-selection">
-              <a href="./events.html">Meet Ups</a>
-              <a href="./events.html">Test Ride</a>
-            </div>
-          </div>
-        </div>
-      </nav>
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-experiencia')">EVENTS</span>
+                    <div class="nav-experiencia oculto">
+                        <span class="boton-cerrar-nav">
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-experiencia')">close</i>
+                        </span>
+                        <div class="nav-selection">
+                            <a href="./events.html">Meet Ups</a>
+                            <a href="./events.html">Test Ride</a>
+                        </div>
+                    </div>
+                </div>
 
-      <div>
-        <span class="material-symbols-rounded nav-menu-btn" @click="toggleCart()">shopping_cart
-          <i>{{productosGeneral.length}}</i></span>
-        <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
-      </div>
+                <div class="nav-elemento">
+                    <span @click="toggleNavItem('.nav-contact')">CONTACT</span>
+                    <div class="nav-contact oculto">
+                        <span class="boton-cerrar-nav">
+                            <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-contact')">close</i>
+                        </span>
+                        <div class="nav-selection">
+                            <a href="./contact.html">Contact us</a>
+                            <a href="./contact.html">Contact info</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
 
-      <div class="carrito oculto">
-        <div v-for="producto in arrayDeMotos" class="carrito-box">
-          <img :src="producto.images[0]" alt="product image">
-          <div>
-            <p>{{producto.model}}</p>
             <div>
-              <span>Amount: {{producto.cantidad}}</span>
-              <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
+                <span class="material-symbols-rounded nav-menu-btn" @click="toggleCart()">shopping_cart
+                    <i>{{arrayDeMotos.length + productosObtenidos.length}}</i></span>
+                <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
             </div>
-          </div>
-        </div>
 
-        <div v-for="producto in arrayDeProductos" class="carrito-box">
-          <img :src="producto.urlImg[0]" alt="product image">
-          <div>
-            <p>{{producto.description}}</p>
-            <div>
-              <span>Amount: {{producto.cantidad}}</span>
-              <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
+            <div class="carrito oculto">
+                <div v-for="producto in arrayDeMotos" class="carrito-box">
+                    <img :src="producto.images[0]" alt="product image">
+                    <div>
+                        <p>{{producto.model}}</p>
+                        <div>
+                            <span>Amount: {{producto.cantidad}}</span>
+                            <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
+                        </div>
+                    </div>
+                    <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
+                </div>
+
+                <div v-for="producto in arrayDeProductos" class="carrito-box">
+                    <img :src="producto.urlImg[0]" alt="product image">
+                    <div>
+                        <p>{{producto.description}}</p>
+                        <div>
+                            <span>Amount: {{producto.cantidad}}</span>
+                            <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
+                        </div>
+                    </div>
+                    <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
+                </div>
+
+                <div class="totalYPago">
+                    <span>Total: ${{total}}</span>
+                    <button>Go to payment</button>
+                </div>
             </div>
-          </div>
+        </header>
+
+
+        <div class="videoPrincipal">
+            <iframe class="video" width="400" height="225" src="https://www.youtube.com/embed/sIjAwfsSJFg"
+                title="Go Ride | Harley-Davidson" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         </div>
 
-        <div class="totalYPago">
-          <span>Total: ${{total}}</span>
-          <button>Go to payment</button>
-        </div>
-      </div>
-    </header>
+        <main class="">
+            <div class="eventos">
+                <div class="carta cardMarginTop">
+                    <img class="imgCarta"
+                        src="https://images.unsplash.com/photo-1558980395-be8a5fcb4251?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80">
+                    <div class="cartaTexto">
+                        <h3 class="colorTituloSecundario">Organize your travel</h3>
+                        <p class="parrafoCardEvento">Organize your travel with the best team especialazed and experts we
+                            can offer you about the travels and bikes</p>
+                    </div>
+                    <div class="contenedorbotonEvento contenedorbotonEvento1">
+                        <button class="cardButton">See more</button>
+                    </div>
+                </div>
 
-    <div class="videoPrincipal">
+                <div class="carta cardMarginTop">
+                    <img class="imgCarta"
+                        src="https://images.unsplash.com/photo-1558980395-be8a5fcb4251?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80">
+                    <div class="cartaTexto">
+                        <h3 class="colorTituloSecundario">Meeting point</h3>
+                        <p class="parrafoCardEvento">Know more people with the same hobbies</p>
+                    </div>
+                    <div class="contenedorbotonEvento contenedorbotonEvento1">
+                        <button class="cardButton">See more</button>
+                    </div>
+                </div>
 
+                <div class="carta cardMarginRentar">
+                    <img class="imgCarta"
+                        src="https://images.unsplash.com/photo-1558980664-2506fca6bfc2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80">
+                    <div class="cartaTexto">
+                        <h3 class="colorTituloSecundario">Rent the motorcycle.</h3>
+                        <p class="parrafoCardEvento">Rent a motorcycle from Harley-Davidson Authorized Rentals or
+                            EagleRider Rentals and Tours for a great riding experience.</p>
+                    </div>
+                    <div class="contenedorbotonEvento contenedorBotonEventoIndumentaria">
+                        <button class="cardButton">See more</button>
+                    </div>
+                </div>
+
+                <div class="carta cardMarginTop cardAccessorios">
+                    <img class="imgCarta"
+                        src="https://images.unsplash.com/photo-1558979159-2b18a4070a87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80">
+                    <div class="cartaTexto cartaTextoAccessories">
+                        <h3 class="colorTituloSecundario">PARTS & ACCESSORIES</h3>
+                        <p class="parrafoCardEvento">As authorized Harley-Davidson® dealers, we have a variety of
+                            premium products to enhance your look and your bike's look. We have a unique selection of
+                            riding gear and motorclothes. You may also visit our parts and accessories department for
+                            your bike's customization needs.</p>
+                    </div>
+                    <div class="contenedorbotonEvento contenedorBotonEventoIndumentaria">
+                        <button class="cardButton cardButtonAccessories">See more</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <section class="contenedorCardDinamico">
+                <div>
+                    <div class="cardEvent ">
+                        <div class="cardTitle">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+                        </div>
+                        <div class="imgCard1">
+                        </div>
+                    </div>
+
+                    <div class="cardEvent ">
+                        <div class="cardTitle">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+                        </div>
+                        <div class="imgCard2">
+                        </div>
+                    </div>
+                    <div class="cardEvent">
+                        <div class="cardTitle">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+
+                        </div>
+                        <div class="imgCard3">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
     <main class="">

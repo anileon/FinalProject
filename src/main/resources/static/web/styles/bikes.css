@@ -44,19 +44,30 @@ main{
     justify-content: center;
 }
 
+.brand-title.ducati {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .brand-title img {
     width: 80%;
     filter: drop-shadow(0px 0px 10px #c9c9c9);
 }
 
-.imagen-principal{
+.imagen-principal-harley, .imagen-principal-ducati{
     height: 100vh;
     background-color: lightseagreen;
+    background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/990404055325097996/mobile-harley.png");
+    background-size: cover;
+    background-position: center;
 }
-.imagen-principal img {
-    width: 100%;
-    min-height: 100vh;
+
+.imagen-principal-ducati {
+    background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/990404055073431562/mobile-Dukati.png");
 }
+
 
 
 .cartaCatalogo{
@@ -71,6 +82,7 @@ main{
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    box-shadow: 5px 5px 8px black;
 }
 
 .cartaCatalogo:nth-child(even) {
@@ -190,27 +202,25 @@ main{
     font-size: 1rem;
 }
 
-#filtro{
-    height: 3rem;
+#filtro {
+    height: 4rem;
     width: 100%;
     position: sticky;
     top: 5rem;
-    background-color: #ffffff;
+    background: linear-gradient(21deg, black, #474847);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
     z-index: 3;
-    border-bottom: 3px solid;
+    color: white;
+    cursor: pointer;
 }
 
-#filtro i.material-symbols-outlined {
-    color: black;
-}
-
-#filtro span {
+#filtro > span {
     font-size: 1.5rem;
     text-transform: uppercase;
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -220,11 +230,28 @@ main{
 
 .box-de-filtro {
     position: absolute;
-    top: 3rem;
+    top: 4rem;
     background: red;
     height: calc(60vh - 10rem);
     width: 100%;
     left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1rem;
+}
+
+.box-de-filtro div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.box-de-filtro label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .fondoCartaCatalogoUnFocus{
@@ -311,4 +338,58 @@ main{
         fill: red;
         cursor: pointer;
     }
+}
+
+@media (min-width: 425px) {
+    #catalogo {
+        align-items: center;
+    }
+
+    .cartaCatalogo {
+        width: 90%;
+    }
+
+    .imgDorso {
+        width: 9rem;
+        height: 5rem;
+    }
+}
+
+@media (min-width: 600px) {
+    .cartaCatalogo {
+        width: 30rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #catalogo {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .imgCartaCatalogo {
+        width: 75%;
+    }
+
+    .cartaCatalogo {
+        width: 25rem;
+    }
+
+    .imagen-principal-harley {
+        background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/990404054691741746/header-harley.png");
+    }
+
+    .imagen-principal-ducati {
+        background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/990404054431698984/Ducati-harley.png");
+    }
+
+    .cartaCatalogo {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1600px) {
+
 }

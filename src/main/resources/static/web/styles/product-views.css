@@ -94,7 +94,7 @@ main {
 
 .img-contenedor {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   min-height: 30vh;
   margin-top: 2rem;
@@ -290,9 +290,12 @@ main {
   }
   .especificaciones div{
     display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
   }
   .especificaciones>div div{
     display: flex;
+    flex-direction: column;
   }
 }
 
