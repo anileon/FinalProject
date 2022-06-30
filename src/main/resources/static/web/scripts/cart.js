@@ -27,11 +27,11 @@ Vue.createApp({
     },
 
     created() {
-        this.productosGeneral = JSON.parse(localStorage.getItem("carrito") || "[]")
         this.arrayDeMotos = JSON.parse(localStorage.getItem("motos-carrito") || "[]")
         this.arrayDeProductos = JSON.parse(localStorage.getItem("productos-carrito") || "[]")
         this.motosVenta = JSON.parse(localStorage.getItem("array-motos") || "[]")
         this.productosVenta = JSON.parse(localStorage.getItem("array-productos") || "[]")
+        this.productosGeneral = this.arrayDeMotos.length + this.arrayDeProductos.length
     },
 
     methods: {
@@ -40,11 +40,11 @@ Vue.createApp({
             let amount = cantidad
             let total = price * amount
 
-            if (this.totalCarrito.length < this.productosGeneral.length) {
+            if (this.totalCarrito.length < this.productosGeneral) {
                 this.totalCarrito.push(total)
             }
             
-            if (this.totalCarrito.length <= this.productosGeneral.length) {
+            if (this.totalCarrito.length <= this.productosGeneral) {
                 this.total = this.totalCarrito.reduce((a, b) => a + b, 0)
             }
             return total
@@ -84,12 +84,11 @@ Vue.createApp({
             let hombre = document.querySelector(".nav-hombre")
             let mujer = document.querySelector(".nav-mujer")
             let experiencia = document.querySelector(".nav-experiencia")
-
-            element.classList.toggle("oculto")
+            let contacto = document.querySelector(".nav-contact")
 
             if (!moto.classList.contains("oculto")) {
                 moto.classList.toggle("oculto")
-            }
+            } 
             if (!hombre.classList.contains("oculto")) {
                 hombre.classList.toggle("oculto")
             }
@@ -99,13 +98,15 @@ Vue.createApp({
             if (!experiencia.classList.contains("oculto")) {
                 experiencia.classList.toggle("oculto")
             }
+            if (!contacto.classList.contains("oculto")) {
+                contacto.classList.toggle("oculto")
+            } 
 
-            element.classList.toggle("oculto")
+            element.classList.remove("oculto")
         },
         
         cerrarNavbar(element){
-            let elemento = element.target.parentElement.parentElement
-            
+            let elemento = document.querySelector(element)
             elemento.classList.add("oculto")
         },
 

@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products </title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Document</title>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="./styles/products.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/user.css">
 </head>
 
 <body>
@@ -117,128 +117,99 @@
             </div>
         </header>
 
-        <div class="imagen-principal">
-            <div class="portadaHombre"></div>
-        </div>
-
-
-        <div class="modal-modificar-producto display-none">
-            <span class="material-symbols-outlined" @click="cerrarModalModificar">
-                close
-            </span>
-            <h4>MODIFY</h4>
-            <div>
-                <label>
-                    Stock:
-                    <input type="number">
-                </label>
-            </div>
-            <button>Delete</button>
-        </div>
-
 
         <main>
-            <div id="catalogo">
-                <div id="filtro">
-                    <span @click="toggleFilter()"><i class="material-symbols-outlined">apps</i> Filter</span>
-                    <form class="box-de-filtro oculto" @change="filterChange">
-                        <input type="search" name="search" id="search" placeholder="Searc Product" v-model="searchText">
-                        {{searchText}}
-                        <div class="gender-box">
-                            <label>
-                                <input type="radio" name="gender" value="MALE" v-model="gender">
-                                <span>MALE</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="gender" value="FEMALE" v-model="gender">
-                                <span>FEMALE</span>
-                            </label>
+            <div class="contenedorIzquierdo">
+                <div class="misCompras">
+                    <div class="titulo">
+                        <span class="material-symbols-outlined">
+                            shopping_bag
+                        </span>
+                        <h3>Buys</h3>
+                    </div>
+                    <div class="articulos">
+                        <div class="contenedorImg">
+                            <img src="https://i.ibb.co/Vq37SmQ/97203-22-VX-ALT03-removebg-preview.png" alt="">
+                            <div>400.0$</div>
                         </div>
-                        {{gender}}
-                        <div class="price-box">
-                            <label>
-                                <input type="radio" name="price" value="Relevant" v-model="precioSeleccionado">
-                                <span>Most relevant</span>
-                            </label>
-
-                            <label>
-                                <input type="radio" name="price" value="Most" v-model="precioSeleccionado">
-                                <span>Most Expensive</span>
-                            </label>
-
-                            <label>
-                                <input type="radio" name="price" value="Least" v-model="precioSeleccionado">
-                                <span>Least Expensive</span>
-                            </label>
-                        </div>
-                        {{precioSeleccionado}}
-                        <div class="type-box">
-                            <label>
-                                <input type="checkbox" name="category" value="Gloves" id="gloves"
-                                    v-model="tipoSeleccionado">
-                                <span>Gloves</span>
-                            </label>
-
-                            <label>
-                                <input type="checkbox" name="category" value="Jacket" id="jackets"
-                                    v-model="tipoSeleccionado">
-                                <span>Jackets</span>
-                            </label>
-
-                            <label>
-                                <input type="checkbox" name="category" value="Helmet" id="helmets"
-                                    v-model="tipoSeleccionado">
-                                <span>Helmets</span>
-                            </label>
-                        </div>
-                        {{tipoSeleccionado}}
-                    </form>
+                    </div>
+                    <div>
+                        <p>You can make some buy clicking <a href="">here</a></p>
+                    </div>
                 </div>
-
-
-                <div class="cartaCatalogo" v-for="producto in auxiliar">
-                    <div class="brand-title">
-                        <img src="http://drive.google.com/uc?export=view&id=1pM5qGCK0JrSKU84YgHzlkyQV9jpTwMSC" alt="">
+                <div class="reservas">
+                    <div class="titulo">
+                        <span class="material-symbols-outlined">
+                            bookmarks
+                        </span>
+                        <h3>Reserved</h3>
                     </div>
-
-                    <div class="imgCartaCatalogo">
-                        <img :src="producto.urlImg[0]" alt="">
+                </div>
+                <div class="cuotasAPagar">
+                    <div class="titulo">
+                        <span class="material-symbols-outlined">
+                            payments
+                        </span>
+                        <h3>Payments</h3>
                     </div>
-
-                    <div class="tituloDescripcion">
-                        <span>{{producto.description}}</span>
+                </div>
+            </div>
+            <div class="contenedorDerecho">
+                <div class="misFacturas">
+                    <div class="titulo">
+                        <span class="material-symbols-outlined">
+                            fact_check
+                        </span>
+                        <h3>My Bill</h3>
                     </div>
-
-                    <div class="textoCartaCatalogo">
-                        <div class="detallesProducto">
-                            <p class="parradoDescripcion">Size</p>
-                            <p class="colorDescripcion">{{producto.size}}</p>
+                    <div>
+                        <p>You don't have bill</p>
+                    </div>
+                </div>
+                <div class="misDirecciones">
+                    <div class="titulo">
+                        <span class="material-symbols-outlined">
+                            person_pin_circle
+                        </span>
+                        <h3>Address</h3>
+                    </div>
+                    <div class="misAddress">
+                        <div>
+                            <p>Home Delivery</p>
+                            <span class="material-symbols-outlined">
+                                done_all
+                            </span>
                         </div>
-
-                        <span class="lineaVerticalProductos"></span>
-
-                        <div class="detallesProducto">
-                            <p class="parradoDescripcion">Gender</p>
-                            <p class="colorDescripcion">{{producto.genderType}}</p>
-                        </div>
-
-                        <span class="lineaVerticalProductos"></span>
-
-                        <div class="detallesProducto">
-                            <p class="parradoDescripcion">Price</p>
-                            <p class="colorDescripcion">${{producto.price}}</p>
+                        <div class="address">
+                            <p><span>Address:</span>34 N bayles</p>
+                            <p><span>Zip code:</span>11050</p>
+                            <p><span>Receives:</span>Ani Leon</p>
                         </div>
                     </div>
-
-                    <div class="contendorCompra">
-                        <img class="imgDorso"
-                            :src="producto.urlImg.length < 2 ? producto.urlImg[0] : producto.urlImg[1]">
-                        <a :href="'./product-views.html?id=' + producto.id" class="botonCompra" type="submit">🛒 | Check
-                            product
-                            ↗</a>
+                </div>
+                <div class="misPreguntas">
+                    <div class="titulo">
+                        <span class="material-symbols-outlined">
+                            contact_support
+                        </span>
+                        <h3>My Questions</h3>
                     </div>
-
-                    <button class="modificarProducto" @click="modificarProducto">Modify</button>
+                    <div>
+                        <p>You don't have questions now</p>
+                        <p>Can see your questions here</p>
+                    </div>
+                </div>
+                <div class="misTarjetas">
+                    <div class="titulo">
+                        <span class="material-symbols-outlined">
+                            add_card
+                        </span>
+                        <h3>My Credit cards</h3>
+                    </div>
+                    <div class="tarjetas">
+                        <p><span>4482-9853-1123-5723</span> </p>
+                        <i class='bx bxl-visa bx-md'></i>
+                    </div>
                 </div>
             </div>
         </main>
@@ -254,7 +225,9 @@
                     </div>
                     <div class="contenedorParrafo">
                         <p class="parrafoSuscribcion">
-                            Enter your email address to always be updated on news and promotions
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+                            ullam tempore obcaecati odio maxime, atque sint laborum possimus
+                            quisquam. Necessitatibus
                         </p>
                     </div>
                     <div class="contenedorGeneralBoton">
@@ -278,6 +251,7 @@
                         <i class="fa-brands fa-pinterest-p iconos"></i>
                     </div>
                 </div>
+
                 <div class="contenedorContenidoFooter">
                     <div class="contenedorTextoPlanoFooter">
                         <h4 class="TextoPlanoFooter">ABOUT US</h4>
@@ -302,10 +276,7 @@
         </footer>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue@3"></script>
-    <script src="https://kit.fontawesome.com/2544a6d2ae.js" crossorigin="anonymous"></script>
-    <script src="./scripts/products.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
 </body>
 
 </html>
