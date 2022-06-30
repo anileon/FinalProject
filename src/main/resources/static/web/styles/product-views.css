@@ -94,7 +94,7 @@ main {
 
 .img-contenedor {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   min-height: 30vh;
   margin-top: 2rem;

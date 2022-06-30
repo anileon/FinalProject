@@ -1,250 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Harley Davidson Motorbikes</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./styles/style.css"/>
-    <link rel="stylesheet" href="./styles/bikes.css">
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harley Davidson Motorbikes</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="stylesheet" href="./styles/bikes.css">
+</head>
 
-  <body>
-    <div id="app">
-      <header class="header" :class="{ 'header-activo': scrolled }">
-        <img
-          src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
-          alt="">
-  
-        <nav class="navbar oculto">
-          <div class="nav-elemento" @click="toggleNavItem('.nav-motos')">
-            BIKES
-            <div class="nav-motos oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
-                <a href="./bikes-ducati.html?type=DUCATI">DUCATI</a>
-              </div>
+<body>
+  <div id="app">
+    <header class="header" :class="{ 'header-activo': scrolled }">
+      <img
+        src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
+        alt="">
+
+      <nav class="navbar oculto">
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-motos')">BIKES</span>
+          <div class="nav-motos oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-motos')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
+              <a href="./bikes-ducati.html?type=DUCATI">DUCATI</a>
             </div>
-          </div>
-  
-  
-          <div class="nav-elemento" @click="toggleNavItem('.nav-hombre')">
-            MAN
-            <div class="nav-hombre oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./products.html?gender=MALE">All products</a>
-                <a href="./products.html?gender=MALE&category=Jacket">Jackets</a>
-                <a href="./products.html?gender=MALE&category=Helmet">Helmets</a>
-                <a href="./products.html?gender=MALE&category=Gloves">Gloves</a>
-              </div>
-            </div>
-          </div>
-  
-  
-          <div class="nav-elemento" @click="toggleNavItem('.nav-mujer')">
-            WOMAN
-            <div class="nav-mujer oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./products.html?gender=FEMALE">All products</a>
-                <a href="./products.html?gender=FEMALE&category=Jacket">Jackets</a>
-                <a href="./products.html?gender=FEMALE&category=Helmet">Helmets</a>
-                <a href="./products.html?gender=FEMALE&category=Gloves">Gloves</a>
-              </div>
-            </div>
-          </div>
-  
-  
-          <div class="nav-elemento" @click="toggleNavItem('.nav-experiencia')">
-            EVENTS
-            <div class="nav-experiencia oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./events.html">Meet Ups</a>
-                <a href="./events.html">Test Ride</a>
-              </div>
-            </div>
-          </div>
-        </nav>
-  
-        <div>
-          <span class="material-symbols-rounded nav-menu-btn" @click="toggleCart()">shopping_cart
-            <i>{{productosGeneral.length}}</i></span>
-          <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
-        </div>
-  
-        <div class="carrito oculto">
-          <div v-for="producto in arrayDeMotos" class="carrito-box">
-            <img :src="producto.images[0]" alt="product image">
-            <div>
-              <p>{{producto.model}}</p>
-              <div>
-                <span>Amount: {{producto.cantidad}}</span>
-                <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
-              </div>
-            </div>
-          </div>
-  
-          <div v-for="producto in arrayDeProductos" class="carrito-box">
-            <img :src="producto.urlImg[0]" alt="product image">
-            <div>
-              <p>{{producto.description}}</p>
-              <div>
-                <span>Amount: {{producto.cantidad}}</span>
-                <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
-              </div>
-            </div>
-          </div>
-  
-          <div class="totalYPago">
-            <span>Total: ${{total}}</span>
-            <button>Go to payment</button>
           </div>
         </div>
-      </header>
 
-      <div class="imagen-principal">
-        <img src="https://cdn.discordapp.com/attachments/985294289091321861/990404055325097996/mobile-harley.png" alt="" />
+
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-hombre')">MAN</span>
+          <div class="nav-hombre oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-hombre')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./products.html?gender=MALE">All products</a>
+              <a href="./products.html?gender=MALE&category=Jacket">Jackets</a>
+              <a href="./products.html?gender=MALE&category=Helmet">Helmets</a>
+              <a href="./products.html?gender=MALE&category=Gloves">Gloves</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-mujer')">WOMAN</span>
+          <div class="nav-mujer oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-mujer')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./products.html?gender=FEMALE">All products</a>
+              <a href="./products.html?gender=FEMALE&category=Jacket">Jackets</a>
+              <a href="./products.html?gender=FEMALE&category=Helmet">Helmets</a>
+              <a href="./products.html?gender=FEMALE&category=Gloves">Gloves</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-experiencia')">EVENTS</span>
+          <div class="nav-experiencia oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-experiencia')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./events.html">Meet Ups</a>
+              <a href="./events.html">Test Ride</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-contact')">CONTACT</span>
+          <div class="nav-contact oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-contact')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./contact.html">Contact us</a>
+              <a href="./contact.html">Contact info</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+      <div>
+        <span class="material-symbols-rounded nav-menu-btn" @click="toggleCart()">shopping_cart
+          <i>{{productosGeneral}}</i></span>
+        <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
       </div>
 
-      <main>
-        <div id="filtro">
-          <span @click="toggleFilter()"><i class="material-symbols-outlined">apps</i> Filter</span>
-          
-          <div class="box-de-filtro oculto">
-            <input type="search" name="search" id="search">
-            
-          </div>
-        </div>
-        
-        <div id="catalogo">
-          <div class="cartaCatalogo" v-for="(bike,index) in bikes" :key="index">
-            <div class="brand-title">
-              <img src="http://drive.google.com/uc?export=view&id=1pM5qGCK0JrSKU84YgHzlkyQV9jpTwMSC" alt="">
-            </div>
-            
-            <div class="imgCartaCatalogo">
-              <img :src="bike.images[0]" alt="">
-            </div>
-
-            <div class="tituloDescripcion">
-              <span>{{bike.model}}</span>
-            </div>
-
-            <div class="textoCartaCatalogo">
-              <div class="detallesProducto">
-                  <p class="parradoDescripcion">CC</p>
-                  <p class="colorDescripcion">{{bike.displacement}}</p>
-              </div>
-
-              <span class="lineaVerticalProductos"></span>
-
-              <div class="detallesProducto">
-                  <p class="parradoDescripcion">Brand</p>
-                  <p class="colorDescripcion">{{bike.brandType}}</p>
-              </div>
-
-              <span class="lineaVerticalProductos"></span>
-
-              <div class="detallesProducto">
-                  <p class="parradoDescripcion">Price</p>
-                  <p class="colorDescripcion">${{bike.price}}</p>
-              </div>
-            </div>
-
-            <div class="contendorCompra">
-              <img class="imgDorso" :src="bike.images[1]">
-              <a :href="'./bike-view.html?id=' + bike.id" class="botonCompra" type="submit">🛒 | Check product ↗</a>
+      <div class="carrito oculto">
+        <div v-for="producto in arrayDeMotos" class="carrito-box">
+          <img :src="producto.images[0]" alt="product image">
+          <div>
+            <p>{{producto.model}}</p>
+            <div>
+              <span>Amount: {{producto.cantidad}}</span>
+              <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
             </div>
           </div>
+          <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
         </div>
-      </main>
 
-            <footer>
-        <div class="contenedorSuscripcionGeneral">
-          <div class="contenedorSuscripcion">
-            <div class="contenedorTexto">
-              <h3 class="tituloSuscribe">
-                Subscribe to the Moto Rider newsletter
-              </h3>
-            </div>
-            <div class="contenedorParrafo">
-              <p class="parrafoSuscribcion">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                ullam tempore obcaecati odio maxime, atque sint laborum possimus
-                quisquam. Necessitatibus
-              </p>
-            </div>
-            <div class="contenedorGeneralBoton">
-              <input
-                class="inputFooter"
-                type="email"
-                name="email"
-                id="email"
-                placeholder="YOUR EMAIL ADDRESS"
-              />
-              <button type="submit" class="botonSuscripcion">
-                SUBSCRIBE NOW
-              </button>
+        <div v-for="producto in arrayDeProductos" class="carrito-box">
+          <img :src="producto.urlImg[0]" alt="product image">
+          <div>
+            <p>{{producto.description}}</p>
+            <div>
+              <span>Amount: {{producto.cantidad}}</span>
+              <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
             </div>
           </div>
+          <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
         </div>
-        <div class="contenedorTamañoEscritorio">
-          <div class="contenedorLogoFooter">
-            <div class="contenedorImgLogo iconos-wrapper">
-              <img
-                class="ImgLogo"
-                src="./assets/LOGO_LETRAS_PROJECTO_FINAL.png"
-                alt="logo"
-              />
-            </div>
-            <div class="contenedorRedesSocialesFooter">
-              <i class="fa-brands fa-instagram iconos pe-2"></i>
-              <i class="fa-brands fa-facebook-f iconos pe-2"></i>
-              <i class="fa-brands fa-twitter iconos pe-2"></i>
-              <i class="fa-brands fa-pinterest-p iconos"></i>
-            </div>
-          </div>
-          <div class="contenedorContenidoFooter">
-            <div class="contenedorTextoPlanoFooter">
-              <h4 class="TextoPlanoFooter">ABOUT US</h4>
-              <h4 class="TextoPlanoFooter">SHIPPING PAYMENT</h4>
-              <h4 class="TextoPlanoFooter">WARRANTY</h4>
-              <h4 class="TextoPlanoFooter">NEWS</h4>
-            </div>
-            <div class="contenedorTextoPlanoParrafo">
-              <p class="textoPlanoFooter">
-                Copyright © 2022 Moto Rider - A Sole Shareholder Company - A
-                Company
-              </p>
-              <p class="textoPlanoFooter">
-                subject to the Management and Coordination activities of All
-                rights
-              </p>
-              <p class="textoPlanoFooter">reserved. VAT 05113865928</p>
-              <p class="textoPlanoFooter">Moto Rider</p>
-            </div>
-          </div>       
+
+        <div class="totalYPago">
+          <span>Total: ${{total}}</span>
+          <button>Go to payment</button>
         </div>
-      </footer>
+      </div>
+    </header>
+
+    <div class="imagen-principal-harley">
     </div>
 
+    <main>
+      <div id="catalogo">
+        <div id="filtro">
+          <span @click="toggleFilter()"><i class="material-symbols-outlined">apps</i> Filter</span>
+          <form class="box-de-filtro oculto" @change="filterChange">
+            <input type="search" name="search" id="search" placeholder="Searc Product" v-model="searchText">
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue@3"></script>
-    <script src="https://kit.fontawesome.com/2544a6d2ae.js" crossorigin="anonymous"></script>
-    <script src="./scripts/bikes.js"></script>
-  </body>
+            <div class="price-box">
+              Price
+              <label>
+                <input type="radio" name="price" value="Relevant" v-model="precioSeleccionado">
+                <span>Most relevant</span>
+              </label>
+  
+              <label>
+                <input type="radio" name="price" value="Most" v-model="precioSeleccionado">
+                <span>Most Expensive</span>
+              </label>
+  
+              <label>
+                <input type="radio" name="price" value="Least" v-model="precioSeleccionado">
+                <span>Least Expensive</span>
+              </label>
+            </div>
+
+            <div class="ccBox">
+              Displacement
+              <label>
+                <input type="radio" name="cc" value="995" v-model="ccSleccionado">
+                <span>995cc</span>
+              </label>
+              <label>
+                <input type="radio" name="cc" value="1150" v-model="ccSleccionado">
+                <span>1150cc</span>
+              </label>
+              <label>
+                <input type="radio" name="cc" value="1200" v-model="ccSleccionado">
+                <span>1200cc</span>
+              </label>
+              <label>
+                <input type="radio" name="cc" value="1250" v-model="ccSleccionado">
+                <span>1250cc</span>
+              </label>
+              <label>
+                <input type="radio" name="cc" value="1300" v-model="ccSleccionado">
+                <span>1300cc</span>
+              </label>
+              <label>
+                <input type="radio" name="cc" value="1350" v-model="ccSleccionado">
+                <span>1350cc</span>
+              </label>
+            </div>
+          </form>
+        </div>
+
+        <div class="cartaCatalogo" v-for="(bike,index) in auxiliar" :key="index">
+          <div class="brand-title">
+            <img src="http://drive.google.com/uc?export=view&id=1pM5qGCK0JrSKU84YgHzlkyQV9jpTwMSC" alt="">
+          </div>
+
+          <div class="imgCartaCatalogo">
+            <img :src="bike.images[0]" alt="">
+          </div>
+
+          <div class="tituloDescripcion">
+            <span>{{bike.model}}</span>
+          </div>
+
+          <div class="textoCartaCatalogo">
+            <div class="detallesProducto">
+              <p class="parradoDescripcion">CC</p>
+              <p class="colorDescripcion">{{bike.displacement}}</p>
+            </div>
+
+            <span class="lineaVerticalProductos"></span>
+
+            <div class="detallesProducto">
+              <p class="parradoDescripcion">Brand</p>
+              <p class="colorDescripcion">{{bike.brandType}}</p>
+            </div>
+
+            <span class="lineaVerticalProductos"></span>
+
+            <div class="detallesProducto">
+              <p class="parradoDescripcion">Price</p>
+              <p class="colorDescripcion">${{bike.price}}</p>
+            </div>
+          </div>
+
+          <div class="contendorCompra">
+            <img class="imgDorso" :src="bike.images[1]">
+            <a :href="'./bike-view.html?id=' + bike.id" class="botonCompra" type="submit">🛒 | Check product ↗</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="contenedorSuscripcionGeneral">
+        <div class="contenedorSuscripcion">
+          <div class="contenedorTexto">
+            <h3 class="tituloSuscribe">
+              Subscribe to the Moto Rider newsletter
+            </h3>
+          </div>
+          <div class="contenedorParrafo">
+            <p class="parrafoSuscribcion">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+              ullam tempore obcaecati odio maxime, atque sint laborum possimus
+              quisquam. Necessitatibus
+            </p>
+          </div>
+          <div class="contenedorGeneralBoton">
+            <input class="inputFooter" type="email" name="email" id="email" placeholder="YOUR EMAIL ADDRESS" />
+            <button type="submit" class="botonSuscripcion">
+              SUBSCRIBE NOW
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="contenedorTamañoEscritorio">
+        <div class="contenedorLogoFooter">
+          <div class="contenedorImgLogo iconos-wrapper">
+            <img class="ImgLogo" src="./assets/LOGO_LETRAS_PROJECTO_FINAL.png" alt="logo" />
+          </div>
+          <div class="contenedorRedesSocialesFooter">
+            <i class="fa-brands fa-instagram iconos pe-2"></i>
+            <i class="fa-brands fa-facebook-f iconos pe-2"></i>
+            <i class="fa-brands fa-twitter iconos pe-2"></i>
+            <i class="fa-brands fa-pinterest-p iconos"></i>
+          </div>
+        </div>
+        <div class="contenedorContenidoFooter">
+          <div class="contenedorTextoPlanoFooter">
+            <h4 class="TextoPlanoFooter">ABOUT US</h4>
+            <h4 class="TextoPlanoFooter">SHIPPING PAYMENT</h4>
+            <h4 class="TextoPlanoFooter">WARRANTY</h4>
+            <h4 class="TextoPlanoFooter">NEWS</h4>
+          </div>
+          <div class="contenedorTextoPlanoParrafo">
+            <p class="textoPlanoFooter">
+              Copyright © 2022 Moto Rider - A Sole Shareholder Company - A
+              Company
+            </p>
+            <p class="textoPlanoFooter">
+              subject to the Management and Coordination activities of All
+              rights
+            </p>
+            <p class="textoPlanoFooter">reserved. VAT 05113865928</p>
+            <p class="textoPlanoFooter">Moto Rider</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="https://kit.fontawesome.com/2544a6d2ae.js" crossorigin="anonymous"></script>
+  <script src="./scripts/bikes.js"></script>
+</body>
 </html>
+
