@@ -192,18 +192,33 @@ Vue.createApp({
         },
 
         modificarProducto(){
-            let abrirModal = document.querySelector('.modal-modificar-producto')
-            abrirModal.classList.remove('modalOFF')
-            abrirModal.classList.add('modalON')
-            abrirModal.classList.remove('display-none')
+            let modal = document.querySelector('.modal-modificar-producto')
+            modal.classList.remove('modalOFF')
+            modal.classList.add('modalON')
+            modal.classList.remove('display-none')
         },
         cerrarModalModificar(){
-            let cerrarModal = document.querySelector('.modal-modificar-producto')
-            cerrarModal.classList.remove("modalON")
-            cerrarModal.classList.add("modalOFF")
+            let modal = document.querySelector('.modal-modificar-producto')
+            modal.classList.remove("modalON")
+            modal.classList.add("modalOFF")
             setTimeout(() => {
-                cerrarModal.classList.add('display-none')
+                modal.classList.add('display-none')
             }, 500);
+        },
+
+        abrirModalAñadirProducto(){
+            let modal = document.querySelector('.modal-agregar-producto')
+            modal.classList.remove('modalZOOM-OFF')
+            modal.classList.add('modalZOOM-ON')
+            modal.classList.remove('display-none')
+        },
+        cerrarModalAñadirProducto(){
+            let modal = document.querySelector('.modal-agregar-producto')
+            modal.classList.remove("modalZOOM-ON")
+            modal.classList.add("modalZOOM-OFF")
+            setTimeout(() => {
+                modal.classList.add('display-none')
+            }, 200);
         },
     },
 
