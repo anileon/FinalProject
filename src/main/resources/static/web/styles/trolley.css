@@ -1,0 +1,179 @@
+:root {
+    /* text-shadow */
+    --textShadow-blanco: #252620;
+    --textShadow-blanco2: #686b58;
+
+    /* Estilos extra */
+    --altura-con-nav: calc(100vh - 5rem);
+    --naranja: #FF522A;
+    --blanco2: #FAF1EA;
+
+    /* Paleta de colores que estamos usando */
+    --neon-rojo2--: #871d26;
+    --color-primary:  #fcf0e6;
+    --color-secondary: #ff6543;
+    --color-terciary: #feea28;
+    --letra-color: #995c39;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* background-color: #181815; */
+    background-image: url("https://images.unsplash.com/photo-1581089927681-bf909bd524d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 75%;
+    width: 100%;
+    min-height: 100vh;
+}
+
+main{
+    width: 100%;
+    height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedorCarritoGeneral{
+    width: 60%;
+    height: 80vh;
+    background: #5c5e53da;
+    border-radius: .5rem;
+    border: .2rem solid #871d26;
+    box-shadow: rgb(112, 128, 145) 0px 20px 30px -10px;
+}
+
+.contenedorCarrito{
+    width: 100%;
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+.tituloCarrito{
+    font-size: 2rem;
+    display: flex;
+    color: #871d26;
+    text-shadow: 1px 1px 4px #871d26;
+}
+.lineaCarrito{
+    content: "";
+    height: .1rem;
+    width: 100%;
+    background-color: #871d26b0;
+    margin-top: .5rem;
+    border-radius: .5rem;
+}
+.lineaCarritoFina{
+    content: "";
+    height: .1rem;
+    width: 100%;
+    background-color: #871d2665;
+    margin-top: .5rem;
+    border-radius: .5rem;
+}
+.contenedorSumaCarrito{
+    width: 50%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+}
+.contenedorCompraGeneral{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contenedorDetalles{
+    margin-left: 1.5rem;
+}
+
+input{
+    width: 30%;
+    padding-left: .2rem;
+}
+
+.botonDelete{
+    width: 5rem;
+    height: 2.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #871d26;
+    background-color: #feea28;
+    border: .15rem solid #871d26;
+}
+.botonDelete:hover{
+    width: 5.2rem;
+    height: 2.4rem;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #feea28;
+    background-color: #871d26;
+    border-radius: .5rem;
+}
+
+.contenedorImagen{
+    width: 2rem;
+    height: 2rem;
+}
+
+@media (min-width:280px){
+
+    .contenedorCarritoGeneral{
+        width: 90%;
+        height: 95vh;;
+    }
+
+    .botonDelete{
+        width: 3.5rem;
+        height: 1.5rem;
+        font-size: .9rem;
+        font-weight: 600;
+    }
+
+    .contenedorSumaCarrito {
+        width: 100%;
+    }
+
+    .tituloCarrito{
+        font-size: 1.5rem;
+
+    }
+
+}
+
+@media (min-width:1020px){
+    .contenedorCarritoGeneral {
+        width: 70%;
+        height: 80vh;
+    }
+    .tituloCarrito{
+        font-size: 2rem;
+        display: flex;
+        color: #871d26;
+        text-shadow: 1px 1px 4px #871d26;
+    }
+    .botonDelete{
+        width: 5rem;
+        height: 2.2rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #871d26;
+        background-color: #feea28;
+        border: .15rem solid #871d26;
+    }
+    .botonDelete:hover{
+        width: 5.2rem;
+        height: 2.4rem;
+        font-size: 1.2rem;
+        font-weight: 900;
+        color: #feea28;
+        background-color: #871d26;
+        border-radius: .5rem;
+    }
+}
