@@ -11,29 +11,12 @@
 
 /* ACA VAMOS A DECLARAR LAS VARIABLES CONSTANTES (PALETA DE COLORES/TAMAÑOS/ETC) */
 :root {
-    /* PALETA 1 */
-    --paleta-rojo: #E63946;
-    --paleta-blanco: #F1FAEE;
-    --paleta-azul-claro: #A8DADC;
-    --paleta-azul-medio: #457B9D;
-    --paleta-azul-oscuro: #1D3557;
-
-    /* Neon 2 */
-    --neon-rojo: #ec4141;
-    --neon-blanco: #f3fad4;
-    --neon-azul-claro: #36edf0;
-    --neon-azul-medio: #23a1ef;
-    --neon-azul-oscuro: #04459f;
-
-    /* text-shadow */
-    --textShadow-blanco: #252620;
-    --textShadow-blanco2: #686b58;
-
-    /* Estilos extra */
-    --altura-con-nav: calc(100vh - 5rem);
-    --naranja: #FF522A;
-    --blanco2: #FAF1EA;
-    --neon-rojo2--: #f61d30;
+    /* Paleta de colores que estamos usando */
+    --neon-rojo2--: #871d26;
+    --color-primary:  #fcf0e6;
+    --color-secondary: #ff6543;
+    --color-terciary: #feea28;
+    --letra-color: #995c39;
 }
 
 body,
@@ -146,7 +129,7 @@ header .navbar {
     box-shadow: 0px 0px 15rem 6rem rgb(0 0 0 / 30%) inset;
 }
 
-.nav-elemento > span {
+.nav-elemento>span {
     width: 100%;
     display: flex;
     height: 100%;
@@ -203,12 +186,35 @@ header .navbar {
     position: absolute;
     top: 5rem;
     height: calc(100vh - 10rem);
-    background: white;
+    /* background-color: #871d26; */
     width: 100%;
     overflow: auto;
     animation: nav 0.4s;
+    /* background: rgb(44, 40, 40); */
+    box-shadow: rgb(84, 96, 109) -10px 15px 30px -10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-primary);
+    text-decoration: none;
+    background-color: #171718;
+    background-image: url("../assets/bg-prueba2.svg");
+    background-size: cover;
+    box-shadow: 5px 5px 8px black;
+    height: 100vh;
 }
 
+.contenedorTituloProductos{
+    height: 6vh;
+    display: flex;
+}
+
+.tituloProducto{
+    font-size: 1.6rem;
+    color: #871d26;
+    padding: 1rem;
+    font-weight: 600;
+}
 
 .carrito-box {
     display: flex;
@@ -227,7 +233,7 @@ header .navbar {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: red;
+    background: #F1FAEE;
     height: 5rem;
     display: flex;
     align-items: center;
@@ -236,13 +242,98 @@ header .navbar {
     gap: 0.3rem;
 }
 
-.totalYPago button {
+.totalYPago a {
     width: 100%;
     height: 3rem;
     border: unset;
     background: #dbdb00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
+.bike-loader {
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: black;
+    z-index: 11;
+}
+
+.centerBike {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 26px;
+    margin-left: -12px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+
+#loop {
+    height: 108px;
+    width: 110px;
+    border: #bb5f27 solid 4px;
+    border-radius: 200px;
+}
+
+#loop:before {
+    background: linear-gradient(to left, rgba(187, 95, 39, 0) 0%, rgba(187, 95, 39, 1) 30%, rgba(187, 95, 39, 1) 70%, rgba(187, 95, 39, 0) 100%);
+    content: "";
+    display: block;
+    height: 4px;
+    left: -100px;
+    position: relative;
+    top: 100px;
+    width: 300px;
+}
+
+#bike-wrapper {
+    height: 108px;
+    width: 108px;
+    animation: drive 2s linear infinite;
+}
+
+#bike {
+    height: 24px;
+    width: 25px;
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/133687/motorbike.png");
+}
+
+@keyframes drive {
+    0% {
+        margin-left: -364px;
+        opacity: 0;
+    }
+
+    33.33% {
+        transform: rotate(0deg);
+        margin-left: -50px;
+        opacity: 1;
+    }
+
+    66.66% {
+        transform: rotate(-360deg);
+        margin-left: -50px;
+        opacity: 1;
+    }
+
+    100% {
+        margin-left: 264px;
+        transform: rotate(-360deg);
+        opacity: 0;
+    }
+}
 
 
 /* Keyframes del header */
@@ -334,7 +425,7 @@ footer {
     text-shadow: .6px .6px 1px var(--textShadow-blanco2);
 }
 
-.botonSuscripcion:hover{
+.botonSuscripcion:hover {
     font-size: 1rem;
     background-color: #871d26;
     border: none;
@@ -650,6 +741,7 @@ footer {
         font-size: 1rem;
         text-shadow: .1px .1px 2px var(--textShadow-blanco);
     }
+
     .contenedorTextoPlanoFooter {
         padding-top: 1.8rem;
     }

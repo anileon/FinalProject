@@ -11,36 +11,34 @@
 
 <body>
     <div id="app">
+        <div class="bike-loader">
+            <div id="loop" class="center"></div>
+                <div id="bike-wrapper" class="center">
+                <div id="bike" class="centerBike"></div>
+            </div>
+          </div>
         <div class="logInContainer" id="container">
             <div class="form-container sign-up-container">
-                <form action="#">
+                <form @submit.prevent="register()">
                     <h1>Create Account</h1>
-                    <div class="social-container">
-                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+
                     <span>or use your email for registration</span>
                     <input type="text" placeholder="Name" v-model="firstName" />
                     <input type="text" placeholder="Last Name" v-model="lastName"/>
                     <input type="email" placeholder="Email" v-model="email" />
                     <input type="password" placeholder="Password" v-model="password" />
-                    <button class="form-btn" v-on:click="register()">Sign Up</button>
+                    <input type="submit" class="form-btn">Sign Up</input>
                 </form>
             </div>
             <div class="form-container sign-in-container">
-                <form action="#">
+                <form @submit.prevent="logIn()">
                     <h1>Sign in</h1>
-                    <div class="social-container">
-                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+
                     <span>or use your account</span>
                     <input type="email" placeholder="Email" v-model="email"/>
                     <input type="password" placeholder="Password" v-model="password"/>
                     <a href="#">Forgot your password?</a>
-                    <button class="form-btn" v-on:click=" logIn()">Sign In</button>
+                    <input type="submit" class="form-btn">Sign In</input>
                 </form>
             </div>
             <div class="overlay-container">
