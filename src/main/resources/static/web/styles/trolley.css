@@ -11,7 +11,6 @@
     /* Paleta de colores que estamos usando */
     --neon-rojo2--: #871d26;
     --color-primary:  #fcf0e6;
-    --color-secondary: #ff6543;
     --color-terciary: #feea28;
     --letra-color: #995c39;
 }
@@ -51,7 +50,7 @@ p {
 .contenedorCarritoGeneral{
     width: 60%;
     height: 80vh;
-    background: #5c5e53da;
+    background: #5c5e5383;
     border-radius: .5rem;
     border: .2rem solid #871d26;
     box-shadow: rgb(112, 128, 145) 0px 20px 30px -10px;
