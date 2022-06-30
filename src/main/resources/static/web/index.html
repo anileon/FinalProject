@@ -102,6 +102,10 @@
       </div>
 
       <div class="carrito oculto">
+        <div class="contenedorTituloProductos">
+          <h3 class="tituloProducto">PRODUCTS IN CART</h3>
+          <span class="contenedorLinea"></span>
+        </div>
         <div v-for="producto in arrayDeMotos" class="carrito-box">
           <img :src="producto.images[0]" alt="product image">
           <div>
@@ -135,7 +139,14 @@
 
 
     <div class="imagen-principal">
-      <div class="glitch-logo"></div>
+      <div class="contendorImagenPrincipal">
+        <p class="glitch">
+          <span aria-hidden="true">Moto Rider</span>
+        Moto Rider
+          <span aria-hidden="true">Moto Rider</span>
+        </p>
+      </div>
+      <!-- <div class="glitch-logo"></div> -->
     </div>
 
 

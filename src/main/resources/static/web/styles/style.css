@@ -11,29 +11,12 @@
 
 /* ACA VAMOS A DECLARAR LAS VARIABLES CONSTANTES (PALETA DE COLORES/TAMAÑOS/ETC) */
 :root {
-    /* PALETA 1 */
-    --paleta-rojo: #E63946;
-    --paleta-blanco: #F1FAEE;
-    --paleta-azul-claro: #A8DADC;
-    --paleta-azul-medio: #457B9D;
-    --paleta-azul-oscuro: #1D3557;
-
-    /* Neon 2 */
-    --neon-rojo: #ec4141;
-    --neon-blanco: #f3fad4;
-    --neon-azul-claro: #36edf0;
-    --neon-azul-medio: #23a1ef;
-    --neon-azul-oscuro: #04459f;
-
-    /* text-shadow */
-    --textShadow-blanco: #252620;
-    --textShadow-blanco2: #686b58;
-
-    /* Estilos extra */
-    --altura-con-nav: calc(100vh - 5rem);
-    --naranja: #FF522A;
-    --blanco2: #FAF1EA;
-    --neon-rojo2--: #f61d30;
+    /* Paleta de colores que estamos usando */
+    --neon-rojo2--: #871d26;
+    --color-primary:  #fcf0e6;
+    --color-secondary: #ff6543;
+    --color-terciary: #feea28;
+    --letra-color: #995c39;
 }
 
 body,
@@ -203,12 +186,35 @@ header .navbar {
     position: absolute;
     top: 5rem;
     height: calc(100vh - 10rem);
-    background: white;
+    /* background-color: #871d26; */
     width: 100%;
     overflow: auto;
     animation: nav 0.4s;
+    /* background: rgb(44, 40, 40); */
+    box-shadow: rgb(84, 96, 109) -10px 15px 30px -10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-primary);
+    text-decoration: none;
+    background-color: #171718;
+    background-image: url("../assets/bg-prueba2.svg");
+    background-size: cover;
+    box-shadow: 5px 5px 8px black;
+    height: 100vh;
 }
 
+.contenedorTituloProductos{
+    height: 6vh;
+    display: flex;
+}
+
+.tituloProducto{
+    font-size: 1.6rem;
+    color: #871d26;
+    padding: 1rem;
+    font-weight: 600;
+}
 
 .carrito-box {
     display: flex;
@@ -227,7 +233,7 @@ header .navbar {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: red;
+    background: #F1FAEE;
     height: 5rem;
     display: flex;
     align-items: center;
