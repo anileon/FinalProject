@@ -118,189 +118,94 @@
             </div>
         </header>
 
-        <div class="imagen-principal">
-            <div class="portadaHombre"></div>
-        </div>
-
-
-        <div class="modal-modificar-producto display-none">
-            <span class="material-symbols-outlined" @click="cerrarModalModificar">
-                close
-            </span>
-            <h4>MODIFY</h4>
-            <div>
-                <label>
-                    Stock:
-                    <input type="number">
-                </label>
-            </div>
-            <button>Delete</button>
-        </div>
-
 
         <main>
             <div id="catalogo">
-                <div id="filtro">
-                    <span @click="toggleFilter()"><i class="material-symbols-outlined">apps</i> Filter</span>
-                    <form class="box-de-filtro oculto" @change="filterChange">
-                        <input type="search" name="search" id="search" placeholder="Searc Product" v-model="searchText">
-                        {{searchText}}
-                        <div class="gender-box">
-                            <label>
-                                <input type="radio" name="gender" value="MALE" v-model="gender">
-                                <span>MALE</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="gender" value="FEMALE" v-model="gender">
-                                <span>FEMALE</span>
-                            </label>
-                        </div>
-                        {{gender}}
-                        <div class="price-box">
-                            <label>
-                                <input type="radio" name="price" value="Relevant" v-model="precioSeleccionado">
-                                <span>Most relevant</span>
-                            </label>
-
-                            <label>
-                                <input type="radio" name="price" value="Most" v-model="precioSeleccionado">
-                                <span>Most Expensive</span>
-                            </label>
-
-                            <label>
-                                <input type="radio" name="price" value="Least" v-model="precioSeleccionado">
-                                <span>Least Expensive</span>
-                            </label>
-                        </div>
-                        {{precioSeleccionado}}
-                        <div class="type-box">
-                            <label>
-                                <input type="checkbox" name="category" value="Gloves" id="gloves"
-                                    v-model="tipoSeleccionado">
-                                <span>Gloves</span>
-                            </label>
-
-                            <label>
-                                <input type="checkbox" name="category" value="Jacket" id="jackets"
-                                    v-model="tipoSeleccionado">
-                                <span>Jackets</span>
-                            </label>
-
-                            <label>
-                                <input type="checkbox" name="category" value="Helmet" id="helmets"
-                                    v-model="tipoSeleccionado">
-                                <span>Helmets</span>
-                            </label>
-                        </div>
-                        {{tipoSeleccionado}}
-                    </form>
-                </div>
 
 
-                <div class="cartaCatalogo" v-for="producto in auxiliar">
-                    <div class="brand-title">
-                        <img src="http://drive.google.com/uc?export=view&id=1pM5qGCK0JrSKU84YgHzlkyQV9jpTwMSC" alt="">
+                <div class="contenedorProductos">
+                    <div>
+                        <p>Article</p>
                     </div>
-
-                    <div class="imgCartaCatalogo">
+                    <div class="producto" v-for="producto in productos">
+                        <p>{{producto.id}}</p>
                         <img :src="producto.urlImg[0]" alt="">
+                        <p>{{producto.size}}</p>
+                        <p>{{producto.type}}</p>
+                        <p>{{producto.genderType}}</p>
+                        <p>{{producto.description}}</p>
+                        <p>{{producto.price}}</p>
+                        <p>{{producto.stock}}</p>
                     </div>
-
-                    <div class="tituloDescripcion">
-                        <span>{{producto.description}}</span>
-                    </div>
-
-                    <div class="textoCartaCatalogo">
-                        <div class="detallesProducto">
-                            <p class="parradoDescripcion">Size</p>
-                            <p class="colorDescripcion">{{producto.size}}</p>
-                        </div>
-
-                        <span class="lineaVerticalProductos"></span>
-
-                        <div class="detallesProducto">
-                            <p class="parradoDescripcion">Gender</p>
-                            <p class="colorDescripcion">{{producto.genderType}}</p>
-                        </div>
-
-                        <span class="lineaVerticalProductos"></span>
-
-                        <div class="detallesProducto">
-                            <p class="parradoDescripcion">Price</p>
-                            <p class="colorDescripcion">${{producto.price}}</p>
-                        </div>
-                    </div>
-
-                    <div class="contendorCompra">
-                        <img class="imgDorso"
-                            :src="producto.urlImg.length < 2 ? producto.urlImg[0] : producto.urlImg[1]">
-                        <a :href="'./product-views.html?id=' + producto.id" class="botonCompra" type="submit">🛒 | Check
-                            product
-                            ↗</a>
-                    </div>
-
-                    <button class="modificarProducto" @click="modificarProducto">Modify</button>
                 </div>
+
+
+                <!-- <div class="contendorCompra">
+                    <img class="imgDorso" :src="producto.urlImg.length < 2 ? producto.urlImg[0] : producto.urlImg[1]">
+                    <a :href="'./product-views.html?id=' + producto.id" class="botonCompra" type="submit">🛒 | Check
+                        product
+                        ↗</a>
+                </div> -->
             </div>
         </main>
+    </div>
 
 
-        <footer>
-            <div class="contenedorSuscripcionGeneral">
-                <div class="contenedorSuscripcion">
-                    <div class="contenedorTexto">
-                        <h3 class="tituloSuscribe">
-                            Subscribe to the Moto Rider newsletter
-                        </h3>
-                    </div>
-                    <div class="contenedorParrafo">
-                        <p class="parrafoSuscribcion">
-                            Enter your email address to always be updated on news and promotions
-                        </p>
-                    </div>
-                    <div class="contenedorGeneralBoton">
-                        <input class="inputFooter" type="email" name="email" id="email"
-                            placeholder="YOUR EMAIL ADDRESS" />
-                        <button type="submit" class="botonSuscripcion">
-                            SUBSCRIBE NOW
-                        </button>
-                    </div>
+    <footer>
+        <div class="contenedorSuscripcionGeneral">
+            <div class="contenedorSuscripcion">
+                <div class="contenedorTexto">
+                    <h3 class="tituloSuscribe">
+                        Subscribe to the Moto Rider newsletter
+                    </h3>
+                </div>
+                <div class="contenedorParrafo">
+                    <p class="parrafoSuscribcion">
+                        Enter your email address to always be updated on news and promotions
+                    </p>
+                </div>
+                <div class="contenedorGeneralBoton">
+                    <input class="inputFooter" type="email" name="email" id="email" placeholder="YOUR EMAIL ADDRESS" />
+                    <button type="submit" class="botonSuscripcion">
+                        SUBSCRIBE NOW
+                    </button>
                 </div>
             </div>
-            <div class="contenedorTamañoEscritorio">
-                <div class="contenedorLogoFooter">
-                    <div class="contenedorImgLogo iconos-wrapper">
-                        <img class="ImgLogo" src="./assets/LOGO_LETRAS_PROJECTO_FINAL.png" alt="logo" />
-                    </div>
-                    <div class="contenedorRedesSocialesFooter">
-                        <i class="fa-brands fa-instagram iconos pe-2"></i>
-                        <i class="fa-brands fa-facebook-f iconos pe-2"></i>
-                        <i class="fa-brands fa-twitter iconos pe-2"></i>
-                        <i class="fa-brands fa-pinterest-p iconos"></i>
-                    </div>
+        </div>
+        <div class="contenedorTamañoEscritorio">
+            <div class="contenedorLogoFooter">
+                <div class="contenedorImgLogo iconos-wrapper">
+                    <img class="ImgLogo" src="./assets/LOGO_LETRAS_PROJECTO_FINAL.png" alt="logo" />
                 </div>
-                <div class="contenedorContenidoFooter">
-                    <div class="contenedorTextoPlanoFooter">
-                        <h4 class="TextoPlanoFooter">ABOUT US</h4>
-                        <h4 class="TextoPlanoFooter">SHIPPING PAYMENT</h4>
-                        <h4 class="TextoPlanoFooter">WARRANTY</h4>
-                        <h4 class="TextoPlanoFooter">NEWS</h4>
-                    </div>
-                    <div class="contenedorTextoPlanoParrafo">
-                        <p class="textoPlanoFooter">
-                            Copyright © 2022 Moto Rider - A Sole Shareholder Company - A
-                            Company
-                        </p>
-                        <p class="textoPlanoFooter">
-                            subject to the Management and Coordination activities of All
-                            rights
-                        </p>
-                        <p class="textoPlanoFooter">reserved. VAT 05113865928</p>
-                        <p class="textoPlanoFooter">Moto Rider</p>
-                    </div>
+                <div class="contenedorRedesSocialesFooter">
+                    <i class="fa-brands fa-instagram iconos pe-2"></i>
+                    <i class="fa-brands fa-facebook-f iconos pe-2"></i>
+                    <i class="fa-brands fa-twitter iconos pe-2"></i>
+                    <i class="fa-brands fa-pinterest-p iconos"></i>
                 </div>
             </div>
-        </footer>
+            <div class="contenedorContenidoFooter">
+                <div class="contenedorTextoPlanoFooter">
+                    <h4 class="TextoPlanoFooter">ABOUT US</h4>
+                    <h4 class="TextoPlanoFooter">SHIPPING PAYMENT</h4>
+                    <h4 class="TextoPlanoFooter">WARRANTY</h4>
+                    <h4 class="TextoPlanoFooter">NEWS</h4>
+                </div>
+                <div class="contenedorTextoPlanoParrafo">
+                    <p class="textoPlanoFooter">
+                        Copyright © 2022 Moto Rider - A Sole Shareholder Company - A
+                        Company
+                    </p>
+                    <p class="textoPlanoFooter">
+                        subject to the Management and Coordination activities of All
+                        rights
+                    </p>
+                    <p class="textoPlanoFooter">reserved. VAT 05113865928</p>
+                    <p class="textoPlanoFooter">Moto Rider</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

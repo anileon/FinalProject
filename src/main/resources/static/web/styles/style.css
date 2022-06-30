@@ -182,6 +182,7 @@ header .navbar {
     right: 5px;
 }
 
+
 .carrito {
     position: absolute;
     top: 5rem;
@@ -191,7 +192,6 @@ header .navbar {
     overflow: auto;
     animation: nav 0.4s;
     /* background: rgb(44, 40, 40); */
-    box-shadow: rgb(84, 96, 109) -10px 15px 30px -10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -202,20 +202,28 @@ header .navbar {
     background-size: cover;
     box-shadow: 5px 5px 8px black;
     height: 100vh;
+    color: #f3fad4;
+    box-shadow: rgb(84, 96, 109) -10px 15px 30px -10px;
 }
 
 .contenedorTituloProductos{
     height: 6vh;
     display: flex;
 }
-
 .tituloProducto{
     font-size: 1.6rem;
     color: #871d26;
-    padding: 1rem;
+    padding: 1.2rem;
     font-weight: 600;
+    text-shadow: 1px 1px 6px #871d26;
 }
-
+.contenedorLinea{
+    content: "";
+    width: 90%;
+    height: .1rem;
+    background-color: #871d262d;
+    border-radius: 1rem;
+}
 .carrito-box {
     display: flex;
     align-items: center;
@@ -233,25 +241,47 @@ header .navbar {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: #F1FAEE;
     height: 5rem;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: flex-end;
     gap: 0.3rem;
+<<<<<<< HEAD
     color: black;
+=======
+    color: #871d26;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.contenedorLinea{
+content: "";
+width: 90%;
+height: .1rem;
+color: #871d26;
+>>>>>>> master
 }
 
 .totalYPago a {
-    width: 100%;
-    height: 3rem;
+    width: 40%;
+    height: 7rem;
     border: unset;
     background: #dbdb00;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    border: .2rem solid #871d26;
+    color: #871d26;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.totalYPago a:hover{
+    background: #871d26;
+    border-radius: .5rem;
+    color: #f3fad4;
+    font-weight: 600;
 }
 
 .bike-loader {

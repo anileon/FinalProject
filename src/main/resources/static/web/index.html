@@ -108,11 +108,9 @@
         <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
       </div>
 
-      <div class="carrito oculto">
-        <div class="contenedorTituloProductos">
+      <div class="carrito oculto carritoOculto">
           <h3 class="tituloProducto">PRODUCTS IN CART</h3>
           <span class="contenedorLinea"></span>
-        </div>
         <div v-for="producto in arrayDeMotos" class="carrito-box">
           <img :src="producto.images[0]" alt="product image">
           <div>
