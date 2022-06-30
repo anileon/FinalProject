@@ -3,9 +3,11 @@ package com.FINALPROJECT.MotoRider.controller;
 import com.FINALPROJECT.MotoRider.dto.RecipeToCreateDTO;
 import com.FINALPROJECT.MotoRider.services.PDFGeneratorService;
 import com.lowagie.text.DocumentException;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @RestController
+@RequestMapping("/api")
 public class PDFExportController {
     private final PDFGeneratorService pdfGeneratorService;
 
@@ -23,7 +26,7 @@ public class PDFExportController {
     }
 
     @GetMapping("/pdf/generate")
-    public void generatePDF(HttpServletResponse response) throws IOException, DocumentException {
+    public void generatePDF(HttpServletResponse response, Authentication authentication) throws IOException, DocumentException {
         response.setContentType("application/pdf");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd:hh:mm:ss");
         String currentDateTime = dateFormatter.format(new Date());
@@ -32,6 +35,6 @@ public class PDFExportController {
         String headerValue = "attachment; filename=pdf_" + currentDateTime + ".pdf";
         response.setHeader(headerKey, headerValue);
 
-        this.pdfGeneratorService.export(response);
+        this.pdfGeneratorService.export(response, authentication);
     }
 }
