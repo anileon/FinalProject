@@ -37,6 +37,19 @@ height: auto;
     background-color: var(--color-terciary);
     border: none;
 }
+.icono{
+    width:8rem;
+
+    color:#c7c7c7;
+    align-items:center;
+}
+.cardTitle{
+    width: 100%;
+    
+    font-weight: 600;
+    align-items: flex-end;
+    color: #fcf0e6e8;
+}
 
 
 
@@ -135,9 +148,31 @@ height: auto;
     }
     .cardTitle{
         width: 40%;
-        height: 40%;
+        
         font-weight: 600;
         align-items: flex-end;
         color: #fcf0e6e8;
     }
+    .cardText{
+        
+    }
+    .icono{
+        width:1.5rem;
+
+        color:#c7c7c7;
+        align-items:center;
+    }
+    .calendar{
+        align-items: flex-end;
+    }
+    .textCalendar{
+       align-content: flex-end;
+    }
+    .textCalendar{
+        color:#fcf0e6cc
+    }
+    h5{
+        color: #f3f300;
+    }
+   
 }
