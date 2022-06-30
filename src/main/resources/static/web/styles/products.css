@@ -308,10 +308,6 @@ main {
     gap: 0.5rem;
 }
 
-.fondoCartaCatalogoUnFocus {
-    display: none;
-}
-
 #catalogo {
     min-height: 25vh;
 }
@@ -320,45 +316,57 @@ main {
     display: none;
 }
 
-.modal-modificar-producto {
-    width: 94vw;
-    height: 85vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: flex-start;
-    position: fixed;
-    bottom: 10px;
-    left: 9px;
-    z-index: 9;
+.contenedorProductos{
+    width: 100%;
+    min-height: 30vh;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
     background-color: white;
-    padding: 1rem;
-    padding-top: 2rem;
-    gap: 1rem;
 }
+.producto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    border-bottom: 1px solid black;
+}
+.producto p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+.producto img{
+    width: 10%;
+}
+.producto:first-child{
+    border-top: 1px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .modalON{
     animation: modalTransitionOn .5s;
 }
 .modalOFF{
     animation: modalTransitionOff .5s;
 }
-.modal-modificar-producto span {
-    position: absolute;
-    top: 8px;
-    right: -1px;
+.modalZOOM-ON{
+    animation: modalZOOM-ON .2s;
 }
-.modal-modificar-producto button, .modificarProducto {
-    height: 5vh;
-    width: 30vw;
-    background-color: #871d26;
-    border: none;
-    border-radius: 3px;
-    color: white;
-    font-weight: 500;
+.modalZOOM-OFF{
+    animation: modalZOOM-OFF .2s;
 }
-.modificarProducto{
-    background-color: #16345e;
-}
+
 
 
 
@@ -388,7 +396,7 @@ main {
 
 @keyframes modalTransitionOn {
     0%{
-        transform: translateX(-280px);
+        transform: translateX(-280%);
     }
     100%{
         transform: translateX(0);
@@ -400,9 +408,31 @@ main {
         transform: translateX(0);
     }
     100%{
-        transform: translateX(-280px);
+        transform: translateX(-280%);
     }
 }
+
+@keyframes modalZOOM-ON {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes modalZOOM-OFF {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
+
+
+
+
 
 
 @media (min-width: 280px) {
