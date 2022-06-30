@@ -53,9 +53,6 @@ height: auto;
 
 @media (min-width:280px){
 
-    .videoPrincipal{
-        
-    }
     .eventos{
         display:flex;
         flex-direction:column;
@@ -71,7 +68,6 @@ height: auto;
         object-fit: cover;
         background-repeat: no-repeat;
         background-position: right center;
-        box-sizing: ;
     }
     
     .cardButton{
