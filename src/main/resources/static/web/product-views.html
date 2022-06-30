@@ -95,15 +95,16 @@
               </div>
             </div>
           </div>
-        </div>
-       
-       
+        </nav>
+
+
       <div>
         <span class="material-symbols-rounded nav-menu-btn" @click="toggleCart()">shopping_cart
           <i>{{productosGeneral}}</i></span>
         <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
       </div>
 
+      
       <div class="carrito oculto">
         <div v-for="producto in arrayDeMotos" class="carrito-box">
           <img :src="producto.images[0]" alt="product image">
@@ -131,7 +132,7 @@
         
         <div class="totalYPago">
           <span>Total: ${{total}}</span>
-          <button>Go to payment</button>
+          <a href="./trolley.html">Go to payment</a>
         </div>
       </div>
     </header>
@@ -192,7 +193,7 @@
                 <p>Material: 100% leather</p>
               </div>
               <div>
-                <p>Brand: Ducati</p>
+                <p>Brand: Harley Davidson</p>
                 <p>Modelo: Tour V2</p>
                 <p>Pockets: 4 exterior pockets, 1 interior</p>
               </div>
@@ -201,7 +202,6 @@
               </div>
             </div>
           </div>
-
 
           <div class="fotosModelos">
           </div>

@@ -20,12 +20,15 @@ createApp({
                 .then(respuesta => window.location.href = '/web/log-in.html')
             })
         },
+
         logIn(){
             axios.post('/api/login',`email=${this.email}&password=${this.password}`, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
             .then(response =>{
-                Swal.fire('Logged succefull, redirecting to products')
-                .then(respuesta => window.location.href = '/web/products.html')
-            })},
+                Swal.fire('Logged succefull, you will be redirected to the trolley')
+                .then(respuesta => window.location.href = '/web/trolley.html')
+            })
+        },
+        
         switchSignUp(){
             const container = document.getElementById('container');
             container.classList.add("right-panel-active");

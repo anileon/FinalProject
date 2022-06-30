@@ -108,7 +108,7 @@
             <p>{{producto.model}}</p>
             <div>
               <span>Amount: {{producto.cantidad}}</span>
-              <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
+              <span>Subtotal: ${{subtotal(producto.price, producto.cantidad)}}</span>
             </div>
           </div>
           <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
@@ -120,7 +120,7 @@
             <p>{{producto.description}}</p>
             <div>
               <span>Amount: {{producto.cantidad}}</span>
-              <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
+              <span>Subtotal: ${{subtotal(producto.price, producto.cantidad)}}</span>
             </div>
           </div>
           <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
@@ -128,7 +128,7 @@
 
         <div class="totalYPago">
           <span>Total: ${{total}}</span>
-          <button>Go to payment</button>
+          <a href="./trolley.html">Go to payment</a>
         </div>
       </div>
     </header>

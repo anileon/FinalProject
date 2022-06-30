@@ -6,6 +6,7 @@ Vue.createApp({
             producto: [],
 
             scrolled: false,
+            loggedIn: false,
             searchText: "",
             cantidad: 1,
             gender: "",
@@ -27,6 +28,14 @@ Vue.createApp({
     },
 
     created() {
+        axios.get("/api/current/clients")
+        .then(res => {
+            this.loggedIn = !this.loggedIn
+            console.log(res)
+        })
+        .catch(err => console.log(err))
+
+
         this.arrayDeMotos = JSON.parse(localStorage.getItem("motos-carrito") || "[]")
         this.arrayDeProductos = JSON.parse(localStorage.getItem("productos-carrito") || "[]")
         this.motosVenta = JSON.parse(localStorage.getItem("array-motos") || "[]")
@@ -35,6 +44,32 @@ Vue.createApp({
     },
 
     methods: {
+        borrarCarrito(producto) {
+            if (producto.hasOwnProperty('id') && producto.hasOwnProperty('size')) {
+                let arrFiltrado = this.arrayDeProductos.filter(obj => obj.id != producto.id)
+                let arrayOBJ = this.arrayProductos.filter(obj => obj.idProducto != producto.id)
+
+                localStorage.setItem("productos-carrito", JSON.stringify(arrFiltrado))
+                localStorage.setItem("array-productos", JSON.stringify(arrayOBJ))
+
+                this.arrayProductos = arrayOBJ
+                this.arrayDeProductos = arrFiltrado
+                this.productosGeneral = this.arrayDeProductos.length + this.arrayDeMotos.length
+            }
+
+            if (producto.hasOwnProperty('id') && producto.hasOwnProperty('model')) {
+                let arrFiltrado = this.arrayDeMotos.filter(obj => obj.id != producto.id)
+                let arrayOBJ = this.arrayDeMotos.filter(obj => obj.id != producto.id)
+                
+                localStorage.setItem("motos-carrito", JSON.stringify(arrFiltrado))
+                localStorage.setItem("array-motos", JSON.stringify(arrayOBJ))
+
+                this.arrayMotos = arrayOBJ
+                this.arrayDeMotos = arrFiltrado
+                this.productosGeneral = this.arrayDeProductos.length + this.arrayDeMotos.length
+            }
+        },
+
         subtotal(precio, cantidad) {
             let price = precio
             let amount = cantidad
