@@ -158,6 +158,21 @@ Vue.createApp({
             let element = document.querySelector(".carrito")
             element.classList.toggle("oculto")
         },
+
+        modificarProducto(){
+            let abrirModal = document.querySelector('.modal-modificar-producto')
+            abrirModal.classList.remove('modalOFF')
+            abrirModal.classList.add('modalON')
+            abrirModal.classList.remove('display-none')
+        },
+        cerrarModalModificar(){
+            let cerrarModal = document.querySelector('.modal-modificar-producto')
+            cerrarModal.classList.remove("modalON")
+            cerrarModal.classList.add("modalOFF")
+            setTimeout(() => {
+                cerrarModal.classList.add('display-none')
+            }, 500);
+        },
     },
 
     computed: {

@@ -54,7 +54,6 @@ main{
 
 
 @media (min-width:280px){
-
     .video{
         margin-left: 1rem;
         height: 25vh;
@@ -94,6 +93,7 @@ main{
     }
     .contenedorBotonEventoIndumentaria{
         margin-top: 2.5rem;
+        background-position: right center;
     }
     
     .cardButton{
