@@ -171,12 +171,12 @@
             <div class="comprar">
               <div>
                 <button @click="minusCounter()" id="remove"><span class="material-symbols-outlined plus-remove-cart">
-                  remove
-                </span></button>
-              <input type="number" v-model="cantidad" min="1" :max="product.stock">
-              <button @click="plusCounter()" id="plus"><span class="material-symbols-outlined plus-remove-cart">
-                  add
-                </span></button>
+                    remove
+                  </span></button>
+                <input type="number" v-model="cantidad" min="1" :max="product.stock">
+                <button @click="plusCounter()" id="plus"><span class="material-symbols-outlined plus-remove-cart">
+                    add
+                  </span></button>
               </div>
               <button class="añadirAlCarrito" @click="llenarCarrito(product)">Add to cart</button>
             </div>
@@ -184,7 +184,7 @@
 
           <div class="separador"></div>
           <div class="especificaciones">
-            <h3>Spicification</h3>
+            <h3>Specs</h3>
             <div>
               <div>
                 <p>Gender: {{product.genderType}}</p>
