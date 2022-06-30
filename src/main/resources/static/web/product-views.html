@@ -10,6 +10,8 @@
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
   <link rel="stylesheet" href="./styles/style.css" />
   <link rel="stylesheet" href="./styles/product-views.css" />
@@ -21,71 +23,84 @@
       <img
         src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
         alt="">
+        <nav class="navbar oculto">
+          <div class="nav-elemento" >
+            <span @click="toggleNavItem('.nav-motos')">BIKES</span>
+            <div class="nav-motos oculto">
+              <span class="boton-cerrar-nav">
+                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-motos')">close</i>
+              </span>
+              <div class="nav-selection">
+                <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
+                <a href="./bikes-ducati.html?type=DUCATI">DUCATI</a>
+              </div>
+            </div>
+          </div>
 
-      <nav class="navbar oculto">
-        <div class="nav-elemento" @click="toggleNavItem('.nav-motos')">
-          BIKES
-          <div class="nav-motos oculto">
-            <span class="boton-cerrar-nav">
-              <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-            </span>
-            <div class="nav-selection">
-              <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
-              <a href="./bikes-ducati.html?type=DUCATI">DUCATI</a>
+
+          <div class="nav-elemento" >
+            <span @click="toggleNavItem('.nav-hombre')">MAN</span>
+            <div class="nav-hombre oculto">
+              <span class="boton-cerrar-nav">
+                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-hombre')">close</i>
+              </span>
+              <div class="nav-selection">
+                <a href="./products.html?gender=MALE">All products</a>
+                <a href="./products.html?gender=MALE&category=Jacket">Jackets</a>
+                <a href="./products.html?gender=MALE&category=Helmet">Helmets</a>
+                <a href="./products.html?gender=MALE&category=Gloves">Gloves</a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="nav-elemento">
+            <span @click="toggleNavItem('.nav-mujer')">WOMAN</span>
+            <div class="nav-mujer oculto">
+              <span class="boton-cerrar-nav">
+                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-mujer')">close</i>
+              </span>
+              <div class="nav-selection">
+                <a href="./products.html?gender=FEMALE">All products</a>
+                <a href="./products.html?gender=FEMALE&category=Jacket">Jackets</a>
+                <a href="./products.html?gender=FEMALE&category=Helmet">Helmets</a>
+                <a href="./products.html?gender=FEMALE&category=Gloves">Gloves</a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="nav-elemento">
+            <span @click="toggleNavItem('.nav-experiencia')">EVENTS</span>
+            <div class="nav-experiencia oculto">
+              <span class="boton-cerrar-nav">
+                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-experiencia')">close</i>
+              </span>
+              <div class="nav-selection">
+                <a href="./events.html">Meet Ups</a>
+                <a href="./events.html">Test Ride</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-elemento">
+            <span @click="toggleNavItem('.nav-contact')">CONTACT</span>
+            <div class="nav-contact oculto">
+              <span class="boton-cerrar-nav">
+                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-contact')">close</i>
+              </span>
+              <div class="nav-selection">
+                <a href="./contact.html">Contact us</a>
+                <a href="./contact.html">Contact info</a>
+              </div>
             </div>
           </div>
         </div>
-
-
-        <div class="nav-elemento" @click="toggleNavItem('.nav-hombre')">
-          MAN
-          <div class="nav-hombre oculto">
-            <span class="boton-cerrar-nav">
-              <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-            </span>
-            <div class="nav-selection">
-              <a href="./products.html?gender=MALE">All products</a>
-              <a href="./products.html?gender=MALE&category=Jacket">Jackets</a>
-              <a href="./products.html?gender=MALE&category=Helmet">Helmets</a>
-              <a href="./products.html?gender=MALE&category=Gloves">Gloves</a>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="nav-elemento" @click="toggleNavItem('.nav-mujer')">
-          WOMAN
-          <div class="nav-mujer oculto">
-            <span class="boton-cerrar-nav">
-              <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-            </span>
-            <div class="nav-selection">
-              <a href="./products.html?gender=FEMALE">All products</a>
-              <a href="./products.html?gender=FEMALE&category=Jacket">Jackets</a>
-              <a href="./products.html?gender=FEMALE&category=Helmet">Helmets</a>
-              <a href="./products.html?gender=FEMALE&category=Gloves">Gloves</a>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="nav-elemento" @click="toggleNavItem('.nav-experiencia')">
-          EVENTS
-          <div class="nav-experiencia oculto">
-            <span class="boton-cerrar-nav">
-              <i class="material-symbols-rounded" @click="cerrarNavbar($event)">close</i>
-            </span>
-            <div class="nav-selection">
-              <a href="./events.html">Meet Ups</a>
-              <a href="./events.html">Test Ride</a>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+       
+       
       <div>
         <span class="material-symbols-rounded nav-menu-btn" @click="toggleCart()">shopping_cart
-          <i>{{productosGeneral.length}}</i></span>
+          <i>{{productosGeneral}}</i></span>
         <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
       </div>
 
@@ -99,9 +114,10 @@
               <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
             </div>
           </div>
+          <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
         </div>
 
-        <div v-for="producto in productosObtenidos" class="carrito-box">
+        <div v-for="producto in arrayDeProductos" class="carrito-box">
           <img :src="producto.urlImg[0]" alt="product image">
           <div>
             <p>{{producto.description}}</p>
@@ -110,8 +126,9 @@
               <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
             </div>
           </div>
+          <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
         </div>
-
+        
         <div class="totalYPago">
           <span>Total: ${{total}}</span>
           <button>Go to payment</button>
@@ -143,100 +160,52 @@
           <div class="comprarBike">
             <div class="detallesComerciales">
               <div>
-                <p>Price:</p>
-                <p>{{product.price}}</p>
+                <p>Stock</p>
+                <p>{{product.stock}}</p>
               </div>
               <div>
-                <p>Stock:</p>
-                <p>{{product.stock}}</p>
+                <p>Price</p>
+                <p>{{product.price}}$</p>
               </div>
             </div>
             <div class="comprar">
               <div>
-                <button @click="minusCounter()">-</button>
-                <input type="number" v-model="cantidad" min="1" :max="product.stock">
-                <button @click="plusCounter()">+</button>
+                <button @click="minusCounter()" id="remove"><span class="material-symbols-outlined plus-remove-cart">
+                  remove
+                </span></button>
+              <input type="number" v-model="cantidad" min="1" :max="product.stock">
+              <button @click="plusCounter()" id="plus"><span class="material-symbols-outlined plus-remove-cart">
+                  add
+                </span></button>
               </div>
-              <button class="añadirAlCarrito" @click="llenarCarrito(product)">
-                <span class="material-symbols-rounded cartIcon">
-                  add_shopping_cart
-                  </span>
-              </button>
+              <button class="añadirAlCarrito" @click="llenarCarrito(product)">Add to cart</button>
             </div>
           </div>
 
-
-          <div>
-            <div>
-              <b>Displacement:</b>
-              <p>{{product.displacement}}</p>
-            </div>
-            <div>
-              <b></b>
-              <p></p>
-            </div>
-            <div>
-              <b></b>
-              <p></p>
-            </div>
-          </div>
-
-
-          <div class="fotos-moto">
-
-          </div>
-
-
+          <div class="separador"></div>
           <div class="especificaciones">
-            <h3>especificaciones</h3>
-            <div class="especificaciones-contenido">
-              <div class="especificaciones-titulo">
-                <p>Motor:</p>
-                <div>
-                  <b></b>
-                  <p></p>
-                </div>
-                <div>
-                  <b></b>
-                  <p></p>
-                </div>
-                <div>
-                  <b></b>
-                  <p></p>
-                </div>
-                <div>
-                  <b></b>
-                  <p></p>
-                </div>
-                <div>
-                  <b></b>
-                  <p></p>
-                </div>
-                <div>
-                  <b></b>
-                  <p></p>
-                </div>
-                <div>
-                  <b></b>
-                  <p></p>
-                </div>
-                <div>
-                  <b></b>
-                  <p></p>
-                </div>
-                <p>Model: </p>
-                <p>BrandType: </p>
-                <p> </p>
+            <h3>Spicification</h3>
+            <div>
+              <div>
+                <p>Gender: {{product.genderType}}</p>
+                <p>Size: {{product.size}}</p>
+                <p>Material: 100% leather</p>
               </div>
-              <div class="especificaciones-texto">
-                <p>{{product.model}}</p>
-                <p>{{product.brandType}}</p>
-                <p></p>
+              <div>
+                <p>Brand: Ducati</p>
+                <p>Modelo: Tour V2</p>
+                <p>Pockets: 4 exterior pockets, 1 interior</p>
+              </div>
+              <div>
+                <p>Made in: Italy</p>
               </div>
             </div>
+          </div>
+
+
+          <div class="fotosModelos">
           </div>
         </div>
-
       </div>
   </div>
   </main>

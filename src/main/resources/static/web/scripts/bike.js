@@ -20,7 +20,7 @@ Vue.createApp({
             arrayDeProductos: [],
 
             productosDelCarrito: [],
-            productosGeneral: [],
+            productosGeneral: "",
             arrayDeMotos: [],
             totalCarrito: [],
             idProducto: "",
@@ -37,17 +37,16 @@ Vue.createApp({
             this.bike = res.data
             this.images.push(this.bike.images)
 
-            this.productosObtenidos = JSON.parse(localStorage.getItem("motos-carrito") || "[]")
-            if (this.productosObtenidos) {
-                this.productosDelCarrito = this.productosObtenidos
+            this.arrayDeMotos = JSON.parse(localStorage.getItem("motos-carrito") || "[]")
+            if (this.arrayDeMotos) {
+                this.productosDelCarrito = this.arrayDeMotos
             }
 
 
             this.arrayDeProductos = JSON.parse(localStorage.getItem("productos-carrito") || "[]")
-            this.productosGeneral = JSON.parse(localStorage.getItem("carrito") || "[]")
-            this.arrayDeMotos = JSON.parse(localStorage.getItem("array-motos") || "[]")
-
-            console.log(this.productosGeneral);
+            this.arrayMotos = JSON.parse(localStorage.getItem("array-motos") || "[]")
+            this.arrayProductos = JSON.parse(localStorage.getItem("array-productos") || "[]")
+            this.productosGeneral = this.arrayDeProductos.length + this.arrayDeMotos.length
         })
     },
 
@@ -60,26 +59,52 @@ Vue.createApp({
 
             if(!this.idProducto.includes(producto.id)) {
                 this.productosDelCarrito.push(producto)
-                this.productosGeneral.push(producto)
-
                 let id = producto.id
                 let cantidad = producto.cantidad
                 let productoModificado = {
                     id: id,
                     cantidad: cantidad
                 }
-                this.arrayDeMotos.push(productoModificado)
 
-                localStorage.setItem("array-motos", JSON.stringify(this.arrayDeMotos))
+                this.arrayMotos.push(productoModificado)
+
+                localStorage.setItem("array-motos", JSON.stringify(this.arrayMotos))
                 localStorage.setItem("motos-carrito", JSON.stringify(this.productosDelCarrito))
-                localStorage.setItem("carrito", JSON.stringify(this.productosGeneral))
+
+                this.productosGeneral = this.arrayDeProductos.length + this.arrayDeMotos.length
             } else {
                 console.log("asdasd");
             }
         },
 
+        borrarCarrito(producto) {
+            if (producto.hasOwnProperty('id') && producto.hasOwnProperty('size')) {
+                let arrFiltrado = this.arrayDeProductos.filter(obj => obj.id != producto.id)
+                let arrayOBJ = this.arrayProductos.filter(obj => obj.idProducto != producto.id)
+
+                localStorage.setItem("productos-carrito", JSON.stringify(arrFiltrado))
+                localStorage.setItem("array-productos", JSON.stringify(arrayOBJ))
+
+                this.arrayProductos = arrayOBJ
+                this.arrayDeProductos = arrFiltrado
+                this.productosGeneral = this.arrayDeProductos.length + this.arrayDeMotos.length
+            }
+
+            if (producto.hasOwnProperty('id') && producto.hasOwnProperty('model')) {
+                let arrFiltrado = this.arrayDeMotos.filter(obj => obj.id != producto.id)
+                let arrayOBJ = this.arrayDeMotos.filter(obj => obj.id != producto.id)
+                
+                localStorage.setItem("motos-carrito", JSON.stringify(arrFiltrado))
+                localStorage.setItem("array-motos", JSON.stringify(arrayOBJ))
+
+                this.arrayMotos = arrayOBJ
+                this.arrayDeMotos = arrFiltrado
+                this.productosGeneral = this.arrayDeProductos.length + this.arrayDeMotos.length
+            }
+        },
+
         plusCounter(){
-            if (this.cantidad < this.producto.stock) {
+            if (this.cantidad < this.bike.stock) {
                 this.cantidad += 1
             }
         },
@@ -232,12 +257,11 @@ Vue.createApp({
             let hombre = document.querySelector(".nav-hombre")
             let mujer = document.querySelector(".nav-mujer")
             let experiencia = document.querySelector(".nav-experiencia")
-
-            element.classList.toggle("oculto")
+            let contacto = document.querySelector(".nav-contact")
 
             if (!moto.classList.contains("oculto")) {
                 moto.classList.toggle("oculto")
-            }
+            } 
             if (!hombre.classList.contains("oculto")) {
                 hombre.classList.toggle("oculto")
             }
@@ -247,13 +271,15 @@ Vue.createApp({
             if (!experiencia.classList.contains("oculto")) {
                 experiencia.classList.toggle("oculto")
             }
+            if (!contacto.classList.contains("oculto")) {
+                contacto.classList.toggle("oculto")
+            } 
 
-            element.classList.toggle("oculto")
+            element.classList.remove("oculto")
         },
 
         cerrarNavbar(element){
-            let elemento = element.target.parentElement.parentElement
-
+            let elemento = document.querySelector(element)
             elemento.classList.add("oculto")
         },
 
@@ -268,7 +294,7 @@ Vue.createApp({
     },
 
     computed: {
-        
+
     },
 
     mounted() {

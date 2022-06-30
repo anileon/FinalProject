@@ -1,77 +1,87 @@
-
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 0,
-  'wght' 600,
-  'GRAD' -25,
-  'opsz' 24
+    'FILL' 0,
+    'wght' 600,
+    'GRAD' -25,
+    'opsz' 20
 }
 
 
 
-@keyframes animate{
-	0%{
+@keyframes animate {
+  0% {
     background-position: 0 0;
-    filter:hue-rotate(0deg);
-	}
-	10%{
+    filter: hue-rotate(0deg);
+  }
+
+  10% {
     background-position: 5px 0;
-    filter:hue-rotate(194.4deg);
-	}
-	20%{
-	  background-position: -5px 0;
     filter: hue-rotate(194.4deg);
-	}
-	30%{
-	  background-position: 5px 0;
+  }
+
+  20% {
+    background-position: -5px 0;
+    filter: hue-rotate(194.4deg);
+  }
+
+  30% {
+    background-position: 5px 0;
     filter: hue-rotate(205.2deg) brightness(62.5%);
-	}
-	40%{
-	  background-position: 5px 0;
+  }
+
+  40% {
+    background-position: 5px 0;
     filter: hue-rotate(118.8deg);
-	}
-	50%{
-	  background-position: -5px 0;
+  }
+
+  50% {
+    background-position: -5px 0;
     filter: hue-rotate(169.2deg);
-	}
-	60%{
-	  background-position: -10px 0;
+  }
+
+  60% {
+    background-position: -10px 0;
     filter: hue-rotate(309.6deg);
-	}
-	70%{
-	  background-position: 0 -10px;
+  }
+
+  70% {
+    background-position: 0 -10px;
     filter: hue-rotate(295.2deg);
-	}
-	80%{
-	  background-position: -10px -5px;
+  }
+
+  80% {
+    background-position: -10px -5px;
     filter: hue-rotate(43.2deg);
-	}
-	81%{
-	  background-position: 0 0;
+  }
+
+  81% {
+    background-position: 0 0;
     filter: hue-rotate(360deg);
-	}
-	100%{
-	  background-position: 0 0;
-	  filter: saturate(0) hue-rotate(0deg);
-	}
+  }
+
+  100% {
+    background-position: 0 0;
+    filter: saturate(0) hue-rotate(0deg);
+  }
 }
 
 main {
   min-height: 100vh;
   background-color: black;
+  font-size: 1.3rem;
 }
 
-.datos{
+.datos {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   background-color: rgb(57 57 57);
   box-shadow: inset 0 0 10rem black;
 }
 
-.carousel{
+.carousel {
   width: 100%;
-  height: 100vh;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,43 +92,45 @@ main {
   color: white;
 }
 
-.img-contenedor{
+.img-contenedor {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 30vh;
+  min-height: 30vh;
   margin-top: 2rem;
 }
-.img-contenedor span{
+
+.img-contenedor span {
   display: flex;
   align-items: center;
 }
 
-.img-principal-carousel{
+.img-principal-carousel {
   width: 80vw;
 }
 
-.slider-img{
+.slider-img {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin: 1rem 0;
 }
 
-.chevron{
+.chevron {
   cursor: pointer;
 }
 
-.img-slider-bike{
+.img-slider-bike {
   cursor: pointer;
-  width: 25%;
+  width: 100px;
+  height: 100px;
 }
 
-.display-none{
+.display-none {
   display: none !important;
 }
 
-.comprarBike{
+.comprarBike {
   display: flex;
   flex-direction: column;
   min-height: 5vh;
@@ -126,44 +138,103 @@ main {
   align-items: center;
   margin-bottom: 3rem;
 }
-.detallesComerciales{
+
+.detallesComerciales {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
-.cantidad{
+
+.cantidad {
   width: 30vw;
   height: 4vh;
 }
-.añadirAlCarrito{
-  padding: .5rem;
+
+.añadirAlCarrito {
+  width: 95%;
+  height: 3rem;
+  background-color: #871d26;
   border: none;
-  border-radius: 50%;
+  color: white;
+  border-radius: 5px;
+  margin-top: 1rem;
 }
-.comprar{
+
+.comprar {
+  width: 100%;
   display: flex;
-  gap:  1rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.comprar div{
+  display: flex;
   align-items: center;
 }
-.cartIcon{
-  position: relative;top: .12rem;
-} 
 
-@media (min-width: 280px){
-  .datos{
+.plus-remove-cart,
+.comprar button,
+.comprar input {
+  border: none;
+  color: white;
+}
+#remove {
+  border-radius: 5px 0 0 5px;
+  background-color: rgb(202, 109, 109);
+}
+#plus {
+  border-radius: 0 5px 5px 0;
+  background-color: rgb(119, 199, 119);
+}
+.comprar input {
+  color: black;
+  text-align: center;
+}
+
+.cartIcon {
+  position: relative;
+  top: 4px;
+}
+
+.especificaciones-principales {
+  color: white;
+  padding: 1rem;
+}
+
+.especificaciones h3 {
+  margin-bottom: 2rem;
+}
+
+.separador {
+  border: 1px solid rgba(255, 255, 255, 0.106);
+  margin: 3rem 0;
+}
+
+.plus-remove-cart {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+
+@media (min-width: 280px) {
+  .datos {
     display: flex;
     flex-direction: column;
   }
 
-  .especificaciones{
+  .especificaciones {
     display: flex;
     flex-direction: column;
   }
-  
-  .especificaciones-contenido{
+
+  .especificaciones-contenido {
     display: flex;
   }
 
@@ -173,61 +244,90 @@ main {
   }
 }
 
+@media (min-width: 420px){
+  .img-principal-carousel{
+    width: 335.19;
+    height: 302.69px;
+  }
+}
+
+@media (min-width: 500px){
+  .img-principal-carousel{
+    width: 393px;
+    height: 360px;
+  }
+}
+
+@media (min-width: 650px){
+}
+
+@media (min-width: 820px){
+  .añadirAlCarrito{
+    width: 500px;
+    margin: 0;
+  }
+  .comprar{
+    gap: 5rem;
+  }
+
+  #remove {
+    width: 40px;
+    height: 37px;
+  }
+  #plus {
+    width: 40px;
+    height: 37px;
+  }
+  .comprar input {
+    color: black;
+    text-align: center;
+    width: 120px;
+    font-size: 24px;
+  }
+
+  .especificaciones{
+    flex-wrap: wrap;
+  }
+  .especificaciones div{
+    display: flex;
+  }
+  .especificaciones>div div{
+    display: flex;
+  }
+}
+
 @media (min-width: 1200px) {
   .neon {
     display: none !important;
   }
 
-  .especificaciones-titulo{
+  .especificaciones-titulo {
     width: 45%;
   }
-  .especificaciones-texto{
+
+  .especificaciones-texto {
     width: 55%;
     text-align: start;
   }
 
-  .img-principal-carousel{
-    display: flex;
-    height: 25vh;
-    width: 80vw;
-  }
-  .slider-img{
+  .slider-img {
     height: 11vh;
     display: flex;
     justify-content: center;
     border-collapse: collapse;
   }
-  
-  .img-slider-bike{
-    width: 30vw;
-    height: 10vh;
-    background-color: rgba(0, 0, 0, 0.201);
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-  }
-  .img-slider-bike:first-child{
-    border-right: 1px solid rgba(0, 0, 0, 0.154);
-    border-left: unset;
-  }
-  .img-slider-bike:last-child{
-    border-left: 1px solid rgba(0, 0, 0, 0.154);
-    border-right: unset;
-  }
 
-  .border{
+  .border {
     display: flex;
     align-self: center;
     height: 80%;
     border: 1px solid rgba(0, 0, 0, 0.105);
   }
 
-  .img-contenedor-carousel{
+  .img-contenedor-carousel {
     width: 30vw;
     height: 10vh;
     background-color: rgba(0, 0, 0, 0.201);
   }
 
-  .img-contenedor span{
-    height: 20vh;
-    }
 }
