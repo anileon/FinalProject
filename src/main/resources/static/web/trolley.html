@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trolley</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/trolley.css" />
+</head>
+<body>
+        <div id="app">
+            <main>
+                <section class="contenedorCarritoGeneral">
+                    <div class="contenedorCarrito">
+                        <h1 class="tituloCarrito">Trolley</h1>
+                        <span class="lineaCarrito"></span>
+                        <div class="contenedorCompraGeneral">
+                            <div class="contenedorSumaCarrito">
+                                <img class="contenedorImagen" src="" alt="">
+                                <div class="contenedorDetalles">
+                                    <h2 class="tituloCompras">asdf</h2>
+                                    <p class="detallesTotal">adf</p>
+                                    <p class="detallesCompras">ghf</p>
+                                </div>
+                            </div>
+                            <div class="ui-quantity-selector__container">
+                                <form class="u-float-left" action="/gz/cart/item/quantity?id=MLA853427230_87465551366" method="POST">
+                                    <input data-quantity="pop" type="submit" value="-" class="u-button-reset ui-quantity-selector__button" name="pop">
+                                </form>
+                                    <input autocomplete="off" data-quantity="input" type="tel" value="1" class="u-button-reset ui-quantity-selector__input" name="quantity">
+                                <form class="u-float-left" action="/gz/cart/item/quantity?id=MLA853427230_87465551366" method="POST">
+                                        <input data-quantity="push" type="submit" value="+" class="u-button-reset ui-quantity-selector__button" name="push">
+                                </form>
+                                <div class="cart-inline-loading__quantity-selector" data-region="quantity-loading"></div>
+                            </div>
+                            <div class="container">
+                                <button class="botonDelete" type="submit">Delete</button>
+                            </div>
+                        </div>
+                        <span class="lineaCarritoFina"></span>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://kit.fontawesome.com/2544a6d2ae.js" crossorigin="anonymous"></script>
+    <script src="./scripts/index.js"></script>
+</body>
+</html>
