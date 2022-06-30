@@ -59,6 +59,7 @@ public class ReceiptController {
 
                 int cantidadMotoComprar = recipeToCreateDTO.getMotors().stream().filter(moto -> moto.getId() == motorcycle.getId()).findFirst().orElseThrow().getCantidad();
 
+           
 
                 motorcycle.setStock(motorcycle.getStock()-cantidadMotoComprar);
                 motorcycleService.saveMotorcycle(motorcycle);

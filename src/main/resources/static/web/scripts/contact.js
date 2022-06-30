@@ -70,12 +70,14 @@ Vue.createApp({
             }
         },
 
+
         toggleNavItem(target){
             let element = document.querySelector(target)
             let moto = document.querySelector(".nav-motos")
             let hombre = document.querySelector(".nav-hombre")
             let mujer = document.querySelector(".nav-mujer")
             let experiencia = document.querySelector(".nav-experiencia")
+
             let contacto = document.querySelector(".nav-contact")
 
             if (!moto.classList.contains("oculto")) {
@@ -115,6 +117,7 @@ Vue.createApp({
             let price = precio
             let amount = cantidad
             let total = price * amount
+
 
             if (this.totalCarrito.length < this.productosGeneral) {
                 this.totalCarrito.push(total)

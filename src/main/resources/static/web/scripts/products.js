@@ -54,7 +54,6 @@ Vue.createApp({
             this.tipoSeleccionado.push("Helmet")
         }
 
-
         this.arrayDeProductos = JSON.parse(localStorage.getItem("productos-carrito") || "[]")
         this.arrayDeMotos = JSON.parse(localStorage.getItem("motos-carrito") || "[]")
         this.arrayMotos = JSON.parse(localStorage.getItem("array-motos") || "[]")
@@ -183,6 +182,21 @@ Vue.createApp({
         toggleCart() {
             let element = document.querySelector(".carrito")
             element.classList.toggle("oculto")
+        },
+
+        modificarProducto(){
+            let abrirModal = document.querySelector('.modal-modificar-producto')
+            abrirModal.classList.remove('modalOFF')
+            abrirModal.classList.add('modalON')
+            abrirModal.classList.remove('display-none')
+        },
+        cerrarModalModificar(){
+            let cerrarModal = document.querySelector('.modal-modificar-producto')
+            cerrarModal.classList.remove("modalON")
+            cerrarModal.classList.add("modalOFF")
+            setTimeout(() => {
+                cerrarModal.classList.add('display-none')
+            }, 500);
         },
     },
 

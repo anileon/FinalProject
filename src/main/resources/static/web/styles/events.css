@@ -1,29 +1,33 @@
-:root{
+:root {
+    /* text-shadow */
+    --textShadow-blanco: #252620;
+    --textShadow-blanco2: #686b58;
+
+    /* Estilos extra */
+    --altura-con-nav: calc(100vh - 5rem);
+    --naranja: #FF522A;
+    --blanco2: #FAF1EA;
+
+    /* Paleta de colores que estamos usando */
+    --neon-rojo2--: #871d26;
     --color-primary:  #fcf0e6;
     --color-secondary: #ff6543;
     --color-terciary: #feea28;
+    --letra-color: #995c39;
 }
 
+/* ============================================== HEADER Y NAVBAR ============================================== */
 
-.imagen-principal{
-    width: 100%;
-    height: 100vh;
-    background-color: red;
-}
 
 body{
-background-color: black;
-height: auto;
+background-color: #1d1d18;
+min-height: 100vh;
 }
 
-.eventos{
-    display: flex;
+main{
+    min-height: 100vh;
 }
-.carta{
-    width: 100%;
-    height: 600px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.222);
-}
+
 .imgCarta{
     display: flex;
     padding-top:5rem;
@@ -32,16 +36,14 @@ height: auto;
     width: 100%;
     height: 80%;
 }
+
 .carta button{
     display: flex;
     background-color: var(--color-terciary);
-    border: none;
 }
 
-
-
 #imgCartaContenedor1{
-    background-image: url("http://drive.google.com/uc?export=view&id=1cJtjOpyAsvb_UFuXMku6D4K6Gy75GsgJ");
+    background-image: url("http://drive.google.com/uc?export=view&id=1cJtjOpyAsvb_UFuXMku6D4K6Gy75GsgJ");  
 }
 #imgCarrtaContenedor2{
     background-image: url("http://drive.google.com/uc?export=view&id=1KJH6VD0PfQrEUaHoKH-rI-6gtaFyfWeR");
@@ -52,45 +54,69 @@ height: auto;
 
 
 @media (min-width:280px){
-
-    .videoPrincipal{
-        
+    .video{
+        margin-left: 1rem;
+        height: 25vh;
+        width: 90%;
+        margin-top: 5rem;
     }
+
     .eventos{
         display:flex;
         flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        gap: 1rem
+        align-items:center; 
     }
 
+    .carta{
+        height: 65vh;
+    }
+
+    .cardMarginTop{
+        margin-top: 1rem;
+    }
+    .cardMarginTop{
+        margin-top: 1.5rem;
+    }
     .imgCarta{
-        display: flex;
         width: 100%;
-        height: 80%;
+        height: 60%;
         object-fit: cover;
         background-repeat: no-repeat;
+    }
+
+    .contenedorbotonEvento{
+        display: flex;
+        justify-content: center;
+    }
+    .contenedorbotonEvento1{
+        margin-top: 1.2rem;
+    }
+    .contenedorBotonEventoIndumentaria{
+        margin-top: 2.5rem;
         background-position: right center;
-        box-sizing: ;
     }
     
     .cardButton{
-        display: flex;
-        justify-self: flex;
         font-size: 1.1rem;
-        margin-top: 1rem;
-        justify-content:center;
+        margin-top: 1.5rem;
         padding: .7rem;
-        position: relative;
-        bottom: 50px;
         background: #f3f300;
-        border: .15rem solid #708403a3;
+        border: .15rem solid #995c39;
     }
 
     .cartaTexto{
-        text-align: justify;
-        padding: 2rem;
+        /* text-align: justify; */
+        padding: 1.5rem;
         color: #fcf0e6;
+        height: 15vh;
+        font-size: 1.2rem;
+    }
+    .colorTituloSecundario{
+        color: #995c39; 
+    }
+    .parrafoCardEvento{
+        padding-top: .5rem;
+        font-size: 1rem;
     }
     .card5{
         width: 5rem;
@@ -98,50 +124,196 @@ height: auto;
         justify-content:center
         var(--color-primary);
     }
+
+    .cartaTextoAccessories{
+        height: 20vh;
+    }
+
+    .contenedorCardDinamico{
+        margin-top: 5rem;
+    }
     .cardEvent{
-        width:100%;
+        width:90%;
         height:10rem;
-       background-color: #c7c7c7;
-        display: flex;
-        gap: 2;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.24);
-        margin: 20px;
-        box-shadow: 0 15px 35px rgba(20, 20, 20, 0.5);
-        border-radius: 36px 13px; 
-        display: flex;
-        backdrop-filter: blur(10px);
-        margin-right: 1rem;
+        display: flex;      
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.247);
+        box-shadow: rgb(84, 96, 109) 0px 20px 30px -10px;
+        margin: 15px;
     }   
+
     .imgCard1{
         width: 50%;
         height: 10rem;
-        background-image: url("https://i.ibb.co/fp5bL02/11-xl1200x-7.jpg");
+        background-image: url("https://images.unsplash.com/photo-1558980664-2cd663cf8dde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+        background-position: 100% 50%;
         background-size: cover;
-        border: 1px solid #fff6f4;
-
+        border: .15rem solid #995c39;
+        box-shadow: rgba(179, 179, 247, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     }
     .imgCard2{
         width: 50%;
         height: 10rem;
-        background-image: url("https://i.ibb.co/ThvyHB8/14-11-harley-davidson-sportster-forty-eight-iron-2016-acc-1000x640.jpg");
+        background-image: url("https://images.unsplash.com/photo-1558980664-28d10ee9bb52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
         background-size: cover;
-        border: .15rem solid #ffffffa3;
+        border: .15rem solid #995c39;
     }
     .imgCard3{
         width: 50%;
         height: 10rem;
-        background-image: url("https://i.ibb.co/fp5bL02/11-xl1200x-7.jpg");
+        background-image: url("https://images.unsplash.com/photo-1578651659403-ae9f3da3c387?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=655&q=80");
+        background-position: 50% 70%;
         background-size: cover;
-        border: 1px solid #fff6f4;
-        border-radius: 8px;
+        border: .15rem solid #995c39;
     }
     .cardTitle{
         width: 40%;
-        height: 40%;
-        font-weight: 600;
-        align-items: flex-end;
+        height: 50%;
         color: #fcf0e6e8;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-top: 5rem;
+        padding-left: 1rem;
+    }
+    .card-title{
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #995c39;
+    }
+    .card-text{
+        margin-top: .5rem;
+        font-size: .8rem;
+        font-weight: 500;
+    }
+    .contenedorTextoPlanoParrafoEventos{
+        font-size: .6rem !important;
+        padding-top: 2rem !important;
+    }
+    p{
+        margin-bottom: .8rem;
     }
 }
+
+@media (min-width:380px){
+
+    .video{
+        height: 35vh !important;
+    }
+}
+
+@media (min-width:750px){
+    .video{
+        margin-left: 2.4rem;
+        height: 25vh;
+        width: 90%;
+        margin-top: 5rem;
+    }
+    .cardMarginTop, .cardMarginRentar {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 50vh;
+        width: 100%;
+    }
+    .carta{
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+        width: 60%;
+    }
+
+    .imgCarta {
+        width: 60%;
+    }
+
+    .cartaTexto {
+        width: 60%;
+    }
+    .cardButton {
+        margin-bottom: 3rem;
+    }
+
+    .cardButtonAccessories{
+        margin-top: 3rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .video{
+        width: 95%;
+        height: 70vh;
+        margin-top: 5rem ;
+        margin-left: 2rem;
+        margin-top: 6rem;
+    }
+
+    .carta{
+        height: 110vh;
+        width: 60%;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    } 
+
+    .colorTituloSecundario {
+        font-size: 2.5rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 20px #e48e5c;   
+    }
+
+    .parrafoCardEvento {
+        font-size: 1.5rem;
+        text-shadow: .6px .6px 1px var(--blanco2);
+    }
+
+    .carta button {
+        margin-top: 7rem;
+    }
+    .cardButton {
+        font-size: 1.5rem;
+        padding: .7rem;
+        border: .2rem solid #995c39;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset !important;
+    }
+    .cardButton:hover {
+        font-size: 1.8rem;
+        background-color: #871d26;
+        border: none;
+        border-radius: .5rem;
+        color: #995c39;
+    }
+
+    .contenedorCardDinamico {
+        width: 60%;
+        height: 110vh;   
+    }
+
+    .cardEvent {
+        height: 15rem;
+        margin-top: 2rem;
+    }
+
+    .imgCard1, .imgCard2, .imgCard3 {
+        height: 15rem;
+    }
+    .card-title {
+        font-size: 2rem;
+        text-shadow: 2px 2px 5px #e48e5c
+    }
+    .card-text {
+        font-size: 1.2rem;
+    }
+
+    .contenedorBotonEventoIndumentaria {
+        margin-top: .5rem;
+    }
+
+    .contenedorTextoPlanoParrafoEventos{
+        font-size: 1.8rem !important;
+        padding-top: 3rem !important;
+    }
+
+    .imgCard3{
+        background-position: 50% 41%;
+    }
+
+} 

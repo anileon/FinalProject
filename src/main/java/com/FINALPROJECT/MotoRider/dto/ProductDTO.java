@@ -23,6 +23,7 @@ public class ProductDTO {
 
 
     private int stock;
+    private boolean isActive;
 
     public ProductDTO() {
     }
@@ -37,6 +38,7 @@ public class ProductDTO {
         this.stock = product.getStock();
         this.size = product.getSize();
         this.urlImg = product.getProductImg();
+        this.isActive = product.isActive();
     }
 
     public long getId() {return id;}
@@ -69,5 +71,13 @@ public class ProductDTO {
 
     public void setUrlImg(List<String> urlImg) {
         this.urlImg = urlImg;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

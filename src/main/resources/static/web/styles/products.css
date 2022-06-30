@@ -20,17 +20,49 @@
     --textShadow-blanco2: #686b58;
 }
 
+body,
+#app {
+    min-height: 100vh;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.row>* {
+    padding-left: unset;
+    padding-right: unset;
+}
+
+/* ============================================== HEADER Y NAVBAR ============================================== */
 
 div .material-symbols-outlined:nth-child(2) {
     color: red;
     font-variation-settings:
-    'FILL' 1,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
 }
 
-main{
+.imagen-principal {
+    height: 100vh;
+    width: 100%;
+    /* background-color: lightseagreen; */
+}
+
+.portadaHombre {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(https://media.discordapp.net/attachments/985294289091321861/991083035678113792/mobile-harley-indumentaria-hombre.png?width=247&height=676);
+    background-size: cover;
+}
+
+.portadaMujer {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(https://media.discordapp.net/attachments/985294289091321861/991083035900391434/mobile-harley-indumentaria-mujer.png?width=247&height=676);
+    background-size: cover;
+}
+
+main {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,13 +89,36 @@ main{
     background-position: center;
 }
 
+#filtro {
+    height: 4rem;
+    width: 100%;
+    position: sticky;
+    top: 5rem;
+    background: linear-gradient(21deg, black, #474847);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    z-index: 3;
+    color: white;
+}
+
+#filtro>span {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
 
 
-.cartaCatalogo{
-    color:var(--color-primary);
+.cartaCatalogo {
+    color: var(--color-primary);
     height: 42rem;
     width: 100%;
-    text-decoration:none;
+    text-decoration: none;
     background-color: #171718;
     background-image: url("../assets/bg-prueba2.svg");
     background-size: cover;
@@ -79,7 +134,7 @@ main{
     background-image: url("../assets/bg-prueba.svg");
 }
 
-.cartaCatalogo:nth-child(even) .textoCartaCatalogo .colorDescripcion{
+.cartaCatalogo:nth-child(even) .textoCartaCatalogo .colorDescripcion {
     color: #fcf0e6;
 }
 
@@ -117,19 +172,19 @@ main{
     color: #fcf0e6;
 }
 
-.lineaVerticalProductos{
+.lineaVerticalProductos {
     content: "";
-    width:.15rem;
+    width: .15rem;
     background-color: #919384a3;
     border-radius: 1rem;
 }
 
-.parradoDescripcion{
+.parradoDescripcion {
     font-weight: 500;
     text-shadow: .8px .8px 2px var(--textShadow-blanco);
 }
 
-.colorDescripcion{
+.colorDescripcion {
     color: #FF522A;
     font-weight: 600 !important;
     text-shadow: .8px .8px 2px var(--textShadow-blanco2);
@@ -137,6 +192,16 @@ main{
 
 .cartaCatalogo:nth-child(odd) .brand-title img {
     filter: invert(1) drop-shadow(0px 0px 10px #c9c9c9);;
+
+.botonReservaManejo {
+    margin-top: .5rem;
+    width: 80%;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    border: .15rem solid #919384a3;
+    text-align: center;
+    text-shadow: .8px .8px 2px var(--textShadow-blanco2);
 }
 
 .cartaPrecio {
@@ -144,7 +209,7 @@ main{
     font-weight: 400;
 }
 
-.contendorCompra{
+.contendorCompra {
     margin-top: 1.5rem;
     width: 40%;
     height: 6.5rem;
@@ -159,14 +224,14 @@ main{
     align-items: center;
 }
 
-.imgDorso{
-    width: 5rem;
+.imgDorso {
+    width: 70%;
     filter: drop-shadow(0px 9px 5px #181818);
     position: absolute;
     top: -25px;
 }
 
-.botonCompra{
+.botonCompra {
     margin-top: .5rem;
     width: 90%;
     height: 3vh;
@@ -243,36 +308,106 @@ main{
     gap: 0.5rem;
 }
 
-.fondoCartaCatalogoUnFocus{
+.fondoCartaCatalogoUnFocus {
     display: none;
 }
 
-#catalogo{
+#catalogo {
     min-height: 25vh;
 }
 
-.favoriteDesktop{
-    display:none;
+.favoriteDesktop {
+    display: none;
+}
+
+.modal-modificar-producto {
+    width: 94vw;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    position: fixed;
+    bottom: 10px;
+    left: 9px;
+    z-index: 9;
+    background-color: white;
+    padding: 1rem;
+    padding-top: 2rem;
+    gap: 1rem;
+}
+.modalON{
+    animation: modalTransitionOn .5s;
+}
+.modalOFF{
+    animation: modalTransitionOff .5s;
+}
+.modal-modificar-producto span {
+    position: absolute;
+    top: 8px;
+    right: -1px;
+}
+.modal-modificar-producto button, .modificarProducto {
+    height: 5vh;
+    width: 30vw;
+    background-color: #871d26;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-weight: 500;
+}
+.modificarProducto{
+    background-color: #16345e;
 }
 
 
 
-@keyframes
-    favoriteMobileChecked{
-        0%{
-            transform: scale(1);
-        }
-        50%{
-            transform: scale(1.5);
-        }
-        100%{
-            transform: scale(1);
-        }
+.display-none {
+    display: none;
+}
+
+.opacidad-modal {
+    opacity: .4;
+}
+
+
+
+@keyframes favoriteMobileChecked {
+    0% {
+        transform: scale(1);
     }
 
-@media (min-width: 280px){
-    #catalogo{
-        display:flex;
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes modalTransitionOn {
+    0%{
+        transform: translateX(-280px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes modalTransitionOff {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-280px);
+    }
+}
+
+
+@media (min-width: 280px) {
+    #catalogo {
+        display: flex;
         flex-direction: column;
         padding: 1rem 0;
         gap: 1rem;
@@ -281,28 +416,28 @@ main{
         background-color: rgb(28, 28, 28);
     }
 
-    #favoriteDesktop{
+    #favoriteDesktop {
         display: none;
     }
 
-    .cartasTitulo{
-        display:flex;
+    .cartasTitulo {
+        display: flex;
         justify-content: space-between;
-        align-items: center;
-        padding-left:.5rem;
+        padding-left: .5rem;
         padding-top: .5rem;
     }
 
-    .cartasTitulo h5 {
-        font-size: 1rem;
-    }
-
-    .cartaDescripcion{
+    .cartaDescripcion {
         font-size: .8rem;
-        padding-left:.5rem;
+        padding-left: .5rem;
     }
 
-    .contenedorPrecioLogo{
+
+    .material-symbols-outlined {
+        margin-right: .5rem;
+    }
+
+    .contenedorPrecioLogo {
         display: flex;
         justify-content: center;
         align-items: flex-end;
@@ -310,16 +445,16 @@ main{
         margin: 0rem 0.5rem 0.5rem;
     }
 
-    .logoDucati{
+    .logoDucati {
         width: 1.8rem;
         height: 1.8rem;
     }
 
-    .favoriteMobileUnChecked{
-        display:none;
+    .favoriteMobileUnChecked {
+        display: none;
     }
 
-    .favoriteMobileChecked{
+    .favoriteMobileChecked {
         animation: favoriteMobileChecked .5s;
     }
 

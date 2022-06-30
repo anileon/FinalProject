@@ -3,16 +3,20 @@ package com.FINALPROJECT.MotoRider.controller;
 
 import com.FINALPROJECT.MotoRider.dto.ProductDTO;
 import com.FINALPROJECT.MotoRider.dto.ProductToAdd;
+import com.FINALPROJECT.MotoRider.models.Client;
 import com.FINALPROJECT.MotoRider.models.Motorcycle;
 import com.FINALPROJECT.MotoRider.models.Product;
+import com.FINALPROJECT.MotoRider.services.ClientService;
 import com.FINALPROJECT.MotoRider.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -21,9 +25,12 @@ public class productController {
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    ClientService clientService;
     @GetMapping("/products")
     public Set<ProductDTO> getAll(){
-        return productService.getProductsDTO();
+        return productService.getProductsDTO().stream().filter(productDTO -> productDTO.isActive() == true).collect(Collectors.toSet());
     }
 
     @GetMapping("/products/{id}")
@@ -57,6 +64,25 @@ public class productController {
 
         return new ResponseEntity<>("Stock Updated", HttpStatus.ACCEPTED);
     };
+
+    @PatchMapping("/admin/eliminarProduct")
+    public ResponseEntity<Object> deleteProduct(Authentication authentication, @RequestParam long id){
+        Client admin = clientService.getCurrent(authentication);
+        Product product = productService.getProduct(id);
+
+        if(!admin.getEmail().contains("@admin")){
+            new ResponseEntity<>("Only admin fution", HttpStatus.FORBIDDEN);
+        }
+        if(product != null){
+            new ResponseEntity<>("Invalid Motorcycle", HttpStatus.FORBIDDEN);
+        }
+
+        product.setActive(false);
+        productService.saveProduct(product);
+
+        return new ResponseEntity<>("Product Deleted", HttpStatus.ACCEPTED);
+
+    }
 
 
     @PostMapping("/admin/product")

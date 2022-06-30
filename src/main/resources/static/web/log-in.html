@@ -21,10 +21,11 @@
                         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                     <span>or use your email for registration</span>
-                    <input type="text" placeholder="Name" />
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <button class="form-btn">Sign Up</button>
+                    <input type="text" placeholder="Name" v-model="firstName" />
+                    <input type="text" placeholder="Last Name" v-model="lastName"/>
+                    <input type="email" placeholder="Email" v-model="email" />
+                    <input type="password" placeholder="Password" v-model="password" />
+                    <button class="form-btn" v-on:click="register()">Sign Up</button>
                 </form>
             </div>
             <div class="form-container sign-in-container">
@@ -36,10 +37,10 @@
                         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                     <span>or use your account</span>
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
+                    <input type="email" placeholder="Email" v-model="email"/>
+                    <input type="password" placeholder="Password" v-model="password"/>
                     <a href="#">Forgot your password?</a>
-                    <button class="form-btn">Sign In</button>
+                    <button class="form-btn" v-on:click=" logIn()">Sign In</button>
                 </form>
             </div>
             <div class="overlay-container">
@@ -59,6 +60,8 @@
         </div>
     </div>
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="./scripts/logIn.js"></script>
 </body>
