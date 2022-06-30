@@ -47,6 +47,11 @@ Vue.createApp({
             this.arrayMotos = JSON.parse(localStorage.getItem("array-motos") || "[]")
             this.arrayProductos = JSON.parse(localStorage.getItem("array-productos") || "[]")
             this.productosGeneral = this.arrayDeProductos.length + this.arrayDeMotos.length
+
+            setTimeout(() => {
+                let loader = document.querySelector(".bike-loader")
+                loader.classList.add("oculto")
+            }, 3000);
         })
     },
 
@@ -88,6 +93,7 @@ Vue.createApp({
                 this.arrayProductos = arrayOBJ
                 this.arrayDeProductos = arrFiltrado
                 this.productosGeneral = this.arrayDeProductos.length + this.arrayDeMotos.length
+                this.total = this.total - this.subtotal(producto.price, producto.cantidad)
             }
 
             if (producto.hasOwnProperty('id') && producto.hasOwnProperty('model')) {
@@ -100,6 +106,7 @@ Vue.createApp({
                 this.arrayMotos = arrayOBJ
                 this.arrayDeMotos = arrFiltrado
                 this.productosGeneral = this.arrayDeProductos.length + this.arrayDeMotos.length
+                this.total = this.total - this.subtotal(producto.price, producto.cantidad)
             }
         },
 

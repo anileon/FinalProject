@@ -57,7 +57,7 @@ main{
 }
 
 .imagen-principal-harley, .imagen-principal-ducati{
-    height: 100vh;
+    height: 80vh;
     background-color: lightseagreen;
     background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/990404055325097996/mobile-harley.png");
     background-size: cover;
@@ -65,7 +65,7 @@ main{
 }
 
 .imagen-principal-ducati {
-    background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/990404055073431562/mobile-Dukati.png");
+    background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/992102532904124497/mobile-Du.png");
 }
 
 
@@ -111,6 +111,11 @@ main{
 .imgCartaCatalogo img {
     width: 100%;
     filter: drop-shadow(0px 20px 18px #181818);
+    transition: 0.2s linear;
+}
+
+.imgCartaCatalogo img:hover {
+    transform: scale(1.5);
 }
 
 .textoCartaCatalogo {
@@ -187,6 +192,10 @@ main{
     border: .1rem solid #cbd3a1a3;
     text-align: center;
     text-shadow: .4px .4px 1px var(--textShadow-blanco2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 10px;
 }
 
 .add-btn {
@@ -378,11 +387,11 @@ main{
     }
 
     .imagen-principal-harley {
-        background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/990404054691741746/header-harley.png");
+        background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/992095188401008730/header-harleynuevoo.png");
     }
 
     .imagen-principal-ducati {
-        background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/990404054431698984/Ducati-harley.png");
+        background-image: url("https://cdn.discordapp.com/attachments/985294289091321861/992095187885117461/header-ducati-nuevoo.png");
     }
 
     .cartaCatalogo {

@@ -40,6 +40,14 @@ main{
     align-items: center;
 }
 
+p {
+    margin-bottom: 0;
+}
+
+.nav-menu-btn:first-child {
+    display: none;
+}
+
 .contenedorCarritoGeneral{
     width: 60%;
     height: 80vh;
@@ -51,11 +59,12 @@ main{
 
 .contenedorCarrito{
     width: 100%;
-    height: 55vh;
+    height: 90%;
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
 }
+
 .tituloCarrito{
     font-size: 2rem;
     display: flex;
@@ -84,14 +93,72 @@ main{
     display: flex;
     align-items: center;
 }
+
 .contenedorCompraGeneral{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    height: 90%;
+    overflow: auto;
 }
 .contenedorDetalles{
     margin-left: 1.5rem;
 }
+
+.total-box {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.total-box span {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.carrito-box img {
+    padding: unset;
+    height: 100%;
+    width: 65%;
+}
+
+.carrito-box {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #5c5c5c52;
+    min-height: 10rem;
+    gap: 1rem;
+    width: 100%;
+    justify-content: space-around;
+    background: #ffffff8a;
+}
+
+.carrito-box div {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    gap: 1rem;
+}
+
+.carrito-box .text-box {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 1rem;
+}
+
+.carrito-box > div p {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.carrito-box .amount-total {
+    width: 80%;
+    gap: 0.5rem;
+    font-size: 1.15rem;
+} 
 
 input{
     width: 30%;

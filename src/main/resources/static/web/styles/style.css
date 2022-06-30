@@ -146,7 +146,7 @@ header .navbar {
     box-shadow: 0px 0px 15rem 6rem rgb(0 0 0 / 30%) inset;
 }
 
-.nav-elemento > span {
+.nav-elemento>span {
     width: 100%;
     display: flex;
     height: 100%;
@@ -236,13 +236,98 @@ header .navbar {
     gap: 0.3rem;
 }
 
-.totalYPago button {
+.totalYPago a {
     width: 100%;
     height: 3rem;
     border: unset;
     background: #dbdb00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
+.bike-loader {
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: black;
+    z-index: 11;
+}
+
+.centerBike {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 26px;
+    margin-left: -12px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+
+#loop {
+    height: 108px;
+    width: 110px;
+    border: #bb5f27 solid 4px;
+    border-radius: 200px;
+}
+
+#loop:before {
+    background: linear-gradient(to left, rgba(187, 95, 39, 0) 0%, rgba(187, 95, 39, 1) 30%, rgba(187, 95, 39, 1) 70%, rgba(187, 95, 39, 0) 100%);
+    content: "";
+    display: block;
+    height: 4px;
+    left: -100px;
+    position: relative;
+    top: 100px;
+    width: 300px;
+}
+
+#bike-wrapper {
+    height: 108px;
+    width: 108px;
+    animation: drive 2s linear infinite;
+}
+
+#bike {
+    height: 24px;
+    width: 25px;
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/133687/motorbike.png");
+}
+
+@keyframes drive {
+    0% {
+        margin-left: -364px;
+        opacity: 0;
+    }
+
+    33.33% {
+        transform: rotate(0deg);
+        margin-left: -50px;
+        opacity: 1;
+    }
+
+    66.66% {
+        transform: rotate(-360deg);
+        margin-left: -50px;
+        opacity: 1;
+    }
+
+    100% {
+        margin-left: 264px;
+        transform: rotate(-360deg);
+        opacity: 0;
+    }
+}
 
 
 /* Keyframes del header */
@@ -334,7 +419,7 @@ footer {
     text-shadow: .6px .6px 1px var(--textShadow-blanco2);
 }
 
-.botonSuscripcion:hover{
+.botonSuscripcion:hover {
     font-size: 1rem;
     background-color: #871d26;
     border: none;
@@ -650,6 +735,7 @@ footer {
         font-size: 1rem;
         text-shadow: .1px .1px 2px var(--textShadow-blanco);
     }
+
     .contenedorTextoPlanoFooter {
         padding-top: 1.8rem;
     }
