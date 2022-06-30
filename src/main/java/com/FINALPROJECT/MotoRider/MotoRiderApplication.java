@@ -57,6 +57,9 @@ public class MotoRiderApplication {
 			Motorcycle motorcycleDucati10 = new Motorcycle("Desert-X", BrandType.DUCATI, "1200cc", List.of("https://i0.wp.com/ducatisantaanita.com/wp-content/uploads/2022/03/MY-22-DesertX-Model-Blocks-630x390-1.png","https://i0.wp.com/ducatisantaanita.com/wp-content/uploads/2022/03/MY-22-DesertX-Model-Blocks-630x390-1.png?w=630&ssl=1"),30000,5);
 			motorcycleRepository.save(motorcycleDucati10);
 
+			Motorcycle motorcycleDucati11 = new Motorcycle("",BrandType.DUCATI, "1250cc", List.of(""),32450,6);
+			motorcycleRepository.save(motorcycleDucati11);
+
 
 			Motorcycle motorcycleHarley1 = new Motorcycle("Fat-Bob2018", BrandType.HARLEY,"1250cc", List.of("https://i.ibb.co/XS8NZMv/harley2.png","https://i.ibb.co/QY6KLmX/2000000004-removebg-preview.png"),30000,5);
 			motorcycleRepository.save(motorcycleHarley1);
@@ -87,6 +90,14 @@ public class MotoRiderApplication {
 
 			Motorcycle motorcycleHarley10 = new Motorcycle("Low-rider", BrandType.HARLEY,"1250cc",List.of("https://i.ibb.co/hYk26mG/harley2022-low-rider-s-010-motorcycle.png","https://i.ibb.co/0tZYjB0/Low-Rider-S-2019-Beitragsbild-removebg-preview.png"),32500,5);
 			motorcycleRepository.save(motorcycleHarley10);
+
+			Motorcycle motorcycleHarley11 = new Motorcycle("Icon", BrandType.HARLEY,"1250cc",List.of("https://i.ibb.co/D80Y8Fq/Icon-Yellow-2020-removebg-preview.png","https://i.ibb.co/gMHXk9Y/Icon-Yellow-4-removebg-preview.png"),32150,6);
+			motorcycleRepository.save(motorcycleHarley11);
+
+			Motorcycle motorcycleHarley12 = new Motorcycle("FatBoy", BrandType.HARLEY,"1350cc",List.of("https://i.ibb.co/CzD2RPB/Harley-Davidson-Fat-Boy-2019-3-removebg-preview.png","https://i.ibb.co/Ptp3qC1/Harley-Davidson-Fat-Boy-2019-1-removebg-preview.png"),32500,5);
+			motorcycleRepository.save(motorcycleHarley12);
+
+
 
 
 			Product campera1 = new Product("Jacket", GenderType.FEMALE, "leather Jacket sleeves less", 200, List.of("https://i.ibb.co/6sTM48r/97027-22-VW-F-removebg-preview.png", "https://i.ibb.co/F8zbJdw/97027-22-VW-B-removebg-preview.png"),
