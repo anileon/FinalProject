@@ -77,6 +77,23 @@ Vue.createApp({
                 localStorage.setItem("motos-carrito", JSON.stringify(this.productosDelCarrito))
 
                 this.productosGeneral = this.arrayDeProductos.length + this.arrayDeMotos.length
+
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'bottom-start',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                  })
+                  
+                  Toast.fire({
+                    icon: 'success',
+                    title: 'Signed in successfully'
+                  })
             } else {
                 console.log("asdasd");
             }
@@ -234,13 +251,14 @@ Vue.createApp({
             let amount = cantidad
             let total = price * amount
 
-            if (this.totalCarrito.length < this.productosGeneral.length) {
+            if (this.totalCarrito.length < this.productosGeneral) {
                 this.totalCarrito.push(total)
             }
             
-            if (this.totalCarrito.length <= this.productosGeneral.length) {
+            if (this.totalCarrito.length <= this.productosGeneral) {
                 this.total = this.totalCarrito.reduce((a, b) => a + b, 0)
             }
+
             return total
         },
 

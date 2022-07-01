@@ -14,8 +14,13 @@ Vue.createApp({
             tipoSeleccionado: [],
             precioSeleccionado: "Relevant",
             arrayDeProductos: [],
+            arrayProductos: [],
+            name: "Melba Morel",
+            number: 3214360084519800,
+            cvv: 474,
 
             productosGeneral: [],
+            arrayMotos: [],
             arrayDeMotos: [],
             totalCarrito: [],
             idProducto: "",
@@ -89,22 +94,61 @@ Vue.createApp({
             if (this.totalCarrito.length <= this.productosGeneral) {
                 this.total = this.totalCarrito.reduce((a, b) => a + b, 0)
             }
+            
+
             return total
         },
 
         realizarCompra() {
-            let obj = {
-                products: this.productosVenta,
-                motors: this.motosVenta
+            let objetoPago = {
+                numberCard: this.number,
+                cvv: this.cvv,
+                amount: this.total,
+                description: "Moto Riders | Payment Successful"
             }
-            
-            axios.post("/api/comprar", obj)
-                .then(res => console.log("FUNCIONA"))
-                .catch(err => console.log(err))
+            let objetoVenta = {
+                products: this.arrayProductos,
+                motors: this.arrayMotos
+            }
 
-            localStorage.clear()
-            window.location.reload()
+            console.log(this.number);
+            console.log(this.cvv);
+            console.log(this.total);
+
+            axios.post('https://patagonia-bank-homebanking.herokuapp.com/api/cards/payments', objetoPago)
+                .then(response => {
+                    console.log("LLEGUÉ");
+                    console.log(this.arrayProductos);
+                    console.log(this.arrayMotos);
+
+                    axios.post("/api/comprar", objetoVenta)
+                        .then(res => {
+                            console.log("TAMO CHELO");
+
+                            localStorage.clear()
+
+                            Swal.fire({
+                                title: 'Payment Successful!',
+                                text: 'The page will reload in 5 seconds',
+                                icon: 'success',
+                                confirmButtonText: 'Close',
+                                timer: 5000,
+                                timerProgressBar: true,
+                            })
+
+                            setTimeout(() => {
+                                window.location.reload()
+                            }, 5000);
+                        })
+                        .catch(err => console.log(err))
+                })
+                .catch(error => {
+                    console.log(error.response.data)
+                })
+
         },
+
+
 
         toggleNavbar(){
             let nav = document.querySelector(".navbar")

@@ -29,11 +29,22 @@ createApp({
         },
 
         logIn(){
-            axios.post('/api/login',`email=${this.email}&password=${this.password}`, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
-            .then(response =>{
-                Swal.fire('Logged succefull, you will be redirected to the trolley')
-                .then(respuesta => window.location.href = '/web/trolley.html')
-            })
+
+            if(this.email.includes("@admin")){
+                axios.post('/api/login',`email=${this.email}&password=${this.password}`, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
+                .then(respuesta => Swal.fire('Welcome Back Admin'))
+               
+                .then(response => window.location.href = '/web/bike-admin.html')
+            }else{
+                axios.post('/api/login',`email=${this.email}&password=${this.password}`, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
+                .then(response =>{
+                    Swal.fire('Logged succefull, you will be redirected to the trolley')
+                    .then(respuesta => window.location.href = '/web/trolley.html')
+                })
+            }
+
+
+         
         },
         
         switchSignUp(){

@@ -30,6 +30,7 @@ body {
     transition: 0.4s;
     top: unset;
     z-index: 1;
+    overflow: hidden;
 }
 .modal-container {
     display: flex;

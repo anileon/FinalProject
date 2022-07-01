@@ -187,11 +187,12 @@ main{
         border: .15rem solid #995c39;
     }
     .cardTitle{
-        width: 40%;
+        width: 100%;
         height: 50%;
         color: #fcf0e6e8;
         display: flex;
         justify-content: center;
+        align-items: center;
         flex-direction: column;
         padding-top: 5rem;
         padding-left: 1rem;
@@ -303,11 +304,14 @@ main{
     }
 
     .contenedorCardDinamico {
-        width: 60%;
-        height: 110vh;   
+        width: 100%;
+        height: 110vh;
+        display: flex;
+        justify-content: center;    
     }
 
     .cardEvent {
+        text-align: center;
         height: 15rem;
         margin-top: 2rem;
     }
@@ -334,6 +338,10 @@ main{
 
     .imgCard3{
         background-position: 50% 41%;
+    }
+    
+    .contenedorCardDinamico>div{
+        width: 60%;
     }
 
 } 

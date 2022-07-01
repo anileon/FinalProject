@@ -23,9 +23,10 @@
       </div>
     </div>
     <header class="header" :class="{ 'header-activo': scrolled }">
-      <img
-        src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
-        alt="">
+      <a href="./index.html">
+        <img src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png" alt="">
+      </a>
+      
 
       <nav class="navbar oculto">
         <div class="nav-elemento" >
@@ -135,7 +136,7 @@
         </div>
 
         <div class="totalYPago">
-          <span>Total: ${{total}}</span>
+          <span>Total: ${{parseFloat(total).toFixed(2)}}</span>
           <a href="./trolley.html">Go to payment</a>
         </div>
       </div>
@@ -221,8 +222,8 @@
         allowfullscreen></iframe>
 
       <section>
-        <a class="imgMoto1"><span></span></a>
-        <a class="imgMoto2"><span></span></a>
+        <a class="imgMoto1" href="./bikes-ducati.html?type=DUCATI"><span></span></a>
+        <a class="imgMoto2" href="./bikes-ducati.html?type=HARLEY"><span></span></a>
       </section>
     </main>
 
