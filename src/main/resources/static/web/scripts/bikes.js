@@ -156,7 +156,7 @@ Vue.createApp({
         toggleFilter() {
             let filtro = document.querySelector(".box-de-filtro")
             filtro.classList.toggle("oculto")
-        }
+        },
     },
 
     computed: {
