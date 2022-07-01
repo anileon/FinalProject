@@ -28,6 +28,6 @@ main{
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-
-    
+    padding-top: 10rem;
+    font-size: 1.2rem;
 }

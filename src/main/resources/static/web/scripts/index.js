@@ -25,7 +25,7 @@ Vue.createApp({
         setTimeout(() => {
             let loader = document.querySelector(".bike-loader")
             loader.classList.add("oculto")
-        }, 5000);
+        }, 2000);
     },
 
     mounted() {

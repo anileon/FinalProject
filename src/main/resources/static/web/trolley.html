@@ -142,7 +142,7 @@
                                     <span>Subtotal: ${{subtotal(producto.price, producto.cantidad)}}</span>
                                 </div>
                             </div>
-                            <button class="material-symbols-rounded"
+                            <button class="material-symbols-rounded del-btn"
                                 @click="borrarCarrito(producto)">delete_forever</button>
                         </div>
                     </div>
@@ -155,7 +155,7 @@
                         data-bs-target="#staticBackdrop" v-if="loggedIn">
                         Select payment
                     </button>
-                    <a class="btn btn-primary" href="./log-in.html" v-else>
+                    <a class="btn btn-primary login-btn" href="./log-in.html" v-else>
                         Log in to continue
                     </a>
                 </div>

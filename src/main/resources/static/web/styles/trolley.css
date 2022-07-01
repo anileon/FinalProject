@@ -70,6 +70,29 @@ p {
     color: #871d26;
     text-shadow: 1px 1px 4px #871d26;
 }
+
+.del-btn {
+    border: unset;
+    padding: 0.5rem 0.7rem;
+    font-size: 1.8rem;
+    border-radius: 10px;
+    background: #141414;
+    color: white;
+}
+
+.login-btn {
+    background: black;
+    border: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s linear;
+}
+
+.login-btn:hover {
+    background: #871d26;
+}
+
 .lineaCarrito{
     content: "";
     height: .1rem;
