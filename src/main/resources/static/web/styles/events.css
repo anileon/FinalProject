@@ -112,7 +112,7 @@ main{
         margin-top: 1.5rem;
         padding: .7rem;
         background: #f3f300;
-        border: .15rem solid #995c39;
+        border: .15rem solid #871d26;
     }
 
     .cartaTexto{
@@ -123,7 +123,7 @@ main{
         font-size: 1.2rem;
     }
     .colorTituloSecundario{
-        color: #995c39; 
+        color: #871d26; 
     }
     .parrafoCardEvento{
         padding-top: .5rem;
@@ -168,7 +168,7 @@ main{
         background-image: url("https://images.unsplash.com/photo-1558980664-2cd663cf8dde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
         background-position: 100% 50%;
         background-size: cover;
-        border: .15rem solid #995c39;
+        border: .2rem solid #871d26;
         box-shadow: rgba(179, 179, 247, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     }
     .imgCard2{
@@ -176,7 +176,7 @@ main{
         height: 10rem;
         background-image: url("https://images.unsplash.com/photo-1558980664-28d10ee9bb52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
         background-size: cover;
-        border: .15rem solid #995c39;
+        border: .2rem solid #871d26;
     }
     .imgCard3{
         width: 50%;
@@ -184,7 +184,7 @@ main{
         background-image: url("https://images.unsplash.com/photo-1578651659403-ae9f3da3c387?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=655&q=80");
         background-position: 50% 70%;
         background-size: cover;
-        border: .15rem solid #995c39;
+        border: .2rem solid #871d26;
     }
     .cardTitle{
         width: 100%;
@@ -200,7 +200,7 @@ main{
     .card-title{
         font-size: 1.2rem;
         font-weight: 800;
-        color: #995c39;
+        color: #871d26
     }
     .card-text{
         margin-top: .5rem;
@@ -218,9 +218,7 @@ main{
 
 @media (min-width:380px){
 
-    .video{
-        height: 35vh !important;
-    }
+
 }
 
 @media (min-width:750px){
@@ -261,11 +259,15 @@ main{
 
 @media screen and (min-width: 1024px) {
     .video{
-        width: 95%;
-        height: 70vh;
-        margin-top: 5rem ;
+        width: 45%;
+        height: 45vh;
+        margin-top: 5rem;
         margin-left: 2rem;
         margin-top: 6rem;
+    }
+    .video-contenedor{
+        display: flex;
+        justify-content: center;
     }
 
     .carta{
@@ -278,7 +280,7 @@ main{
         font-size: 2.5rem;
         margin-top: 1rem;
         margin-bottom: 1rem;
-        text-shadow: 2px 2px 20px #e48e5c;   
+        text-shadow: 2px 2px 20px #b4343d;   
     }
 
     .parrafoCardEvento {
@@ -292,7 +294,7 @@ main{
     .cardButton {
         font-size: 1.5rem;
         padding: .7rem;
-        border: .2rem solid #995c39;
+        border: .2rem solid #871d26;
         box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset !important;
     }
     .cardButton:hover {
@@ -300,7 +302,7 @@ main{
         background-color: #871d26;
         border: none;
         border-radius: .5rem;
-        color: #995c39;
+        color: #fff;
     }
 
     .contenedorCardDinamico {
@@ -321,7 +323,7 @@ main{
     }
     .card-title {
         font-size: 2rem;
-        text-shadow: 2px 2px 5px #e48e5c
+        text-shadow: 2px 2px 5px #ca7b83
     }
     .card-text {
         font-size: 1.2rem;
