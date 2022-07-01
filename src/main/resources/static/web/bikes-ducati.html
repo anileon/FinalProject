@@ -144,24 +144,51 @@
             <span @click="toggleFilter()"><i class="material-symbols-outlined">apps</i> Filter</span>
             <form class="box-de-filtro oculto" @change="filterChange">
               <input type="search" name="search" id="search" placeholder="Searc Product" v-model="searchText">
-              {{searchText}}
               <div class="price-box">
+                Price
                 <label>
                   <input type="radio" name="price" value="Relevant" v-model="precioSeleccionado">
                   <span>Most relevant</span>
                 </label>
-    
+  
                 <label>
                   <input type="radio" name="price" value="Most" v-model="precioSeleccionado">
                   <span>Most Expensive</span>
                 </label>
-    
+  
                 <label>
                   <input type="radio" name="price" value="Least" v-model="precioSeleccionado">
                   <span>Least Expensive</span>
                 </label>
               </div>
-              {{precioSeleccionado}}
+  
+              <div class="ccBox">
+                Displacement
+                <label>
+                  <input type="radio" name="cc" value="995" v-model="ccSleccionado">
+                  <span>995cc</span>
+                </label>
+                <label>
+                  <input type="radio" name="cc" value="1150" v-model="ccSleccionado">
+                  <span>1150cc</span>
+                </label>
+                <label>
+                  <input type="radio" name="cc" value="1200" v-model="ccSleccionado">
+                  <span>1200cc</span>
+                </label>
+                <label>
+                  <input type="radio" name="cc" value="1250" v-model="ccSleccionado">
+                  <span>1250cc</span>
+                </label>
+                <label>
+                  <input type="radio" name="cc" value="1300" v-model="ccSleccionado">
+                  <span>1300cc</span>
+                </label>
+                <label>
+                  <input type="radio" name="cc" value="1350" v-model="ccSleccionado">
+                  <span>1350cc</span>
+                </label>
+              </div>
             </form>
           </div>
 

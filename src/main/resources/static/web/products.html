@@ -148,8 +148,8 @@
           <span @click="toggleFilter()"><i class="material-symbols-outlined">apps</i> Filter</span>
           <form class="box-de-filtro oculto" @change="filterChange">
             <input type="search" name="search" id="search" placeholder="Searc Product" v-model="searchText">
-            {{searchText}}
             <div class="gender-box">
+              Gender
               <label>
                 <input type="radio" name="gender" value="MALE" v-model="gender">
                 <span>MALE</span>
@@ -159,8 +159,8 @@
                 <span>FEMALE</span>
               </label>
             </div>
-            {{gender}}
             <div class="price-box">
+              Price
               <label>
                 <input type="radio" name="price" value="Relevant" v-model="precioSeleccionado">
                 <span>Most relevant</span>
@@ -176,8 +176,8 @@
                 <span>Least Expensive</span>
               </label>
             </div>
-            {{precioSeleccionado}}
             <div class="type-box">
+              Category
               <label>
                 <input type="checkbox" name="category" value="Gloves" id="gloves" v-model="tipoSeleccionado">
                 <span>Gloves</span>
@@ -193,7 +193,7 @@
                 <span>Helmets</span>
               </label>
             </div>
-            {{tipoSeleccionado}}
+            <!-- {{tipoSeleccionado}} -->
           </form>
         </div>
 

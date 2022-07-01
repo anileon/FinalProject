@@ -240,7 +240,7 @@ main{
 .box-de-filtro {
     position: absolute;
     top: 4rem;
-    background: red;
+    background: #3b3b3b;
     height: calc(60vh - 10rem);
     width: 100%;
     left: 0;
@@ -261,6 +261,12 @@ main{
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+.box-de-filtro>input{
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 5rem;
+    padding-left: 1rem;
 }
 
 .fondoCartaCatalogoUnFocus{

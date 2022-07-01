@@ -21,87 +21,89 @@
   <div id="app">
     <div class="bike-loader">
       <div id="loop" class="center"></div>
-          <div id="bike-wrapper" class="center">
-          <div id="bike" class="centerBike"></div>
+      <div id="bike-wrapper" class="center">
+        <div id="bike" class="centerBike"></div>
       </div>
     </div>
     <header class="header" :class="{ 'header-activo': scrolled }">
       <a href="./index.html">
-        <img src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png" alt="">
+        <img
+          src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
+          alt="">
       </a>
-        <nav class="navbar oculto">
-          <div class="nav-elemento" >
-            <span @click="toggleNavItem('.nav-motos')">BIKES</span>
-            <div class="nav-motos oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-motos')">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
-                <a href="./bikes-ducati.html?type=DUCATI">DUCATI</a>
-              </div>
+      <nav class="navbar oculto">
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-motos')">BIKES</span>
+          <div class="nav-motos oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-motos')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
+              <a href="./bikes-ducati.html?type=DUCATI">DUCATI</a>
             </div>
           </div>
+        </div>
 
 
-          <div class="nav-elemento" >
-            <span @click="toggleNavItem('.nav-hombre')">MAN</span>
-            <div class="nav-hombre oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-hombre')">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./products.html?gender=MALE">All products</a>
-                <a href="./products.html?gender=MALE&category=Jacket">Jackets</a>
-                <a href="./products.html?gender=MALE&category=Helmet">Helmets</a>
-                <a href="./products.html?gender=MALE&category=Gloves">Gloves</a>
-              </div>
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-hombre')">MAN</span>
+          <div class="nav-hombre oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-hombre')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./products.html?gender=MALE">All products</a>
+              <a href="./products.html?gender=MALE&category=Jacket">Jackets</a>
+              <a href="./products.html?gender=MALE&category=Helmet">Helmets</a>
+              <a href="./products.html?gender=MALE&category=Gloves">Gloves</a>
             </div>
           </div>
+        </div>
 
 
-          <div class="nav-elemento">
-            <span @click="toggleNavItem('.nav-mujer')">WOMAN</span>
-            <div class="nav-mujer oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-mujer')">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./products.html?gender=FEMALE">All products</a>
-                <a href="./products.html?gender=FEMALE&category=Jacket">Jackets</a>
-                <a href="./products.html?gender=FEMALE&category=Helmet">Helmets</a>
-                <a href="./products.html?gender=FEMALE&category=Gloves">Gloves</a>
-              </div>
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-mujer')">WOMAN</span>
+          <div class="nav-mujer oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-mujer')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./products.html?gender=FEMALE">All products</a>
+              <a href="./products.html?gender=FEMALE&category=Jacket">Jackets</a>
+              <a href="./products.html?gender=FEMALE&category=Helmet">Helmets</a>
+              <a href="./products.html?gender=FEMALE&category=Gloves">Gloves</a>
             </div>
           </div>
+        </div>
 
 
-          <div class="nav-elemento">
-            <span @click="toggleNavItem('.nav-experiencia')">EVENTS</span>
-            <div class="nav-experiencia oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-experiencia')">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./events.html">Meet Ups</a>
-                <a href="./events.html">Test Ride</a>
-              </div>
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-experiencia')">EVENTS</span>
+          <div class="nav-experiencia oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-experiencia')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./events.html">Meet Ups</a>
+              <a href="./events.html">Test Ride</a>
             </div>
           </div>
+        </div>
 
-          <div class="nav-elemento">
-            <span @click="toggleNavItem('.nav-contact')">CONTACT</span>
-            <div class="nav-contact oculto">
-              <span class="boton-cerrar-nav">
-                <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-contact')">close</i>
-              </span>
-              <div class="nav-selection">
-                <a href="./contact.html">Contact us</a>
-                <a href="./contact.html">Contact info</a>
-              </div>
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-contact')">CONTACT</span>
+          <div class="nav-contact oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-contact')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./contact.html">Contact us</a>
+              <a href="./contact.html">Contact info</a>
             </div>
           </div>
-        </nav>
+        </div>
+      </nav>
 
 
       <div>
@@ -110,7 +112,7 @@
         <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
       </div>
 
-      
+
       <div class="carrito oculto">
         <div v-for="producto in arrayDeMotos" class="carrito-box">
           <img :src="producto.images[0]" alt="product image">
@@ -135,7 +137,7 @@
           </div>
           <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
         </div>
-        
+
         <div class="totalYPago">
           <span>Total: ${{parseFloat(total).toFixed(2)}}</span>
           <a href="./trolley.html">Go to payment</a>
@@ -149,7 +151,7 @@
           <h2>{{product.brandType}}</h2>
           <p>{{product.model}}</p>
           <div class="img-contenedor">
-            <span class="material-symbols-rounded chevron"  @click="imagenAnterior()">
+            <span class="material-symbols-rounded chevron" @click="imagenAnterior()">
               chevron_left
             </span>
             <img class="img-principal-carousel" v-for="(img,index) in product.urlImg" :id="'img-carousel-' + index"
@@ -159,8 +161,8 @@
             </span>
           </div>
           <div class="slider-img">
-            <img class="img-slider-bike" v-for="(img,index) in product.urlImg" :id="'img-slide-' + index" :src="img" alt=""
-              @click="imagenSlide(index)">
+            <img class="img-slider-bike" v-for="(img,index) in product.urlImg" :id="'img-slide-' + index" :src="img"
+              alt="" @click="imagenSlide(index)">
           </div>
         </div>
         <div class="especificaciones-principales">
@@ -219,10 +221,12 @@
 
   </div>
 
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://unpkg.com/vue@3"></script>
   <script src="https://kit.fontawesome.com/2544a6d2ae.js" crossorigin="anonymous"></script>
   <script src="./scripts/product.js"></script>
 </body>
-</html>
 
+</html>
