@@ -609,6 +609,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     height: 1vh;
     padding-top: .8rem;
     font-size: .55rem;
@@ -737,7 +738,8 @@ footer {
 @media screen and (min-width: 1280px) {
 
     footer {
-        height: 50vh;
+        min-height: 50vh;
+        height: unset;
     }
 
     .contenedorSuscripcionGeneral {
@@ -810,6 +812,7 @@ footer {
     .contenedorTextoPlanoParrafo {
         height: 23vh;
         padding-top: 1rem;
+        justify-content: center;
     }
 
     .textoPlanoFooter {
@@ -822,7 +825,6 @@ footer {
     }
 
     @media (min-width: 1700px) {
-
         .contenedorTextoPlanoParrafo {
             padding-top: 2.5rem;
         }
