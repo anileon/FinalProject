@@ -12,7 +12,17 @@ Vue.createApp({
             ccSleccionado: "Any",
             modeloSeleccionado: "All models",
             precioSeleccionado: "Relevant",
-            
+            arrayDeMotosAdmin:[],
+            stockToAdd: 0,
+            model:"",
+            brandType:"",
+            displacement:"",
+            images:"",
+            price:0,
+            stock:0,
+            newMotor:{},
+            arrayImages:[],
+
             auxiliar: [],
             productosGeneral: [],
             arrayDeMotos: [],
@@ -35,6 +45,7 @@ Vue.createApp({
             } else {
                 this.bikes = res.data.filter(bike => bike.brandType == "HARLEY")
             }
+            this.arrayDeMotosAdmin = res.data
 
             this.arrayDeProductos = JSON.parse(localStorage.getItem("productos-carrito") || "[]")
             this.arrayDeMotos = JSON.parse(localStorage.getItem("motos-carrito") || "[]")
@@ -156,6 +167,79 @@ Vue.createApp({
         toggleFilter() {
             let filtro = document.querySelector(".box-de-filtro")
             filtro.classList.toggle("oculto")
+        },
+        AddStock(producto){
+            
+            this.productToAdd = producto.id
+            
+            Swal.fire({
+                title: 'Do you want to add the stock?',
+                showDenyButton: true,
+                confirmButtonText: 'Add',
+                denyButtonText: `Cancel`,
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    axios.patch(`/api/admin/moto`,`id=${this.productToAdd}&stockAgregar=${this.stockToAdd}`)
+                    .then(response => Swal.fire('added!', '', 'success'))
+                    .then(respuesta => window.location.reload())
+                } else if (result.isDenied) {
+                  Swal.fire('Canceled', '', 'warning')
+                }
+              })
+
+        },
+        deleteProduct(producto){
+            this.productToAdd = producto.id
+
+
+            Swal.fire({
+                title: 'Do you want to delete the motorcycle?',
+                showDenyButton: true,
+                confirmButtonText: 'Delete',
+                denyButtonText: `Cancel`,
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                  axios.patch(`/api/admin/eliminarMoto`,`id=${this.productToAdd}`)
+                    .then(response => Swal.fire('deleted!', '', 'success'))
+                    .then(respuesta => window.location.reload())
+                } else if (result.isDenied) {
+                  Swal.fire('Canceled', '', 'warning')
+                }
+              })
+            
+        },
+        newMoto(){
+
+            this.arrayImages.push(this.images)
+
+            this.newMotor ={
+                model:this.model,
+                brandType:this.brandType,
+                displacement:this.displacement,
+                images:this.arrayImages,
+                price:this.price,
+                stock:this.stock
+            }
+
+            console.log(this.newMotor)
+
+            Swal.fire({
+                title: 'Do you want to add the motorcycle?',
+                showDenyButton: true,
+                confirmButtonText: 'new Motorcycle',
+                denyButtonText: `Cancel`,
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                  axios.post(`/api/admin/moto`,this.newMotor)
+                    .then(response => Swal.fire('Added!', '', 'success'))
+                    .then(respuesta => window.location.reload())
+                } else if (result.isDenied) {
+                  Swal.fire('Canceled', '', 'warning')
+                }
+              })
         },
     },
 

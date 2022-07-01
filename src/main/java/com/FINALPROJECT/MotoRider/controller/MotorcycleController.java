@@ -39,11 +39,15 @@ public class MotorcycleController {
     }
 
     @PatchMapping("/admin/moto")
-    public ResponseEntity<Object> addStockMoto(@RequestParam long id, @RequestParam int stockAgregar){
+    public ResponseEntity<Object> addStockMoto(Authentication authentication,@RequestParam long id, @RequestParam int stockAgregar){
 
-    //    Client client (Aca tiene que ser un admin)
+        Client admin = clientService.getCurrent(authentication);
 
         Motorcycle motorcycle = motorcycleService.getMoto(id);
+
+        if(!admin.getEmail().contains("@admin")){
+            return new ResponseEntity<>("Only admin Funtion", HttpStatus.FORBIDDEN);
+        }
         if(stockAgregar <= 0){
             return new ResponseEntity<>("Invalid stock", HttpStatus.FORBIDDEN);
         }
