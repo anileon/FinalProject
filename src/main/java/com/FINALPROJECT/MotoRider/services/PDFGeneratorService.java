@@ -11,6 +11,7 @@ import com.lowagie.text.pdf.PdfWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
@@ -34,8 +35,8 @@ public class PDFGeneratorService {
     @Autowired
     ClientService clientService;
 
-    public void export(HttpServletResponse response, Authentication authentication) throws IOException, DocumentException {
-        Client client = clientService.getCurrent(authentication);
+    public void export(HttpServletResponse response, @RequestParam Long id) throws IOException, DocumentException {
+        Client client = clientService.getClient(id);
         Receipt factura = client.getReceipts().get(client.getReceipts().size()-1);
         //int receiptId = client.getReceipts()
         //Receipt factura = receiptService.getReceipt(receiptId);

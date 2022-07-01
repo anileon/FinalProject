@@ -5,10 +5,7 @@ import com.FINALPROJECT.MotoRider.services.PDFGeneratorService;
 import com.lowagie.text.DocumentException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -26,7 +23,7 @@ public class PDFExportController {
     }
 
     @GetMapping("/pdf/generate")
-    public void generatePDF(HttpServletResponse response, Authentication authentication) throws IOException, DocumentException {
+    public void generatePDF(HttpServletResponse response, @RequestParam Long id) throws IOException, DocumentException {
         response.setContentType("application/pdf");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd:hh:mm:ss");
         String currentDateTime = dateFormatter.format(new Date());
@@ -35,6 +32,6 @@ public class PDFExportController {
         String headerValue = "attachment; filename=pdf_" + currentDateTime + ".pdf";
         response.setHeader(headerKey, headerValue);
 
-        this.pdfGeneratorService.export(response, authentication);
+        this.pdfGeneratorService.export(response, id);
     }
 }

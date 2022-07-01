@@ -34,36 +34,36 @@ Vue.createApp({
 
     created() {
         axios.get(`/api/products/${getID}`)
-        .then(res => {
-            console.log(res.data);
-            this.product = res.data
-            this.images.push(this.product.urlImg)
+            .then(res => {
+                console.log(res.data);
+                this.product = res.data
+                this.images.push(this.product.urlImg)
 
-            this.arrayDeProductos = JSON.parse(localStorage.getItem("productos-carrito") || "[]")
-            if (this.arrayDeProductos) {
-                this.productosDelCarrito = this.arrayDeProductos
-            }
+                this.arrayDeProductos = JSON.parse(localStorage.getItem("productos-carrito") || "[]")
+                if (this.arrayDeProductos) {
+                    this.productosDelCarrito = this.arrayDeProductos
+                }
 
-            this.arrayDeMotos = JSON.parse(localStorage.getItem("motos-carrito") || "[]")
-            this.arrayProductos = JSON.parse(localStorage.getItem("array-productos") || "[]")
-            this.productosGeneral = this.arrayDeMotos.length + this.arrayDeProductos.length
-            console.log(this.productosGeneral);
+                this.arrayDeMotos = JSON.parse(localStorage.getItem("motos-carrito") || "[]")
+                this.arrayProductos = JSON.parse(localStorage.getItem("array-productos") || "[]")
+                this.productosGeneral = this.arrayDeMotos.length + this.arrayDeProductos.length
+                console.log(this.productosGeneral);
 
-            setTimeout(() => {
-                let loader = document.querySelector(".bike-loader")
-                loader.classList.add("oculto")
-            }, 3000);
-        })
+                setTimeout(() => {
+                    let loader = document.querySelector(".bike-loader")
+                    loader.classList.add("oculto")
+                }, 1000);
+            })
     },
 
     methods: {
         llenarCarrito(producto) {
-            let cantidad =  this.cantidad
+            let cantidad = this.cantidad
             producto.cantidad = cantidad
 
             this.idProducto = this.productosDelCarrito.map(prod => prod.id)
 
-            if(!this.idProducto.includes(producto.id)) {
+            if (!this.idProducto.includes(producto.id)) {
                 this.productosDelCarrito.push(producto)
 
                 let id = producto.id
@@ -76,7 +76,7 @@ Vue.createApp({
 
                 localStorage.setItem("array-productos", JSON.stringify(this.arrayProductos))
                 localStorage.setItem("productos-carrito", JSON.stringify(this.productosDelCarrito))
-                
+
                 this.productosGeneral = this.arrayDeProductos.length + this.arrayDeMotos.length
 
                 const Toast = Swal.mixin({
@@ -86,15 +86,15 @@ Vue.createApp({
                     timer: 3000,
                     timerProgressBar: true,
                     didOpen: (toast) => {
-                      toast.addEventListener('mouseenter', Swal.stopTimer)
-                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
                     }
-                  })
-                  
-                  Toast.fire({
+                })
+
+                Toast.fire({
                     icon: 'success',
-                    title: 'Signed in successfully'
-                  })
+                    title: 'Product added to cart'
+                })
             } else {
                 console.log("asdasd");
             }
@@ -117,7 +117,7 @@ Vue.createApp({
             if (producto.hasOwnProperty('id') && producto.hasOwnProperty('model')) {
                 let arrFiltrado = this.arrayDeMotos.filter(obj => obj.id != producto.id)
                 let arrayOBJ = this.arrayDeMotos.filter(obj => obj.id != producto.id)
-                
+
                 localStorage.setItem("motos-carrito", JSON.stringify(arrFiltrado))
                 localStorage.setItem("array-motos", JSON.stringify(arrayOBJ))
 
@@ -128,13 +128,13 @@ Vue.createApp({
             }
         },
 
-        plusCounter(){
+        plusCounter() {
             if (this.cantidad < this.product.stock) {
                 this.cantidad += 1
             }
         },
 
-        minusCounter(){
+        minusCounter() {
             this.cantidad -= 1
 
             if (this.cantidad == 0) {
@@ -254,7 +254,7 @@ Vue.createApp({
             if (this.totalCarrito.length < this.productosGeneral) {
                 this.totalCarrito.push(total)
             }
-            
+
             if (this.totalCarrito.length <= this.productosGeneral) {
                 this.total = this.totalCarrito.reduce((a, b) => a + b, 0)
             }
@@ -266,21 +266,21 @@ Vue.createApp({
             element.classList.toggle("oculto")
         },
 
-        toggleNavbar(){
+        toggleNavbar() {
             let nav = document.querySelector(".navbar")
             let btn = document.querySelector(".nav-menu-btn")
 
             nav.classList.toggle("oculto")
 
             console.log(btn.textContent == "menu");
-            if(btn.textContent == "menu") {
+            if (btn.textContent == "menu") {
                 btn.textContent = "close"
-            }else if(btn.textContent == "close") {
+            } else if (btn.textContent == "close") {
                 btn.textContent = "menu"
             }
         },
 
-        toggleNavItem(target){
+        toggleNavItem(target) {
             let element = document.querySelector(target)
             let moto = document.querySelector(".nav-motos")
             let hombre = document.querySelector(".nav-hombre")
@@ -290,7 +290,7 @@ Vue.createApp({
 
             if (!moto.classList.contains("oculto")) {
                 moto.classList.toggle("oculto")
-            } 
+            }
             if (!hombre.classList.contains("oculto")) {
                 hombre.classList.toggle("oculto")
             }
@@ -302,12 +302,12 @@ Vue.createApp({
             }
             if (!contacto.classList.contains("oculto")) {
                 contacto.classList.toggle("oculto")
-            } 
+            }
 
             element.classList.remove("oculto")
         },
-        
-        cerrarNavbar(element){
+
+        cerrarNavbar(element) {
             let elemento = document.querySelector(element)
             elemento.classList.add("oculto")
         },
@@ -318,7 +318,7 @@ Vue.createApp({
     },
 
     computed: {
-        
+
     }
 
 }).mount('#app')

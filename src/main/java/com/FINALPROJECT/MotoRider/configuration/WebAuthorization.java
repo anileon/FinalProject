@@ -77,7 +77,6 @@ class WebAuthorization {
         if (session != null) {
 
             session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
-
         }
 
     }

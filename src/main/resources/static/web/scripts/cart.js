@@ -42,7 +42,7 @@ Vue.createApp({
         setTimeout(() => {
             let loader = document.querySelector(".bike-loader")
             loader.classList.add("oculto")
-        }, 4000);
+        }, 1000);
 
 
         this.arrayDeMotos = JSON.parse(localStorage.getItem("motos-carrito") || "[]")
@@ -136,7 +136,7 @@ Vue.createApp({
                             }).then((result) => {
                                 /* Read more about isConfirmed, isDenied below */
                                 if (result.isConfirmed) {
-                                    axios.get("/api/pdf/generate")
+                                    axios.get("/api/pdf/generate", "id: 1")
                                     .then(res => {
                                         let url = window.URL.createObjectURL(new Blob([res.data]))
                                         let link = document.createElement("a")
@@ -154,7 +154,7 @@ Vue.createApp({
                                     Swal.fire('We will redirect you to the homepage', '', 'info')
                                     setTimeout(() => {
                                         window.location.href = "http://localhost:8080/web/index.html"
-                                    }, 3000);
+                                    }, 1000);
                                 }
                             })
                         })
