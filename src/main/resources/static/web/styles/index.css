@@ -404,8 +404,8 @@ section {
   .tituloCardIndex{
     font-size: 1.5rem;
     font-weight: 900;
-    color: #871d26;
-    text-shadow: 1px 1px 6px #f3d7d9;
+    color: black;
+    text-shadow: 0 0 6px white;
   }
 
 

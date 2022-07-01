@@ -218,9 +218,7 @@ main{
 
 @media (min-width:380px){
 
-    .video{
-        height: 35vh !important;
-    }
+
 }
 
 @media (min-width:750px){
@@ -261,11 +259,15 @@ main{
 
 @media screen and (min-width: 1024px) {
     .video{
-        width: 95%;
-        height: 70vh;
-        margin-top: 5rem ;
+        width: 45%;
+        height: 45vh;
+        margin-top: 5rem;
         margin-left: 2rem;
         margin-top: 6rem;
+    }
+    .video-contenedor{
+        display: flex;
+        justify-content: center;
     }
 
     .carta{
