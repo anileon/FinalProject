@@ -1,0 +1,33 @@
+table{
+      
+    background: rgba( 0, 0, 0, 0.5 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+       
+
+       color:white ;
+       border-collapse: collapse;
+
+   }
+
+#inputNumber{
+
+    width: 15%;
+}
+
+.btn-primary{
+    background-color: rgb(90, 7, 7) !important;
+}
+
+main{
+    background-image: url("https://images.unsplash.com/photo-1558981852-426c6c22a060?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80");
+  
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    
+}
