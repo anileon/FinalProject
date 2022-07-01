@@ -33,8 +33,7 @@ createApp({
             if(this.email.includes("@admin")){
                 axios.post('/api/login',`email=${this.email}&password=${this.password}`, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
                 .then(respuesta => Swal.fire('Welcome Back Admin'))
-               
-                .then(response => window.location.href = '/web/bike-admin.html')
+                .then(response => window.location.href = '/web/trolley.html')
             }else{
                 axios.post('/api/login',`email=${this.email}&password=${this.password}`, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
                 .then(response =>{
@@ -42,9 +41,6 @@ createApp({
                     .then(respuesta => window.location.href = '/web/trolley.html')
                 })
             }
-
-
-         
         },
         
         switchSignUp(){

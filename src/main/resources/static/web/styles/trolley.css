@@ -137,6 +137,7 @@ p {
 .total-box span {
     font-size: 2rem;
     text-transform: uppercase;
+    color: #e1e1e1;
 }
 
 .carrito-box img {

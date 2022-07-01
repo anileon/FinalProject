@@ -14,6 +14,10 @@ Vue.createApp({
             totalCarrito: [],
             idProducto: "",
             total: "",
+            fname: "Juan",
+            lname: "Pérez",
+            phone: "1324886845",
+            email: "juanperez@email.com",
         }
     },
 
@@ -75,6 +79,14 @@ Vue.createApp({
             } else if (btn.textContent == "close") {
                 btn.textContent = "menu"
             }
+        },
+
+        fireAlert() {
+            Swal.fire(
+                'Message Sent!',
+                'Thank you for contacting us',
+                'success'
+            )
         },
 
 

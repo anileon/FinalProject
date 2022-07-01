@@ -227,15 +227,22 @@ header .navbar {
 }
 .carrito-box {
     display: flex;
+    width: 80%;
     align-items: center;
     padding: 1rem 0;
     border-bottom: 1px solid #5c5c5c52;
     min-height: 7rem;
     gap: 1rem;
+    justify-content: space-between;
 }
 
 .carrito-box img {
     padding: unset;
+}
+
+.carrito-box > div div {
+    display: flex;
+    flex-direction: column;
 }
 
 .totalYPago {
