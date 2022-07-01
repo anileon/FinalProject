@@ -187,11 +187,11 @@ Vue.createApp({
             let amount = cantidad
             let total = price * amount
 
-            if (this.totalCarrito.length < this.productosGeneral.length) {
+            if (this.totalCarrito.length < this.productosGeneral) {
                 this.totalCarrito.push(total)
             }
             
-            if (this.totalCarrito.length <= this.productosGeneral.length) {
+            if (this.totalCarrito.length <= this.productosGeneral) {
                 this.total = this.totalCarrito.reduce((a, b) => a + b, 0)
             }
             return total
@@ -203,17 +203,17 @@ Vue.createApp({
         },
 
         modificarProducto(){
-            let abrirModal = document.querySelector('.modal-modificar-producto')
-            abrirModal.classList.remove('modalOFF')
-            abrirModal.classList.add('modalON')
-            abrirModal.classList.remove('display-none')
+            let modal = document.querySelector('.modal-modificar-producto')
+            modal.classList.remove('modalOFF')
+            modal.classList.add('modalON')
+            modal.classList.remove('display-none')
         },
         cerrarModalModificar(){
-            let cerrarModal = document.querySelector('.modal-modificar-producto')
-            cerrarModal.classList.remove("modalON")
-            cerrarModal.classList.add("modalOFF")
+            let modal = document.querySelector('.modal-modificar-producto')
+            modal.classList.remove("modalON")
+            modal.classList.add("modalOFF")
             setTimeout(() => {
-                cerrarModal.classList.add('display-none')
+                modal.classList.add('display-none')
             }, 500);
         },
         AddStock(producto){

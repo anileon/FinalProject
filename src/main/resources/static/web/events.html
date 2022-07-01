@@ -17,6 +17,123 @@
 
 <body>
   <div id="app">
+    <header class="header" :class="{ 'header-activo': scrolled }">
+      <a href="./index.html">
+        <img src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png" alt="">
+      </a>
+
+      <nav class="navbar oculto">
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-motos')">BIKES</span>
+          <div class="nav-motos oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-motos')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./bikes-harley.html?type=HARLEY">HARLEY</a>
+              <a href="./bikes-ducati.html?type=DUCATI">DUCATI</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-hombre')">MAN</span>
+          <div class="nav-hombre oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-hombre')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./products.html?gender=MALE">All products</a>
+              <a href="./products.html?gender=MALE&category=Jacket">Jackets</a>
+              <a href="./products.html?gender=MALE&category=Helmet">Helmets</a>
+              <a href="./products.html?gender=MALE&category=Gloves">Gloves</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-mujer')">WOMAN</span>
+          <div class="nav-mujer oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-mujer')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./products.html?gender=FEMALE">All products</a>
+              <a href="./products.html?gender=FEMALE&category=Jacket">Jackets</a>
+              <a href="./products.html?gender=FEMALE&category=Helmet">Helmets</a>
+              <a href="./products.html?gender=FEMALE&category=Gloves">Gloves</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-experiencia')">EVENTS</span>
+          <div class="nav-experiencia oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-experiencia')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./events.html">Meet Ups</a>
+              <a href="./events.html">Test Ride</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="nav-elemento">
+          <span @click="toggleNavItem('.nav-contact')">CONTACT</span>
+          <div class="nav-contact oculto">
+            <span class="boton-cerrar-nav">
+              <i class="material-symbols-rounded" @click="cerrarNavbar('.nav-contact')">close</i>
+            </span>
+            <div class="nav-selection">
+              <a href="./contact.html">Contact us</a>
+              <a href="./contact.html">Contact info</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+      <div>
+        <span class="material-symbols-rounded nav-menu-btn" @click="toggleCart()">shopping_cart
+          <i>{{productosGeneral}}</i></span>
+        <span class="material-symbols-rounded nav-menu-btn" @click="toggleNavbar()">menu</span>
+      </div>
+
+      <div class="carrito oculto">
+        <div v-for="producto in arrayDeMotos" class="carrito-box">
+          <img :src="producto.images[0]" alt="product image">
+          <div>
+            <p>{{producto.model}}</p>
+            <div>
+              <span>Amount: {{producto.cantidad}}</span>
+              <span>Subtotal: ${{subtotal(producto.price, producto.cantidad)}}</span>
+            </div>
+          </div>
+          <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
+        </div>
+
+        <div v-for="producto in arrayDeProductos" class="carrito-box">
+          <img :src="producto.urlImg[0]" alt="product image">
+          <div>
+            <p>{{producto.description}}</p>
+            <div>
+              <span>Amount: {{producto.cantidad}}</span>
+              <span>Subtotal: ${{subtotal(producto.price, producto.cantidad)}}</span>
+            </div>
+          </div>
+          <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
+        </div>
+
+        <div class="totalYPago">
+          <span>Total: ${{parseFloat(total).toFixed(2)}}</span>
+          <a href="./trolley.html">Go to payment</a>
+        </div>
+      </div>
+    </header>
     <div class="bike-loader">
       <div id="loop" class="center"></div>
           <div id="bike-wrapper" class="center">
@@ -190,7 +307,7 @@
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://kit.fontawesome.com/2544a6d2ae.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+    <script src="./scripts/index.js"></script>
 
   </body>
 </html>

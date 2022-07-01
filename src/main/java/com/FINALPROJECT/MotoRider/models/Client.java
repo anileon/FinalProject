@@ -4,6 +4,7 @@ package com.FINALPROJECT.MotoRider.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -31,7 +32,7 @@ public class Client {
     private boolean enabled;
 
     @OneToMany(mappedBy = "client",  fetch=FetchType.EAGER)
-    private Set<Receipt> receipts;
+    private List<Receipt> receipts;
 
     public Client() {
     }
@@ -63,11 +64,11 @@ public class Client {
     public String getPassword() {return password;}
     public void setPassword(String password) {this.password = password;}
 
-    public Set<Receipt> getReceipts() {
+    public List<Receipt> getReceipts() {
         return receipts;
     }
 
-    public void setReceipts(Set<Receipt> receipts) {
+    public void setReceipts(List<Receipt> receipts) {
         this.receipts = receipts;
     }
 

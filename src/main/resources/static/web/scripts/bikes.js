@@ -29,6 +29,7 @@ Vue.createApp({
             totalCarrito: [],
             arrayDeProductos: [],
             total: "",
+            
         }
     },
 

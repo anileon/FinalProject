@@ -32,6 +32,7 @@ class WebAuthorization {
                 .antMatchers(HttpMethod.POST, "/api/comprar").hasAnyAuthority("CLIENT", "ADMIN")
                 .antMatchers(HttpMethod.GET, "/api/products", "/api/motorcycles").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/products/**", "/api/motorcycles/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/pdf/generate").hasAnyAuthority("CLIENT")
                 .antMatchers(HttpMethod.POST, "/api/clients").permitAll()
                 .antMatchers("/web/**").permitAll()
             ;

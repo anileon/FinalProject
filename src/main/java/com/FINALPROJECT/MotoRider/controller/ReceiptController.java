@@ -9,6 +9,7 @@ import com.FINALPROJECT.MotoRider.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 
@@ -43,9 +44,10 @@ public class ReceiptController {
 
     @Transactional
      @PostMapping("/comprar")
-    public ResponseEntity<Object> Purchase(@RequestBody RecipeToCreateDTO recipeToCreateDTO){
+    public ResponseEntity<Object> Purchase(@RequestBody RecipeToCreateDTO recipeToCreateDTO, Authentication authentication){
 
-        Client cliente1 = clientService.getClient(1);
+
+        Client cliente1 = clientService.getCurrent(authentication);
 
         Receipt receipt = new Receipt(cliente1, LocalDateTime.now());
         receiptService.saveReceipt(receipt);

@@ -18,8 +18,9 @@
 <body>
     <div id="app">
         <header class="header" :class="{ 'header-activo': scrolled }">
-            <img src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png"
-                alt="">
+            <a href="./index.html">
+                <img src="https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png" alt="">
+              </a>
 
             <nav class="navbar oculto">
                 <div class="nav-elemento" @click="toggleNavItem('.nav-motos')">
@@ -112,30 +113,11 @@
                 </div>
 
                 <div class="totalYPago">
-                    <span>Total: ${{total}}</span>
+                    <span>Total: ${{parseFloat(total).toFixed(2)}}</span>
                     <a href="./trolley.html">Go to payment</a>
                 </div>
             </div>
         </header>
-
-        <div class="imagen-principal">
-            <div class="portadaHombre"></div>
-        </div>
-
-
-        <div class="modal-modificar-producto display-none">
-            <span class="material-symbols-outlined" @click="cerrarModalModificar">
-                close
-            </span>
-            <h4>MODIFY</h4>
-            <div>
-                <label>
-                    Stock:
-                    <input type="number">
-                </label>
-            </div>
-            <button>Delete</button>
-        </div>
 
 
         <main>
@@ -226,64 +208,64 @@
 
 
         </main>
+    </div>
 
 
-        <footer>
-            <div class="contenedorSuscripcionGeneral">
-                <div class="contenedorSuscripcion">
-                    <div class="contenedorTexto">
-                        <h3 class="tituloSuscribe">
-                            Subscribe to the Moto Rider newsletter
-                        </h3>
-                    </div>
-                    <div class="contenedorParrafo">
-                        <p class="parrafoSuscribcion">
-                            Enter your email address to always be updated on news and promotions
-                        </p>
-                    </div>
-                    <div class="contenedorGeneralBoton">
-                        <input class="inputFooter" type="email" name="email" id="email"
-                            placeholder="YOUR EMAIL ADDRESS" />
-                        <button type="submit" class="botonSuscripcion">
-                            SUBSCRIBE NOW
-                        </button>
-                    </div>
+    <footer>
+        <div class="contenedorSuscripcionGeneral">
+            <div class="contenedorSuscripcion">
+                <div class="contenedorTexto">
+                    <h3 class="tituloSuscribe">
+                        Subscribe to the Moto Rider newsletter
+                    </h3>
+                </div>
+                <div class="contenedorParrafo">
+                    <p class="parrafoSuscribcion">
+                        Enter your email address to always be updated on news and promotions
+                    </p>
+                </div>
+                <div class="contenedorGeneralBoton">
+                    <input class="inputFooter" type="email" name="email" id="email" placeholder="YOUR EMAIL ADDRESS" />
+                    <button type="submit" class="botonSuscripcion">
+                        SUBSCRIBE NOW
+                    </button>
                 </div>
             </div>
-            <div class="contenedorTamañoEscritorio">
-                <div class="contenedorLogoFooter">
-                    <div class="contenedorImgLogo iconos-wrapper">
-                        <img class="ImgLogo" src="./assets/LOGO_LETRAS_PROJECTO_FINAL.png" alt="logo" />
-                    </div>
-                    <div class="contenedorRedesSocialesFooter">
-                        <i class="fa-brands fa-instagram iconos pe-2"></i>
-                        <i class="fa-brands fa-facebook-f iconos pe-2"></i>
-                        <i class="fa-brands fa-twitter iconos pe-2"></i>
-                        <i class="fa-brands fa-pinterest-p iconos"></i>
-                    </div>
+        </div>
+        <div class="contenedorTamañoEscritorio">
+            <div class="contenedorLogoFooter">
+                <div class="contenedorImgLogo iconos-wrapper">
+                    <img class="ImgLogo" src="./assets/LOGO_LETRAS_PROJECTO_FINAL.png" alt="logo" />
                 </div>
-                <div class="contenedorContenidoFooter">
-                    <div class="contenedorTextoPlanoFooter">
-                        <h4 class="TextoPlanoFooter">ABOUT US</h4>
-                        <h4 class="TextoPlanoFooter">SHIPPING PAYMENT</h4>
-                        <h4 class="TextoPlanoFooter">WARRANTY</h4>
-                        <h4 class="TextoPlanoFooter">NEWS</h4>
-                    </div>
-                    <div class="contenedorTextoPlanoParrafo">
-                        <p class="textoPlanoFooter">
-                            Copyright © 2022 Moto Rider - A Sole Shareholder Company - A
-                            Company
-                        </p>
-                        <p class="textoPlanoFooter">
-                            subject to the Management and Coordination activities of All
-                            rights
-                        </p>
-                        <p class="textoPlanoFooter">reserved. VAT 05113865928</p>
-                        <p class="textoPlanoFooter">Moto Rider</p>
-                    </div>
+                <div class="contenedorRedesSocialesFooter">
+                    <i class="fa-brands fa-instagram iconos pe-2"></i>
+                    <i class="fa-brands fa-facebook-f iconos pe-2"></i>
+                    <i class="fa-brands fa-twitter iconos pe-2"></i>
+                    <i class="fa-brands fa-pinterest-p iconos"></i>
                 </div>
             </div>
-        </footer>
+            <div class="contenedorContenidoFooter">
+                <div class="contenedorTextoPlanoFooter">
+                    <h4 class="TextoPlanoFooter">ABOUT US</h4>
+                    <h4 class="TextoPlanoFooter">SHIPPING PAYMENT</h4>
+                    <h4 class="TextoPlanoFooter">WARRANTY</h4>
+                    <h4 class="TextoPlanoFooter">NEWS</h4>
+                </div>
+                <div class="contenedorTextoPlanoParrafo">
+                    <p class="textoPlanoFooter">
+                        Copyright © 2022 Moto Rider - A Sole Shareholder Company - A
+                        Company
+                    </p>
+                    <p class="textoPlanoFooter">
+                        subject to the Management and Coordination activities of All
+                        rights
+                    </p>
+                    <p class="textoPlanoFooter">reserved. VAT 05113865928</p>
+                    <p class="textoPlanoFooter">Moto Rider</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     </div>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

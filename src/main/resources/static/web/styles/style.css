@@ -17,6 +17,7 @@
     --color-secondary: #ff6543;
     --color-terciary: #feea28;
     --letra-color: #995c39;
+    --altura-con-nav: calc( 100vh - 5rem);
 }
 
 body,
@@ -182,6 +183,7 @@ header .navbar {
     right: 5px;
 }
 
+
 .carrito {
     position: absolute;
     top: 5rem;
@@ -191,7 +193,6 @@ header .navbar {
     overflow: auto;
     animation: nav 0.4s;
     /* background: rgb(44, 40, 40); */
-    box-shadow: rgb(84, 96, 109) -10px 15px 30px -10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -202,20 +203,28 @@ header .navbar {
     background-size: cover;
     box-shadow: 5px 5px 8px black;
     height: 100vh;
+    color: #f3fad4;
+    box-shadow: rgb(84, 96, 109) -10px 15px 30px -10px;
 }
 
 .contenedorTituloProductos{
     height: 6vh;
     display: flex;
 }
-
 .tituloProducto{
     font-size: 1.6rem;
     color: #871d26;
-    padding: 1rem;
+    padding: 1.2rem;
     font-weight: 600;
+    text-shadow: 1px 1px 6px #871d26;
 }
-
+.contenedorLinea{
+    content: "";
+    width: 90%;
+    height: .1rem;
+    background-color: #871d262d;
+    border-radius: 1rem;
+}
 .carrito-box {
     display: flex;
     align-items: center;
@@ -233,24 +242,43 @@ header .navbar {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: #F1FAEE;
     height: 5rem;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: flex-end;
     gap: 0.3rem;
+    color: #871d26;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.contenedorLinea{
+content: "";
+width: 90%;
+height: .1rem;
+color: #871d26;
 }
 
 .totalYPago a {
-    width: 100%;
-    height: 3rem;
+    width: 40%;
+    height: 7rem;
     border: unset;
     background: #dbdb00;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    border: .2rem solid #871d26;
+    color: #871d26;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.totalYPago a:hover{
+    background: #871d26;
+    border-radius: .5rem;
+    color: #f3fad4;
+    font-weight: 600;
 }
 
 .bike-loader {
@@ -594,7 +622,7 @@ footer {
         position: relative;
         top: unset;
         align-items: center;
-        width: 50%;
+        width: 70%;
         padding: 0 0.5rem;
         height: 100%;
         gap: 10px;
@@ -603,6 +631,7 @@ footer {
     .carrito {
         width: 33%;
         right: 0;
+        animation: cart-in 0.4s;
     }
 
     .totalYPago {
@@ -610,10 +639,9 @@ footer {
     }
 
     .navbar .nav-elemento {
-        height: 3rem;
+        height: 100%;
         width: 100%;
         font-size: 1.2rem;
-        border-radius: 20px;
     }
 
     .navbar .nav-elemento:hover {
@@ -634,15 +662,49 @@ footer {
     .nav-experiencia,
     .nav-contact {
         position: absolute;
-        top: 3rem;
+        top: 5rem;
         left: 0;
-        min-height: 15rem;
         width: 100%;
         background: #101012;
         display: flex;
         animation: nav 0.4s;
-        border: 2px solid white;
         border-radius: 0 0 10px 10px;
+        border: 3px solid black;
+        border-top: unset;
+        height: unset;
+    }
+
+    .nav-selection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 51%;
+        margin: 2rem 0 0;
+        justify-content: center;
+        gap: unset;
+        font-size: 1rem;
+        text-transform: uppercase;
+        flex: 2;
+    }
+
+    .nav-selection a {
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        color: white;
+        padding: 1rem 0.3rem;
+        border-top: 1px solid #212128;
+        border-bottom: 1px solid #212128;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .nav-selection a:last-child {
+        border-bottom: unset;
+    }
+
+    .navbar .nav-elemento:hover {
+        border-radius: unset;
     }
 
     @keyframes nav {
@@ -654,6 +716,16 @@ footer {
         100% {
             transform: scale(1);
             transform-origin: 50% 0%;
+        }
+    }
+
+    @keyframes cart-in {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(0);
         }
     }
 }
