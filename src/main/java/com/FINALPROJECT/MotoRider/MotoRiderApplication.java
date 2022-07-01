@@ -57,7 +57,11 @@ public class MotoRiderApplication {
 			Motorcycle motorcycleDucati10 = new Motorcycle("Desert-X", BrandType.DUCATI, "1200cc", List.of("https://i0.wp.com/ducatisantaanita.com/wp-content/uploads/2022/03/MY-22-DesertX-Model-Blocks-630x390-1.png","https://i0.wp.com/ducatisantaanita.com/wp-content/uploads/2022/03/MY-22-DesertX-Model-Blocks-630x390-1.png?w=630&ssl=1"),30000,5);
 			motorcycleRepository.save(motorcycleDucati10);
 
+<<<<<<< Updated upstream
 			Motorcycle motorcycleDucati11 = new Motorcycle("",BrandType.DUCATI, "1250cc", List.of(""),32450,6);
+=======
+			Motorcycle motorcycleDucati11 = new Motorcycle("Monster", BrandType.DUCATI,"1200cc",List.of(""),30000,5);
+>>>>>>> Stashed changes
 			motorcycleRepository.save(motorcycleDucati11);
 
 
