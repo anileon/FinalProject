@@ -136,14 +136,9 @@ Vue.createApp({
                             }).then((result) => {
                                 /* Read more about isConfirmed, isDenied below */
                                 if (result.isConfirmed) {
-                                    axios.get("/api/pdf/generate", "id: 1")
+                                    axios.get("/api/pdf/generate?id=1")
                                     .then(res => {
-                                        let url = window.URL.createObjectURL(new Blob([res.data]))
-                                        let link = document.createElement("a")
-                                        link.href = url;
-                                        link.setAttribute("download", `MotoRiders_Receipt.pdf`)
-                                        document.body.appendChild(link)
-                                        link.click()
+                                        window.location.href = "http://localhost:8080/api/pdf/generate?id=1"
 
                                         setTimeout(() => {
                                             window.location.href = "http://localhost:8080/web/index.html"

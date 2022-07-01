@@ -118,7 +118,7 @@
             <p>{{producto.model}}</p>
             <div>
               <span>Amount: {{producto.cantidad}}</span>
-              <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
+              <span>Subtotal: ${{subtotal(producto.price, producto.cantidad)}}</span>
             </div>
           </div>
           <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
@@ -130,7 +130,7 @@
             <p>{{producto.description}}</p>
             <div>
               <span>Amount: {{producto.cantidad}}</span>
-              <span>Subtotal: {{subtotal(producto.price, producto.cantidad)}}</span>
+              <span>Subtotal: ${{subtotal(producto.price, producto.cantidad)}}</span>
             </div>
           </div>
           <button class="material-symbols-rounded" @click="borrarCarrito(producto)">delete_forever</button>
@@ -158,19 +158,19 @@
               <img class="contenedoroLogo" src="./assets/LOGO_LETRAS_PROJECTO_FINAL.png" alt="logo">
               <h1 class="modal-title mb-1">Contact</h1>
               <div class="input-block">
-                <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                <input type="text" name="firstName" id="firstName" placeholder="First Name" v-model="fname">
                 <label for="firstName"></label>
               </div>
               <div class="input-block">
-                <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name" v-model="lname">
                 <label for="lastName"></label>
               </div>
               <div class="input-block">
-                <input type="tel" name="phone" id="phone" placeholder="Phone">
+                <input type="tel" name="phone" id="phone" placeholder="Phone" v-model="phone">
                 <label for="phone"></label>
               </div>
               <div class="input-block">
-                <input type="email" name="email" id="email" placeholder="Email">
+                <input type="email" name="email" id="email" placeholder="Email" v-model="email">
                 <label for="email"></label>
               </div>
 
@@ -193,7 +193,7 @@
               </div>
 
               <div class="modal-buttons mt-3">
-                <button class="input-button">Send ↗</button>
+                <button class="input-button" @click="fireAlert()">Send ↗</button>
               </div>
             </div>
 
@@ -220,6 +220,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
   </script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://unpkg.com/vue@3"></script>
   <script src="https://kit.fontawesome.com/2544a6d2ae.js" crossorigin="anonymous"></script>

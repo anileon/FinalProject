@@ -551,5 +551,18 @@ main {
 }
 
 @media (min-width: 1600px) {
-
+    .box-de-filtro {
+        position: absolute;
+        top: 4rem;
+        background: #3b3b3b;
+        height: calc(60vh - 10rem);
+        width: 20%;
+        height: 50rem;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        font-size: 1rem;
+    }
 }
