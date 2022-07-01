@@ -397,15 +397,17 @@ footer {
 }
 
 .tituloSuscribe {
-    font-size: 1rem;
+    color: #f3fad4 !important;
+    font-size: 1.5rem;
     color: var(--paleta-blanco);
     text-shadow: 1px 1px 10px #f3fad4;
     padding-left: 1.4rem;
 }
 
 .parrafoSuscribcion {
-    font-size: .7rem;
+    font-size: .9rem;
     font-weight: 500;
+    color: #f3fad4 !important;
 }
 
 .contenedorGeneralBoton {
@@ -435,7 +437,7 @@ footer {
     width: 45%;
     font-size: .6rem;
     font-weight: 500;
-    border: .15rem solid #919384a3;
+    border: .15rem solid #f3fad4;
     padding-left: .2rem;
     text-shadow: .6px .6px 1px var(--textShadow-blanco2);
     background-color: var(--paleta-blanco);
@@ -447,7 +449,7 @@ footer {
     height: 3vh;
     font-weight: 500;
     background: #feea28;
-    border: .15rem solid #995c39;
+    border: .15rem solid #871d26;
     text-align: center;
     text-shadow: .6px .6px 1px var(--textShadow-blanco2);
 }
@@ -457,7 +459,7 @@ footer {
     background-color: #871d26;
     border: none;
     border-radius: .5rem;
-    color: #995c39;
+    color: #f3fad4;
 }
 
 /* Contenedor Logo/Footer */
@@ -485,6 +487,7 @@ footer {
     justify-content: center;
     align-items: center;
     margin-top: 1.2rem;
+    color: #fff !important;
 }
 
 .iconos {
@@ -596,8 +599,9 @@ footer {
 
 .TextoPlanoFooter {
     font-size: .7rem;
-    color: #995c39;
-    text-shadow: .4px .4px 1px var(--textShadow-blanco);
+    color: #871d26;
+    text-shadow: .8px .8px 2px #871d26;
+    font-weight: 600;
 }
 
 .contenedorTextoPlanoParrafo {
@@ -607,7 +611,7 @@ footer {
     height: 1vh;
     padding-top: .8rem;
     font-size: .55rem;
-    color: rgba(27, 26, 26, 0.253);
+    color: rgba(27, 26, 26, 0.815) !important;
     text-shadow: .2px .2px .6px var(--textShadow-blanco2);
     font-weight: 400;
 }
@@ -703,12 +707,12 @@ footer {
     }
 
     .tituloSuscribe {
-        font-size: 1.8rem;
+        font-size: 2rem;
         text-shadow: 2px 2px 15px #f3fad4;
     }
 
     .parrafoSuscribcion {
-        font-size: 1rem;
+        font-size: 1.2rem;
         width: 48%;
         text-shadow: 1px 1px 3px var(--textShadow-blanco);
     }
@@ -743,7 +747,6 @@ footer {
 
     .contenedorContenidoFooter {
         width: 100%;
-        background-color: var(--paleta-blanco);
     }
 
     .contenedorRedesSocialesFooter {
@@ -771,6 +774,21 @@ footer {
 
     .contenedorTextoPlanoFooter {
         padding-top: 1.8rem;
+    }
+
+    @media (min-width: 1700px) {
+
+        .contenedorTextoPlanoParrafo {
+            padding-top: 2.5rem;
+        }
+        .textoPlanoFooter {
+            font-size: 1.2rem;
+        }
+
+        .TextoPlanoFooter {
+            font-size: 1.rem;
+            text-shadow: .6px .6px 1.5px var(--textShadow-blanco);
+        }
     }
 }
 
