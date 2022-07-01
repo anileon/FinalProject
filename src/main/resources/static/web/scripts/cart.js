@@ -1,4 +1,3 @@
-
 Vue.createApp({
     data() {
         return {
@@ -34,11 +33,11 @@ Vue.createApp({
 
     created() {
         axios.get("/api/current/clients")
-        .then(res => {
-            this.loggedIn = !this.loggedIn
-            console.log(res)
-        })
-        .catch(err => console.log(err))
+            .then(res => {
+                this.loggedIn = !this.loggedIn
+                console.log(res)
+            })
+            .catch(err => console.log(err))
 
         setTimeout(() => {
             let loader = document.querySelector(".bike-loader")
@@ -71,7 +70,7 @@ Vue.createApp({
             if (producto.hasOwnProperty('id') && producto.hasOwnProperty('model')) {
                 let arrFiltrado = this.arrayDeMotos.filter(obj => obj.id != producto.id)
                 let arrayOBJ = this.arrayDeMotos.filter(obj => obj.id != producto.id)
-                
+
                 localStorage.setItem("motos-carrito", JSON.stringify(arrFiltrado))
                 localStorage.setItem("array-motos", JSON.stringify(arrayOBJ))
 
@@ -90,11 +89,11 @@ Vue.createApp({
             if (this.totalCarrito.length < this.productosGeneral) {
                 this.totalCarrito.push(total)
             }
-            
+
             if (this.totalCarrito.length <= this.productosGeneral) {
                 this.total = this.totalCarrito.reduce((a, b) => a + b, 0)
             }
-            
+
 
             return total
         },
@@ -129,16 +128,35 @@ Vue.createApp({
 
                             Swal.fire({
                                 title: 'Payment Successful!',
-                                text: 'The page will reload in 5 seconds',
                                 icon: 'success',
-                                confirmButtonText: 'Close',
-                                timer: 5000,
-                                timerProgressBar: true,
-                            })
+                                showDenyButton: true,
+                                showCancelButton: false,
+                                confirmButtonText: 'Generate receipt',
+                                denyButtonText: `Go back`,
+                            }).then((result) => {
+                                /* Read more about isConfirmed, isDenied below */
+                                if (result.isConfirmed) {
+                                    axios.get("/api/pdf/generate")
+                                    .then(res => {
+                                        let url = window.URL.createObjectURL(new Blob([res.data]))
+                                        let link = document.createElement("a")
+                                        link.href = url;
+                                        link.setAttribute("download", `MotoRiders_Receipt.pdf`)
+                                        document.body.appendChild(link)
+                                        link.click()
 
-                            setTimeout(() => {
-                                window.location.reload()
-                            }, 5000);
+                                        setTimeout(() => {
+                                            window.location.href = "http://localhost:8080/web/index.html"
+                                        }, 10000);
+                                    })
+                                    .catch(err => console.log(err))
+                                } else if (result.isDenied) {
+                                    Swal.fire('We will redirect you to the homepage', '', 'info')
+                                    setTimeout(() => {
+                                        window.location.href = "http://localhost:8080/web/index.html"
+                                    }, 3000);
+                                }
+                            })
                         })
                         .catch(err => console.log(err))
                 })
@@ -150,21 +168,21 @@ Vue.createApp({
 
 
 
-        toggleNavbar(){
+        toggleNavbar() {
             let nav = document.querySelector(".navbar")
             let btn = document.querySelector(".nav-menu-btn")
 
             nav.classList.toggle("oculto")
 
             console.log(btn.textContent == "menu");
-            if(btn.textContent == "menu") {
+            if (btn.textContent == "menu") {
                 btn.textContent = "close"
-            }else if(btn.textContent == "close") {
+            } else if (btn.textContent == "close") {
                 btn.textContent = "menu"
             }
         },
 
-        toggleNavItem(target){
+        toggleNavItem(target) {
             let element = document.querySelector(target)
             let moto = document.querySelector(".nav-motos")
             let hombre = document.querySelector(".nav-hombre")
@@ -174,7 +192,7 @@ Vue.createApp({
 
             if (!moto.classList.contains("oculto")) {
                 moto.classList.toggle("oculto")
-            } 
+            }
             if (!hombre.classList.contains("oculto")) {
                 hombre.classList.toggle("oculto")
             }
@@ -186,12 +204,12 @@ Vue.createApp({
             }
             if (!contacto.classList.contains("oculto")) {
                 contacto.classList.toggle("oculto")
-            } 
+            }
 
             element.classList.remove("oculto")
         },
-        
-        cerrarNavbar(element){
+
+        cerrarNavbar(element) {
             let elemento = document.querySelector(element)
             elemento.classList.add("oculto")
         },
@@ -202,7 +220,7 @@ Vue.createApp({
     },
 
     computed: {
-        
+
     }
 
 }).mount('#app')
