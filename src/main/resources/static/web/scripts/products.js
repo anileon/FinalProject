@@ -14,6 +14,15 @@ Vue.createApp({
             auxiliar: [],
             tipoSeleccionado: [],
             precioSeleccionado: "Relevant",
+            type:"",
+            size:0,
+            genderType:"",
+            description:"",
+            price:0,
+            productImg:[],
+            stock:0,
+            imgAdd:"",
+            newProducts:{},
 
             arrayDeProductos: [],
             arrayDeMotos: [],
@@ -22,6 +31,8 @@ Vue.createApp({
             totalCarrito: [],
             idProducto: "",
             total: "",
+            productToAdd: 0,
+            stockToAdd: 0,
         }
     },
 
@@ -205,20 +216,79 @@ Vue.createApp({
                 modal.classList.add('display-none')
             }, 500);
         },
+        AddStock(producto){
+            
+            this.productToAdd = producto.id
+            
+            Swal.fire({
+                title: 'Do you want to add the stock?',
+                showDenyButton: true,
+                confirmButtonText: 'Add',
+                denyButtonText: `Cancel`,
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    axios.patch(`/api/admin/product`,`id=${this.productToAdd}&stockAgregar=${this.stockToAdd}`)
+                    .then(response => Swal.fire('added!', '', 'success'))
+                    .then(respuesta => window.location.reload())
+                } else if (result.isDenied) {
+                  Swal.fire('Canceled', '', 'warning')
+                }
+              })
 
-        abrirModalAñadirProducto(){
-            let modal = document.querySelector('.modal-agregar-producto')
-            modal.classList.remove('modalZOOM-OFF')
-            modal.classList.add('modalZOOM-ON')
-            modal.classList.remove('display-none')
         },
-        cerrarModalAñadirProducto(){
-            let modal = document.querySelector('.modal-agregar-producto')
-            modal.classList.remove("modalZOOM-ON")
-            modal.classList.add("modalZOOM-OFF")
-            setTimeout(() => {
-                modal.classList.add('display-none')
-            }, 200);
+        deleteProduct(producto){
+            this.productToAdd = producto.id
+
+
+            Swal.fire({
+                title: 'Do you want to delete the product?',
+                showDenyButton: true,
+                confirmButtonText: 'Delete',
+                denyButtonText: `Cancel`,
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                  axios.patch(`/api/admin/eliminarProduct`,`id=${this.productToAdd}`)
+                    .then(response => Swal.fire('deleted!', '', 'success'))
+                    .then(respuesta => window.location.reload())
+                } else if (result.isDenied) {
+                  Swal.fire('Canceled', '', 'warning')
+                }
+              })
+            
+        },
+        newProduct(){
+
+            this.productImg.push(this.imgAdd)
+
+            this.newProducts ={
+                type:this.type,
+                size:this.size,
+                genderType:this.genderType,
+                description:this.description,
+                price:this.price,
+                productImg:this.productImg,
+                stock:this.stock
+            }
+
+            console.log(this.newProducts)
+
+            Swal.fire({
+                title: 'Do you want to add the product?',
+                showDenyButton: true,
+                confirmButtonText: 'new product',
+                denyButtonText: `Cancel`,
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                  axios.post(`/api/admin/product`,this.newProducts)
+                    .then(response => Swal.fire('added!', '', 'success'))
+                    .then(respuesta => window.location.reload())
+                } else if (result.isDenied) {
+                  Swal.fire('Canceled', '', 'warning')
+                }
+              })
         },
     },
 

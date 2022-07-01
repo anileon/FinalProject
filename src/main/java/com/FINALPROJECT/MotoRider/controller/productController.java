@@ -39,14 +39,17 @@ public class productController {
     }
 
     @PatchMapping("/admin/product")
-    public ResponseEntity<Object> addStockProduct(@RequestParam long id, @RequestParam int stockAgregar){
+    public ResponseEntity<Object> addStockProduct(Authentication authentication, @RequestParam long id, @RequestParam int stockAgregar){
 
-        //    Client client (Aca tiene que ser un admin)
+        Client admin = clientService.getCurrent(authentication);
 
 
 
         Product product = productService.getProduct(id);
 
+        if(!admin.getEmail().contains("@admin")){
+            return new ResponseEntity<>("Admin only endpoint", HttpStatus.FORBIDDEN);
+        }
         if ( id == 0){
             return new ResponseEntity<>("Invalid id", HttpStatus.FORBIDDEN);
         }
