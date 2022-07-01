@@ -42,12 +42,12 @@ Vue.createApp({
 
     created() {
         axios.get("/api/products")
-        .then(res => {
-            this.productos = res.data
-            this.auxiliar = this.productos
+            .then(res => {
+                this.productos = res.data
+                this.auxiliar = this.productos
 
-            console.log(res.data);
-        })
+                console.log(res.data);
+            })
 
         if (getGender == "MALE") {
             this.gender = "MALE"
@@ -95,7 +95,7 @@ Vue.createApp({
             if (producto.hasOwnProperty('id') && producto.hasOwnProperty('model')) {
                 let arrFiltrado = this.arrayDeMotos.filter(obj => obj.id != producto.id)
                 let arrayOBJ = this.arrayDeMotos.filter(obj => obj.id != producto.id)
-                
+
                 localStorage.setItem("motos-carrito", JSON.stringify(arrFiltrado))
                 localStorage.setItem("array-motos", JSON.stringify(arrayOBJ))
 
@@ -105,7 +105,7 @@ Vue.createApp({
                 this.total = this.total - this.subtotal(producto.price, producto.cantidad)
             }
         },
-        addFavorite(id){
+        addFavorite(id) {
             console.log(id);
             let unFavorite = document.querySelector("#unFavoriteMobile" + id)
             let favorite = document.querySelector("#favoriteMobile" + id)
@@ -114,7 +114,7 @@ Vue.createApp({
             favorite.classList.remove("favoriteMobileUnChecked")
             favorite.classList.add("favoriteMobileChecked")
         },
-        removeFavorite(id){
+        removeFavorite(id) {
             let unFavorite = document.querySelector("#unFavoriteMobile" + id)
             let favorite = document.querySelector("#favoriteMobile" + id)
             favorite.classList.remove("favoriteMobileChecked")
@@ -122,26 +122,26 @@ Vue.createApp({
             unFavorite.classList.remove("favoriteMobileUnChecked")
             unFavorite.classList.add("favoriteMobileChecked")
         },
-        goBikePage(){
+        goBikePage() {
             let bike = document.querySelector(".cartaCatalogo")
-            window.location.href="/web/bike.html"
+            window.location.href = "/web/bike.html"
         },
 
-        toggleNavbar(){
+        toggleNavbar() {
             let nav = document.querySelector(".navbar")
             let btn = document.querySelector(".nav-menu-btn")
 
             nav.classList.toggle("oculto")
 
             console.log(btn.textContent == "menu");
-            if(btn.textContent == "menu") {
+            if (btn.textContent == "menu") {
                 btn.textContent = "close"
-            }else if(btn.textContent == "close") {
+            } else if (btn.textContent == "close") {
                 btn.textContent = "menu"
             }
         },
 
-        toggleNavItem(target){
+        toggleNavItem(target) {
             let element = document.querySelector(target)
             let moto = document.querySelector(".nav-motos")
             let hombre = document.querySelector(".nav-hombre")
@@ -151,7 +151,7 @@ Vue.createApp({
 
             if (!moto.classList.contains("oculto")) {
                 moto.classList.toggle("oculto")
-            } 
+            }
             if (!hombre.classList.contains("oculto")) {
                 hombre.classList.toggle("oculto")
             }
@@ -163,12 +163,12 @@ Vue.createApp({
             }
             if (!contacto.classList.contains("oculto")) {
                 contacto.classList.toggle("oculto")
-            } 
+            }
 
             element.classList.remove("oculto")
         },
 
-        cerrarNavbar(element){
+        cerrarNavbar(element) {
             let elemento = document.querySelector(element)
             elemento.classList.add("oculto")
         },
@@ -190,7 +190,7 @@ Vue.createApp({
             if (this.totalCarrito.length < this.productosGeneral) {
                 this.totalCarrito.push(total)
             }
-            
+
             if (this.totalCarrito.length <= this.productosGeneral) {
                 this.total = this.totalCarrito.reduce((a, b) => a + b, 0)
             }
@@ -202,13 +202,13 @@ Vue.createApp({
             element.classList.toggle("oculto")
         },
 
-        modificarProducto(){
+        modificarProducto() {
             let modal = document.querySelector('.modal-modificar-producto')
             modal.classList.remove('modalOFF')
             modal.classList.add('modalON')
             modal.classList.remove('display-none')
         },
-        cerrarModalModificar(){
+        cerrarModalModificar() {
             let modal = document.querySelector('.modal-modificar-producto')
             modal.classList.remove("modalON")
             modal.classList.add("modalOFF")
@@ -293,7 +293,7 @@ Vue.createApp({
     },
 
     computed: {
-        filterChange(){
+        filterChange() {
             this.auxiliar = []
 
             console.log(this.auxiliar);
@@ -344,15 +344,15 @@ Vue.createApp({
                 if (this.gender == "MALE") {
                     this.auxiliar = this.auxiliar.filter(prod => prod.genderType == "MALE")
                 }
-    
+
                 if (this.precioSeleccionado == "Relevant") {
                     this.auxiliar = this.productos
                 }
-    
+
                 if (this.precioSeleccionado == "Least") {
                     this.auxiliar = this.auxiliar.sort((a, b) => a.price - b.price)
                 }
-    
+
                 if (this.precioSeleccionado == "Most") {
                     this.auxiliar = this.auxiliar.sort((a, b) => b.price - a.price)
                 }
