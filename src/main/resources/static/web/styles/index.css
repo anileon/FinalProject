@@ -94,88 +94,6 @@
 }
 
 
-/* .glitch-logo {
-  position: relative;
-  width: 13.5rem;
-  height: 10rem;
-  background-image: url(https://cdn.discordapp.com/attachments/985294289091321861/989664889347932220/LOGO_LETRAS_PROJECTO_FINAL.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  top: 5rem;
-}
-
-.glitch-logo:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(https://cdn.discordapp.com/attachments/985294289091321861/990961037215940668/LOGO_LETRAS_PROJECTO_FINAL.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.2;
-  mix-blend-mode: hard-light;
-  animation: animate 1s steps(1) infinite;
-}
-
-@keyframes animate {
-  0% {
-    background-position: 0 0;
-    filter: hue-rotate(0deg);
-  }
-
-  10% {
-    background-position: 5px 0;
-    filter: hue-rotate(194.4deg);
-  }
-
-  20% {
-    background-position: -5px 0;
-    filter: hue-rotate(194.4deg);
-  }
-
-  30% {
-    background-position: 5px 0;
-    filter: hue-rotate(205.2deg) brightness(62.5%);
-  }
-
-  40% {
-    background-position: 5px 0;
-    filter: hue-rotate(118.8deg);
-  }
-
-  50% {
-    background-position: -5px 0;
-    filter: hue-rotate(169.2deg);
-  }
-
-  60% {
-    background-position: -10px 0;
-    filter: hue-rotate(309.6deg);
-  }
-
-  70% {
-    background-position: 0 -10px;
-    filter: hue-rotate(295.2deg);
-  }
-
-  80% {
-    background-position: -10px -5px;
-    filter: hue-rotate(43.2deg);
-  }
-
-  81% {
-    background-position: 0 0;
-    filter: hue-rotate(360deg);
-  }
-
-  100% {
-    background-position: 0 0;
-    filter: saturate(0) hue-rotate(0deg);
-  }
-} */
-
 main {
   min-height: 100vh;
   background-color: black;
@@ -336,7 +254,6 @@ section {
 }
 
 
-
 .c-1 {
   background: #1a535c;
   color: #ddd;
@@ -377,13 +294,6 @@ section {
   margin-top: 8rem ;
 }
 
-
-
-
-
-
-
-
 @keyframes neon {
 
   0%,
@@ -405,11 +315,15 @@ section {
   .neon {
     display: none !important;
   }
+
 }
 
 @media (min-width: 320px){
   .video{
     height: 25vh;
+  }
+  .glitch {
+    font-size: 4rem;
   }
 }
 
@@ -472,7 +386,6 @@ section {
 
 .cartaParrafo{
   height: 32vh;
-  text-align: center;
 
 }
 #cartaProductoDestacado1 .imgTemp{
@@ -488,6 +401,19 @@ section {
     align-items: center;
   }
 
+  .tituloCardIndex{
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #871d26;
+    text-shadow: 1px 1px 6px #f3d7d9;
+  }
+
+
+  .parrafoCardIndex{
+    font-size: 1.1rem;
+    font-family: 700;
+    text-shadow: .6px .6px px #f3d7d9;
+}
   .video{
     height: 80vh;
   }
